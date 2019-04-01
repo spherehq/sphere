@@ -1,0 +1,8 @@
+node_modules
+public
+dist
+build
+.cache
+.history
+.circleci/*
+.github/*

@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.tslintIntegration": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": false
+  },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#111111"
+  }
+}

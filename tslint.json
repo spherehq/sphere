@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-config-prettier",
+    "tslint-react-a11y"
+  ],
+  "rules": {
+    "variable-name": [
+      false,
+      "check-format",
+      "allow-leading-underscore",
+      "ban-keywords"
+    ],
+    "import-name": false,
+    "no-boolean-literal-compare": true
+  },
+  "linterOptions": {
+    "exclude": ["node_modules", "packages/**/node_modules"]
+  }
+}

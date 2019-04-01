@@ -1,0 +1,21 @@
+semi: false
+singleQuote: true
+trailingComma: all
+tabWidth: 2
+bracketSpacing: true
+overrides:
+  - files:
+      - '*.js'
+    options:
+      parser: babel
+  - files:
+      - '*.ts'
+      - '*.tsx'
+    options:
+      parser: typescript
+  - files:
+      - '*.json'
+      - '*.yml'
+      - '*.yaml'
+    options:
+      parser: json

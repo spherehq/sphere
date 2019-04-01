@@ -1,0 +1,8 @@
+.DS_Store
+.history
+.vscode/spellright.dict
+node_modules
+*error.log
+yarn-error.log
+lerna-debug.log
+.npmrc

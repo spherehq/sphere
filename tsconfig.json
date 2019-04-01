@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "jsx": "react",
+    "sourceMap": true,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "lib": ["dom", "es7"]
+  },
+  "filesGlob": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules/**/*"]
+}
