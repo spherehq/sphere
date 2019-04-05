@@ -5,13 +5,13 @@ const { NODE_ENV } = process.env
 
 const faviconSelector = env =>
   env === 'production'
-    ? 'src/images/sphere-icon.png'
+    ? './src/images/sphere-icon.png'
     : env === 'staging'
-    ? 'src/images/sphere-icon.png'
-    : 'src/images/sphere-icon.png'
+    ? './src/images/sphere-icon-staging.png'
+    : './src/images/sphere-icon-development.png'
 
 const manifestColorSelector = env =>
-  env === 'production' ? '#111' : env === 'staging' ? '#111' : '#111'
+  env === 'production' ? '#111' : env === 'staging' ? '#00a7e1' : '#f2b830'
 
 const baseConfig = {
   siteMetadata: {
