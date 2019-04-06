@@ -11,7 +11,7 @@ const faviconSelector = env =>
     : './src/images/sphere-icon-development.png'
 
 const manifestColorSelector = env =>
-  env === 'production' ? '#111' : env === 'staging' ? '#00a7e1' : '#f2b830'
+  env === 'production' ? '#fafafa' : env === 'staging' ? '#00a7e1' : '#f2b830'
 
 const baseConfig = {
   siteMetadata: {
@@ -63,6 +63,17 @@ const baseConfig = {
         theme_color: manifestColorSelector(NODE_ENV),
         display: 'minimal-ui',
         icon: faviconSelector(NODE_ENV), // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Titillium+Web`,
+            variants: [`400`, `400i`, `600`, `600i`, `700`, `700i`],
+          },
+        ],
       },
     },
   ],

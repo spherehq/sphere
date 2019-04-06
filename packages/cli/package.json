@@ -3,5 +3,6 @@
   "description": "Sphere CLI Tool",
   "version": "0.0.0",
   "author": "Jason Brown",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {}
 }
