@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Moonpig';
+  font-weight: normal;
+  font-style: normal;
+  src: url(/fonts/Moonpig-Regular.woff2), url(/fonts/Moonpig-Regular.woff);
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Moonpig';
+  font-weight: 700;
+  font-style: bold;
+  src: url(/fonts/Moonpig-Bold.woff2), url(/fonts/Moonpig-Bold.woff);
+  font-display: fallback;
+}
