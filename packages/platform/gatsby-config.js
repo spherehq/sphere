@@ -51,6 +51,14 @@ const baseConfig = {
         path: path.join(__dirname, 'src', 'images'),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: `${__dirname}/src/pages/markdown`,
+      },
+    },
+    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

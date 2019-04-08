@@ -1,5 +1,5 @@
 import { typography as typographyFn } from '../../system'
-import { ThemeInterface, colorValue } from '../../theme'
+import { ThemeInterface, colorValue, theme } from '../../theme'
 import { createGlobalStyle } from 'styled-components'
 
 interface GlobalStyleInterface {

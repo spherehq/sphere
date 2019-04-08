@@ -11,9 +11,11 @@ import { Divider } from '@spherehq/geometry/Components/Divider'
 import { LinkList } from '../LinkList'
 import { Link } from 'gatsby'
 import { Grid } from '@spherehq/geometry/Components/Grid'
+import { InputField, FormWrapper, PrimaryButton } from '../SubscribeForm'
 
 const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.palette.white};
 `
 
 const IconLink = styled.a`
@@ -30,27 +32,43 @@ export const Footer: React.FC<{}> = () => (
     <Box py={9}>
       <Container limitWidth>
         <Grid gap>
-          <Box mb={7} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
+          <Box mt={6} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
             <Box mb={8}>
               <Divider />
             </Box>
             <Box width={{ xs: 1, md: 1, lg: 2 / 3 }}>
               <h3>Would you like to try it?</h3>
-              <p>
+              <p style={{ fontSize: '16px' }}>
                 We’re launching a private beta in <strong>Q2 2019</strong>, free
                 for anyone interested, with a full release of the platform later
                 in 2019.
               </p>
-              <h4>Get access as soon as we launch.</h4>
+              <FormWrapper>
+                <InputField
+                  id="email"
+                  type="email"
+                  placeholder="Email address"
+                />
+                <PrimaryButton>Notify me</PrimaryButton>
+              </FormWrapper>
+              <p style={{ fontSize: '12px', lineHeight: '28px', opacity: 0.8 }}>
+                We promise to send you only updates about our launch, nothing
+                more.
+              </p>
             </Box>
           </Box>
-          <Box mt={8} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
-            <LinkList linkAs={Link} />
+          <Box
+            mt={{ xs: 4, md: 9, lg: 9 }}
+            width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}
+          >
+            <Box style={{ marginTop: '10px' }}>
+              <LinkList linkAs={Link} />
+            </Box>
             <Flex justifyContent="flex-end">
               <Grid gap mr={8} mt={8}>
                 <Box>
                   <IconLink
-                    href="https://twitter.com/fullstopmediahq"
+                    href="https://github.com/spherehq"
                     rel="noopener"
                     target="_blank"
                   >

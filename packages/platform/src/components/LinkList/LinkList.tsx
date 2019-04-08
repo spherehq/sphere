@@ -47,11 +47,11 @@ const sections = [
     title: 'Safety',
     items: [
       {
-        linkHref: '/',
+        linkHref: '/code-of-conduct',
         title: 'Code of Conduct',
       },
       {
-        linkHref: '/',
+        linkHref: '/privacy-policy',
         title: 'Privacy Policy',
       },
       {
@@ -95,12 +95,20 @@ const Link = styled.a<{ to: string }>`
   }
 `
 
+const StyledList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-transform: inherit;
+`
+
 export const LinkList = ({ linkAs }) => (
   <Grid gap justifyContent="flex-end">
     {sections.map(({ title, items }) => (
       <Box key={title} width={{ xs: 1, md: 1 / 2, lg: 1 / 3 }} mb={8}>
         <h3>{title}</h3>
-        <ul>
+        <StyledList>
           {items.map(({ title, linkHref }) => (
             <li key={title}>
               <Link href={linkHref} to={linkHref} as={linkAs}>
@@ -108,7 +116,7 @@ export const LinkList = ({ linkAs }) => (
               </Link>
             </li>
           ))}
-        </ul>
+        </StyledList>
       </Box>
     ))}
   </Grid>

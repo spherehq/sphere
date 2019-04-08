@@ -9,8 +9,8 @@ const themeKey = 'typography'
 
 const variants = style({
   prop,
-  cssProperty: false,
   themeKey,
+  cssProperty: false,
 })
 
 const typographyFn = compose(

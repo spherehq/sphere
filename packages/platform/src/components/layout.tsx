@@ -15,8 +15,8 @@ import { Header } from './Header'
 const HeaderWithTheme = withTheme(Header)
 
 const StyledContainer = styled(Container)`
-  margin-top: 58px;
-  height: 100vh;
+  padding: 90px 32px 64px 32px;
+  min-height: 100vh;
 `
 
 export default ({ children }) => (
