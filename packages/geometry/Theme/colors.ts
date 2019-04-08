@@ -56,6 +56,7 @@ export interface ColorsInterface {
   focus: string
   application: string
   text: string
+  textAlternative: string
   success: string
   error: string
   warning: string
@@ -68,7 +69,8 @@ export const colors: ColorsInterface = {
   active: palette.blue.base,
   focus: palette.blue.base,
   application: palette.white,
-  text: palette.white,
+  text: palette.purple.darkest,
+  textAlternative: palette.white,
   success: palette.green,
   error: palette.red,
   warning: palette.yellow.dark,
