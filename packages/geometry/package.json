@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/geometry",
   "description": "Sphere's Component Library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "index.ts",
@@ -10,7 +10,6 @@
   "dependencies": {
     "@material-ui/system": "^3.0.0-alpha.2"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
