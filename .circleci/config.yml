@@ -37,7 +37,7 @@ jobs:
           command: yarn run publish 
       - run: 
           name: Login to docker hub
-          command: docker login -u $DOCKER_USERNAME --password-stdin < $DOCKER_PASSWORD
+          command: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
       - run:
           name: Build docker image
           command: |
