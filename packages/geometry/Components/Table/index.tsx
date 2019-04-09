@@ -1,6 +1,6 @@
 import { styled } from '@spherehq/geometry/Theme'
 
-export const CustomTable = styled.table`
+export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
