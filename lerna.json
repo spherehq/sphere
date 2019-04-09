@@ -5,7 +5,8 @@
   "useWorkspaces": true,
   "command": {
     "version": {
-      "allowBranch": "master"
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
     }
   }
 }
