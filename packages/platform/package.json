@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/platform",
   "description": "Sphere platform",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Jason Brown",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.15.0",
     "@blueprintjs/icons": "^3.7.0",
-    "@spherehq/geometry": "^0.1.2",
+    "@spherehq/geometry": "^0.1.3",
     "gatsby": "^2.1.2",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
