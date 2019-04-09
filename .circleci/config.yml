@@ -30,7 +30,8 @@ jobs:
           name: Config git
           command: |
             git config --global user.email "jason.brown.delta@gmail.com"
-            git config --global user.name "jjaybrown"
+            git config --global user.name "jjaybrown" 
+      - run: git reset --hard HEAD
       - run: 
           name: Release packages
           command: yarn run publish 
