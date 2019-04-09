@@ -27,9 +27,15 @@ jobs:
           name: Build Platform
           command: yarn run build
       - run: 
+          name: Config git
+          command: |
+            git config --global user.email "jason.brown.delta@gmail.com"
+            git config --global user.name "jjaybrown"
+      - run: 
           name: Release packages
           command: yarn run publish 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
