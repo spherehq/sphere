@@ -35,6 +35,7 @@ jobs:
       - run: 
           name: Release packages
           command: yarn run publish 
+      - setup_remote_docker
       - run: 
           name: Login to docker hub
           command: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
