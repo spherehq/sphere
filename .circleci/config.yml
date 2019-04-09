@@ -52,6 +52,7 @@ jobs:
   release-to-aws:
     docker:
       - image: spherehq/platform:latest
+    working_directory: /usr/platform
     steps: 
       - run:
           name: Build Platform
