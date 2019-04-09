@@ -65,3 +65,9 @@ jobs:
             aws configure set default.s3.multipart_threshold 64MB
             aws configure set default.s3.multipart_chunksize 16MB
             aws s3 sync public s3://sphere.sh --acl public-read --delete --no-progress --only-show-errors
+workflows:
+  version: 2
+  build-and-release:
+    jobs:
+      - build
+      - release
