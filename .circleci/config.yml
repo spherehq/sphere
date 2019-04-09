@@ -70,4 +70,6 @@ workflows:
   build-and-release:
     jobs:
       - build
-      - release
+      - release-to-aws:
+          requires:
+            - build
