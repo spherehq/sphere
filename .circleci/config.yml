@@ -18,10 +18,15 @@ jobs:
       - run:
           name: Install dependencies
           command: yarn
+      - run: 
+          name: Disable GatsbyJS telemtry 
+          command: yarn gatsby telemetry --disable
       - run:
-          name: Build 
+          name: Build Platform
           command: yarn run build
-
+      - run: 
+          name: Release packages
+          command: yarn run publish 
       - save_cache:
           paths:
             - node_modules
