@@ -1,10 +1,9 @@
 {
   "name": "@spherehq/cli",
   "description": "Sphere CLI Tool",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jason Brown",
   "license": "MIT",
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
