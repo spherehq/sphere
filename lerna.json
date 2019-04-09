@@ -8,6 +8,5 @@
       "allowBranch": "master",
       "message": "chore(release): published new version"
     }
-  },
-  "ignoreChanges": ["package.json"]
+  }
 }

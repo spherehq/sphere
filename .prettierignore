@@ -6,3 +6,4 @@ build
 .history
 .circleci/*
 .github/*
+package.json

@@ -16,7 +16,10 @@
     "publish": "lerna publish --conventional-commits --github-release --no-commit-hooks --yes"
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["yarn lint", "git add"]
+    "*.{ts,tsx}": [
+      "yarn lint",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
@@ -46,6 +49,8 @@
     "typescript": "^3.3.3"
   },
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": [
+      "packages/*"
+    ]
   }
 }
