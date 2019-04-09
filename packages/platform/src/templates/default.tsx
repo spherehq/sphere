@@ -2,7 +2,7 @@ import * as React from 'react'
 import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
 import { Divider } from '@spherehq/geometry/Components/Divider'
-import { CustomTable } from '@spherehq/geometry/Components/CustomTable'
+import { Table } from '@spherehq/geometry/Components/Table'
 import { UnorderedList, OrderedList } from '@spherehq/geometry/Components/List'
 import { Container } from '@spherehq/geometry/Components/Container'
 import { styled } from '@spherehq/geometry/Theme'
@@ -17,7 +17,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     hr: ArticleContentDivider,
-    table: CustomTable,
+    table: Table,
     ul: UnorderedList,
     ol: OrderedList,
   },
