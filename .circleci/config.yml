@@ -65,7 +65,8 @@ jobs:
             aws configure set default.s3.max_queue_size 10000
             aws configure set default.s3.multipart_threshold 64MB
             aws configure set default.s3.multipart_chunksize 16MB
-            aws s3 sync public s3://sphere.sh --acl public-read --delete --no-progress --only-show-errors
+            aws s3 sync public $BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=172800
+            aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths *
 workflows:
   version: 2
   build-and-release:
