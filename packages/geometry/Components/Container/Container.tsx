@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { spacing } from '../../system'
+import { spacing } from '../../System'
 import { styled, css, ThemeInterface } from '../../Theme'
 
 const defaultPadding = { xs: 6, md: 7 }

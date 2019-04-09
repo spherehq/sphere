@@ -8,8 +8,6 @@ This code of conduct applies to all Sphere-sponsored spaces, including our [comm
 
 Some Sphere-sponsored spaces may have additional rules in place, which will be made clearly available to participants. Participants are responsible for knowing and abiding by these rules.
 
----
-
 ## Definitions
 
 Harassment includes:

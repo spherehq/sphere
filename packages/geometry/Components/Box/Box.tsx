@@ -1,4 +1,4 @@
-import { all, AllSystemProps } from '../../system'
+import { all, AllSystemProps } from '../../System'
 import { styled } from '../../Theme'
 
 export interface BoxProps extends AllSystemProps {

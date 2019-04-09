@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { flexbox, spacing, SpacingProps, FlexboxProps } from '../../system'
+import { flexbox, spacing, SpacingProps, FlexboxProps } from '../../System'
 import { styled, ThemeInterface } from '../../Theme'
 
 const defaultGap = { xs: 6, lg: 7 }

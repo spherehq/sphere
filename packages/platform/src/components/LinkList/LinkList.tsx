@@ -13,7 +13,7 @@ const sections = [
         title: 'Home',
       },
       {
-        linkHref: '/',
+        linkHref: '/about',
         title: 'About',
       },
       {
@@ -55,7 +55,7 @@ const sections = [
         title: 'Privacy Policy',
       },
       {
-        linkHref: '/',
+        linkHref: '/terms-of-service',
         title: 'Terms of Service',
       },
     ],

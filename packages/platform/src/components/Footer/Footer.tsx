@@ -36,7 +36,7 @@ export const Footer: React.FC<{}> = () => (
             <Box mb={8}>
               <Divider />
             </Box>
-            <Box width={{ xs: 1, md: 1, lg: 2 / 3 }}>
+            <Box width={{ xs: 1, md: '80%', lg: 2 / 3 }}>
               <h3>Would you like to try it?</h3>
               <p style={{ fontSize: '16px' }}>
                 We’re launching a private beta in <strong>Q2 2019</strong>, free

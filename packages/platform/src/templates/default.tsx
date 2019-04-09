@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import { Divider } from '@spherehq/geometry/Components/Divider'
 import Table from '../components/Table'
 import { UnorderedList, OrderedList } from '../components/List'
+import { Container } from '@spherehq/geometry/Components/Container'
+import { styled } from '@spherehq/geometry/Theme'
 
 const ArticleContentDivider = () => (
   <div style={{ margin: '48px auto', width: '84px' }}>
@@ -21,11 +23,18 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
+const StyledContainer = styled(Container)`
+  padding-top: 0;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    padding-top: 64px;
+  }
+`
+
 const DefaultTemplatePage = ({ data }) => {
-  console.log(data)
   const content = renderAst(data.page.htmlAst)
 
-  return <React.Fragment>{content}</React.Fragment>
+  return <StyledContainer limitWidth>{content}</StyledContainer>
 }
 
 export default DefaultTemplatePage
