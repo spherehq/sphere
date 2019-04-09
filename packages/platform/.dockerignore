@@ -9,3 +9,5 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+.cache
+public

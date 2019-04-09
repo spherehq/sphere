@@ -49,4 +49,18 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+  release-to-aws:
+    docker:
+      - image: mesosphere/aws-cli
+    steps: 
+      - setup_remote_docker
+      - run: 
+          name: Build Platform
+          command: docker run -v $(pwd)/public:/usr/platform/public spherehq/platform yarn build
+      - run:
+          name: Sync to AWS S3
+          command: aws s3 sync public s3://sphere.sh --acl public-read --delete
+
+
+
 
