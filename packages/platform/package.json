@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "author": "Jason Brown",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

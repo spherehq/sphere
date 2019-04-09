@@ -4,5 +4,8 @@
   "version": "0.0.0",
   "author": "Jason Brown",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
