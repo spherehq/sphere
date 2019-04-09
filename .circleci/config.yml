@@ -58,7 +58,12 @@ jobs:
           command: yarn build
       - run:
           name: Sync to AWS S3
-          command: aws s3 sync public s3://sphere.sh --acl public-read --delete --no-progress --only-show-errors
+          command: |
+            aws configure set default.s3.max_concurrent_requests 20
+            aws configure set default.s3.max_queue_size 10000
+            aws configure set default.s3.multipart_threshold 64MB
+            aws configure set default.s3.multipart_chunksize 16MB
+            aws s3 sync public s3://sphere.sh --acl public-read --delete --no-progress --only-show-errors
 workflows:
   version: 2
   build-and-release:
