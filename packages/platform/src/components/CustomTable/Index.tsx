@@ -1,6 +1,6 @@
 import { styled } from '@spherehq/geometry/Theme'
 
-const Table = styled.table`
+export const CustomTable = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -41,5 +41,3 @@ const Table = styled.table`
     }
   }
 `
-
-export default Table
