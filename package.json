@@ -13,7 +13,7 @@
     "test": "lerna run test --scope='@spherehq/*' --stream",
     "test:unit:update": "lerna run --scope='@spherehq/*' --stream test:unit -- -u",
     "test:changed": "lerna run test --scope='@spherehq/*' --since master",
-    "publish": "lerna publish --conventional-commits --since=master"
+    "publish": "lerna publish --conventional-commits"
   },
   "lint-staged": {
     "*.{ts,tsx}": ["yarn lint", "git add"]
