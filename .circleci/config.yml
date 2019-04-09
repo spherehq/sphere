@@ -34,6 +34,15 @@ jobs:
       - run: 
           name: Release packages
           command: yarn run publish 
+      - run: 
+          name: Login to docker hub
+          command: docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+      - run:
+          name: Build docker image
+          command: |
+            cd packages/platform
+            docker build -t spherehq/platform .
+            docker push spherehq/platform
       - save_cache:
           paths:
             - node_modules
