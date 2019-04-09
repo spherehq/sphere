@@ -18,7 +18,7 @@ const baseConfig = {
     title: '',
     description: '',
     keywords: '',
-    siteUrl: '',
+    siteUrl: 'https://sphere.sh',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
