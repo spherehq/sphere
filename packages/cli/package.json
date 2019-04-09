@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/cli",
   "description": "Sphere CLI Tool",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Jason Brown",
   "license": "MIT"
 }
