@@ -21,12 +21,6 @@ jobs:
           name: Install dependencies
           command: yarn
       - run: 
-          name: Disable GatsbyJS telemtry 
-          command: yarn gatsby telemetry --disable
-      - run:
-          name: Build Platform
-          command: yarn run build
-      - run: 
           name: Config git
           command: |
             git config --global user.email "jason.brown.delta@gmail.com"
@@ -44,7 +38,7 @@ jobs:
           name: Build docker image
           command: |
             cd packages/platform
-            docker build -t spherehq/platform .
+            docker build -t spherehq/platform . --build-arg NPM_TOKEN=$NPM_TOKEN
             docker push spherehq/platform
       - save_cache:
           paths:
@@ -65,7 +59,7 @@ jobs:
             aws configure set default.s3.max_queue_size 10000
             aws configure set default.s3.multipart_threshold 64MB
             aws configure set default.s3.multipart_chunksize 16MB
-            aws s3 sync public $BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=172800
+            aws s3 sync public $BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=31536000
             aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 workflows:
   version: 2

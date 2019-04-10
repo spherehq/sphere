@@ -11,5 +11,6 @@ README.md
 LICENSE
 .vscode
 .cache
+.npmrc
 public
 CHANGELOG.md
