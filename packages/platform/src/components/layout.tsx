@@ -16,6 +16,7 @@ const HeaderWithTheme = withTheme(Header)
 
 const StyledContainer = styled(Container)`
   padding: 90px 32px 64px 32px;
+  min-height: 50vh;
 
   ${props => props.theme.breakpoints.down('md')} {
     padding-top: 64px;

@@ -6,5 +6,6 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "devDependencies": {}
 }

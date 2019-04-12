@@ -12,7 +12,8 @@
       "ban-keywords"
     ],
     "import-name": false,
-    "no-boolean-literal-compare": true
+    "no-boolean-literal-compare": true,
+    "no-console": [true, "log"]
   },
   "linterOptions": {
     "exclude": ["node_modules", "packages/**/node_modules"]

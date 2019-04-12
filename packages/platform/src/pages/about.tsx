@@ -77,7 +77,7 @@ export default () => (
         <p style={{ textAlign: 'center', marginTop: '32px' }}>
           We want to empower <i>publishers</i>, <i>bloggers</i>,{' '}
           <i>influencers</i>, <strong>people like you</strong>, to think
-          differently about the content you create. We're creating a platform
+          differently about the content you create. We're building a platform
           with a different way of doing things.
         </p>
       </Box>
