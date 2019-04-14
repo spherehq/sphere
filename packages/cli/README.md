@@ -15,7 +15,7 @@ $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.3.1 linux-x64 node-v11.14.0
+@spherehq/cli/0.3.2 linux-x64 node-v11.14.0
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
