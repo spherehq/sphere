@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "author": "Jason Brown",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts"
   },
