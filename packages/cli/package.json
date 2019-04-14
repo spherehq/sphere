@@ -22,7 +22,19 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "tslib": "^1"
+    "cli-ux": "^5.2.1",
+    "mdast-util-to-string": "^1.0.5",
+    "remark-parse": "^6.0.3",
+    "remark-rehype": "^4.0.0",
+    "remark-retext": "^3.1.2",
+    "remark-stringify": "^6.0.4",
+    "retext-english": "^3.0.2",
+    "to-vfile": "^5.0.2",
+    "ts-node": "^8.0.3",
+    "tslib": "^1",
+    "unified": "^7.1.0",
+    "unist-util-select": "^2.0.0",
+    "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
