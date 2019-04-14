@@ -92,7 +92,11 @@ export default class Sync extends Command {
       this.error(`Given basePath: ${flags.basePath} doesn't exist`)
     }
 
-    if (args.file && !fs.existsSync(path.join(contentDirectory, args.file))) {
+    if (
+      args.file &&
+      !fs.existsSync(path.join(contentDirectory, args.file)) &&
+      path.extname(args.file) === '.md'
+    ) {
       this.error(`Given file: ${args.file} doesn't exist`)
     }
 
@@ -102,9 +106,11 @@ export default class Sync extends Command {
       }
 
       const posts = !args.file
-        ? files.map(filename => {
-            return processMarkdown(filename, contentDirectory)
-          })
+        ? files
+            .filter(filename => path.extname(filename) === '.md')
+            .map(filename => {
+              return processMarkdown(filename, contentDirectory)
+            })
         : [processMarkdown(args.file, contentDirectory)]
 
       cli.action.start('Processing content')
