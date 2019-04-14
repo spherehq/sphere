@@ -1,7 +1,6 @@
 import { Command, flags } from '@oclif/command'
 import { cli } from 'cli-ux'
 
-import * as unified from 'unified'
 import * as markdown from 'remark-parse'
 import * as remark2rehype from 'remark-rehype'
 import * as vfile from 'to-vfile'
@@ -13,6 +12,7 @@ import * as visit from 'unist-util-visit'
 import * as path from 'path'
 import * as fs from 'fs'
 
+const unified = require('unified')
 const selectAll = require('unist-util-select').selectAll
 
 const processMarkdown = (filename: string, contentDirectory: string) => {
@@ -32,8 +32,9 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
 
   let wordCount = 0
   const count = () => {
-    const counter = tree => {
-      const visitor = node => {
+    return transformer
+    function transformer(tree) {
+      function visitor(node) {
         if (node.type === 'WordNode') {
           wordCount = (wordCount || 0) + 1
         }
@@ -41,8 +42,6 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
 
       visit(tree, visitor)
     }
-
-    return counter
   }
 
   unified()
