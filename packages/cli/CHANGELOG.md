@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.2.1...@spherehq/cli@0.3.0) (2019-04-14)
+
+
+### Features
+
+* updated cli to display sync'd files ([87444ec](https://github.com/spherehq/sphere/commit/87444ec))
+
+
+
+
+
 ## [0.2.1](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.1.1...@spherehq/cli@0.2.1) (2019-04-14)
 
 **Note:** Version bump only for package @spherehq/cli
