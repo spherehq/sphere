@@ -12,7 +12,7 @@
       "ban-keywords"
     ],
     "import-name": false,
-    "no-boolean-literal-compare": true,
+    "no-boolean-literal-compare": false,
     "no-console": [true, "log"]
   },
   "linterOptions": {
