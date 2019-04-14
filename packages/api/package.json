@@ -5,20 +5,28 @@
   "author": "Jason Brown",
   "license": "MIT",
   "scripts": {
-    "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts"
+    "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/server.ts",
+    "build": "tsc --project tsconfig.json"
   },
   "dependencies": {
     "@sentry/node": "^5.0.7",
     "apollo-server": "^2.4.8",
     "graphql": "^14.2.1",
+    "graphql-iso-date": "^3.6.1",
     "graphql-middleware": "^3.0.2",
     "graphql-middleware-sentry": "^3.1.1",
     "graphql-type-json": "^0.2.4",
+    "mdast-util-to-string": "^1.0.5",
     "remark-parse": "^6.0.3",
     "remark-rehype": "^4.0.0",
+    "remark-retext": "^3.1.2",
+    "remark-stringify": "^6.0.4",
+    "retext-english": "^3.0.2",
     "to-vfile": "^5.0.2",
     "ts-node": "^8.0.3",
-    "unified": "^7.1.0"
+    "unified": "^7.1.0",
+    "unist-util-select": "^2.0.0",
+    "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",

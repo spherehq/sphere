@@ -7,8 +7,7 @@ import {
 import { sentry } from 'graphql-middleware-sentry'
 
 import * as GraphQLJSON from 'graphql-type-json'
-
-import PostsResolver from './resolvers/posts'
+import PostsResolver from './modules/posts'
 
 import { environment } from './ config'
 
@@ -19,7 +18,6 @@ const typeDefs = gql`
     title: String
     slug: String
     timeToRead: Int
-    excerpt: JSON
     content: JSON
     author: Author
   }
