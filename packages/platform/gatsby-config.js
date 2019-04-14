@@ -58,13 +58,6 @@ const baseConfig = {
         path: `${__dirname}/src/pages/markdown`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `spheres`,
-        path: `${__dirname}/src/spheres`, // Replace with env variable
-      },
-    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -92,7 +85,6 @@ const baseConfig = {
         ],
       },
     },
-    'gatsby-source-user-spheres',
   ],
 }
 
