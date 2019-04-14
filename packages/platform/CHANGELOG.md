@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.2.1...@spherehq/platform@0.2.2) (2019-04-14)
+
+
+### Bug Fixes
+
+* removed sphere plugin from platform ([4d98504](https://github.com/spherehq/sphere/commit/4d98504))
+
+
+
+
+
 ## [0.2.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.2.0...@spherehq/platform@0.2.1) (2019-04-14)
 
 **Note:** Version bump only for package @spherehq/platform
