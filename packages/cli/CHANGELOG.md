@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.0...@spherehq/cli@0.3.1) (2019-04-14)
+
+
+### Bug Fixes
+
+* broken import for unified ([8268156](https://github.com/spherehq/sphere/commit/8268156))
+
+
+
+
+
 # [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.2.1...@spherehq/cli@0.3.0) (2019-04-14)
 
 
