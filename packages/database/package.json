@@ -1,0 +1,20 @@
+{
+  "name": "@spherehq/database",
+  "description": "Sphere prisma database bindings",
+  "version": "0.0.0",
+  "author": "Jason Brown",
+  "license": "MIT",
+  "main": "generated/prisma-client/index.js",
+  "scripts": {
+    "deploy": "prisma deploy",
+    "generate:client": "prisma generate -e .env",
+    "postgenerate:client": "tsc --declaration",
+    "generate:schema": "graphql get-schema --project database --dotenv .env"
+  },
+  "dependencies": {
+    "graphql-cli": "^3.0.11",
+    "prisma": "^1.30.1",
+    "prisma-client-lib": "^1.30.1"
+  },
+  "devDependencies": {}
+}

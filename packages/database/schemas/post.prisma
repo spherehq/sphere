@@ -1,0 +1,19 @@
+enum POST_STATUS {
+  PUBLISHED
+  DRAFT
+  ARCHIVED
+  SYNCING
+}
+
+type Post {
+  id: ID! @unique
+  title: String!
+  content: Json!
+  timeToRead: Int! @default(value: 1)
+  isPublished: Boolean! @default(value: "false")
+  publishedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  status: POST_STATUS! @default(value: DRAFT)
+  fileHash: String! # internal reference for knowing when file changes have occured since last sync
+}
