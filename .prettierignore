@@ -8,3 +8,4 @@ build
 .github/*
 package.json
 **/**/package.json
+**/**/.graphql

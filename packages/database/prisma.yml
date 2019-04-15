@@ -1,0 +1,11 @@
+endpoint: '${env:PRISMA_ENDPOINT}'
+datamodel: 
+  - schemas/post.prisma
+
+hooks:
+  post-deploy:
+    - 'yarn generate:client'
+    - 'yarn generate:schema'
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/

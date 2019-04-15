@@ -1,0 +1,9 @@
+projects:
+  database:
+    schemaPath: ../api/schema/generated/prisma.graphql
+    includes:
+      - '**/*.graphql'
+    excludes":
+      - schema/**/*.graphql
+    extensions:
+      prisma: prisma.yml
