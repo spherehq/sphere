@@ -9,3 +9,5 @@ build
 package.json
 **/**/package.json
 **/**/.graphql
+docker-compose.yml
+prisma.yml
