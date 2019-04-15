@@ -1,40 +1,28 @@
-import { ApolloServer, gql, makeExecutableSchema } from 'apollo-server'
+import { ApolloServer, makeExecutableSchema } from 'apollo-server'
 import {
   applyMiddleware,
   IMiddlewareFunction,
   IMiddlewareGenerator,
 } from 'graphql-middleware'
 import { sentry } from 'graphql-middleware-sentry'
+import { importSchema } from 'graphql-import'
+import { prisma } from '@spherehq/database'
 
-import * as GraphQLJSON from 'graphql-type-json'
 import PostsResolver from './modules/posts'
+import { environment } from './config'
 
-import { environment } from './ config'
-
-const typeDefs = gql`
-  scalar JSON
-
-  type Post {
-    title: String
-    slug: String
-    timeToRead: Int
-    content: JSON
-    author: Author
-  }
-
-  type Author {
-    name: String
-  }
-
-  type Query {
-    posts: [Post]
-  }
-`
+const typeDefs = importSchema('./schema/schema.graphql')
 
 const resolvers = {
-  JSON: GraphQLJSON,
   Query: {
     posts: PostsResolver,
+  },
+  // Need to supress GraphQL Tools error https://github.com/apollographql/apollo-server/issues/1075#issuecomment-427476421
+  Node: {
+    // tslint:disable-next-line:function-name
+    __resolveType() {
+      return null
+    },
   },
 }
 
@@ -60,6 +48,9 @@ const server = new ApolloServer({
   schema: schemaWithMiddleware,
   introspection: environment.apollo.introspection,
   playground: environment.apollo.playground,
+  context: {
+    db: prisma,
+  },
 })
 
 server.listen(environment.port).then(({ url }) => {

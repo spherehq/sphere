@@ -8,6 +8,6 @@ build
 .github/*
 package.json
 **/**/package.json
-**/**/.graphql
+**/**/*.graphql
 docker-compose.yml
 prisma.yml
