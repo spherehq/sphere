@@ -28,7 +28,8 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
     heading => heading.depth === 1,
   )
 
-  const title = headings.length > 0 ? toString(headings.pop()) : '' // Otherwise use filename excluding ext
+  // @TODO reverse order (multiple headings of same depth)
+  const title = headings.length > 0 ? toString(headings.shift()) : '' // Otherwise use filename excluding ext
 
   let wordCount = 0
   const count = () => {
@@ -86,7 +87,7 @@ export default class Sync extends Command {
 
     const contentDirectory = flags.basePath
       ? path.resolve(flags.basePath)
-      : path.resolve(__dirname)
+      : path.resolve(process.cwd())
 
     if (!fs.existsSync(contentDirectory)) {
       this.error(`Given basePath: ${flags.basePath} doesn't exist`)
