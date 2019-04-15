@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.2...@spherehq/cli@0.3.3) (2019-04-15)
+
+
+### Bug Fixes
+
+* improved handling of headings for titles ([b22b65e](https://github.com/spherehq/sphere/commit/b22b65e))
+
+
+
+
+
 ## [0.3.2](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.1...@spherehq/cli@0.3.2) (2019-04-14)
 
 
