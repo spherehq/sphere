@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/database",
   "description": "Sphere prisma database bindings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
@@ -16,7 +16,7 @@
     "prisma": "^1.30.1",
     "prisma-client-lib": "^1.30.1"
   },
-    "publishConfig": {
-      "access": "public"
-    }
+  "publishConfig": {
+    "access": "public"
+  }
 }
