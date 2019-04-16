@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.3...@spherehq/cli@0.4.0) (2019-04-16)
+
+
+### Features
+
+* updated cli to create and update posts with sphere api ([5299796](https://github.com/spherehq/sphere/commit/5299796))
+
+
+
+
+
 ## [0.3.3](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.2...@spherehq/cli@0.3.3) (2019-04-15)
 
 
