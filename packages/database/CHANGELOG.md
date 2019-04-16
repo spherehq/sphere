@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.1.1...@spherehq/database@0.2.0) (2019-04-16)
+
+
+### Bug Fixes
+
+* removed .env from git ([504e78e](https://github.com/spherehq/sphere/commit/504e78e))
+
+
+### Features
+
+* updated database schema ([355c082](https://github.com/spherehq/sphere/commit/355c082))
+
+
+
+
+
 ## [0.1.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.1.0...@spherehq/database@0.1.1) (2019-04-15)
 
 **Note:** Version bump only for package @spherehq/database
