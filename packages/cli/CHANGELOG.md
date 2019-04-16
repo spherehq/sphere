@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.4.0...@spherehq/cli@0.4.1) (2019-04-16)
+
+
+### Bug Fixes
+
+* tsconfig -b failing due to composite flag ([d831577](https://github.com/spherehq/sphere/commit/d831577))
+
+
+
+
+
 # [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.3.3...@spherehq/cli@0.4.0) (2019-04-16)
 
 
