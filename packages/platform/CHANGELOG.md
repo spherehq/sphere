@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.2.7...@spherehq/platform@0.3.0) (2019-04-16)
+
+
+### Features
+
+* updated platform to build pages from sphere api ([3d7b1c9](https://github.com/spherehq/sphere/commit/3d7b1c9))
+
+
+
+
+
 ## [0.2.7](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.2.6...@spherehq/platform@0.2.7) (2019-04-15)
 
 **Note:** Version bump only for package @spherehq/platform
