@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.2.3...@spherehq/api@0.3.0) (2019-04-16)
+
+
+### Bug Fixes
+
+* removed .env.production from git ([c280484](https://github.com/spherehq/sphere/commit/c280484))
+* removed .env.production from git ([dc89cd6](https://github.com/spherehq/sphere/commit/dc89cd6))
+
+
+### Features
+
+* updated api for modular schemas ([4091447](https://github.com/spherehq/sphere/commit/4091447))
+
+
+
+
+
 ## [0.2.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.2.2...@spherehq/api@0.2.3) (2019-04-15)
 
 **Note:** Version bump only for package @spherehq/api
