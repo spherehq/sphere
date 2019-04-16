@@ -1,30 +1,14 @@
-import { ApolloServer, makeExecutableSchema } from 'apollo-server'
+import { ApolloServer, mergeSchemas } from 'apollo-server'
 import {
   applyMiddleware,
   IMiddlewareFunction,
   IMiddlewareGenerator,
 } from 'graphql-middleware'
 import { sentry } from 'graphql-middleware-sentry'
-import { importSchema } from 'graphql-import'
 import { prisma } from '@spherehq/database'
 
-import PostsResolver from './modules/posts'
 import { environment } from './config'
-
-const typeDefs = importSchema('./schema/schema.graphql')
-
-const resolvers = {
-  Query: {
-    posts: PostsResolver,
-  },
-  // Need to supress GraphQL Tools error https://github.com/apollographql/apollo-server/issues/1075#issuecomment-427476421
-  Node: {
-    // tslint:disable-next-line:function-name
-    __resolveType() {
-      return null
-    },
-  },
-}
+import ContentSchema from './modules/content'
 
 // tslint:disable-next-line:prefer-array-literal
 const middleware: Array<
@@ -42,8 +26,11 @@ if (process.env.SENTRY_DSN) {
   middleware.push(sentryMiddleware)
 }
 
-const schema = makeExecutableSchema({ typeDefs, resolvers })
-const schemaWithMiddleware = applyMiddleware(schema, ...middleware)
+const schemaWithMiddleware = applyMiddleware(
+  mergeSchemas({ schemas: [ContentSchema] }),
+  ...middleware,
+)
+
 const server = new ApolloServer({
   schema: schemaWithMiddleware,
   introspection: environment.apollo.introspection,
