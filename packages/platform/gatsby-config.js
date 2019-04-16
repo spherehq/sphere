@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const path = require('path')
-const { NODE_ENV } = process.env
+const { NODE_ENV, SPHERE_GRAPHQL_ENDPOINT } = process.env
 
 const faviconSelector = env =>
   env === 'production'
@@ -85,6 +85,15 @@ const baseConfig = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'Sphere',
+        fieldName: 'sphere',
+        url: SPHERE_GRAPHQL_ENDPOINT,
+      },
+    },
+    'gatsby-source-user-spheres',
   ],
 }
 

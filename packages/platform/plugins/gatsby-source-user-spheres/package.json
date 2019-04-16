@@ -1,4 +1,7 @@
 {
   "name": "gatsby-source-user-spheres",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "mdast-util-to-hast": "^4.0.0"
+  }
 }
