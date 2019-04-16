@@ -1,7 +1,11 @@
 # source: http://localhost:4466/sphere/dev
-# timestamp: Mon Apr 15 2019 20:17:58 GMT+0100 (BST)
+# timestamp: Tue Apr 16 2019 10:59:46 GMT+0100 (BST)
 
 type AggregatePost {
+  count: Int!
+}
+
+type AggregatePostMetadata {
   count: Int!
 }
 
@@ -27,6 +31,7 @@ scalar Long
 
 type Mutation {
   createPost(data: PostCreateInput!): Post!
+  createPostMetadata(data: PostMetadataCreateInput!): PostMetadata!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   deletePost(where: PostWhereUniqueInput!): Post
   upsertPost(
@@ -38,7 +43,12 @@ type Mutation {
     data: PostUpdateManyMutationInput!
     where: PostWhereInput
   ): BatchPayload!
+  updateManyPostMetadatas(
+    data: PostMetadataUpdateManyMutationInput!
+    where: PostMetadataWhereInput
+  ): BatchPayload!
   deleteManyPosts(where: PostWhereInput): BatchPayload!
+  deleteManyPostMetadatas(where: PostMetadataWhereInput): BatchPayload!
   executeRaw(database: PrismaDatabase, query: String!): Json!
 }
 
@@ -87,13 +97,14 @@ type Post implements Node {
   id: ID!
   title: String!
   content: Json!
+  slug: String!
   timeToRead: Int!
   isPublished: Boolean!
   publishedAt: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS!
-  fileHash: String!
+  metadata: PostMetadata!
 }
 
 enum POST_STATUS {
@@ -123,11 +134,12 @@ input PostCreateInput {
   id: ID
   title: String!
   content: Json!
+  slug: String!
   timeToRead: Int
   isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  fileHash: String!
+  metadata: PostMetadataCreateOneInput!
 }
 
 """
@@ -145,6 +157,284 @@ type PostEdge {
   cursor: String!
 }
 
+type PostMetadata {
+  fileHash: String!
+  filename: String
+}
+
+"""
+A connection to a list of items.
+"""
+type PostMetadataConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [PostMetadataEdge]!
+  aggregate: AggregatePostMetadata!
+}
+
+input PostMetadataCreateInput {
+  fileHash: String!
+  filename: String
+}
+
+input PostMetadataCreateOneInput {
+  create: PostMetadataCreateInput
+}
+
+"""
+An edge in a connection.
+"""
+type PostMetadataEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: PostMetadata!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum PostMetadataOrderByInput {
+  fileHash_ASC
+  fileHash_DESC
+  filename_ASC
+  filename_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PostMetadataPreviousValues {
+  fileHash: String!
+  filename: String
+}
+
+type PostMetadataSubscriptionPayload {
+  mutation: MutationType!
+  node: PostMetadata
+  updatedFields: [String!]
+  previousValues: PostMetadataPreviousValues
+}
+
+input PostMetadataSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [PostMetadataSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [PostMetadataSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [PostMetadataSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: PostMetadataWhereInput
+}
+
+input PostMetadataUpdateDataInput {
+  fileHash: String
+  filename: String
+}
+
+input PostMetadataUpdateManyMutationInput {
+  fileHash: String
+  filename: String
+}
+
+input PostMetadataUpdateOneRequiredInput {
+  create: PostMetadataCreateInput
+  update: PostMetadataUpdateDataInput
+  upsert: PostMetadataUpsertNestedInput
+}
+
+input PostMetadataUpsertNestedInput {
+  update: PostMetadataUpdateDataInput!
+  create: PostMetadataCreateInput!
+}
+
+input PostMetadataWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [PostMetadataWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [PostMetadataWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [PostMetadataWhereInput!]
+  fileHash: String
+
+  """
+  All values that are not equal to given value.
+  """
+  fileHash_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  fileHash_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  fileHash_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  fileHash_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  fileHash_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  fileHash_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  fileHash_gte: String
+
+  """
+  All values containing the given string.
+  """
+  fileHash_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  fileHash_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  fileHash_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  fileHash_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  fileHash_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  fileHash_not_ends_with: String
+  filename: String
+
+  """
+  All values that are not equal to given value.
+  """
+  filename_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  filename_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  filename_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  filename_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  filename_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  filename_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  filename_gte: String
+
+  """
+  All values containing the given string.
+  """
+  filename_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  filename_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  filename_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  filename_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  filename_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  filename_not_ends_with: String
+}
+
 enum PostOrderByInput {
   id_ASC
   id_DESC
@@ -152,6 +442,8 @@ enum PostOrderByInput {
   title_DESC
   content_ASC
   content_DESC
+  slug_ASC
+  slug_DESC
   timeToRead_ASC
   timeToRead_DESC
   isPublished_ASC
@@ -164,21 +456,19 @@ enum PostOrderByInput {
   updatedAt_DESC
   status_ASC
   status_DESC
-  fileHash_ASC
-  fileHash_DESC
 }
 
 type PostPreviousValues {
   id: ID!
   title: String!
   content: Json!
+  slug: String!
   timeToRead: Int!
   isPublished: Boolean!
   publishedAt: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS!
-  fileHash: String!
 }
 
 type PostSubscriptionPayload {
@@ -229,21 +519,22 @@ input PostSubscriptionWhereInput {
 input PostUpdateInput {
   title: String
   content: Json
+  slug: String
   timeToRead: Int
   isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  fileHash: String
+  metadata: PostMetadataUpdateOneRequiredInput
 }
 
 input PostUpdateManyMutationInput {
   title: String
   content: Json
+  slug: String
   timeToRead: Int
   isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  fileHash: String
 }
 
 input PostWhereInput {
@@ -393,6 +684,72 @@ input PostWhereInput {
   All values not ending with the given string.
   """
   title_not_ends_with: String
+  slug: String
+
+  """
+  All values that are not equal to given value.
+  """
+  slug_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  slug_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  slug_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  slug_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  slug_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  slug_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  slug_gte: String
+
+  """
+  All values containing the given string.
+  """
+  slug_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  slug_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  slug_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  slug_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  slug_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  slug_not_ends_with: String
   timeToRead: Int
 
   """
@@ -559,76 +916,12 @@ input PostWhereInput {
   All values that are not contained in given list.
   """
   status_not_in: [POST_STATUS!]
-  fileHash: String
-
-  """
-  All values that are not equal to given value.
-  """
-  fileHash_not: String
-
-  """
-  All values that are contained in given list.
-  """
-  fileHash_in: [String!]
-
-  """
-  All values that are not contained in given list.
-  """
-  fileHash_not_in: [String!]
-
-  """
-  All values less than the given value.
-  """
-  fileHash_lt: String
-
-  """
-  All values less than or equal the given value.
-  """
-  fileHash_lte: String
-
-  """
-  All values greater than the given value.
-  """
-  fileHash_gt: String
-
-  """
-  All values greater than or equal the given value.
-  """
-  fileHash_gte: String
-
-  """
-  All values containing the given string.
-  """
-  fileHash_contains: String
-
-  """
-  All values not containing the given string.
-  """
-  fileHash_not_contains: String
-
-  """
-  All values starting with the given string.
-  """
-  fileHash_starts_with: String
-
-  """
-  All values not starting with the given string.
-  """
-  fileHash_not_starts_with: String
-
-  """
-  All values ending with the given string.
-  """
-  fileHash_ends_with: String
-
-  """
-  All values not ending with the given string.
-  """
-  fileHash_not_ends_with: String
+  metadata: PostMetadataWhereInput
 }
 
 input PostWhereUniqueInput {
   id: ID
+  slug: String
 }
 
 enum PrismaDatabase {
@@ -645,6 +938,15 @@ type Query {
     first: Int
     last: Int
   ): [Post]!
+  postMetadatas(
+    where: PostMetadataWhereInput
+    orderBy: PostMetadataOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PostMetadata]!
   post(where: PostWhereUniqueInput!): Post
   postsConnection(
     where: PostWhereInput
@@ -655,6 +957,15 @@ type Query {
     first: Int
     last: Int
   ): PostConnection!
+  postMetadatasConnection(
+    where: PostMetadataWhereInput
+    orderBy: PostMetadataOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PostMetadataConnection!
 
   """
   Fetches an object given its ID
@@ -669,4 +980,7 @@ type Query {
 
 type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  postMetadata(
+    where: PostMetadataSubscriptionWhereInput
+  ): PostMetadataSubscriptionPayload
 }

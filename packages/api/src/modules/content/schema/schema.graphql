@@ -1,0 +1,14 @@
+# import PostWhereInput, PostOrderByInput, PostWhereUniqueInput, Post  from './../../../../schema/generated/prisma.graphql'
+
+type Query {
+  posts(
+    where: PostWhereInput
+    orderBy: PostOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Post]!
+  post(where: PostWhereUniqueInput!): Post
+}

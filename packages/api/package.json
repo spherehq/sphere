@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@sentry/node": "^5.0.7",
-    "@spherehq/database": "^0.0.0",
+    "@spherehq/database": "^0.1.1",
     "apollo-server": "^2.4.8",
     "graphql": "^14.2.1",
+    "graphql-fields": "^2.0.3",
     "graphql-import": "^0.7.1",
     "graphql-iso-date": "^3.6.1",
     "graphql-middleware": "^3.0.2",
