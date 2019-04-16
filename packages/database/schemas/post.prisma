@@ -9,11 +9,18 @@ type Post {
   id: ID! @unique
   title: String!
   content: Json!
+  slug: String! @unique
   timeToRead: Int! @default(value: 1)
-  isPublished: Boolean! @default(value: "false")
+  isPublished: Boolean! @default(value: false)
   publishedAt: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS! @default(value: DRAFT)
+  metadata: PostMetadata!
+}
+
+type PostMetadata {
+  id: ID! @unique
   fileHash: String! # internal reference for knowing when file changes have occured since last sync
+  filename: String
 }
