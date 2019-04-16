@@ -4,25 +4,19 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allMarkdownRemark(
-        filter: { fileAbsolutePath: { glob: "**/spheres/**" } }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
+      sphere {
+        posts(where: { status: DRAFT }) {
+          slug
         }
       }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.sphere.posts.forEach(post => {
       createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/default.tsx`),
+        path: `~spherehq/${post.slug}`,
+        component: path.resolve(`${__dirname}/templates/default.tsx`),
         context: {
-          slug: node.fields.slug,
+          slug: post.slug,
         },
       })
     })
