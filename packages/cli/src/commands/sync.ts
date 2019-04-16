@@ -1,6 +1,8 @@
 import { Command, flags } from '@oclif/command'
 import { cli } from 'cli-ux'
+import { prisma } from '@spherehq/database'
 
+import * as md5File from 'md5-file'
 import * as markdown from 'remark-parse'
 import * as remark2rehype from 'remark-rehype'
 import * as vfile from 'to-vfile'
@@ -61,11 +63,15 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
     return time > 0 ? time : 1
   }
 
+  const hash = md5File.sync(path.join(contentDirectory, filename))
+
   return {
     title,
     content,
+    filename,
     timeToRead: timeToRead(),
-    status: `PUBLISHED`,
+    fileHash: hash,
+    slug: path.basename(filename, '.md'),
   }
 }
 
@@ -101,6 +107,7 @@ export default class Sync extends Command {
       this.error(`Given file: ${args.file} doesn't exist`)
     }
 
+    cli.action.start('Processing content')
     fs.readdir(contentDirectory, async (err, files) => {
       if (err) {
         this.error(err)
@@ -114,20 +121,43 @@ export default class Sync extends Command {
             })
         : [processMarkdown(args.file, contentDirectory)]
 
-      cli.action.start('Processing content')
-      await cli.wait(3000)
       cli.action.stop(`${posts.length} files to sync `)
-      await cli.wait(3000)
 
       cli.action.start('Synchronizing content')
-      await cli.wait(3000)
+      posts.forEach(async post => {
+        await prisma.upsertPost({
+          where: { slug: post.slug },
+          create: {
+            title: post.title,
+            slug: post.slug,
+            content: post.content,
+            timeToRead: post.timeToRead,
+            metadata: {
+              create: {
+                fileHash: post.fileHash,
+                filename: post.filename,
+              },
+            },
+          },
+          update: {
+            title: post.title,
+            slug: post.slug,
+            content: post.content,
+            timeToRead: post.timeToRead,
+            metadata: {
+              create: {
+                fileHash: post.fileHash,
+                filename: post.filename,
+              },
+            },
+          },
+        })
+      })
+
       cli.action.stop()
 
       cli.table(posts, {
         name: { header: 'Title', get: row => row.title },
-        status: {
-          get: row => row.status,
-        },
       })
     })
   }
