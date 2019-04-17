@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  release:
     docker:
       - image: circleci/node:latest
 
@@ -27,10 +27,17 @@ jobs:
             git config --global user.name "jjaybrown" 
       - run: git reset --hard HEAD
       - run: 
-          name: Release packages
+          name: Release updated packages
           command: yarn run publish 
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+          
+  build-release-image:
+    machine: true
+    working_directory: ~/repo
+    steps:
       - run: 
           name: Login to docker hub
           command: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
@@ -40,10 +47,7 @@ jobs:
             cd packages/platform
             docker build -t spherehq/platform . --build-arg NPM_TOKEN=$NPM_TOKEN
             docker push spherehq/platform
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+
   release-to-aws:
     docker:
       - image: spherehq/platform:latest
@@ -63,9 +67,23 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 workflows:
   version: 2
-  build-and-release:
+  release-packages:
     jobs:
-      - build
+      - release
+  build-and-release-platform:
+    jobs: 
+      - build-release-image:
+          filters:
+              tags:
+                only: ^@sphere\/platform@[0-9]\.[0-9]\.[0-9]
+              branches:
+                ignore: /.*/
       - release-to-aws:
-          requires:
-            - build
+          requires: 
+            - build-release-image
+          filters:
+            tags:
+              only: ^@sphere\/platform@[0-9]\.[0-9]\.[0-9]
+            branches:
+              ignore: /.*/
+
