@@ -67,11 +67,14 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 workflows:
   version: 2
-  release-packages:
+  build-and-release:
     jobs:
-      - release
-  build-and-release-platform:
-    jobs: 
+      - release:
+          filters:
+            tags:
+              ignore: /.*/
+            branches:
+              only: master
       - build-release-image:
           filters:
               tags:
