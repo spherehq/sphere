@@ -15,9 +15,9 @@ const manifestColorSelector = env =>
 
 const baseConfig = {
   siteMetadata: {
-    title: '',
-    description: '',
-    keywords: '',
+    title: 'Sphere - where communities gather around content',
+    description:
+      'We help you create communities around your content. A sphere is a dedicated space for you to express ideas and learn from others.',
     siteUrl: 'https://sphere.sh',
   },
   plugins: [
