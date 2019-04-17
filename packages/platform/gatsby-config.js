@@ -18,7 +18,7 @@ const baseConfig = {
     title: 'Sphere - where communities gather around content',
     description:
       'We help you create communities around your content. A sphere is a dedicated space for you to express ideas and learn from others.',
-    siteUrl: 'https://www.sphere.sh',
+    siteUrl: 'https://sphere.sh',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
