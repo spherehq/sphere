@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
 import {
   theme,
@@ -24,12 +26,36 @@ const StyledContainer = styled(Container)`
 `
 
 export default ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <React.Fragment>
-      <GlobalStyle />
-      <HeaderWithTheme />
-      <StyledContainer limitWidth>{children}</StyledContainer>
-      <Footer />
-    </React.Fragment>
-  </ThemeProvider>
+  <StaticQuery
+    query={graphql`
+      query HeadingQuery {
+        site {
+          siteMetadata {
+            title
+            description
+            siteUrl
+          }
+        }
+      }
+    `}
+    render={data => (
+      <ThemeProvider theme={theme}>
+        <React.Fragment>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>{data.site.siteMetadata.title}</title>
+            <meta
+              name="description"
+              content={data.site.siteMetadata.description}
+            />
+            <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+          </Helmet>
+          <GlobalStyle />
+          <HeaderWithTheme />
+          <StyledContainer limitWidth>{children}</StyledContainer>
+          <Footer />
+        </React.Fragment>
+      </ThemeProvider>
+    )}
+  />
 )
