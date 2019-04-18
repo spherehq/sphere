@@ -28,7 +28,6 @@ jobs:
       - run: 
           name: Release updated packages
           command: yarn run publish 
-      - run: git push origin --tags
       - save_cache:
           paths:
             - node_modules
@@ -78,11 +77,11 @@ workflows:
       - build-release-image:
           filters:
               tags:
-                only: /^@sphere\/platform@[0-9]\.[0-9]\.[0-9]/
+                only: /.*/
       - release-to-aws:
           requires: 
             - build-release-image
           filters:
             tags:
-              only: /^@sphere\/platform@[0-9]\.[0-9]\.[0-9]/
+              only: /.*/
 
