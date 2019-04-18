@@ -28,6 +28,7 @@ jobs:
       - run: 
           name: Release updated packages
           command: yarn run publish 
+      - run: git push origin --tags
       - save_cache:
           paths:
             - node_modules
