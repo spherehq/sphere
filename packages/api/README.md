@@ -1,6 +1,6 @@
 <img src="./api-logo.png">
 
-Geometry's API powered by GraphQL and Apollo
+Sphere's API powered by GraphQL and Apollo
 
 ## Getting started
 
