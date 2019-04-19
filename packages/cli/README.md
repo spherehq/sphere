@@ -1,14 +1,16 @@
-# Sphere CLI
+<img src="../../sphere-logo.png">
 
 Command line tool for managing your sphere
 
 <!-- toc -->
-* [Sphere CLI](#sphere-cli)
-<!-- tocstop -->
+
+- [Sphere CLI](#sphere-cli)
+  <!-- tocstop -->
 
 ## Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @spherehq/cli
 $ sphere COMMAND
@@ -20,13 +22,15 @@ USAGE
   $ sphere COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 ## Commands
 
 <!-- commands -->
-* [`sphere help [COMMAND]`](#sphere-help-command)
-* [`sphere sync [FILE]`](#sphere-sync-file)
+
+- [`sphere help [COMMAND]`](#sphere-help-command)
+- [`sphere sync [FILE]`](#sphere-sync-file)
 
 ## `sphere help [COMMAND]`
 
@@ -61,4 +65,5 @@ OPTIONS
 EXAMPLE
   $ sphere sync example.md
 ```
+
 <!-- commandsstop -->
