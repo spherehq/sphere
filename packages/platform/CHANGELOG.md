@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.4...@spherehq/platform@0.3.5) (2019-04-18)
+
+
+### Bug Fixes
+
+* layout includes react-helmet correctly ([e86f408](https://github.com/spherehq/sphere/commit/e86f408))
+
+
+
+
+
 ## [0.3.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.3...@spherehq/platform@0.3.4) (2019-04-17)
 
 **Note:** Version bump only for package @spherehq/platform
