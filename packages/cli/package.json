@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/cli",
   "description": "Command line tool for managing your sphere content",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "Jason Brown",
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
-    "@spherehq/database": "^0.2.2",
+    "@spherehq/database": "^0.2.3",
     "cli-ux": "^5.2.1",
     "md5-file": "^4.0.0",
     "mdast-util-to-string": "^1.0.5",
