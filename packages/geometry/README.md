@@ -1,6 +1,6 @@
 <img src="./geometry-logo.png">
 
-Geometry is Sphere's component library and design system.
+Geometry is Sphere's component library and design system
 
 ## Getting started
 
