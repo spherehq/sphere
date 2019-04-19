@@ -83,7 +83,10 @@ export default class Sync extends Command {
   static flags = {
     help: flags.help({ char: 'h' }),
     force: flags.boolean({ char: 'f' }),
-    basePath: flags.string({ char: 'p' }),
+    basePath: flags.string({
+      char: 'p',
+      description: 'specify path to sync local markdown files from',
+    }),
   }
 
   static args = [{ name: 'file' }]
