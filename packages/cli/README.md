@@ -2,11 +2,6 @@
 
 Command line tool for managing your sphere
 
-<!-- toc -->
-
-- [Sphere CLI](#sphere-cli)
-  <!-- tocstop -->
-
 ## Usage
 
 <!-- usage -->
@@ -67,3 +62,7 @@ EXAMPLE
 ```
 
 <!-- commandsstop -->
+
+## Contributing
+
+Thanks for your interest in contributing! Read up on our guidelines for contributing and then look through our issues with a `help wanted` and `package:cli` label.
