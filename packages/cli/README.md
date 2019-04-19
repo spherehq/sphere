@@ -10,7 +10,7 @@ $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.4.3 linux-x64 node-v11.14.0
+@spherehq/cli/0.4.4 linux-x64 node-v11.14.0
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
@@ -52,7 +52,7 @@ USAGE
 OPTIONS
   -f, --force
   -h, --help               show CLI help
-  -p, --basePath=basePath
+  -p, --basePath=basePath  specify path to sync local markdown files from
 
 EXAMPLE
   $ sphere sync example.md
