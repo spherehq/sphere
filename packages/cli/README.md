@@ -5,27 +5,24 @@ Command line tool for managing your sphere
 ## Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.4.1 linux-x64 node-v11.14.0
+@spherehq/cli/0.4.2 linux-x64 node-v11.14.0
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 ## Commands
 
 <!-- commands -->
-
-- [`sphere help [COMMAND]`](#sphere-help-command)
-- [`sphere sync [FILE]`](#sphere-sync-file)
+* [`sphere help [COMMAND]`](#sphere-help-command)
+* [`sphere sync [FILE]`](#sphere-sync-file)
 
 ## `sphere help [COMMAND]`
 
@@ -60,7 +57,6 @@ OPTIONS
 EXAMPLE
   $ sphere sync example.md
 ```
-
 <!-- commandsstop -->
 
 ## Contributing
