@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.10...@spherehq/platform@0.4.0) (2019-04-24)
+
+
+### Features
+
+* added init for existing and new spheres ([5d41e74](https://github.com/spherehq/sphere/commit/5d41e74))
+* added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
+* standardised content rendering ([40cdddb](https://github.com/spherehq/sphere/commit/40cdddb))
+
+
+
+
+
 ## [0.3.10](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.9...@spherehq/platform@0.3.10) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/platform

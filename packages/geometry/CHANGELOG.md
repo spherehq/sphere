@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.2.6...@spherehq/geometry@0.3.0) (2019-04-24)
+
+
+### Features
+
+* added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
+* standardised content rendering ([40cdddb](https://github.com/spherehq/sphere/commit/40cdddb))
+
+
+
+
+
 ## [0.2.6](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.2.5...@spherehq/geometry@0.2.6) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/geometry
