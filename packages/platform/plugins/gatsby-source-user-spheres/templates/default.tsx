@@ -1,41 +1,27 @@
-import * as React from 'react'
-import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
-import { Divider } from '@spherehq/geometry/Components/Divider'
-import { Table } from '@spherehq/geometry/Components/Table'
-import { UnorderedList, OrderedList } from '@spherehq/geometry/Components/List'
-import { Container } from '@spherehq/geometry/Components/Container'
-import { styled } from '@spherehq/geometry/Theme'
-
-const ArticleContentDivider = () => (
-  <div style={{ margin: '48px auto', width: '84px' }}>
-    <Divider />
-  </div>
-)
-
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    hr: ArticleContentDivider,
-    table: Table,
-    ul: UnorderedList,
-    ol: OrderedList,
-  },
-}).Compiler
-
-const StyledContainer = styled(Container)`
-  padding-top: 0;
-
-  ${props => props.theme.breakpoints.down('md')} {
-    padding-top: 64px;
-  }
-`
+import { AstContent } from '@spherehq/geometry/Components/AstContent'
 
 const SphereTemplatePage = ({ data }) => {
   const toHast = require('mdast-util-to-hast')
-  const content = renderAst(toHast(data.sphere.page.content))
-
-  return <StyledContainer limitWidth>{content}</StyledContainer>
+  const prismjs = require('gatsby-remark-prismjs')
+  const hastReparseRaw = require(`hast-util-raw`)
+  const markdownAST = data.sphere.page.content
+  const options = {
+    classPrefix: 'language-',
+    inlineCodeMarker: null,
+    aliases: {},
+    showLineNumbers: false,
+    noInlineHighlight: false,
+  }
+  prismjs(Object.assign({ markdownAST }, {}), options)
+  // @TODO create a node transformer plugin to do this on all sphere nodes
+  return AstContent(
+    hastReparseRaw(
+      toHast(markdownAST, {
+        allowDangerousHTML: true,
+      }),
+    ),
+  )
 }
 
 export default SphereTemplatePage

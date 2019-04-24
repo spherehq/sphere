@@ -14,11 +14,12 @@ import * as visit from 'unist-util-visit'
 import * as path from 'path'
 import * as fs from 'fs'
 
-const unified = require('unified')
+const remark = require('remark')
 const selectAll = require('unist-util-select').selectAll
+const slugify = require('@sindresorhus/slugify')
 
 const processMarkdown = (filename: string, contentDirectory: string) => {
-  const processor = unified()
+  const processor = remark()
     .use(markdown)
     .use(remark2rehype)
 
@@ -47,11 +48,11 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
     }
   }
 
-  unified()
+  remark()
     .use(markdown)
     .use(
       remark2retext,
-      unified()
+      remark()
         .use(english)
         .use(count),
     )
@@ -71,7 +72,7 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
     filename,
     timeToRead: timeToRead(),
     fileHash: hash,
-    slug: path.basename(filename, '.md'),
+    slug: slugify(path.basename(filename, '.md')),
   }
 }
 
@@ -127,35 +128,49 @@ export default class Sync extends Command {
       cli.action.stop(`${posts.length} files to sync `)
 
       cli.action.start('Synchronizing content')
-      posts.forEach(async post => {
-        await prisma.upsertPost({
-          where: { slug: post.slug },
-          create: {
-            title: post.title,
-            slug: post.slug,
-            content: post.content,
-            timeToRead: post.timeToRead,
-            metadata: {
-              create: {
-                fileHash: post.fileHash,
-                filename: post.filename,
+      try {
+        posts.forEach(async post => {
+          await prisma.upsertPost({
+            where: { slug: post.slug },
+            create: {
+              title: post.title,
+              slug: post.slug,
+              content: post.content,
+              timeToRead: post.timeToRead,
+              metadata: {
+                create: {
+                  fileHash: post.fileHash,
+                  filename: post.filename,
+                },
+              },
+              associatedWith: {
+                connect: {
+                  alias: 'jjaybrown',
+                },
               },
             },
-          },
-          update: {
-            title: post.title,
-            slug: post.slug,
-            content: post.content,
-            timeToRead: post.timeToRead,
-            metadata: {
-              create: {
-                fileHash: post.fileHash,
-                filename: post.filename,
+            update: {
+              title: post.title,
+              slug: post.slug,
+              content: post.content,
+              timeToRead: post.timeToRead,
+              metadata: {
+                create: {
+                  fileHash: post.fileHash,
+                  filename: post.filename,
+                },
+              },
+              associatedWith: {
+                connect: {
+                  alias: 'jjaybrown',
+                },
               },
             },
-          },
+          })
         })
-      })
+      } catch (error) {
+        this.error(error)
+      }
 
       cli.action.stop()
 

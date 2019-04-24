@@ -58,7 +58,27 @@ const baseConfig = {
         path: `${__dirname}/src/pages/markdown`,
       },
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: `>`,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-code-buttons`,
+            options: {},
+          },
+        ],
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -93,6 +113,7 @@ const baseConfig = {
         url: SPHERE_GRAPHQL_ENDPOINT,
       },
     },
+    'gatsby-plugin-playground',
     'gatsby-source-user-spheres',
   ],
 }

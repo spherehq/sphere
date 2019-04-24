@@ -15,11 +15,23 @@ exports.models = [
     name: 'PostMetadata',
     embedded: false,
   },
+  {
+    name: 'AccountStatus',
+    embedded: false,
+  },
+  {
+    name: 'Account',
+    embedded: false,
+  },
+  {
+    name: 'Sphere',
+    embedded: false,
+  },
 ]
 exports.Prisma = prisma_client_lib_1.makePrismaClientClass({
   typeDefs: prisma_schema_1.typeDefs,
   models: exports.models,
-  endpoint: '' + process.env['PRISMA_ENDPOINT'],
+  endpoint: 'http://localhost:4466/sphere/dev',
 })
 exports.prisma = new exports.Prisma()
 //# sourceMappingURL=index.js.map

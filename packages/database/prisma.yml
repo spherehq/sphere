@@ -1,6 +1,8 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: http://localhost:4466/sphere/dev
 datamodel: 
   - schemas/post.prisma
+  - schemas/account.prisma
+  - schemas/sphere.prisma
 
 hooks:
   post-deploy:

@@ -17,6 +17,7 @@ type Post {
   updatedAt: DateTime!
   status: POST_STATUS! @default(value: DRAFT)
   metadata: PostMetadata!
+  associatedWith: Sphere!
 }
 
 type PostMetadata {
