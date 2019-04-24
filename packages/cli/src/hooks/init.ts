@@ -10,15 +10,15 @@ enum commands {
   SYNC = 'sync',
 }
 
-const configFilename = `.sphererc`
+const configFilename = `config.json`
 
 const hook: Hook<'init'> = async function(options) {
-  // Check for presence of .sphererc file
-  if (fs.existsSync(path.join(options.config.configDir, configFilename))) {
+  // Check for presence of config.json file
+  if (!fs.existsSync(path.join(options.config.configDir, configFilename))) {
     switch (options.id) {
       case commands.SYNC:
         throw new CLIError(
-          `Unable to find config, ensure you've init sphere by running "sphere init"`,
+          `Unable to find config, ensure you've created a sphere by running "sphere init"`,
         )
     }
   } else {

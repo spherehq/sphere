@@ -309,6 +309,7 @@ export const typeDefs = /* GraphQL */ `
 
   input AccountWhereUniqueInput {
     id: ID
+    emailAddress: String
   }
 
   type AggregateAccount {

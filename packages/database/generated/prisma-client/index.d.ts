@@ -235,6 +235,7 @@ export declare type PostMetadataOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+export declare type AccountStatus = 'VERIFIED' | 'ACTIVE' | 'INACTIVE'
 export declare type SphereOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
@@ -246,7 +247,6 @@ export declare type SphereOrderByInput =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
-export declare type AccountStatus = 'VERIFIED' | 'ACTIVE' | 'INACTIVE'
 export declare type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
 export interface AccountUpdateManyMutationInput {
   status?: AccountStatus
@@ -256,6 +256,7 @@ export interface AccountUpdateManyMutationInput {
 }
 export declare type AccountWhereUniqueInput = AtLeastOne<{
   id: ID_Input
+  emailAddress?: String
 }>
 export interface AccountScalarWhereInput {
   id?: ID_Input
@@ -1005,6 +1006,38 @@ export interface PostPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
   status: () => Promise<AsyncIterator<POST_STATUS>>
 }
+export interface PostMetadataPreviousValues {
+  id: ID_Output
+  fileHash: String
+  filename?: String
+}
+export interface PostMetadataPreviousValuesPromise
+  extends Promise<PostMetadataPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>
+  fileHash: () => Promise<String>
+  filename: () => Promise<String>
+}
+export interface PostMetadataPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  fileHash: () => Promise<AsyncIterator<String>>
+  filename: () => Promise<AsyncIterator<String>>
+}
+export interface AggregateSphere {
+  count: Int
+}
+export interface AggregateSpherePromise
+  extends Promise<AggregateSphere>,
+    Fragmentable {
+  count: () => Promise<Int>
+}
+export interface AggregateSphereSubscription
+  extends Promise<AsyncIterator<AggregateSphere>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
+}
 export interface PostMetadataSubscriptionPayload {
   mutation: MutationType
   node: PostMetadata
@@ -1027,54 +1060,34 @@ export interface PostMetadataSubscriptionPayloadSubscription
   updatedFields: () => Promise<AsyncIterator<String[]>>
   previousValues: <T = PostMetadataPreviousValuesSubscription>() => T
 }
-export interface AggregateSphere {
-  count: Int
+export interface Account {
+  id: ID_Output
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
 }
-export interface AggregateSpherePromise
-  extends Promise<AggregateSphere>,
+export interface AccountPromise extends Promise<Account>, Fragmentable {
+  id: () => Promise<ID_Output>
+  status: () => Promise<AccountStatus>
+  firstName: () => Promise<String>
+  lastName: () => Promise<String>
+  emailAddress: () => Promise<String>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
+}
+export interface AccountSubscription
+  extends Promise<AsyncIterator<Account>>,
     Fragmentable {
-  count: () => Promise<Int>
-}
-export interface AggregateSphereSubscription
-  extends Promise<AsyncIterator<AggregateSphere>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>
-}
-export interface AccountEdge {
-  node: Account
-  cursor: String
-}
-export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
-  node: <T = AccountPromise>() => T
-  cursor: () => Promise<String>
-}
-export interface AccountEdgeSubscription
-  extends Promise<AsyncIterator<AccountEdge>>,
-    Fragmentable {
-  node: <T = AccountSubscription>() => T
-  cursor: () => Promise<AsyncIterator<String>>
-}
-export interface SphereSubscriptionPayload {
-  mutation: MutationType
-  node: Sphere
-  updatedFields: String[]
-  previousValues: SpherePreviousValues
-}
-export interface SphereSubscriptionPayloadPromise
-  extends Promise<SphereSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>
-  node: <T = SpherePromise>() => T
-  updatedFields: () => Promise<String[]>
-  previousValues: <T = SpherePreviousValuesPromise>() => T
-}
-export interface SphereSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>
-  node: <T = SphereSubscription>() => T
-  updatedFields: () => Promise<AsyncIterator<String[]>>
-  previousValues: <T = SpherePreviousValuesSubscription>() => T
+  id: () => Promise<AsyncIterator<ID_Output>>
+  status: () => Promise<AsyncIterator<AccountStatus>>
+  firstName: () => Promise<AsyncIterator<String>>
+  lastName: () => Promise<AsyncIterator<String>>
+  emailAddress: () => Promise<AsyncIterator<String>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
 }
 export interface SphereEdge {
   node: Sphere
@@ -1148,53 +1161,41 @@ export interface PostSubscription
   metadata: <T = PostMetadataSubscription>() => T
   associatedWith: <T = SphereSubscription>() => T
 }
-export interface PostMetadataPreviousValues {
-  id: ID_Output
-  fileHash: String
-  filename?: String
+export interface SphereSubscriptionPayload {
+  mutation: MutationType
+  node: Sphere
+  updatedFields: String[]
+  previousValues: SpherePreviousValues
 }
-export interface PostMetadataPreviousValuesPromise
-  extends Promise<PostMetadataPreviousValues>,
+export interface SphereSubscriptionPayloadPromise
+  extends Promise<SphereSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>
-  fileHash: () => Promise<String>
-  filename: () => Promise<String>
+  mutation: () => Promise<MutationType>
+  node: <T = SpherePromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = SpherePreviousValuesPromise>() => T
 }
-export interface PostMetadataPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+export interface SphereSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>
-  fileHash: () => Promise<AsyncIterator<String>>
-  filename: () => Promise<AsyncIterator<String>>
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = SphereSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = SpherePreviousValuesSubscription>() => T
 }
-export interface Account {
-  id: ID_Output
-  status: AccountStatus
-  firstName: String
-  lastName: String
-  emailAddress: String
-  createdAt: DateTimeOutput
-  updatedAt: DateTimeOutput
+export interface AccountEdge {
+  node: Account
+  cursor: String
 }
-export interface AccountPromise extends Promise<Account>, Fragmentable {
-  id: () => Promise<ID_Output>
-  status: () => Promise<AccountStatus>
-  firstName: () => Promise<String>
-  lastName: () => Promise<String>
-  emailAddress: () => Promise<String>
-  createdAt: () => Promise<DateTimeOutput>
-  updatedAt: () => Promise<DateTimeOutput>
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T
+  cursor: () => Promise<String>
 }
-export interface AccountSubscription
-  extends Promise<AsyncIterator<Account>>,
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>
-  status: () => Promise<AsyncIterator<AccountStatus>>
-  firstName: () => Promise<AsyncIterator<String>>
-  lastName: () => Promise<AsyncIterator<String>>
-  emailAddress: () => Promise<AsyncIterator<String>>
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  node: <T = AccountSubscription>() => T
+  cursor: () => Promise<AsyncIterator<String>>
 }
 export interface PostEdge {
   node: Post
@@ -1380,13 +1381,13 @@ export interface PostMetadataConnectionSubscription
 }
 export declare type Json = any
 export declare type Int = number
-export declare type String = string
-export declare type Boolean = boolean
 export declare type DateTimeInput = Date | string
 export declare type DateTimeOutput = string
+export declare type Boolean = boolean
 export declare type Long = string
 export declare type ID_Input = string | number
 export declare type ID_Output = string
+export declare type String = string
 export declare const models: Model[]
 export declare const Prisma: ClientConstructor<Prisma>
 export declare const prisma: Prisma
