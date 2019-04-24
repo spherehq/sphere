@@ -4,6 +4,8 @@ import { prisma } from '@spherehq/database'
 
 import * as EmailValidator from 'email-validator'
 import * as inquirer from 'inquirer'
+import * as path from 'path'
+import * as fs from 'fs-extra'
 
 const slugify = require('@sindresorhus/slugify')
 
@@ -77,6 +79,12 @@ const confirmDataEntry = async (): Promise<{
   return data
 }
 
+const saveConfig = (configPath, config) => {
+  const filePath = path.join(configPath, `config.json`)
+  fs.ensureFileSync(filePath)
+  fs.writeJsonSync(filePath, config)
+}
+
 export default class Sync extends Command {
   static description = 'Initialize your sphere'
 
@@ -102,6 +110,7 @@ export default class Sync extends Command {
           type: 'confirm',
         },
       ])
+
       if (confirm) {
         const { alias, emailAddress } = await inquirer.prompt([
           {
@@ -109,9 +118,9 @@ export default class Sync extends Command {
             message: `What is the alias of the sphere you wish to connect to?`,
             type: 'input',
             validate: async input => {
-              return (await prisma.$exists.sphere({ alias: slugify(input) }))
-                ? `Unfortunately ${input} does not exist`
-                : true
+              return (await prisma.$exists.sphere({ alias: input }))
+                ? true
+                : `Unfortunately ${input} does not exist`
             },
           },
           {
@@ -120,13 +129,30 @@ export default class Sync extends Command {
             type: 'input',
             validate: async input => {
               return (await prisma.$exists.account({ emailAddress: input }))
-                ? `Unfortunately ${input} does not exist`
-                : true
+                ? true
+                : `Unfortunately ${input} isn't associated with this sphere`
             },
             when: async answers => answers['alias'],
           },
         ])
-        console.log(alias, emailAddress)
+
+        try {
+          if (
+            (await prisma
+              .sphere({ alias })
+              .associatedWith({ where: { emailAddress } })).length > 0
+          ) {
+            const slugPrefix = await prisma.sphere({ alias }).slugPrefix()
+
+            saveConfig(this.config.configDir, { alias })
+
+            this.log(
+              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias}`,
+            )
+          }
+        } catch (error) {
+          this.error(error)
+        }
       }
     } else {
       // Create a new sphere
@@ -153,6 +179,8 @@ export default class Sync extends Command {
           })
 
           cli.action.stop()
+
+          saveConfig(this.config.configDir, { alias })
 
           this.log(
             `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias}`,
