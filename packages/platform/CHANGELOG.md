@@ -3,56 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.3.9](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.8...@spherehq/platform@0.3.9) (2019-04-19)
+## [0.3.10](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.9...@spherehq/platform@0.3.10) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/platform
 
+## [0.3.9](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.8...@spherehq/platform@0.3.9) (2019-04-19)
 
-
-
+**Note:** Version bump only for package @spherehq/platform
 
 ## [0.3.8](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.7...@spherehq/platform@0.3.8) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/platform
 
-
-
-
-
 ## [0.3.7](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.6...@spherehq/platform@0.3.7) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/platform
-
-
-
-
 
 ## [0.3.6](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.5...@spherehq/platform@0.3.6) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/platform
 
-
-
-
-
 ## [0.3.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.4...@spherehq/platform@0.3.5) (2019-04-18)
-
 
 ### Bug Fixes
 
-* layout includes react-helmet correctly ([e86f408](https://github.com/spherehq/sphere/commit/e86f408))
-
-
-
-
+- layout includes react-helmet correctly ([e86f408](https://github.com/spherehq/sphere/commit/e86f408))
 
 ## [0.3.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.3...@spherehq/platform@0.3.4) (2019-04-17)
 
 **Note:** Version bump only for package @spherehq/platform
-
-
-
-
 
 ## [0.3.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.3.2...@spherehq/platform@0.3.3) (2019-04-17)
 
