@@ -5,28 +5,25 @@ Command line tool for managing your sphere
 ## Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.4.4 linux-x64 node-v11.14.0
+@spherehq/cli/0.5.0 linux-x64 node-v11.14.0
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 ## Commands
 
 <!-- commands -->
-
-- [`sphere help [COMMAND]`](#sphere-help-command)
-- [`sphere init`](#sphere-init)
-- [`sphere sync [FILE]`](#sphere-sync-file)
+* [`sphere help [COMMAND]`](#sphere-help-command)
+* [`sphere init`](#sphere-init)
+* [`sphere sync [FILE]`](#sphere-sync-file)
 
 ## `sphere help [COMMAND]`
 
@@ -47,18 +44,18 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 ## `sphere init`
 
-Describe the command here
+Initialize your sphere
 
 ```
 USAGE
   $ sphere init
 
 OPTIONS
-  -n, --name=name  name to print
+  -e, --existing  let us know if you have an existing sphere
+  -h, --help      show CLI help
 
-DESCRIPTION
-  ...
-  Extra documentation goes here
+EXAMPLE
+  $ sphere init
 ```
 
 ## `sphere sync [FILE]`
@@ -77,7 +74,6 @@ OPTIONS
 EXAMPLE
   $ sphere sync example.md
 ```
-
 <!-- commandsstop -->
 
 ## Contributing

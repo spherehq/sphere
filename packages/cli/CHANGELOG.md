@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.4.4...@spherehq/cli@0.5.0) (2019-04-24)
+
+
+### Features
+
+* added init for existing and new spheres ([5d41e74](https://github.com/spherehq/sphere/commit/5d41e74))
+* added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
+
+
+
+
+
 ## [0.4.4](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.4.3...@spherehq/cli@0.4.4) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/cli
