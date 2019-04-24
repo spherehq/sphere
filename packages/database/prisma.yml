@@ -1,4 +1,4 @@
-endpoint: http://localhost:4466/sphere/dev
+endpoint: https://spherehq-production_jason-brown.prisma.sh/sphere/production
 datamodel: 
   - schemas/post.prisma
   - schemas/account.prisma

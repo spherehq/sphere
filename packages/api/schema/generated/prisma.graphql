@@ -1,5 +1,5 @@
-# source: http://localhost:4466/sphere/dev
-# timestamp: Wed Apr 24 2019 16:53:47 GMT+0100 (BST)
+# source: https://spherehq-production_jason-brown.prisma.sh/sphere/production
+# timestamp: Wed Apr 24 2019 22:18:09 GMT+0100 (BST)
 
 type Account implements Node {
   id: ID!
@@ -1027,7 +1027,6 @@ type Mutation {
   deleteManyPostMetadatas(where: PostMetadataWhereInput): BatchPayload!
   deleteManySpheres(where: SphereWhereInput): BatchPayload!
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
-  executeRaw(database: PrismaDatabase, query: String!): Json!
 }
 
 enum MutationType {
@@ -1984,10 +1983,6 @@ input PostWhereInput {
 input PostWhereUniqueInput {
   id: ID
   slug: String
-}
-
-enum PrismaDatabase {
-  default
 }
 
 type Query {
