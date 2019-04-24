@@ -31,7 +31,8 @@ exports.models = [
 exports.Prisma = prisma_client_lib_1.makePrismaClientClass({
   typeDefs: prisma_schema_1.typeDefs,
   models: exports.models,
-  endpoint: 'http://localhost:4466/sphere/dev',
+  endpoint:
+    'https://spherehq-production_jason-brown.prisma.sh/sphere/production',
 })
 exports.prisma = new exports.Prisma()
 //# sourceMappingURL=index.js.map
