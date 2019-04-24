@@ -40,7 +40,7 @@ interface StyledContainerProps {
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
 }
 
-const StyledContainer = styled.div<StyledContainerProps>`
+export const StyledContainer = styled.div<StyledContainerProps>`
   ${applyPadding}
   ${applyLimitWidth}
   ${applyFree}

@@ -14,8 +14,10 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U]
 
 export interface Exists {
+  account: (where?: AccountWhereInput) => Promise<boolean>
   post: (where?: PostWhereInput) => Promise<boolean>
   postMetadata: (where?: PostMetadataWhereInput) => Promise<boolean>
+  sphere: (where?: SphereWhereInput) => Promise<boolean>
 }
 
 export interface Node {}
@@ -37,6 +39,25 @@ export interface Prisma {
    * Queries
    */
 
+  account: (where: AccountWhereUniqueInput) => AccountPromise
+  accounts: (args?: {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => FragmentableArray<Account>
+  accountsConnection: (args?: {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => AccountConnectionPromise
   post: (where: PostWhereUniqueInput) => PostPromise
   posts: (args?: {
     where?: PostWhereInput
@@ -56,6 +77,7 @@ export interface Prisma {
     first?: Int
     last?: Int
   }) => PostConnectionPromise
+  postMetadata: (where: PostMetadataWhereUniqueInput) => PostMetadataPromise
   postMetadatas: (args?: {
     where?: PostMetadataWhereInput
     orderBy?: PostMetadataOrderByInput
@@ -74,12 +96,47 @@ export interface Prisma {
     first?: Int
     last?: Int
   }) => PostMetadataConnectionPromise
+  sphere: (where: SphereWhereUniqueInput) => SpherePromise
+  spheres: (args?: {
+    where?: SphereWhereInput
+    orderBy?: SphereOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => FragmentableArray<Sphere>
+  spheresConnection: (args?: {
+    where?: SphereWhereInput
+    orderBy?: SphereOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => SphereConnectionPromise
   node: (args: { id: ID_Output }) => Node
 
   /**
    * Mutations
    */
 
+  createAccount: (data: AccountCreateInput) => AccountPromise
+  updateAccount: (args: {
+    data: AccountUpdateInput
+    where: AccountWhereUniqueInput
+  }) => AccountPromise
+  updateManyAccounts: (args: {
+    data: AccountUpdateManyMutationInput
+    where?: AccountWhereInput
+  }) => BatchPayloadPromise
+  upsertAccount: (args: {
+    where: AccountWhereUniqueInput
+    create: AccountCreateInput
+    update: AccountUpdateInput
+  }) => AccountPromise
+  deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise
+  deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise
   createPost: (data: PostCreateInput) => PostPromise
   updatePost: (args: {
     data: PostUpdateInput
@@ -97,13 +154,41 @@ export interface Prisma {
   deletePost: (where: PostWhereUniqueInput) => PostPromise
   deleteManyPosts: (where?: PostWhereInput) => BatchPayloadPromise
   createPostMetadata: (data: PostMetadataCreateInput) => PostMetadataPromise
+  updatePostMetadata: (args: {
+    data: PostMetadataUpdateInput
+    where: PostMetadataWhereUniqueInput
+  }) => PostMetadataPromise
   updateManyPostMetadatas: (args: {
     data: PostMetadataUpdateManyMutationInput
     where?: PostMetadataWhereInput
   }) => BatchPayloadPromise
+  upsertPostMetadata: (args: {
+    where: PostMetadataWhereUniqueInput
+    create: PostMetadataCreateInput
+    update: PostMetadataUpdateInput
+  }) => PostMetadataPromise
+  deletePostMetadata: (
+    where: PostMetadataWhereUniqueInput,
+  ) => PostMetadataPromise
   deleteManyPostMetadatas: (
     where?: PostMetadataWhereInput,
   ) => BatchPayloadPromise
+  createSphere: (data: SphereCreateInput) => SpherePromise
+  updateSphere: (args: {
+    data: SphereUpdateInput
+    where: SphereWhereUniqueInput
+  }) => SpherePromise
+  updateManySpheres: (args: {
+    data: SphereUpdateManyMutationInput
+    where?: SphereWhereInput
+  }) => BatchPayloadPromise
+  upsertSphere: (args: {
+    where: SphereWhereUniqueInput
+    create: SphereCreateInput
+    update: SphereUpdateInput
+  }) => SpherePromise
+  deleteSphere: (where: SphereWhereUniqueInput) => SpherePromise
+  deleteManySpheres: (where?: SphereWhereInput) => BatchPayloadPromise
 
   /**
    * Subscriptions
@@ -113,12 +198,18 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  account: (
+    where?: AccountSubscriptionWhereInput,
+  ) => AccountSubscriptionPayloadSubscription
   post: (
     where?: PostSubscriptionWhereInput,
   ) => PostSubscriptionPayloadSubscription
   postMetadata: (
     where?: PostMetadataSubscriptionWhereInput,
   ) => PostMetadataSubscriptionPayloadSubscription
+  sphere: (
+    where?: SphereSubscriptionWhereInput,
+  ) => SphereSubscriptionPayloadSubscription
 }
 
 export interface ClientConstructor<T> {
@@ -130,6 +221,22 @@ export interface ClientConstructor<T> {
  */
 
 export type POST_STATUS = 'PUBLISHED' | 'DRAFT' | 'ARCHIVED' | 'SYNCING'
+
+export type AccountOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'status_ASC'
+  | 'status_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'emailAddress_ASC'
+  | 'emailAddress_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
 
 export type PostOrderByInput =
   | 'id_ASC'
@@ -154,18 +261,212 @@ export type PostOrderByInput =
   | 'status_DESC'
 
 export type PostMetadataOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
   | 'fileHash_ASC'
   | 'fileHash_DESC'
   | 'filename_ASC'
   | 'filename_DESC'
-  | 'id_ASC'
-  | 'id_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
 
+export type SphereOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'alias_ASC'
+  | 'alias_DESC'
+  | 'slugPrefix_ASC'
+  | 'slugPrefix_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+
+export type AccountStatus = 'VERIFIED' | 'ACTIVE' | 'INACTIVE'
+
 export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
+
+export interface AccountUpdateManyMutationInput {
+  status?: AccountStatus
+  firstName?: String
+  lastName?: String
+  emailAddress?: String
+}
+
+export type AccountWhereUniqueInput = AtLeastOne<{
+  id: ID_Input
+}>
+
+export interface AccountScalarWhereInput {
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
+  status?: AccountStatus
+  status_not?: AccountStatus
+  status_in?: AccountStatus[] | AccountStatus
+  status_not_in?: AccountStatus[] | AccountStatus
+  firstName?: String
+  firstName_not?: String
+  firstName_in?: String[] | String
+  firstName_not_in?: String[] | String
+  firstName_lt?: String
+  firstName_lte?: String
+  firstName_gt?: String
+  firstName_gte?: String
+  firstName_contains?: String
+  firstName_not_contains?: String
+  firstName_starts_with?: String
+  firstName_not_starts_with?: String
+  firstName_ends_with?: String
+  firstName_not_ends_with?: String
+  lastName?: String
+  lastName_not?: String
+  lastName_in?: String[] | String
+  lastName_not_in?: String[] | String
+  lastName_lt?: String
+  lastName_lte?: String
+  lastName_gt?: String
+  lastName_gte?: String
+  lastName_contains?: String
+  lastName_not_contains?: String
+  lastName_starts_with?: String
+  lastName_not_starts_with?: String
+  lastName_ends_with?: String
+  lastName_not_ends_with?: String
+  emailAddress?: String
+  emailAddress_not?: String
+  emailAddress_in?: String[] | String
+  emailAddress_not_in?: String[] | String
+  emailAddress_lt?: String
+  emailAddress_lte?: String
+  emailAddress_gt?: String
+  emailAddress_gte?: String
+  emailAddress_contains?: String
+  emailAddress_not_contains?: String
+  emailAddress_starts_with?: String
+  emailAddress_not_starts_with?: String
+  emailAddress_ends_with?: String
+  emailAddress_not_ends_with?: String
+  createdAt?: DateTimeInput
+  createdAt_not?: DateTimeInput
+  createdAt_in?: DateTimeInput[] | DateTimeInput
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput
+  createdAt_lt?: DateTimeInput
+  createdAt_lte?: DateTimeInput
+  createdAt_gt?: DateTimeInput
+  createdAt_gte?: DateTimeInput
+  updatedAt?: DateTimeInput
+  updatedAt_not?: DateTimeInput
+  updatedAt_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_lt?: DateTimeInput
+  updatedAt_lte?: DateTimeInput
+  updatedAt_gt?: DateTimeInput
+  updatedAt_gte?: DateTimeInput
+  AND?: AccountScalarWhereInput[] | AccountScalarWhereInput
+  OR?: AccountScalarWhereInput[] | AccountScalarWhereInput
+  NOT?: AccountScalarWhereInput[] | AccountScalarWhereInput
+}
+
+export interface AccountCreateManyInput {
+  create?: AccountCreateInput[] | AccountCreateInput
+  connect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput
+}
+
+export interface AccountUpsertWithWhereUniqueNestedInput {
+  where: AccountWhereUniqueInput
+  update: AccountUpdateDataInput
+  create: AccountCreateInput
+}
+
+export interface PostMetadataCreateInput {
+  fileHash: String
+  filename?: String
+}
+
+export interface AccountUpdateDataInput {
+  status?: AccountStatus
+  firstName?: String
+  lastName?: String
+  emailAddress?: String
+}
+
+export interface PostMetadataSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: PostMetadataWhereInput
+  AND?:
+    | PostMetadataSubscriptionWhereInput[]
+    | PostMetadataSubscriptionWhereInput
+  OR?: PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
+  NOT?:
+    | PostMetadataSubscriptionWhereInput[]
+    | PostMetadataSubscriptionWhereInput
+}
+
+export type SphereWhereUniqueInput = AtLeastOne<{
+  id: ID_Input
+  alias?: String
+}>
+
+export type PostWhereUniqueInput = AtLeastOne<{
+  id: ID_Input
+  slug?: String
+}>
+
+export interface AccountUpdateWithWhereUniqueNestedInput {
+  where: AccountWhereUniqueInput
+  data: AccountUpdateDataInput
+}
+
+export interface SphereUpdateManyMutationInput {
+  alias?: String
+  slugPrefix?: String
+}
+
+export interface AccountUpdateManyInput {
+  create?: AccountCreateInput[] | AccountCreateInput
+  update?:
+    | AccountUpdateWithWhereUniqueNestedInput[]
+    | AccountUpdateWithWhereUniqueNestedInput
+  upsert?:
+    | AccountUpsertWithWhereUniqueNestedInput[]
+    | AccountUpsertWithWhereUniqueNestedInput
+  delete?: AccountWhereUniqueInput[] | AccountWhereUniqueInput
+  connect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput
+  set?: AccountWhereUniqueInput[] | AccountWhereUniqueInput
+  disconnect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput
+  deleteMany?: AccountScalarWhereInput[] | AccountScalarWhereInput
+  updateMany?:
+    | AccountUpdateManyWithWhereNestedInput[]
+    | AccountUpdateManyWithWhereNestedInput
+}
+
+export interface PostMetadataUpdateManyMutationInput {
+  fileHash?: String
+  filename?: String
+}
+
+export interface SphereUpdateDataInput {
+  alias?: String
+  slugPrefix?: String
+  associatedWith?: AccountUpdateManyInput
+}
 
 export interface PostWhereInput {
   id?: ID_Input
@@ -249,28 +550,87 @@ export interface PostWhereInput {
   status_in?: POST_STATUS[] | POST_STATUS
   status_not_in?: POST_STATUS[] | POST_STATUS
   metadata?: PostMetadataWhereInput
+  associatedWith?: SphereWhereInput
   AND?: PostWhereInput[] | PostWhereInput
   OR?: PostWhereInput[] | PostWhereInput
   NOT?: PostWhereInput[] | PostWhereInput
 }
 
-export type PostWhereUniqueInput = AtLeastOne<{
-  id: ID_Input
-  slug?: String
-}>
-
-export interface PostMetadataUpdateOneRequiredInput {
-  create?: PostMetadataCreateInput
-  update?: PostMetadataUpdateDataInput
-  upsert?: PostMetadataUpsertNestedInput
+export interface SphereUpdateOneRequiredInput {
+  create?: SphereCreateInput
+  update?: SphereUpdateDataInput
+  upsert?: SphereUpsertNestedInput
+  connect?: SphereWhereUniqueInput
 }
 
-export interface PostMetadataUpsertNestedInput {
-  update: PostMetadataUpdateDataInput
-  create: PostMetadataCreateInput
+export interface SphereWhereInput {
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
+  alias?: String
+  alias_not?: String
+  alias_in?: String[] | String
+  alias_not_in?: String[] | String
+  alias_lt?: String
+  alias_lte?: String
+  alias_gt?: String
+  alias_gte?: String
+  alias_contains?: String
+  alias_not_contains?: String
+  alias_starts_with?: String
+  alias_not_starts_with?: String
+  alias_ends_with?: String
+  alias_not_ends_with?: String
+  slugPrefix?: String
+  slugPrefix_not?: String
+  slugPrefix_in?: String[] | String
+  slugPrefix_not_in?: String[] | String
+  slugPrefix_lt?: String
+  slugPrefix_lte?: String
+  slugPrefix_gt?: String
+  slugPrefix_gte?: String
+  slugPrefix_contains?: String
+  slugPrefix_not_contains?: String
+  slugPrefix_starts_with?: String
+  slugPrefix_not_starts_with?: String
+  slugPrefix_ends_with?: String
+  slugPrefix_not_ends_with?: String
+  associatedWith_every?: AccountWhereInput
+  associatedWith_some?: AccountWhereInput
+  associatedWith_none?: AccountWhereInput
+  createdAt?: DateTimeInput
+  createdAt_not?: DateTimeInput
+  createdAt_in?: DateTimeInput[] | DateTimeInput
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput
+  createdAt_lt?: DateTimeInput
+  createdAt_lte?: DateTimeInput
+  createdAt_gt?: DateTimeInput
+  createdAt_gte?: DateTimeInput
+  updatedAt?: DateTimeInput
+  updatedAt_not?: DateTimeInput
+  updatedAt_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_lt?: DateTimeInput
+  updatedAt_lte?: DateTimeInput
+  updatedAt_gt?: DateTimeInput
+  updatedAt_gte?: DateTimeInput
+  AND?: SphereWhereInput[] | SphereWhereInput
+  OR?: SphereWhereInput[] | SphereWhereInput
+  NOT?: SphereWhereInput[] | SphereWhereInput
 }
 
-export interface PostUpdateInput {
+export interface PostUpdateManyMutationInput {
   title?: String
   content?: Json
   slug?: String
@@ -278,23 +638,32 @@ export interface PostUpdateInput {
   isPublished?: Boolean
   publishedAt?: DateTimeInput
   status?: POST_STATUS
-  metadata?: PostMetadataUpdateOneRequiredInput
 }
 
-export interface PostMetadataUpdateDataInput {
-  fileHash?: String
-  filename?: String
+export interface AccountUpdateManyDataInput {
+  status?: AccountStatus
+  firstName?: String
+  lastName?: String
+  emailAddress?: String
 }
 
-export interface PostCreateInput {
-  title: String
-  content: Json
-  slug: String
-  timeToRead?: Int
-  isPublished?: Boolean
-  publishedAt?: DateTimeInput
-  status?: POST_STATUS
-  metadata: PostMetadataCreateOneInput
+export interface AccountCreateInput {
+  status?: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+}
+
+export interface AccountUpdateManyWithWhereNestedInput {
+  where: AccountScalarWhereInput
+  data: AccountUpdateManyDataInput
+}
+
+export interface AccountUpdateInput {
+  status?: AccountStatus
+  firstName?: String
+  lastName?: String
+  emailAddress?: String
 }
 
 export interface PostSubscriptionWhereInput {
@@ -308,46 +677,37 @@ export interface PostSubscriptionWhereInput {
   NOT?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput
 }
 
-export interface PostMetadataCreateOneInput {
-  create?: PostMetadataCreateInput
+export interface PostMetadataUpsertNestedInput {
+  update: PostMetadataUpdateDataInput
+  create: PostMetadataCreateInput
 }
 
-export interface PostMetadataCreateInput {
-  fileHash: String
-  filename?: String
+export interface SphereUpdateInput {
+  alias?: String
+  slugPrefix?: String
+  associatedWith?: AccountUpdateManyInput
 }
 
-export interface PostMetadataSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType
-  updatedFields_contains?: String
-  updatedFields_contains_every?: String[] | String
-  updatedFields_contains_some?: String[] | String
-  node?: PostMetadataWhereInput
-  AND?:
-    | PostMetadataSubscriptionWhereInput[]
-    | PostMetadataSubscriptionWhereInput
-  OR?: PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
-  NOT?:
-    | PostMetadataSubscriptionWhereInput[]
-    | PostMetadataSubscriptionWhereInput
-}
-
-export interface PostUpdateManyMutationInput {
-  title?: String
-  content?: Json
-  slug?: String
-  timeToRead?: Int
-  isPublished?: Boolean
-  publishedAt?: DateTimeInput
-  status?: POST_STATUS
-}
-
-export interface PostMetadataUpdateManyMutationInput {
+export interface PostMetadataUpdateDataInput {
   fileHash?: String
   filename?: String
 }
 
 export interface PostMetadataWhereInput {
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
   fileHash?: String
   fileHash_not?: String
   fileHash_in?: String[] | String
@@ -381,24 +741,267 @@ export interface PostMetadataWhereInput {
   NOT?: PostMetadataWhereInput[] | PostMetadataWhereInput
 }
 
+export interface PostMetadataUpdateOneRequiredInput {
+  create?: PostMetadataCreateInput
+  update?: PostMetadataUpdateDataInput
+  upsert?: PostMetadataUpsertNestedInput
+  connect?: PostMetadataWhereUniqueInput
+}
+
+export interface SphereUpsertNestedInput {
+  update: SphereUpdateDataInput
+  create: SphereCreateInput
+}
+
+export interface PostCreateInput {
+  title: String
+  content: Json
+  slug: String
+  timeToRead?: Int
+  isPublished?: Boolean
+  publishedAt?: DateTimeInput
+  status?: POST_STATUS
+  metadata: PostMetadataCreateOneInput
+  associatedWith: SphereCreateOneInput
+}
+
+export interface SphereSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: SphereWhereInput
+  AND?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput
+  OR?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput
+  NOT?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput
+}
+
+export interface SphereCreateInput {
+  alias: String
+  slugPrefix?: String
+  associatedWith?: AccountCreateManyInput
+}
+
+export interface SphereCreateOneInput {
+  create?: SphereCreateInput
+  connect?: SphereWhereUniqueInput
+}
+
+export interface PostUpdateInput {
+  title?: String
+  content?: Json
+  slug?: String
+  timeToRead?: Int
+  isPublished?: Boolean
+  publishedAt?: DateTimeInput
+  status?: POST_STATUS
+  metadata?: PostMetadataUpdateOneRequiredInput
+  associatedWith?: SphereUpdateOneRequiredInput
+}
+
+export interface PostMetadataCreateOneInput {
+  create?: PostMetadataCreateInput
+  connect?: PostMetadataWhereUniqueInput
+}
+
+export interface AccountSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: AccountWhereInput
+  AND?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput
+  OR?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput
+  NOT?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput
+}
+
+export type PostMetadataWhereUniqueInput = AtLeastOne<{
+  id: ID_Input
+}>
+
+export interface AccountWhereInput {
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
+  status?: AccountStatus
+  status_not?: AccountStatus
+  status_in?: AccountStatus[] | AccountStatus
+  status_not_in?: AccountStatus[] | AccountStatus
+  firstName?: String
+  firstName_not?: String
+  firstName_in?: String[] | String
+  firstName_not_in?: String[] | String
+  firstName_lt?: String
+  firstName_lte?: String
+  firstName_gt?: String
+  firstName_gte?: String
+  firstName_contains?: String
+  firstName_not_contains?: String
+  firstName_starts_with?: String
+  firstName_not_starts_with?: String
+  firstName_ends_with?: String
+  firstName_not_ends_with?: String
+  lastName?: String
+  lastName_not?: String
+  lastName_in?: String[] | String
+  lastName_not_in?: String[] | String
+  lastName_lt?: String
+  lastName_lte?: String
+  lastName_gt?: String
+  lastName_gte?: String
+  lastName_contains?: String
+  lastName_not_contains?: String
+  lastName_starts_with?: String
+  lastName_not_starts_with?: String
+  lastName_ends_with?: String
+  lastName_not_ends_with?: String
+  emailAddress?: String
+  emailAddress_not?: String
+  emailAddress_in?: String[] | String
+  emailAddress_not_in?: String[] | String
+  emailAddress_lt?: String
+  emailAddress_lte?: String
+  emailAddress_gt?: String
+  emailAddress_gte?: String
+  emailAddress_contains?: String
+  emailAddress_not_contains?: String
+  emailAddress_starts_with?: String
+  emailAddress_not_starts_with?: String
+  emailAddress_ends_with?: String
+  emailAddress_not_ends_with?: String
+  createdAt?: DateTimeInput
+  createdAt_not?: DateTimeInput
+  createdAt_in?: DateTimeInput[] | DateTimeInput
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput
+  createdAt_lt?: DateTimeInput
+  createdAt_lte?: DateTimeInput
+  createdAt_gt?: DateTimeInput
+  createdAt_gte?: DateTimeInput
+  updatedAt?: DateTimeInput
+  updatedAt_not?: DateTimeInput
+  updatedAt_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput
+  updatedAt_lt?: DateTimeInput
+  updatedAt_lte?: DateTimeInput
+  updatedAt_gt?: DateTimeInput
+  updatedAt_gte?: DateTimeInput
+  AND?: AccountWhereInput[] | AccountWhereInput
+  OR?: AccountWhereInput[] | AccountWhereInput
+  NOT?: AccountWhereInput[] | AccountWhereInput
+}
+
+export interface PostMetadataUpdateInput {
+  fileHash?: String
+  filename?: String
+}
+
 export interface NodeNode {
   id: ID_Output
 }
 
-export interface AggregatePostMetadata {
-  count: Int
+export interface SpherePreviousValues {
+  id: ID_Output
+  alias: String
+  slugPrefix: String
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
 }
 
-export interface AggregatePostMetadataPromise
-  extends Promise<AggregatePostMetadata>,
+export interface SpherePreviousValuesPromise
+  extends Promise<SpherePreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>
+  id: () => Promise<ID_Output>
+  alias: () => Promise<String>
+  slugPrefix: () => Promise<String>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
 }
 
-export interface AggregatePostMetadataSubscription
-  extends Promise<AsyncIterator<AggregatePostMetadata>>,
+export interface SpherePreviousValuesSubscription
+  extends Promise<AsyncIterator<SpherePreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>
+  id: () => Promise<AsyncIterator<ID_Output>>
+  alias: () => Promise<AsyncIterator<String>>
+  slugPrefix: () => Promise<AsyncIterator<String>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+}
+
+export interface PostMetadata {
+  id: ID_Output
+  fileHash: String
+  filename?: String
+}
+
+export interface PostMetadataPromise
+  extends Promise<PostMetadata>,
+    Fragmentable {
+  id: () => Promise<ID_Output>
+  fileHash: () => Promise<String>
+  filename: () => Promise<String>
+}
+
+export interface PostMetadataSubscription
+  extends Promise<AsyncIterator<PostMetadata>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  fileHash: () => Promise<AsyncIterator<String>>
+  filename: () => Promise<AsyncIterator<String>>
+}
+
+export interface AccountConnection {
+  pageInfo: PageInfo
+  edges: AccountEdge[]
+}
+
+export interface AccountConnectionPromise
+  extends Promise<AccountConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T
+  edges: <T = FragmentableArray<AccountEdge>>() => T
+  aggregate: <T = AggregateAccountPromise>() => T
+}
+
+export interface AccountConnectionSubscription
+  extends Promise<AsyncIterator<AccountConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T
+  edges: <T = Promise<AsyncIterator<AccountEdgeSubscription>>>() => T
+  aggregate: <T = AggregateAccountSubscription>() => T
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
+  startCursor?: String
+  endCursor?: String
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>
+  hasPreviousPage: () => Promise<Boolean>
+  startCursor: () => Promise<String>
+  endCursor: () => Promise<String>
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>
+  startCursor: () => Promise<AsyncIterator<String>>
+  endCursor: () => Promise<AsyncIterator<String>>
 }
 
 export interface BatchPayload {
@@ -417,172 +1020,48 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>
 }
 
-export interface PostMetadataPreviousValues {
-  fileHash: String
-  filename?: String
-}
-
-export interface PostMetadataPreviousValuesPromise
-  extends Promise<PostMetadataPreviousValues>,
-    Fragmentable {
-  fileHash: () => Promise<String>
-  filename: () => Promise<String>
-}
-
-export interface PostMetadataPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
-    Fragmentable {
-  fileHash: () => Promise<AsyncIterator<String>>
-  filename: () => Promise<AsyncIterator<String>>
-}
-
-export interface PostMetadataSubscriptionPayload {
-  mutation: MutationType
-  node: PostMetadata
-  updatedFields: String[]
-  previousValues: PostMetadataPreviousValues
-}
-
-export interface PostMetadataSubscriptionPayloadPromise
-  extends Promise<PostMetadataSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>
-  node: <T = PostMetadataPromise>() => T
-  updatedFields: () => Promise<String[]>
-  previousValues: <T = PostMetadataPreviousValuesPromise>() => T
-}
-
-export interface PostMetadataSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostMetadataSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>
-  node: <T = PostMetadataSubscription>() => T
-  updatedFields: () => Promise<AsyncIterator<String[]>>
-  previousValues: <T = PostMetadataPreviousValuesSubscription>() => T
-}
-
-export interface Post {
+export interface Sphere {
   id: ID_Output
-  title: String
-  content: Json
-  slug: String
-  timeToRead: Int
-  isPublished: Boolean
-  publishedAt?: DateTimeOutput
+  alias: String
+  slugPrefix: String
   createdAt: DateTimeOutput
   updatedAt: DateTimeOutput
-  status: POST_STATUS
 }
 
-export interface PostPromise extends Promise<Post>, Fragmentable {
+export interface SpherePromise extends Promise<Sphere>, Fragmentable {
   id: () => Promise<ID_Output>
-  title: () => Promise<String>
-  content: () => Promise<Json>
-  slug: () => Promise<String>
-  timeToRead: () => Promise<Int>
-  isPublished: () => Promise<Boolean>
-  publishedAt: () => Promise<DateTimeOutput>
+  alias: () => Promise<String>
+  slugPrefix: () => Promise<String>
+  associatedWith: <T = FragmentableArray<Account>>(args?: {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => T
   createdAt: () => Promise<DateTimeOutput>
   updatedAt: () => Promise<DateTimeOutput>
-  status: () => Promise<POST_STATUS>
-  metadata: <T = PostMetadataPromise>() => T
 }
 
-export interface PostSubscription
-  extends Promise<AsyncIterator<Post>>,
+export interface SphereSubscription
+  extends Promise<AsyncIterator<Sphere>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>
-  title: () => Promise<AsyncIterator<String>>
-  content: () => Promise<AsyncIterator<Json>>
-  slug: () => Promise<AsyncIterator<String>>
-  timeToRead: () => Promise<AsyncIterator<Int>>
-  isPublished: () => Promise<AsyncIterator<Boolean>>
-  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  alias: () => Promise<AsyncIterator<String>>
+  slugPrefix: () => Promise<AsyncIterator<String>>
+  associatedWith: <T = Promise<AsyncIterator<AccountSubscription>>>(args?: {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByInput
+    skip?: Int
+    after?: String
+    before?: String
+    first?: Int
+    last?: Int
+  }) => T
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
-  status: () => Promise<AsyncIterator<POST_STATUS>>
-  metadata: <T = PostMetadataSubscription>() => T
-}
-
-export interface PostMetadataConnection {
-  pageInfo: PageInfo
-  edges: PostMetadataEdge[]
-}
-
-export interface PostMetadataConnectionPromise
-  extends Promise<PostMetadataConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T
-  edges: <T = FragmentableArray<PostMetadataEdge>>() => T
-  aggregate: <T = AggregatePostMetadataPromise>() => T
-}
-
-export interface PostMetadataConnectionSubscription
-  extends Promise<AsyncIterator<PostMetadataConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T
-  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T
-  aggregate: <T = AggregatePostMetadataSubscription>() => T
-}
-
-export interface PostSubscriptionPayload {
-  mutation: MutationType
-  node: Post
-  updatedFields: String[]
-  previousValues: PostPreviousValues
-}
-
-export interface PostSubscriptionPayloadPromise
-  extends Promise<PostSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>
-  node: <T = PostPromise>() => T
-  updatedFields: () => Promise<String[]>
-  previousValues: <T = PostPreviousValuesPromise>() => T
-}
-
-export interface PostSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>
-  node: <T = PostSubscription>() => T
-  updatedFields: () => Promise<AsyncIterator<String[]>>
-  previousValues: <T = PostPreviousValuesSubscription>() => T
-}
-
-export interface AggregatePost {
-  count: Int
-}
-
-export interface AggregatePostPromise
-  extends Promise<AggregatePost>,
-    Fragmentable {
-  count: () => Promise<Int>
-}
-
-export interface AggregatePostSubscription
-  extends Promise<AsyncIterator<AggregatePost>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>
-}
-
-export interface PostMetadataEdge {
-  node: PostMetadata
-  cursor: String
-}
-
-export interface PostMetadataEdgePromise
-  extends Promise<PostMetadataEdge>,
-    Fragmentable {
-  node: <T = PostMetadataPromise>() => T
-  cursor: () => Promise<String>
-}
-
-export interface PostMetadataEdgeSubscription
-  extends Promise<AsyncIterator<PostMetadataEdge>>,
-    Fragmentable {
-  node: <T = PostMetadataSubscription>() => T
-  cursor: () => Promise<AsyncIterator<String>>
 }
 
 export interface PostPreviousValues {
@@ -628,6 +1107,224 @@ export interface PostPreviousValuesSubscription
   status: () => Promise<AsyncIterator<POST_STATUS>>
 }
 
+export interface PostMetadataSubscriptionPayload {
+  mutation: MutationType
+  node: PostMetadata
+  updatedFields: String[]
+  previousValues: PostMetadataPreviousValues
+}
+
+export interface PostMetadataSubscriptionPayloadPromise
+  extends Promise<PostMetadataSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>
+  node: <T = PostMetadataPromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = PostMetadataPreviousValuesPromise>() => T
+}
+
+export interface PostMetadataSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostMetadataSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = PostMetadataSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = PostMetadataPreviousValuesSubscription>() => T
+}
+
+export interface AggregateSphere {
+  count: Int
+}
+
+export interface AggregateSpherePromise
+  extends Promise<AggregateSphere>,
+    Fragmentable {
+  count: () => Promise<Int>
+}
+
+export interface AggregateSphereSubscription
+  extends Promise<AsyncIterator<AggregateSphere>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
+}
+
+export interface AccountEdge {
+  node: Account
+  cursor: String
+}
+
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T
+  cursor: () => Promise<String>
+}
+
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
+    Fragmentable {
+  node: <T = AccountSubscription>() => T
+  cursor: () => Promise<AsyncIterator<String>>
+}
+
+export interface SphereSubscriptionPayload {
+  mutation: MutationType
+  node: Sphere
+  updatedFields: String[]
+  previousValues: SpherePreviousValues
+}
+
+export interface SphereSubscriptionPayloadPromise
+  extends Promise<SphereSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>
+  node: <T = SpherePromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = SpherePreviousValuesPromise>() => T
+}
+
+export interface SphereSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = SphereSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = SpherePreviousValuesSubscription>() => T
+}
+
+export interface SphereEdge {
+  node: Sphere
+  cursor: String
+}
+
+export interface SphereEdgePromise extends Promise<SphereEdge>, Fragmentable {
+  node: <T = SpherePromise>() => T
+  cursor: () => Promise<String>
+}
+
+export interface SphereEdgeSubscription
+  extends Promise<AsyncIterator<SphereEdge>>,
+    Fragmentable {
+  node: <T = SphereSubscription>() => T
+  cursor: () => Promise<AsyncIterator<String>>
+}
+
+export interface PostMetadataEdge {
+  node: PostMetadata
+  cursor: String
+}
+
+export interface PostMetadataEdgePromise
+  extends Promise<PostMetadataEdge>,
+    Fragmentable {
+  node: <T = PostMetadataPromise>() => T
+  cursor: () => Promise<String>
+}
+
+export interface PostMetadataEdgeSubscription
+  extends Promise<AsyncIterator<PostMetadataEdge>>,
+    Fragmentable {
+  node: <T = PostMetadataSubscription>() => T
+  cursor: () => Promise<AsyncIterator<String>>
+}
+
+export interface Post {
+  id: ID_Output
+  title: String
+  content: Json
+  slug: String
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt?: DateTimeOutput
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
+  status: POST_STATUS
+}
+
+export interface PostPromise extends Promise<Post>, Fragmentable {
+  id: () => Promise<ID_Output>
+  title: () => Promise<String>
+  content: () => Promise<Json>
+  slug: () => Promise<String>
+  timeToRead: () => Promise<Int>
+  isPublished: () => Promise<Boolean>
+  publishedAt: () => Promise<DateTimeOutput>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
+  status: () => Promise<POST_STATUS>
+  metadata: <T = PostMetadataPromise>() => T
+  associatedWith: <T = SpherePromise>() => T
+}
+
+export interface PostSubscription
+  extends Promise<AsyncIterator<Post>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  title: () => Promise<AsyncIterator<String>>
+  content: () => Promise<AsyncIterator<Json>>
+  slug: () => Promise<AsyncIterator<String>>
+  timeToRead: () => Promise<AsyncIterator<Int>>
+  isPublished: () => Promise<AsyncIterator<Boolean>>
+  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  status: () => Promise<AsyncIterator<POST_STATUS>>
+  metadata: <T = PostMetadataSubscription>() => T
+  associatedWith: <T = SphereSubscription>() => T
+}
+
+export interface PostMetadataPreviousValues {
+  id: ID_Output
+  fileHash: String
+  filename?: String
+}
+
+export interface PostMetadataPreviousValuesPromise
+  extends Promise<PostMetadataPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>
+  fileHash: () => Promise<String>
+  filename: () => Promise<String>
+}
+
+export interface PostMetadataPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  fileHash: () => Promise<AsyncIterator<String>>
+  filename: () => Promise<AsyncIterator<String>>
+}
+
+export interface Account {
+  id: ID_Output
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
+}
+
+export interface AccountPromise extends Promise<Account>, Fragmentable {
+  id: () => Promise<ID_Output>
+  status: () => Promise<AccountStatus>
+  firstName: () => Promise<String>
+  lastName: () => Promise<String>
+  emailAddress: () => Promise<String>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
+}
+
+export interface AccountSubscription
+  extends Promise<AsyncIterator<Account>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  status: () => Promise<AsyncIterator<AccountStatus>>
+  firstName: () => Promise<AsyncIterator<String>>
+  lastName: () => Promise<AsyncIterator<String>>
+  emailAddress: () => Promise<AsyncIterator<String>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+}
+
 export interface PostEdge {
   node: Post
   cursor: String
@@ -645,23 +1342,141 @@ export interface PostEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>
 }
 
-export interface PostMetadata {
-  fileHash: String
-  filename?: String
+export interface SphereConnection {
+  pageInfo: PageInfo
+  edges: SphereEdge[]
 }
 
-export interface PostMetadataPromise
-  extends Promise<PostMetadata>,
+export interface SphereConnectionPromise
+  extends Promise<SphereConnection>,
     Fragmentable {
-  fileHash: () => Promise<String>
-  filename: () => Promise<String>
+  pageInfo: <T = PageInfoPromise>() => T
+  edges: <T = FragmentableArray<SphereEdge>>() => T
+  aggregate: <T = AggregateSpherePromise>() => T
 }
 
-export interface PostMetadataSubscription
-  extends Promise<AsyncIterator<PostMetadata>>,
+export interface SphereConnectionSubscription
+  extends Promise<AsyncIterator<SphereConnection>>,
     Fragmentable {
-  fileHash: () => Promise<AsyncIterator<String>>
-  filename: () => Promise<AsyncIterator<String>>
+  pageInfo: <T = PageInfoSubscription>() => T
+  edges: <T = Promise<AsyncIterator<SphereEdgeSubscription>>>() => T
+  aggregate: <T = AggregateSphereSubscription>() => T
+}
+
+export interface PostSubscriptionPayload {
+  mutation: MutationType
+  node: Post
+  updatedFields: String[]
+  previousValues: PostPreviousValues
+}
+
+export interface PostSubscriptionPayloadPromise
+  extends Promise<PostSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>
+  node: <T = PostPromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = PostPreviousValuesPromise>() => T
+}
+
+export interface PostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = PostSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = PostPreviousValuesSubscription>() => T
+}
+
+export interface AggregateAccount {
+  count: Int
+}
+
+export interface AggregateAccountPromise
+  extends Promise<AggregateAccount>,
+    Fragmentable {
+  count: () => Promise<Int>
+}
+
+export interface AggregateAccountSubscription
+  extends Promise<AsyncIterator<AggregateAccount>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
+}
+
+export interface AccountPreviousValues {
+  id: ID_Output
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
+}
+
+export interface AccountPreviousValuesPromise
+  extends Promise<AccountPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>
+  status: () => Promise<AccountStatus>
+  firstName: () => Promise<String>
+  lastName: () => Promise<String>
+  emailAddress: () => Promise<String>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
+}
+
+export interface AccountPreviousValuesSubscription
+  extends Promise<AsyncIterator<AccountPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  status: () => Promise<AsyncIterator<AccountStatus>>
+  firstName: () => Promise<AsyncIterator<String>>
+  lastName: () => Promise<AsyncIterator<String>>
+  emailAddress: () => Promise<AsyncIterator<String>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+}
+
+export interface AccountSubscriptionPayload {
+  mutation: MutationType
+  node: Account
+  updatedFields: String[]
+  previousValues: AccountPreviousValues
+}
+
+export interface AccountSubscriptionPayloadPromise
+  extends Promise<AccountSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>
+  node: <T = AccountPromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = AccountPreviousValuesPromise>() => T
+}
+
+export interface AccountSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = AccountSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = AccountPreviousValuesSubscription>() => T
+}
+
+export interface AggregatePostMetadata {
+  count: Int
+}
+
+export interface AggregatePostMetadataPromise
+  extends Promise<AggregatePostMetadata>,
+    Fragmentable {
+  count: () => Promise<Int>
+}
+
+export interface AggregatePostMetadataSubscription
+  extends Promise<AsyncIterator<AggregatePostMetadata>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
 }
 
 export interface PostConnection {
@@ -685,46 +1500,49 @@ export interface PostConnectionSubscription
   aggregate: <T = AggregatePostSubscription>() => T
 }
 
-export interface PageInfo {
-  hasNextPage: Boolean
-  hasPreviousPage: Boolean
-  startCursor?: String
-  endCursor?: String
+export interface AggregatePost {
+  count: Int
 }
 
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>
-  hasPreviousPage: () => Promise<Boolean>
-  startCursor: () => Promise<String>
-  endCursor: () => Promise<String>
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
+export interface AggregatePostPromise
+  extends Promise<AggregatePost>,
     Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>
-  startCursor: () => Promise<AsyncIterator<String>>
-  endCursor: () => Promise<AsyncIterator<String>>
+  count: () => Promise<Int>
 }
 
-export type Long = string
+export interface AggregatePostSubscription
+  extends Promise<AsyncIterator<AggregatePost>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
+}
+
+export interface PostMetadataConnection {
+  pageInfo: PageInfo
+  edges: PostMetadataEdge[]
+}
+
+export interface PostMetadataConnectionPromise
+  extends Promise<PostMetadataConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T
+  edges: <T = FragmentableArray<PostMetadataEdge>>() => T
+  aggregate: <T = AggregatePostMetadataPromise>() => T
+}
+
+export interface PostMetadataConnectionSubscription
+  extends Promise<AsyncIterator<PostMetadataConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T
+  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T
+  aggregate: <T = AggregatePostMetadataSubscription>() => T
+}
+
+export type Json = any
 
 /*
-The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
-export type ID_Input = string | number
-export type ID_Output = string
-
-/*
-DateTime scalar input type, allowing Date
-*/
-export type DateTimeInput = Date | string
-
-/*
-DateTime scalar output type, which is always a string
-*/
-export type DateTimeOutput = string
+export type Int = number
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
@@ -737,11 +1555,22 @@ The `Boolean` scalar type represents `true` or `false`.
 export type Boolean = boolean
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+DateTime scalar input type, allowing Date
 */
-export type Int = number
+export type DateTimeInput = Date | string
 
-export type Json = any
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string
+
+export type Long = string
+
+/*
+The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
+*/
+export type ID_Input = string | number
+export type ID_Output = string
 
 /**
  * Model Metadata
@@ -760,6 +1589,18 @@ export const models: Model[] = [
     name: 'PostMetadata',
     embedded: false,
   },
+  {
+    name: 'AccountStatus',
+    embedded: false,
+  },
+  {
+    name: 'Account',
+    embedded: false,
+  },
+  {
+    name: 'Sphere',
+    embedded: false,
+  },
 ]
 
 /**
@@ -769,6 +1610,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `${process.env['PRISMA_ENDPOINT']}`,
+  endpoint: `http://localhost:4466/sphere/dev`,
 })
 export const prisma = new Prisma()

@@ -7,61 +7,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 ## [0.2.3](https://github.com/spherehq/sphere/compare/@spherehq/database@0.2.2...@spherehq/database@0.2.3) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/database
-
-
-
-
 
 ## [0.2.2](https://github.com/spherehq/sphere/compare/@spherehq/database@0.2.1...@spherehq/database@0.2.2) (2019-04-19)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 ## [0.2.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.2.0...@spherehq/database@0.2.1) (2019-04-16)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 # [0.2.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.1.1...@spherehq/database@0.2.0) (2019-04-16)
-
 
 ### Bug Fixes
 
-* removed .env from git ([504e78e](https://github.com/spherehq/sphere/commit/504e78e))
-
+- removed .env from git ([504e78e](https://github.com/spherehq/sphere/commit/504e78e))
 
 ### Features
 
-* updated database schema ([355c082](https://github.com/spherehq/sphere/commit/355c082))
-
-
-
-
+- updated database schema ([355c082](https://github.com/spherehq/sphere/commit/355c082))
 
 ## [0.1.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.1.0...@spherehq/database@0.1.1) (2019-04-15)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 # 0.1.0 (2019-04-15)
-
 
 ### Features
 
-* setup database binding ([d91e6ae](https://github.com/spherehq/sphere/commit/d91e6ae))
+- setup database binding ([d91e6ae](https://github.com/spherehq/sphere/commit/d91e6ae))
