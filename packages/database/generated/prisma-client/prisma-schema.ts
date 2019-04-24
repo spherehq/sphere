@@ -3,11 +3,327 @@
 // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
 export const typeDefs = /* GraphQL */ `
+  type Account {
+    id: ID!
+    status: AccountStatus!
+    firstName: String!
+    lastName: String!
+    emailAddress: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  type AccountConnection {
+    pageInfo: PageInfo!
+    edges: [AccountEdge]!
+    aggregate: AggregateAccount!
+  }
+
+  input AccountCreateInput {
+    status: AccountStatus
+    firstName: String!
+    lastName: String!
+    emailAddress: String!
+  }
+
+  input AccountCreateManyInput {
+    create: [AccountCreateInput!]
+    connect: [AccountWhereUniqueInput!]
+  }
+
+  type AccountEdge {
+    node: Account!
+    cursor: String!
+  }
+
+  enum AccountOrderByInput {
+    id_ASC
+    id_DESC
+    status_ASC
+    status_DESC
+    firstName_ASC
+    firstName_DESC
+    lastName_ASC
+    lastName_DESC
+    emailAddress_ASC
+    emailAddress_DESC
+    createdAt_ASC
+    createdAt_DESC
+    updatedAt_ASC
+    updatedAt_DESC
+  }
+
+  type AccountPreviousValues {
+    id: ID!
+    status: AccountStatus!
+    firstName: String!
+    lastName: String!
+    emailAddress: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  input AccountScalarWhereInput {
+    id: ID
+    id_not: ID
+    id_in: [ID!]
+    id_not_in: [ID!]
+    id_lt: ID
+    id_lte: ID
+    id_gt: ID
+    id_gte: ID
+    id_contains: ID
+    id_not_contains: ID
+    id_starts_with: ID
+    id_not_starts_with: ID
+    id_ends_with: ID
+    id_not_ends_with: ID
+    status: AccountStatus
+    status_not: AccountStatus
+    status_in: [AccountStatus!]
+    status_not_in: [AccountStatus!]
+    firstName: String
+    firstName_not: String
+    firstName_in: [String!]
+    firstName_not_in: [String!]
+    firstName_lt: String
+    firstName_lte: String
+    firstName_gt: String
+    firstName_gte: String
+    firstName_contains: String
+    firstName_not_contains: String
+    firstName_starts_with: String
+    firstName_not_starts_with: String
+    firstName_ends_with: String
+    firstName_not_ends_with: String
+    lastName: String
+    lastName_not: String
+    lastName_in: [String!]
+    lastName_not_in: [String!]
+    lastName_lt: String
+    lastName_lte: String
+    lastName_gt: String
+    lastName_gte: String
+    lastName_contains: String
+    lastName_not_contains: String
+    lastName_starts_with: String
+    lastName_not_starts_with: String
+    lastName_ends_with: String
+    lastName_not_ends_with: String
+    emailAddress: String
+    emailAddress_not: String
+    emailAddress_in: [String!]
+    emailAddress_not_in: [String!]
+    emailAddress_lt: String
+    emailAddress_lte: String
+    emailAddress_gt: String
+    emailAddress_gte: String
+    emailAddress_contains: String
+    emailAddress_not_contains: String
+    emailAddress_starts_with: String
+    emailAddress_not_starts_with: String
+    emailAddress_ends_with: String
+    emailAddress_not_ends_with: String
+    createdAt: DateTime
+    createdAt_not: DateTime
+    createdAt_in: [DateTime!]
+    createdAt_not_in: [DateTime!]
+    createdAt_lt: DateTime
+    createdAt_lte: DateTime
+    createdAt_gt: DateTime
+    createdAt_gte: DateTime
+    updatedAt: DateTime
+    updatedAt_not: DateTime
+    updatedAt_in: [DateTime!]
+    updatedAt_not_in: [DateTime!]
+    updatedAt_lt: DateTime
+    updatedAt_lte: DateTime
+    updatedAt_gt: DateTime
+    updatedAt_gte: DateTime
+    AND: [AccountScalarWhereInput!]
+    OR: [AccountScalarWhereInput!]
+    NOT: [AccountScalarWhereInput!]
+  }
+
+  enum AccountStatus {
+    VERIFIED
+    ACTIVE
+    INACTIVE
+  }
+
+  type AccountSubscriptionPayload {
+    mutation: MutationType!
+    node: Account
+    updatedFields: [String!]
+    previousValues: AccountPreviousValues
+  }
+
+  input AccountSubscriptionWhereInput {
+    mutation_in: [MutationType!]
+    updatedFields_contains: String
+    updatedFields_contains_every: [String!]
+    updatedFields_contains_some: [String!]
+    node: AccountWhereInput
+    AND: [AccountSubscriptionWhereInput!]
+    OR: [AccountSubscriptionWhereInput!]
+    NOT: [AccountSubscriptionWhereInput!]
+  }
+
+  input AccountUpdateDataInput {
+    status: AccountStatus
+    firstName: String
+    lastName: String
+    emailAddress: String
+  }
+
+  input AccountUpdateInput {
+    status: AccountStatus
+    firstName: String
+    lastName: String
+    emailAddress: String
+  }
+
+  input AccountUpdateManyDataInput {
+    status: AccountStatus
+    firstName: String
+    lastName: String
+    emailAddress: String
+  }
+
+  input AccountUpdateManyInput {
+    create: [AccountCreateInput!]
+    update: [AccountUpdateWithWhereUniqueNestedInput!]
+    upsert: [AccountUpsertWithWhereUniqueNestedInput!]
+    delete: [AccountWhereUniqueInput!]
+    connect: [AccountWhereUniqueInput!]
+    set: [AccountWhereUniqueInput!]
+    disconnect: [AccountWhereUniqueInput!]
+    deleteMany: [AccountScalarWhereInput!]
+    updateMany: [AccountUpdateManyWithWhereNestedInput!]
+  }
+
+  input AccountUpdateManyMutationInput {
+    status: AccountStatus
+    firstName: String
+    lastName: String
+    emailAddress: String
+  }
+
+  input AccountUpdateManyWithWhereNestedInput {
+    where: AccountScalarWhereInput!
+    data: AccountUpdateManyDataInput!
+  }
+
+  input AccountUpdateWithWhereUniqueNestedInput {
+    where: AccountWhereUniqueInput!
+    data: AccountUpdateDataInput!
+  }
+
+  input AccountUpsertWithWhereUniqueNestedInput {
+    where: AccountWhereUniqueInput!
+    update: AccountUpdateDataInput!
+    create: AccountCreateInput!
+  }
+
+  input AccountWhereInput {
+    id: ID
+    id_not: ID
+    id_in: [ID!]
+    id_not_in: [ID!]
+    id_lt: ID
+    id_lte: ID
+    id_gt: ID
+    id_gte: ID
+    id_contains: ID
+    id_not_contains: ID
+    id_starts_with: ID
+    id_not_starts_with: ID
+    id_ends_with: ID
+    id_not_ends_with: ID
+    status: AccountStatus
+    status_not: AccountStatus
+    status_in: [AccountStatus!]
+    status_not_in: [AccountStatus!]
+    firstName: String
+    firstName_not: String
+    firstName_in: [String!]
+    firstName_not_in: [String!]
+    firstName_lt: String
+    firstName_lte: String
+    firstName_gt: String
+    firstName_gte: String
+    firstName_contains: String
+    firstName_not_contains: String
+    firstName_starts_with: String
+    firstName_not_starts_with: String
+    firstName_ends_with: String
+    firstName_not_ends_with: String
+    lastName: String
+    lastName_not: String
+    lastName_in: [String!]
+    lastName_not_in: [String!]
+    lastName_lt: String
+    lastName_lte: String
+    lastName_gt: String
+    lastName_gte: String
+    lastName_contains: String
+    lastName_not_contains: String
+    lastName_starts_with: String
+    lastName_not_starts_with: String
+    lastName_ends_with: String
+    lastName_not_ends_with: String
+    emailAddress: String
+    emailAddress_not: String
+    emailAddress_in: [String!]
+    emailAddress_not_in: [String!]
+    emailAddress_lt: String
+    emailAddress_lte: String
+    emailAddress_gt: String
+    emailAddress_gte: String
+    emailAddress_contains: String
+    emailAddress_not_contains: String
+    emailAddress_starts_with: String
+    emailAddress_not_starts_with: String
+    emailAddress_ends_with: String
+    emailAddress_not_ends_with: String
+    createdAt: DateTime
+    createdAt_not: DateTime
+    createdAt_in: [DateTime!]
+    createdAt_not_in: [DateTime!]
+    createdAt_lt: DateTime
+    createdAt_lte: DateTime
+    createdAt_gt: DateTime
+    createdAt_gte: DateTime
+    updatedAt: DateTime
+    updatedAt_not: DateTime
+    updatedAt_in: [DateTime!]
+    updatedAt_not_in: [DateTime!]
+    updatedAt_lt: DateTime
+    updatedAt_lte: DateTime
+    updatedAt_gt: DateTime
+    updatedAt_gte: DateTime
+    AND: [AccountWhereInput!]
+    OR: [AccountWhereInput!]
+    NOT: [AccountWhereInput!]
+  }
+
+  input AccountWhereUniqueInput {
+    id: ID
+  }
+
+  type AggregateAccount {
+    count: Int!
+  }
+
   type AggregatePost {
     count: Int!
   }
 
   type AggregatePostMetadata {
+    count: Int!
+  }
+
+  type AggregateSphere {
     count: Int!
   }
 
@@ -22,6 +338,22 @@ export const typeDefs = /* GraphQL */ `
   scalar Long
 
   type Mutation {
+    createAccount(data: AccountCreateInput!): Account!
+    updateAccount(
+      data: AccountUpdateInput!
+      where: AccountWhereUniqueInput!
+    ): Account
+    updateManyAccounts(
+      data: AccountUpdateManyMutationInput!
+      where: AccountWhereInput
+    ): BatchPayload!
+    upsertAccount(
+      where: AccountWhereUniqueInput!
+      create: AccountCreateInput!
+      update: AccountUpdateInput!
+    ): Account!
+    deleteAccount(where: AccountWhereUniqueInput!): Account
+    deleteManyAccounts(where: AccountWhereInput): BatchPayload!
     createPost(data: PostCreateInput!): Post!
     updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
     updateManyPosts(
@@ -36,11 +368,37 @@ export const typeDefs = /* GraphQL */ `
     deletePost(where: PostWhereUniqueInput!): Post
     deleteManyPosts(where: PostWhereInput): BatchPayload!
     createPostMetadata(data: PostMetadataCreateInput!): PostMetadata!
+    updatePostMetadata(
+      data: PostMetadataUpdateInput!
+      where: PostMetadataWhereUniqueInput!
+    ): PostMetadata
     updateManyPostMetadatas(
       data: PostMetadataUpdateManyMutationInput!
       where: PostMetadataWhereInput
     ): BatchPayload!
+    upsertPostMetadata(
+      where: PostMetadataWhereUniqueInput!
+      create: PostMetadataCreateInput!
+      update: PostMetadataUpdateInput!
+    ): PostMetadata!
+    deletePostMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
     deleteManyPostMetadatas(where: PostMetadataWhereInput): BatchPayload!
+    createSphere(data: SphereCreateInput!): Sphere!
+    updateSphere(
+      data: SphereUpdateInput!
+      where: SphereWhereUniqueInput!
+    ): Sphere
+    updateManySpheres(
+      data: SphereUpdateManyMutationInput!
+      where: SphereWhereInput
+    ): BatchPayload!
+    upsertSphere(
+      where: SphereWhereUniqueInput!
+      create: SphereCreateInput!
+      update: SphereUpdateInput!
+    ): Sphere!
+    deleteSphere(where: SphereWhereUniqueInput!): Sphere
+    deleteManySpheres(where: SphereWhereInput): BatchPayload!
   }
 
   enum MutationType {
@@ -72,6 +430,7 @@ export const typeDefs = /* GraphQL */ `
     updatedAt: DateTime!
     status: POST_STATUS!
     metadata: PostMetadata!
+    associatedWith: Sphere!
   }
 
   enum POST_STATUS {
@@ -96,6 +455,7 @@ export const typeDefs = /* GraphQL */ `
     publishedAt: DateTime
     status: POST_STATUS
     metadata: PostMetadataCreateOneInput!
+    associatedWith: SphereCreateOneInput!
   }
 
   type PostEdge {
@@ -104,6 +464,7 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type PostMetadata {
+    id: ID!
     fileHash: String!
     filename: String
   }
@@ -121,6 +482,7 @@ export const typeDefs = /* GraphQL */ `
 
   input PostMetadataCreateOneInput {
     create: PostMetadataCreateInput
+    connect: PostMetadataWhereUniqueInput
   }
 
   type PostMetadataEdge {
@@ -129,12 +491,12 @@ export const typeDefs = /* GraphQL */ `
   }
 
   enum PostMetadataOrderByInput {
+    id_ASC
+    id_DESC
     fileHash_ASC
     fileHash_DESC
     filename_ASC
     filename_DESC
-    id_ASC
-    id_DESC
     createdAt_ASC
     createdAt_DESC
     updatedAt_ASC
@@ -142,6 +504,7 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type PostMetadataPreviousValues {
+    id: ID!
     fileHash: String!
     filename: String
   }
@@ -169,6 +532,11 @@ export const typeDefs = /* GraphQL */ `
     filename: String
   }
 
+  input PostMetadataUpdateInput {
+    fileHash: String
+    filename: String
+  }
+
   input PostMetadataUpdateManyMutationInput {
     fileHash: String
     filename: String
@@ -178,6 +546,7 @@ export const typeDefs = /* GraphQL */ `
     create: PostMetadataCreateInput
     update: PostMetadataUpdateDataInput
     upsert: PostMetadataUpsertNestedInput
+    connect: PostMetadataWhereUniqueInput
   }
 
   input PostMetadataUpsertNestedInput {
@@ -186,6 +555,20 @@ export const typeDefs = /* GraphQL */ `
   }
 
   input PostMetadataWhereInput {
+    id: ID
+    id_not: ID
+    id_in: [ID!]
+    id_not_in: [ID!]
+    id_lt: ID
+    id_lte: ID
+    id_gt: ID
+    id_gte: ID
+    id_contains: ID
+    id_not_contains: ID
+    id_starts_with: ID
+    id_not_starts_with: ID
+    id_ends_with: ID
+    id_not_ends_with: ID
     fileHash: String
     fileHash_not: String
     fileHash_in: [String!]
@@ -217,6 +600,10 @@ export const typeDefs = /* GraphQL */ `
     AND: [PostMetadataWhereInput!]
     OR: [PostMetadataWhereInput!]
     NOT: [PostMetadataWhereInput!]
+  }
+
+  input PostMetadataWhereUniqueInput {
+    id: ID
   }
 
   enum PostOrderByInput {
@@ -282,6 +669,7 @@ export const typeDefs = /* GraphQL */ `
     publishedAt: DateTime
     status: POST_STATUS
     metadata: PostMetadataUpdateOneRequiredInput
+    associatedWith: SphereUpdateOneRequiredInput
   }
 
   input PostUpdateManyMutationInput {
@@ -376,6 +764,7 @@ export const typeDefs = /* GraphQL */ `
     status_in: [POST_STATUS!]
     status_not_in: [POST_STATUS!]
     metadata: PostMetadataWhereInput
+    associatedWith: SphereWhereInput
     AND: [PostWhereInput!]
     OR: [PostWhereInput!]
     NOT: [PostWhereInput!]
@@ -387,6 +776,25 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Query {
+    account(where: AccountWhereUniqueInput!): Account
+    accounts(
+      where: AccountWhereInput
+      orderBy: AccountOrderByInput
+      skip: Int
+      after: String
+      before: String
+      first: Int
+      last: Int
+    ): [Account]!
+    accountsConnection(
+      where: AccountWhereInput
+      orderBy: AccountOrderByInput
+      skip: Int
+      after: String
+      before: String
+      first: Int
+      last: Int
+    ): AccountConnection!
     post(where: PostWhereUniqueInput!): Post
     posts(
       where: PostWhereInput
@@ -406,6 +814,7 @@ export const typeDefs = /* GraphQL */ `
       first: Int
       last: Int
     ): PostConnection!
+    postMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
     postMetadatas(
       where: PostMetadataWhereInput
       orderBy: PostMetadataOrderByInput
@@ -424,13 +833,213 @@ export const typeDefs = /* GraphQL */ `
       first: Int
       last: Int
     ): PostMetadataConnection!
+    sphere(where: SphereWhereUniqueInput!): Sphere
+    spheres(
+      where: SphereWhereInput
+      orderBy: SphereOrderByInput
+      skip: Int
+      after: String
+      before: String
+      first: Int
+      last: Int
+    ): [Sphere]!
+    spheresConnection(
+      where: SphereWhereInput
+      orderBy: SphereOrderByInput
+      skip: Int
+      after: String
+      before: String
+      first: Int
+      last: Int
+    ): SphereConnection!
     node(id: ID!): Node
   }
 
+  type Sphere {
+    id: ID!
+    alias: String!
+    slugPrefix: String!
+    associatedWith(
+      where: AccountWhereInput
+      orderBy: AccountOrderByInput
+      skip: Int
+      after: String
+      before: String
+      first: Int
+      last: Int
+    ): [Account!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  type SphereConnection {
+    pageInfo: PageInfo!
+    edges: [SphereEdge]!
+    aggregate: AggregateSphere!
+  }
+
+  input SphereCreateInput {
+    alias: String!
+    slugPrefix: String
+    associatedWith: AccountCreateManyInput
+  }
+
+  input SphereCreateOneInput {
+    create: SphereCreateInput
+    connect: SphereWhereUniqueInput
+  }
+
+  type SphereEdge {
+    node: Sphere!
+    cursor: String!
+  }
+
+  enum SphereOrderByInput {
+    id_ASC
+    id_DESC
+    alias_ASC
+    alias_DESC
+    slugPrefix_ASC
+    slugPrefix_DESC
+    createdAt_ASC
+    createdAt_DESC
+    updatedAt_ASC
+    updatedAt_DESC
+  }
+
+  type SpherePreviousValues {
+    id: ID!
+    alias: String!
+    slugPrefix: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  type SphereSubscriptionPayload {
+    mutation: MutationType!
+    node: Sphere
+    updatedFields: [String!]
+    previousValues: SpherePreviousValues
+  }
+
+  input SphereSubscriptionWhereInput {
+    mutation_in: [MutationType!]
+    updatedFields_contains: String
+    updatedFields_contains_every: [String!]
+    updatedFields_contains_some: [String!]
+    node: SphereWhereInput
+    AND: [SphereSubscriptionWhereInput!]
+    OR: [SphereSubscriptionWhereInput!]
+    NOT: [SphereSubscriptionWhereInput!]
+  }
+
+  input SphereUpdateDataInput {
+    alias: String
+    slugPrefix: String
+    associatedWith: AccountUpdateManyInput
+  }
+
+  input SphereUpdateInput {
+    alias: String
+    slugPrefix: String
+    associatedWith: AccountUpdateManyInput
+  }
+
+  input SphereUpdateManyMutationInput {
+    alias: String
+    slugPrefix: String
+  }
+
+  input SphereUpdateOneRequiredInput {
+    create: SphereCreateInput
+    update: SphereUpdateDataInput
+    upsert: SphereUpsertNestedInput
+    connect: SphereWhereUniqueInput
+  }
+
+  input SphereUpsertNestedInput {
+    update: SphereUpdateDataInput!
+    create: SphereCreateInput!
+  }
+
+  input SphereWhereInput {
+    id: ID
+    id_not: ID
+    id_in: [ID!]
+    id_not_in: [ID!]
+    id_lt: ID
+    id_lte: ID
+    id_gt: ID
+    id_gte: ID
+    id_contains: ID
+    id_not_contains: ID
+    id_starts_with: ID
+    id_not_starts_with: ID
+    id_ends_with: ID
+    id_not_ends_with: ID
+    alias: String
+    alias_not: String
+    alias_in: [String!]
+    alias_not_in: [String!]
+    alias_lt: String
+    alias_lte: String
+    alias_gt: String
+    alias_gte: String
+    alias_contains: String
+    alias_not_contains: String
+    alias_starts_with: String
+    alias_not_starts_with: String
+    alias_ends_with: String
+    alias_not_ends_with: String
+    slugPrefix: String
+    slugPrefix_not: String
+    slugPrefix_in: [String!]
+    slugPrefix_not_in: [String!]
+    slugPrefix_lt: String
+    slugPrefix_lte: String
+    slugPrefix_gt: String
+    slugPrefix_gte: String
+    slugPrefix_contains: String
+    slugPrefix_not_contains: String
+    slugPrefix_starts_with: String
+    slugPrefix_not_starts_with: String
+    slugPrefix_ends_with: String
+    slugPrefix_not_ends_with: String
+    associatedWith_every: AccountWhereInput
+    associatedWith_some: AccountWhereInput
+    associatedWith_none: AccountWhereInput
+    createdAt: DateTime
+    createdAt_not: DateTime
+    createdAt_in: [DateTime!]
+    createdAt_not_in: [DateTime!]
+    createdAt_lt: DateTime
+    createdAt_lte: DateTime
+    createdAt_gt: DateTime
+    createdAt_gte: DateTime
+    updatedAt: DateTime
+    updatedAt_not: DateTime
+    updatedAt_in: [DateTime!]
+    updatedAt_not_in: [DateTime!]
+    updatedAt_lt: DateTime
+    updatedAt_lte: DateTime
+    updatedAt_gt: DateTime
+    updatedAt_gte: DateTime
+    AND: [SphereWhereInput!]
+    OR: [SphereWhereInput!]
+    NOT: [SphereWhereInput!]
+  }
+
+  input SphereWhereUniqueInput {
+    id: ID
+    alias: String
+  }
+
   type Subscription {
+    account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
     post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
     postMetadata(
       where: PostMetadataSubscriptionWhereInput
     ): PostMetadataSubscriptionPayload
+    sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload
   }
 `

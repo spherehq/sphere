@@ -5,24 +5,28 @@ Command line tool for managing your sphere
 ## Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.4.3 linux-x64 node-v11.14.0
+@spherehq/cli/0.4.3 darwin-x64 node-v10.2.1
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 ## Commands
 
 <!-- commands -->
-* [`sphere help [COMMAND]`](#sphere-help-command)
-* [`sphere sync [FILE]`](#sphere-sync-file)
+
+- [`sphere help [COMMAND]`](#sphere-help-command)
+- [`sphere init`](#sphere-init)
+- [`sphere sync [FILE]`](#sphere-sync-file)
 
 ## `sphere help [COMMAND]`
 
@@ -41,6 +45,22 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
+## `sphere init`
+
+Describe the command here
+
+```
+USAGE
+  $ sphere init
+
+OPTIONS
+  -n, --name=name  name to print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
 ## `sphere sync [FILE]`
 
 Synchronize your sphere's content with local copies
@@ -52,11 +72,12 @@ USAGE
 OPTIONS
   -f, --force
   -h, --help               show CLI help
-  -p, --basePath=basePath
+  -p, --basePath=basePath  specify path to sync local markdown files from
 
 EXAMPLE
   $ sphere sync example.md
 ```
+
 <!-- commandsstop -->
 
 ## Contributing

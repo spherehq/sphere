@@ -1,11 +1,949 @@
 # source: http://localhost:4466/sphere/dev
-# timestamp: Tue Apr 16 2019 10:59:46 GMT+0100 (BST)
+# timestamp: Wed Apr 24 2019 13:08:11 GMT+0100 (BST)
+
+type Account implements Node {
+  id: ID!
+  status: AccountStatus!
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A connection to a list of items.
+"""
+type AccountConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [AccountEdge]!
+  aggregate: AggregateAccount!
+}
+
+input AccountCreateInput {
+  id: ID
+  status: AccountStatus
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+}
+
+input AccountCreateManyInput {
+  create: [AccountCreateInput!]
+  connect: [AccountWhereUniqueInput!]
+}
+
+"""
+An edge in a connection.
+"""
+type AccountEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Account!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum AccountOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  firstName_ASC
+  firstName_DESC
+  lastName_ASC
+  lastName_DESC
+  emailAddress_ASC
+  emailAddress_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AccountPreviousValues {
+  id: ID!
+  status: AccountStatus!
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input AccountScalarWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [AccountScalarWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [AccountScalarWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [AccountScalarWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  status: AccountStatus
+
+  """
+  All values that are not equal to given value.
+  """
+  status_not: AccountStatus
+
+  """
+  All values that are contained in given list.
+  """
+  status_in: [AccountStatus!]
+
+  """
+  All values that are not contained in given list.
+  """
+  status_not_in: [AccountStatus!]
+  firstName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  firstName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  firstName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  firstName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  firstName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  firstName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  firstName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  firstName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  firstName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  firstName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  firstName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  firstName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  firstName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  firstName_not_ends_with: String
+  lastName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  lastName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  lastName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  lastName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  lastName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  lastName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  lastName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  lastName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  lastName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  lastName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  lastName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  lastName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  lastName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  lastName_not_ends_with: String
+  emailAddress: String
+
+  """
+  All values that are not equal to given value.
+  """
+  emailAddress_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  emailAddress_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  emailAddress_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  emailAddress_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  emailAddress_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  emailAddress_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  emailAddress_gte: String
+
+  """
+  All values containing the given string.
+  """
+  emailAddress_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  emailAddress_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  emailAddress_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  emailAddress_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  emailAddress_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  emailAddress_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+}
+
+enum AccountStatus {
+  VERIFIED
+  ACTIVE
+  INACTIVE
+}
+
+type AccountSubscriptionPayload {
+  mutation: MutationType!
+  node: Account
+  updatedFields: [String!]
+  previousValues: AccountPreviousValues
+}
+
+input AccountSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [AccountSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [AccountSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [AccountSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: AccountWhereInput
+}
+
+input AccountUpdateDataInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+}
+
+input AccountUpdateInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+}
+
+input AccountUpdateManyDataInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+}
+
+input AccountUpdateManyInput {
+  create: [AccountCreateInput!]
+  connect: [AccountWhereUniqueInput!]
+  set: [AccountWhereUniqueInput!]
+  disconnect: [AccountWhereUniqueInput!]
+  delete: [AccountWhereUniqueInput!]
+  update: [AccountUpdateWithWhereUniqueNestedInput!]
+  updateMany: [AccountUpdateManyWithWhereNestedInput!]
+  deleteMany: [AccountScalarWhereInput!]
+  upsert: [AccountUpsertWithWhereUniqueNestedInput!]
+}
+
+input AccountUpdateManyMutationInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+}
+
+input AccountUpdateManyWithWhereNestedInput {
+  where: AccountScalarWhereInput!
+  data: AccountUpdateManyDataInput!
+}
+
+input AccountUpdateWithWhereUniqueNestedInput {
+  where: AccountWhereUniqueInput!
+  data: AccountUpdateDataInput!
+}
+
+input AccountUpsertWithWhereUniqueNestedInput {
+  where: AccountWhereUniqueInput!
+  update: AccountUpdateDataInput!
+  create: AccountCreateInput!
+}
+
+input AccountWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [AccountWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [AccountWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [AccountWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  status: AccountStatus
+
+  """
+  All values that are not equal to given value.
+  """
+  status_not: AccountStatus
+
+  """
+  All values that are contained in given list.
+  """
+  status_in: [AccountStatus!]
+
+  """
+  All values that are not contained in given list.
+  """
+  status_not_in: [AccountStatus!]
+  firstName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  firstName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  firstName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  firstName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  firstName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  firstName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  firstName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  firstName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  firstName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  firstName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  firstName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  firstName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  firstName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  firstName_not_ends_with: String
+  lastName: String
+
+  """
+  All values that are not equal to given value.
+  """
+  lastName_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  lastName_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  lastName_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  lastName_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  lastName_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  lastName_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  lastName_gte: String
+
+  """
+  All values containing the given string.
+  """
+  lastName_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  lastName_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  lastName_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  lastName_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  lastName_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  lastName_not_ends_with: String
+  emailAddress: String
+
+  """
+  All values that are not equal to given value.
+  """
+  emailAddress_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  emailAddress_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  emailAddress_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  emailAddress_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  emailAddress_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  emailAddress_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  emailAddress_gte: String
+
+  """
+  All values containing the given string.
+  """
+  emailAddress_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  emailAddress_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  emailAddress_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  emailAddress_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  emailAddress_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  emailAddress_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+}
+
+input AccountWhereUniqueInput {
+  id: ID
+}
+
+type AggregateAccount {
+  count: Int!
+}
 
 type AggregatePost {
   count: Int!
 }
 
 type AggregatePostMetadata {
+  count: Int!
+}
+
+type AggregateSphere {
   count: Int!
 }
 
@@ -32,13 +970,42 @@ scalar Long
 type Mutation {
   createPost(data: PostCreateInput!): Post!
   createPostMetadata(data: PostMetadataCreateInput!): PostMetadata!
+  createSphere(data: SphereCreateInput!): Sphere!
+  createAccount(data: AccountCreateInput!): Account!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updatePostMetadata(
+    data: PostMetadataUpdateInput!
+    where: PostMetadataWhereUniqueInput!
+  ): PostMetadata
+  updateSphere(data: SphereUpdateInput!, where: SphereWhereUniqueInput!): Sphere
+  updateAccount(
+    data: AccountUpdateInput!
+    where: AccountWhereUniqueInput!
+  ): Account
   deletePost(where: PostWhereUniqueInput!): Post
+  deletePostMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
+  deleteSphere(where: SphereWhereUniqueInput!): Sphere
+  deleteAccount(where: AccountWhereUniqueInput!): Account
   upsertPost(
     where: PostWhereUniqueInput!
     create: PostCreateInput!
     update: PostUpdateInput!
   ): Post!
+  upsertPostMetadata(
+    where: PostMetadataWhereUniqueInput!
+    create: PostMetadataCreateInput!
+    update: PostMetadataUpdateInput!
+  ): PostMetadata!
+  upsertSphere(
+    where: SphereWhereUniqueInput!
+    create: SphereCreateInput!
+    update: SphereUpdateInput!
+  ): Sphere!
+  upsertAccount(
+    where: AccountWhereUniqueInput!
+    create: AccountCreateInput!
+    update: AccountUpdateInput!
+  ): Account!
   updateManyPosts(
     data: PostUpdateManyMutationInput!
     where: PostWhereInput
@@ -47,8 +1014,18 @@ type Mutation {
     data: PostMetadataUpdateManyMutationInput!
     where: PostMetadataWhereInput
   ): BatchPayload!
+  updateManySpheres(
+    data: SphereUpdateManyMutationInput!
+    where: SphereWhereInput
+  ): BatchPayload!
+  updateManyAccounts(
+    data: AccountUpdateManyMutationInput!
+    where: AccountWhereInput
+  ): BatchPayload!
   deleteManyPosts(where: PostWhereInput): BatchPayload!
   deleteManyPostMetadatas(where: PostMetadataWhereInput): BatchPayload!
+  deleteManySpheres(where: SphereWhereInput): BatchPayload!
+  deleteManyAccounts(where: AccountWhereInput): BatchPayload!
   executeRaw(database: PrismaDatabase, query: String!): Json!
 }
 
@@ -105,6 +1082,7 @@ type Post implements Node {
   updatedAt: DateTime!
   status: POST_STATUS!
   metadata: PostMetadata!
+  associatedWith: Sphere!
 }
 
 enum POST_STATUS {
@@ -140,6 +1118,7 @@ input PostCreateInput {
   publishedAt: DateTime
   status: POST_STATUS
   metadata: PostMetadataCreateOneInput!
+  associatedWith: SphereCreateOneInput!
 }
 
 """
@@ -157,7 +1136,8 @@ type PostEdge {
   cursor: String!
 }
 
-type PostMetadata {
+type PostMetadata implements Node {
+  id: ID!
   fileHash: String!
   filename: String
 }
@@ -179,12 +1159,14 @@ type PostMetadataConnection {
 }
 
 input PostMetadataCreateInput {
+  id: ID
   fileHash: String!
   filename: String
 }
 
 input PostMetadataCreateOneInput {
   create: PostMetadataCreateInput
+  connect: PostMetadataWhereUniqueInput
 }
 
 """
@@ -203,12 +1185,12 @@ type PostMetadataEdge {
 }
 
 enum PostMetadataOrderByInput {
+  id_ASC
+  id_DESC
   fileHash_ASC
   fileHash_DESC
   filename_ASC
   filename_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -216,6 +1198,7 @@ enum PostMetadataOrderByInput {
 }
 
 type PostMetadataPreviousValues {
+  id: ID!
   fileHash: String!
   filename: String
 }
@@ -270,6 +1253,11 @@ input PostMetadataUpdateDataInput {
   filename: String
 }
 
+input PostMetadataUpdateInput {
+  fileHash: String
+  filename: String
+}
+
 input PostMetadataUpdateManyMutationInput {
   fileHash: String
   filename: String
@@ -277,6 +1265,7 @@ input PostMetadataUpdateManyMutationInput {
 
 input PostMetadataUpdateOneRequiredInput {
   create: PostMetadataCreateInput
+  connect: PostMetadataWhereUniqueInput
   update: PostMetadataUpdateDataInput
   upsert: PostMetadataUpsertNestedInput
 }
@@ -301,6 +1290,72 @@ input PostMetadataWhereInput {
   Logical NOT on all given filters combined by AND.
   """
   NOT: [PostMetadataWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
   fileHash: String
 
   """
@@ -435,6 +1490,10 @@ input PostMetadataWhereInput {
   filename_not_ends_with: String
 }
 
+input PostMetadataWhereUniqueInput {
+  id: ID
+}
+
 enum PostOrderByInput {
   id_ASC
   id_DESC
@@ -525,6 +1584,7 @@ input PostUpdateInput {
   publishedAt: DateTime
   status: POST_STATUS
   metadata: PostMetadataUpdateOneRequiredInput
+  associatedWith: SphereUpdateOneRequiredInput
 }
 
 input PostUpdateManyMutationInput {
@@ -917,6 +1977,7 @@ input PostWhereInput {
   """
   status_not_in: [POST_STATUS!]
   metadata: PostMetadataWhereInput
+  associatedWith: SphereWhereInput
 }
 
 input PostWhereUniqueInput {
@@ -947,7 +2008,28 @@ type Query {
     first: Int
     last: Int
   ): [PostMetadata]!
+  spheres(
+    where: SphereWhereInput
+    orderBy: SphereOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Sphere]!
+  accounts(
+    where: AccountWhereInput
+    orderBy: AccountOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Account]!
   post(where: PostWhereUniqueInput!): Post
+  postMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
+  sphere(where: SphereWhereUniqueInput!): Sphere
+  account(where: AccountWhereUniqueInput!): Account
   postsConnection(
     where: PostWhereInput
     orderBy: PostOrderByInput
@@ -966,6 +2048,24 @@ type Query {
     first: Int
     last: Int
   ): PostMetadataConnection!
+  spheresConnection(
+    where: SphereWhereInput
+    orderBy: SphereOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): SphereConnection!
+  accountsConnection(
+    where: AccountWhereInput
+    orderBy: AccountOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): AccountConnection!
 
   """
   Fetches an object given its ID
@@ -978,9 +2078,461 @@ type Query {
   ): Node
 }
 
+type Sphere implements Node {
+  id: ID!
+  alias: String!
+  slugPrefix: String!
+  associatedWith(
+    where: AccountWhereInput
+    orderBy: AccountOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Account!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A connection to a list of items.
+"""
+type SphereConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [SphereEdge]!
+  aggregate: AggregateSphere!
+}
+
+input SphereCreateInput {
+  id: ID
+  alias: String!
+  slugPrefix: String
+  associatedWith: AccountCreateManyInput
+}
+
+input SphereCreateOneInput {
+  create: SphereCreateInput
+  connect: SphereWhereUniqueInput
+}
+
+"""
+An edge in a connection.
+"""
+type SphereEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Sphere!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum SphereOrderByInput {
+  id_ASC
+  id_DESC
+  alias_ASC
+  alias_DESC
+  slugPrefix_ASC
+  slugPrefix_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SpherePreviousValues {
+  id: ID!
+  alias: String!
+  slugPrefix: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SphereSubscriptionPayload {
+  mutation: MutationType!
+  node: Sphere
+  updatedFields: [String!]
+  previousValues: SpherePreviousValues
+}
+
+input SphereSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [SphereSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [SphereSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [SphereSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: SphereWhereInput
+}
+
+input SphereUpdateDataInput {
+  alias: String
+  slugPrefix: String
+  associatedWith: AccountUpdateManyInput
+}
+
+input SphereUpdateInput {
+  alias: String
+  slugPrefix: String
+  associatedWith: AccountUpdateManyInput
+}
+
+input SphereUpdateManyMutationInput {
+  alias: String
+  slugPrefix: String
+}
+
+input SphereUpdateOneRequiredInput {
+  create: SphereCreateInput
+  connect: SphereWhereUniqueInput
+  update: SphereUpdateDataInput
+  upsert: SphereUpsertNestedInput
+}
+
+input SphereUpsertNestedInput {
+  update: SphereUpdateDataInput!
+  create: SphereCreateInput!
+}
+
+input SphereWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [SphereWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [SphereWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [SphereWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  alias: String
+
+  """
+  All values that are not equal to given value.
+  """
+  alias_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  alias_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  alias_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  alias_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  alias_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  alias_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  alias_gte: String
+
+  """
+  All values containing the given string.
+  """
+  alias_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  alias_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  alias_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  alias_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  alias_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  alias_not_ends_with: String
+  slugPrefix: String
+
+  """
+  All values that are not equal to given value.
+  """
+  slugPrefix_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  slugPrefix_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  slugPrefix_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  slugPrefix_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  slugPrefix_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  slugPrefix_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  slugPrefix_gte: String
+
+  """
+  All values containing the given string.
+  """
+  slugPrefix_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  slugPrefix_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  slugPrefix_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  slugPrefix_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  slugPrefix_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  slugPrefix_not_ends_with: String
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+  associatedWith_every: AccountWhereInput
+  associatedWith_some: AccountWhereInput
+  associatedWith_none: AccountWhereInput
+}
+
+input SphereWhereUniqueInput {
+  id: ID
+  alias: String
+}
+
 type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   postMetadata(
     where: PostMetadataSubscriptionWhereInput
   ): PostMetadataSubscriptionPayload
+  sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload
+  account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
 }
