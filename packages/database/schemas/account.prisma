@@ -9,7 +9,7 @@ type Account {
   status: AccountStatus! @default(value: INACTIVE)
   firstName: String!
   lastName: String!
-  emailAddress: String!
+  emailAddress: String! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
 }

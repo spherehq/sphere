@@ -1,7 +1,7 @@
 type Sphere {
   id: ID! @unique
   alias: String! @unique
-  slugPrefix: String! @default(value: "~")
+  slugPrefix: String! @default(value: "@")
   associatedWith: [Account!]!
   createdAt: DateTime!
   updatedAt: DateTime!

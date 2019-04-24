@@ -272,6 +272,8 @@ export type PostMetadataOrderByInput =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
 
+export type AccountStatus = 'VERIFIED' | 'ACTIVE' | 'INACTIVE'
+
 export type SphereOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
@@ -284,8 +286,6 @@ export type SphereOrderByInput =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
 
-export type AccountStatus = 'VERIFIED' | 'ACTIVE' | 'INACTIVE'
-
 export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED'
 
 export interface AccountUpdateManyMutationInput {
@@ -297,6 +297,7 @@ export interface AccountUpdateManyMutationInput {
 
 export type AccountWhereUniqueInput = AtLeastOne<{
   id: ID_Input
+  emailAddress?: String
 }>
 
 export interface AccountScalarWhereInput {
@@ -1107,6 +1108,44 @@ export interface PostPreviousValuesSubscription
   status: () => Promise<AsyncIterator<POST_STATUS>>
 }
 
+export interface PostMetadataPreviousValues {
+  id: ID_Output
+  fileHash: String
+  filename?: String
+}
+
+export interface PostMetadataPreviousValuesPromise
+  extends Promise<PostMetadataPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>
+  fileHash: () => Promise<String>
+  filename: () => Promise<String>
+}
+
+export interface PostMetadataPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>
+  fileHash: () => Promise<AsyncIterator<String>>
+  filename: () => Promise<AsyncIterator<String>>
+}
+
+export interface AggregateSphere {
+  count: Int
+}
+
+export interface AggregateSpherePromise
+  extends Promise<AggregateSphere>,
+    Fragmentable {
+  count: () => Promise<Int>
+}
+
+export interface AggregateSphereSubscription
+  extends Promise<AsyncIterator<AggregateSphere>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>
+}
+
 export interface PostMetadataSubscriptionPayload {
   mutation: MutationType
   node: PostMetadata
@@ -1132,62 +1171,36 @@ export interface PostMetadataSubscriptionPayloadSubscription
   previousValues: <T = PostMetadataPreviousValuesSubscription>() => T
 }
 
-export interface AggregateSphere {
-  count: Int
+export interface Account {
+  id: ID_Output
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+  createdAt: DateTimeOutput
+  updatedAt: DateTimeOutput
 }
 
-export interface AggregateSpherePromise
-  extends Promise<AggregateSphere>,
+export interface AccountPromise extends Promise<Account>, Fragmentable {
+  id: () => Promise<ID_Output>
+  status: () => Promise<AccountStatus>
+  firstName: () => Promise<String>
+  lastName: () => Promise<String>
+  emailAddress: () => Promise<String>
+  createdAt: () => Promise<DateTimeOutput>
+  updatedAt: () => Promise<DateTimeOutput>
+}
+
+export interface AccountSubscription
+  extends Promise<AsyncIterator<Account>>,
     Fragmentable {
-  count: () => Promise<Int>
-}
-
-export interface AggregateSphereSubscription
-  extends Promise<AsyncIterator<AggregateSphere>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>
-}
-
-export interface AccountEdge {
-  node: Account
-  cursor: String
-}
-
-export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
-  node: <T = AccountPromise>() => T
-  cursor: () => Promise<String>
-}
-
-export interface AccountEdgeSubscription
-  extends Promise<AsyncIterator<AccountEdge>>,
-    Fragmentable {
-  node: <T = AccountSubscription>() => T
-  cursor: () => Promise<AsyncIterator<String>>
-}
-
-export interface SphereSubscriptionPayload {
-  mutation: MutationType
-  node: Sphere
-  updatedFields: String[]
-  previousValues: SpherePreviousValues
-}
-
-export interface SphereSubscriptionPayloadPromise
-  extends Promise<SphereSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>
-  node: <T = SpherePromise>() => T
-  updatedFields: () => Promise<String[]>
-  previousValues: <T = SpherePreviousValuesPromise>() => T
-}
-
-export interface SphereSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>
-  node: <T = SphereSubscription>() => T
-  updatedFields: () => Promise<AsyncIterator<String[]>>
-  previousValues: <T = SpherePreviousValuesSubscription>() => T
+  id: () => Promise<AsyncIterator<ID_Output>>
+  status: () => Promise<AsyncIterator<AccountStatus>>
+  firstName: () => Promise<AsyncIterator<String>>
+  lastName: () => Promise<AsyncIterator<String>>
+  emailAddress: () => Promise<AsyncIterator<String>>
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
 }
 
 export interface SphereEdge {
@@ -1271,58 +1284,46 @@ export interface PostSubscription
   associatedWith: <T = SphereSubscription>() => T
 }
 
-export interface PostMetadataPreviousValues {
-  id: ID_Output
-  fileHash: String
-  filename?: String
+export interface SphereSubscriptionPayload {
+  mutation: MutationType
+  node: Sphere
+  updatedFields: String[]
+  previousValues: SpherePreviousValues
 }
 
-export interface PostMetadataPreviousValuesPromise
-  extends Promise<PostMetadataPreviousValues>,
+export interface SphereSubscriptionPayloadPromise
+  extends Promise<SphereSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>
-  fileHash: () => Promise<String>
-  filename: () => Promise<String>
+  mutation: () => Promise<MutationType>
+  node: <T = SpherePromise>() => T
+  updatedFields: () => Promise<String[]>
+  previousValues: <T = SpherePreviousValuesPromise>() => T
 }
 
-export interface PostMetadataPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+export interface SphereSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>
-  fileHash: () => Promise<AsyncIterator<String>>
-  filename: () => Promise<AsyncIterator<String>>
+  mutation: () => Promise<AsyncIterator<MutationType>>
+  node: <T = SphereSubscription>() => T
+  updatedFields: () => Promise<AsyncIterator<String[]>>
+  previousValues: <T = SpherePreviousValuesSubscription>() => T
 }
 
-export interface Account {
-  id: ID_Output
-  status: AccountStatus
-  firstName: String
-  lastName: String
-  emailAddress: String
-  createdAt: DateTimeOutput
-  updatedAt: DateTimeOutput
+export interface AccountEdge {
+  node: Account
+  cursor: String
 }
 
-export interface AccountPromise extends Promise<Account>, Fragmentable {
-  id: () => Promise<ID_Output>
-  status: () => Promise<AccountStatus>
-  firstName: () => Promise<String>
-  lastName: () => Promise<String>
-  emailAddress: () => Promise<String>
-  createdAt: () => Promise<DateTimeOutput>
-  updatedAt: () => Promise<DateTimeOutput>
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T
+  cursor: () => Promise<String>
 }
 
-export interface AccountSubscription
-  extends Promise<AsyncIterator<Account>>,
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>
-  status: () => Promise<AsyncIterator<AccountStatus>>
-  firstName: () => Promise<AsyncIterator<String>>
-  lastName: () => Promise<AsyncIterator<String>>
-  emailAddress: () => Promise<AsyncIterator<String>>
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>
+  node: <T = AccountSubscription>() => T
+  cursor: () => Promise<AsyncIterator<String>>
 }
 
 export interface PostEdge {
@@ -1545,16 +1546,6 @@ The `Int` scalar type represents non-fractional signed whole numeric values. Int
 export type Int = number
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
-*/
-export type String = string
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean
-
-/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string
@@ -1564,6 +1555,11 @@ DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string
 
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean
+
 export type Long = string
 
 /*
@@ -1571,6 +1567,11 @@ The `ID` scalar type represents a unique identifier, often used to refetch an ob
 */
 export type ID_Input = string | number
 export type ID_Output = string
+
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string
 
 /**
  * Model Metadata
