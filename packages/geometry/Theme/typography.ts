@@ -57,7 +57,7 @@ const createMap = (map): TypographyMapInterface => ({
 })
 
 export const typography: TypographyInterface = {
-  display3: createVariant(FONT_FAMILY_NAME, 24, FONT_WEIGHT_BOLD, 36),
+  display3: createVariant(FONT_FAMILY_NAME, 48, FONT_WEIGHT_BOLD, 52),
   display2: createVariant(FONT_FAMILY_NAME, 20, FONT_WEIGHT_BOLD, 32),
   display1: createVariant(FONT_FAMILY_NAME, 18, FONT_WEIGHT_BOLD, 24),
   body2: createVariant(FONT_FAMILY_NAME, 18, FONT_WEIGHT_REGULAR, 24),

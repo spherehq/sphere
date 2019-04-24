@@ -1,0 +1,15 @@
+enum AccountStatus {
+  VERIFIED # SUPER AWESOME STATUS
+  ACTIVE
+  INACTIVE
+}
+
+type Account {
+  id: ID! @unique
+  status: AccountStatus! @default(value: INACTIVE)
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}

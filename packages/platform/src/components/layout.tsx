@@ -17,12 +17,9 @@ import { Header } from './Header'
 const HeaderWithTheme = withTheme(Header)
 
 const StyledContainer = styled(Container)`
-  padding: 90px 32px 64px 32px;
+  margin-top: 20px;
+  padding: 64px 32px;
   min-height: 50vh;
-
-  ${props => props.theme.breakpoints.down('md')} {
-    padding-top: 64px;
-  }
 `
 
 export default ({ children }) => (
@@ -52,7 +49,9 @@ export default ({ children }) => (
           </Helmet>
           <GlobalStyle />
           <HeaderWithTheme />
-          <StyledContainer limitWidth>{children}</StyledContainer>
+          <main>
+            <StyledContainer limitWidth>{children}</StyledContainer>
+          </main>
           <Footer />
         </React.Fragment>
       </ThemeProvider>
