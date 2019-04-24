@@ -12,7 +12,7 @@ import * as stringify from 'remark-stringify'
 import * as english from 'retext-english'
 import * as visit from 'unist-util-visit'
 import * as path from 'path'
-import * as fs from 'fs'
+import * as fs from 'fs-extra'
 
 const remark = require('remark')
 const selectAll = require('unist-util-select').selectAll
@@ -129,6 +129,9 @@ export default class Sync extends Command {
 
       cli.action.start('Synchronizing content')
       try {
+        const config: { alias: string } = fs.readJSONSync(
+          path.join(this.config.configDir, `config.json`),
+        )
         posts.forEach(async post => {
           await prisma.upsertPost({
             where: { slug: post.slug },
@@ -145,7 +148,7 @@ export default class Sync extends Command {
               },
               associatedWith: {
                 connect: {
-                  alias: 'jjaybrown',
+                  alias: config.alias,
                 },
               },
             },
@@ -162,7 +165,7 @@ export default class Sync extends Command {
               },
               associatedWith: {
                 connect: {
-                  alias: 'jjaybrown',
+                  alias: config.alias,
                 },
               },
             },

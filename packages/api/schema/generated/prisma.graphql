@@ -1,5 +1,5 @@
 # source: http://localhost:4466/sphere/dev
-# timestamp: Wed Apr 24 2019 13:08:11 GMT+0100 (BST)
+# timestamp: Wed Apr 24 2019 16:53:47 GMT+0100 (BST)
 
 type Account implements Node {
   id: ID!
@@ -929,6 +929,7 @@ input AccountWhereInput {
 
 input AccountWhereUniqueInput {
   id: ID
+  emailAddress: String
 }
 
 type AggregateAccount {
