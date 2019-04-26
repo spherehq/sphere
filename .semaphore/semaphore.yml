@@ -8,7 +8,7 @@ blocks:
   - name: "Build"
     task:
       secrets:
-        - name: npm
+        - name: sphere
       jobs:
         - name: Config NPM
           commands:
