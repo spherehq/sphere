@@ -47,7 +47,9 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1",
     "@oclif/tslint": "^3",
+    "@types/fs-extra": "^5.0.5",
     "@types/inquirer": "^6.0.0",
+    "@types/md5-file": "^4.0.0",
     "@types/node": "^10",
     "globby": "^8",
     "ts-node": "^8"
