@@ -147,7 +147,7 @@ export default class Sync extends Command {
             saveConfig(this.config.configDir, { alias })
 
             this.log(
-              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias}`,
+              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
             )
           }
         } catch (error) {
@@ -183,7 +183,7 @@ export default class Sync extends Command {
           saveConfig(this.config.configDir, { alias })
 
           this.log(
-            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias}`,
+            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
           )
         } catch (error) {
           this.error(error)
