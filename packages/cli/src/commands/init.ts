@@ -18,7 +18,7 @@ const captureData = async (): Promise<{
   const { alias, firstName, lastName, emailAddress } = await inquirer.prompt([
     {
       name: 'alias',
-      message: `What would you like your sphere alias to be? We'll use this to create a unique space for you and your content.`,
+      message: `What would you like your sphere alias to be? We'll use this to create a unique space for you and your content...`,
       type: 'input',
       validate: async input => {
         return (await prisma.$exists.sphere({ alias: slugify(input) }))
@@ -147,7 +147,7 @@ export default class Sync extends Command {
             saveConfig(this.config.configDir, { alias })
 
             this.log(
-              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias}`,
+              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
             )
           }
         } catch (error) {
@@ -183,7 +183,7 @@ export default class Sync extends Command {
           saveConfig(this.config.configDir, { alias })
 
           this.log(
-            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias}`,
+            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
           )
         } catch (error) {
           this.error(error)
