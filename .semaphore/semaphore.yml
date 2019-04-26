@@ -14,6 +14,7 @@ blocks:
           commands:
             - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
             - cache store npmrc-${NPM_TOKEN} .npmrc
+            - yarn config set scripts-prepend-node-path true
         - name: Install dependencies
           commands: 
             - yarn
@@ -32,6 +33,7 @@ blocks:
           commands:
             - git config --global user.email "jason.brown.delta@gmaitl.com"
             - git config --global user.name "jjaybrown" 
+            - yarn config set scripts-prepend-node-path true
             - yarn run publish --scripts-prepend-node-path
       prologue:
           commands:
