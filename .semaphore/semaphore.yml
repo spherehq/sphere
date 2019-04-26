@@ -13,7 +13,7 @@ blocks:
         - name: Config NPM
           commands:
             - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-            - cache store npmrc-${NPM_TOKEN}
+            - cache store npmrc-${NPM_TOKEN} .npmrc
         - name: Install dependencies
           commands: 
             - yarn
