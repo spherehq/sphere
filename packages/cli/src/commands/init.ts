@@ -18,7 +18,7 @@ const captureData = async (): Promise<{
   const { alias, firstName, lastName, emailAddress } = await inquirer.prompt([
     {
       name: 'alias',
-      message: `What would you like your sphere alias to be? We'll use this to create a unique space for you and your content.`,
+      message: `What would you like your sphere alias to be? We'll use this to create a unique space for you and your content...`,
       type: 'input',
       validate: async input => {
         return (await prisma.$exists.sphere({ alias: slugify(input) }))
