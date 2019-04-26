@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/geometry",
   "description": "Sphere's Component Library",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "index.ts",
@@ -12,6 +12,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {}
+  }
 }
