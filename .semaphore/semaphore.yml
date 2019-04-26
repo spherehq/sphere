@@ -28,11 +28,9 @@ blocks:
       jobs:
         - name: Release updated packages
           commands:
-            - yarn run publish
-        - name: Config git
-          commands: 
             - git config --global user.email "jason.brown.delta@gmail.com"
             - git config --global user.name "jjaybrown" 
+            - yarn run publish --scripts-prepend-node-path
       prologue:
           commands:
             - checkout
