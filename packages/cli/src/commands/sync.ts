@@ -177,7 +177,7 @@ export default class Sync extends Command {
 
       cli.action.stop()
 
-      cli.table(posts, {
+      cli.table<{ title: string }>(posts, {
         name: { header: 'Title', get: row => row.title },
       })
     })
