@@ -78,12 +78,16 @@ workflows:
     jobs:
       - build-release-image:
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /.*/
       - release-to-aws:
           filters:
-              tags:
-                only: /.*/
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
           requires: 
             - build-release-image
 
