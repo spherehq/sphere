@@ -74,5 +74,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/spherehq/sphere.git"
+  "repository": "https://github.com/spherehq/sphere.git",
+  "gitHead": "23a94ebf782016784a8fc59a627b8a8e4fc9e3bb"
 }
