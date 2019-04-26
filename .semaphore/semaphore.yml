@@ -25,6 +25,7 @@ blocks:
     task:
       secrets:
         - name: sphere
+        - name: private-repo
       jobs:
         - name: Release updated packages
           commands:
@@ -33,5 +34,7 @@ blocks:
             - yarn run publish --scripts-prepend-node-path
       prologue:
           commands:
+            - chmod 0600 ~/.keys/*
+            - ssh-add ~/.keys/*
             - checkout
             - cache restore node-modules-$(checksum package.json)
