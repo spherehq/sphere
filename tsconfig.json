@@ -7,7 +7,7 @@
     "jsx": "react",
     "sourceMap": true,
     "removeComments": true,
-    "strict": true,
+    "strict": false,
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
