@@ -22,6 +22,7 @@ blocks:
       prologue:
           commands:
             - checkout
+            - nvm use
             - cache restore node-modules-$(checksum package.json)
   - name: "Release"
     task:
@@ -40,5 +41,6 @@ blocks:
             - chmod 0600 ~/.keys/*
             - ssh-add ~/.keys/*
             - checkout
+            - nvm use
             - cache restore npmrc-${NPM_TOKEN}
             - cache restore node-modules-$(checksum package.json)
