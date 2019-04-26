@@ -5,26 +5,7 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: "Setup"
-    task:
-      secrets:
-        - name: sphere
-      jobs:
-        - name: Config NPM
-          commands:
-            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-            - cache store npmrc-${NPM_TOKEN} .npmrc
-            - yarn config set scripts-prepend-node-path true
-        - name: Install dependencies
-          commands: 
-            - yarn
-            - cache store node-modules-$(checksum package.json) node_modules
-      prologue:
-          commands:
-            - checkout
-            - nvm use
-            - cache restore node-modules-$(checksum package.json)
-  - name: "Release"
+  - name: "Release packages"
     task:
       secrets:
         - name: sphere
@@ -32,9 +13,6 @@ blocks:
       jobs:
         - name: Release updated packages
           commands:
-            - git config --global user.email "jason.brown.delta@gmaitl.com"
-            - git config --global user.name "jjaybrown" 
-            - yarn config set scripts-prepend-node-path true
             - yarn run publish --scripts-prepend-node-path
       prologue:
           commands:
@@ -42,5 +20,8 @@ blocks:
             - ssh-add ~/.keys/*
             - checkout
             - nvm use
-            - cache restore npmrc-${NPM_TOKEN}
-            - cache restore node-modules-$(checksum package.json)
+            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+            - yarn config set scripts-prepend-node-path true
+            - yarn
+            - git config --global user.email "jason.brown.delta@gmaitl.com"
+            - git config --global user.name "jjaybrown" 
