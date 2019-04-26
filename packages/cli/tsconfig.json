@@ -1,12 +1,25 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
     "importHelpers": true,
     "module": "commonjs",
     "outDir": "lib",
     "rootDir": "src",
-    "target": "es2017"
+    "target": "es2017",
+    "pretty": true,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "removeComments": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "lib": ["dom", "es7"]
   },
   "include": ["src/**/*"]
 }

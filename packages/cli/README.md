@@ -5,25 +5,28 @@ Command line tool for managing your sphere
 ## Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.6.3 linux-x64 node-v8.11.3
+@spherehq/cli/0.6.3 darwin-x64 node-v10.15.3
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 ## Commands
 
 <!-- commands -->
-* [`sphere help [COMMAND]`](#sphere-help-command)
-* [`sphere init`](#sphere-init)
-* [`sphere sync [FILE]`](#sphere-sync-file)
+
+- [`sphere help [COMMAND]`](#sphere-help-command)
+- [`sphere init`](#sphere-init)
+- [`sphere sync [FILE]`](#sphere-sync-file)
 
 ## `sphere help [COMMAND]`
 
@@ -58,6 +61,8 @@ EXAMPLE
   $ sphere init
 ```
 
+_See code: [lib/commands/init.js](https://github.com/spherehq/sphere/blob/v0.6.3/lib/commands/init.js)_
+
 ## `sphere sync [FILE]`
 
 Synchronize your sphere's content with local copies
@@ -74,6 +79,9 @@ OPTIONS
 EXAMPLE
   $ sphere sync example.md
 ```
+
+_See code: [lib/commands/sync.js](https://github.com/spherehq/sphere/blob/v0.6.3/lib/commands/sync.js)_
+
 <!-- commandsstop -->
 
 ## Contributing
