@@ -18,12 +18,12 @@ blocks:
         - name: Install dependencies
           commands: 
             - yarn
-            - cache store node-modules-$(checksum package.json) node_modules
+            - cache store node-modules-$(checksum yarn.lock) node_modules
       prologue:
           commands:
             - checkout
             - nvm use
-            - cache restore node-modules-$(checksum package.json)
+            - cache restore node-modules-$(checksum yarn.lock)
   - name: "Release"
     task:
       secrets:
@@ -43,4 +43,4 @@ blocks:
             - checkout
             - nvm use
             - cache restore npmrc-${NPM_TOKEN}
-            - cache restore node-modules-$(checksum package.json)
+            - cache restore node-modules-$(checksum yarn.lock)
