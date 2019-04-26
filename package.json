@@ -46,7 +46,7 @@
     "tslint-config-airbnb": "5.11.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-react-a11y": "1.0.0",
-    "typescript": "3.4.3"
+    "typescript": "3.4.5"
   },
   "workspaces": {
     "packages": [
