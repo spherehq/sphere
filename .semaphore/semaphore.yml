@@ -17,11 +17,6 @@ blocks:
           commands: 
             - yarn
             - cache store node-modules-$(checksum package.json) node_modules
-        - name: Config git
-          commands: 
-            - git config --global user.email "jason.brown.delta@gmail.com"
-            - git config --global user.name "jjaybrown" 
-            - git reset --hard HEAD
       prologue:
           commands:
             - checkout
@@ -34,6 +29,10 @@ blocks:
         - name: Release updated packages
           commands:
             - yarn run publish
+        - name: Config git
+          commands: 
+            - git config --global user.email "jason.brown.delta@gmail.com"
+            - git config --global user.name "jjaybrown" 
       prologue:
           commands:
             - checkout
