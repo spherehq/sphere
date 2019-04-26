@@ -1,19 +1,18 @@
 version: v1.0
-name: First pipeline example
+name: build and release packages
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-  containers:
-    - name: main
-      image: node
 blocks:
   - name: "Build"
     task:
+      secrets:
+        - name: npm
       jobs:
         - name: Config NPM
           commands:
-            - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
         - name: Install dependencies
           commands: 
             - yarn
