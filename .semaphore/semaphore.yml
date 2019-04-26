@@ -16,7 +16,7 @@ blocks:
         - name: Install dependencies
           commands: 
             - yarn
-            - cache store node-modules-$(checksum package.json) node-modules
+            - cache store node-modules-$(checksum package.json) node_modules
         - name: Config git
           commands: 
             - git config --global user.email "jason.brown.delta@gmail.com"
