@@ -2216,7 +2216,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/fs-extra@^5.0.2":
+"@types/fs-extra@^5.0.2", "@types/fs-extra@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.5.tgz#080d90a792f3fa2c5559eb44bd8ef840aae9104b"
   integrity sha512-w7iqhDH9mN8eLClQOYTkhdYUOSpp25eXxfc6VbFOGtzxW34JcvctH2bKjj4jD4++z4R5iO5D+pg48W2e03I65A==
@@ -2283,6 +2283,11 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
   integrity sha512-1w52Nyx4Gq47uuu0EVcsHBxZFJgurQ+rTKS3qMHxR1GY2T8c2AJYd6vZoZ9q1rupaDjU0yT+Jc2XTyXkjeMA+Q==
 
+"@types/md5-file@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/md5-file/-/md5-file-4.0.0.tgz#01c986144648a757ac6e7ada665fa665c253289d"
+  integrity sha512-t+qg7R25oYo6z3iWI+9CRky2mgQ51RGvLqlCPV+xa6dKp0YDomv0TArLK/CdcReFZwQHn/YMNRZx+4AUWXPtlg==
+
 "@types/methods@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@types/methods/-/methods-1.1.0.tgz#fa0c8c81992257903f724651ec2500ec427dc32d"
@@ -2342,6 +2347,11 @@
   version "1.16.2"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.16.2.tgz#c924147c5baa5eebc455e6cef5e3c29ac0654b6b"
   integrity sha512-ASI5zoMgx4D2WxwtAfjoUGk2AHg7wthX5MHMxUuq9KpXh4n7yR17T4O7lN0kGFm48C1XBK8J2kJjrmCQsvr19A==
+
+"@types/prismjs@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@types/prismjs/-/prismjs-1.16.0.tgz#4328c9f65698e59f4feade8f4e5d928c748fd643"
+  integrity sha512-mEyuziLrfDCQ4juQP1k706BUU/c8OGn/ZFl69AXXY6dStHClKX4P+N8+rhqpul1vRDA2VOygzMRSJJZHyDEOfw==
 
 "@types/prop-types@*":
   version "15.7.0"
