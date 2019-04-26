@@ -11,12 +11,12 @@ blocks:
   - name: "Build"
     task:
       jobs:
-      - name: Config NPM
-        commands:
-          - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-      - name: Install dependencies
-        commands: 
-          - yarn
-    prologue:
-        commands:
-          - checkout
+        - name: Config NPM
+          commands:
+            - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+        - name: Install dependencies
+          commands: 
+            - yarn
+      prologue:
+          commands:
+            - checkout
