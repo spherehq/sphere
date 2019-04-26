@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.0...@spherehq/api@0.4.1) (2019-04-24)
+
+
+### Bug Fixes
+
+* updated prisma endpoint ([6e95de0](https://github.com/spherehq/sphere/commit/6e95de0))
+
+
+
+
+
 # [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.3.4...@spherehq/api@0.4.0) (2019-04-24)
 
 
