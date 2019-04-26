@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.5.1...@spherehq/cli@0.6.0) (2019-04-26)
+
+
+### Features
+
+* added existance checks for sphere from config ([7e17d17](https://github.com/spherehq/sphere/commit/7e17d17))
+
+
+
+
+
 ## [0.5.1](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.5.0...@spherehq/cli@0.5.1) (2019-04-24)
 
 **Note:** Version bump only for package @spherehq/cli
