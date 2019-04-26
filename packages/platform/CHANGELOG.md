@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.5.0...@spherehq/platform@0.6.0) (2019-04-26)
+
+
+### Features
+
+* updated seo description for platform ([5344d30](https://github.com/spherehq/sphere/commit/5344d30))
+
+
+
+
+
 # [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.4.7...@spherehq/platform@0.5.0) (2019-04-26)
 
 
