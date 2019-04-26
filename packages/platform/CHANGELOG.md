@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.6](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.4.5...@spherehq/platform@0.4.6) (2019-04-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency styled-icons to v7.10.0 ([572f0b8](https://github.com/spherehq/sphere/commit/572f0b8))
+* **deps:** update dependency styled-icons to v7.10.0 ([#27](https://github.com/spherehq/sphere/issues/27)) ([c1219eb](https://github.com/spherehq/sphere/commit/c1219eb))
+* **deps:** update gatsby monorepo ([ae71eb4](https://github.com/spherehq/sphere/commit/ae71eb4))
+* **deps:** update gatsby monorepo ([#28](https://github.com/spherehq/sphere/issues/28)) ([52b3de3](https://github.com/spherehq/sphere/commit/52b3de3))
+
+
+
+
+
 ## [0.4.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.4.4...@spherehq/platform@0.4.5) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/platform
