@@ -15,7 +15,6 @@ blocks:
             - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
         - name: Install dependencies
           commands: 
-            - cache restore node-modules-$(checksum package.json)
             - yarn
             - cache store node-modules-$(checksum package.json) node-modules
         - name: Config git
@@ -35,3 +34,7 @@ blocks:
         - name: Release updated packages
           commands:
             - yarn run publish
+      prologue:
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package.json)
