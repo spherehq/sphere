@@ -13,6 +13,7 @@ blocks:
         - name: Config NPM
           commands:
             - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+            - cache store npmrc-${NPM_TOKEN}
         - name: Install dependencies
           commands: 
             - yarn
@@ -29,7 +30,7 @@ blocks:
       jobs:
         - name: Release updated packages
           commands:
-            - git config --global user.email "jason.brown.delta@gmail.com"
+            - git config --global user.email "jason.brown.delta@gmaitl.com"
             - git config --global user.name "jjaybrown" 
             - yarn run publish --scripts-prepend-node-path
       prologue:
@@ -37,4 +38,5 @@ blocks:
             - chmod 0600 ~/.keys/*
             - ssh-add ~/.keys/*
             - checkout
+            - cache restore npmrc-${NPM_TOKEN}
             - cache restore node-modules-$(checksum package.json)
