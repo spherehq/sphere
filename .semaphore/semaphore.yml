@@ -1,0 +1,40 @@
+version: v1.0
+name: release packages
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Setup"
+    task:
+      secrets:
+        - name: sphere
+      jobs:
+        - name: Config NPM
+          commands:
+            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+        - name: Install dependencies
+          commands: 
+            - yarn
+            - cache store node-modules-$(checksum package.json) node_modules
+        - name: Config git
+          commands: 
+            - git config --global user.email "jason.brown.delta@gmail.com"
+            - git config --global user.name "jjaybrown" 
+            - git reset --hard HEAD
+      prologue:
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package.json)
+  - name: "Release"
+    task:
+      secrets:
+        - name: sphere
+      jobs:
+        - name: Release updated packages
+          commands:
+            - yarn run publish
+      prologue:
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package.json)
