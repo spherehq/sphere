@@ -10,7 +10,7 @@
     "build": "tsc --project tsconfig.json"
   },
   "dependencies": {
-    "@sentry/node": "5.0.8",
+    "@sentry/node": "5.1.0",
     "@spherehq/database": "^0.3.6",
     "apollo-server": "2.4.8",
     "graphql": "14.2.1",
