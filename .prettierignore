@@ -5,6 +5,7 @@ build
 .cache
 .history
 .circleci/*
+.semaphore/*
 .github/*
 package.json
 **/**/package.json
