@@ -17,7 +17,7 @@ const baseConfig = {
   siteMetadata: {
     title: 'Sphere - where communities gather around content',
     description:
-      'We help you create a community around your content. A sphere is a dedicated space for you to express ideas and share with others.',
+      'We help you create a community around your content, a dedicated space for you to express ideas and share with others.',
     siteUrl: 'https://sphere.sh',
   },
   plugins: [
