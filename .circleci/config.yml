@@ -123,21 +123,21 @@ workflows:
               only: /@spherehq\/platform@[0-9]+.[0-9]+.[0-9]+/
           requires: 
             - build-release-image
-  build-and-release-database:
-    jobs:
-      - database-schema-dry-run:
-          filters:
-              branches:
-                ignore: /.*/
-              tags:
-                only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
-      - migrate-database-schema:
-          type: approval
-          requires:
-            - database-schema-dry-run
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
+  # build-and-release-database:
+  #   jobs:
+  #     - database-schema-dry-run:
+  #         filters:
+  #             branches:
+  #               ignore: /.*/
+  #             tags:
+  #               only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
+  #     - migrate-database-schema:
+  #         type: approval
+  #         requires:
+  #           - database-schema-dry-run
+  #         filters:
+  #           branches:
+  #             ignore: /.*/
+  #           tags:
+  #             only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
 
