@@ -8,7 +8,7 @@
   "scripts": {
     "prepublishOnly": "yarn generate:client",
     "deploy": "prisma deploy",
-    "generate:client": "prisma generate -e .env",
+    "generate:client": "prisma generate",
     "postgenerate:client": "tsc --declaration"
   },
   "dependencies": {
