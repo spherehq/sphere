@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.4.1...@spherehq/database@0.5.0) (2019-04-28)
+
+
+### Features
+
+* updated associated fields and cascade delete ([0d2a7dc](https://github.com/spherehq/sphere/commit/0d2a7dc))
+
+
+
+
+
 ## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.4.0...@spherehq/database@0.4.1) (2019-04-28)
 
 
