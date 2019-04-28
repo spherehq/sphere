@@ -7,7 +7,7 @@
   "main": "generated/prisma-client/index.js",
   "scripts": {
     "deploy": "prisma deploy",
-    "generate:client": "prisma generate -e .env",
+    "generate:client": "prisma generate -e .env && yarn pretty-quick",
     "postgenerate:client": "tsc --declaration",
     "generate:schema": "graphql get-schema --project database --dotenv .env"
   },
