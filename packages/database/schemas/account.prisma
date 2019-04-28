@@ -12,4 +12,6 @@ type Account {
   emailAddress: String! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
+  spheres: [Sphere!]
+    @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
 }

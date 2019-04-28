@@ -3,6 +3,7 @@ type Sphere {
   alias: String! @unique
   slugPrefix: String! @default(value: "@")
   associatedWith: [Account!]!
+    @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
   createdAt: DateTime!
   updatedAt: DateTime!
 }
