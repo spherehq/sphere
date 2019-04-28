@@ -2206,7 +2206,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/fs-extra@^5.0.2", "@types/fs-extra@^5.0.5":
+"@types/fs-extra@5.0.5", "@types/fs-extra@^5.0.2":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.5.tgz#080d90a792f3fa2c5559eb44bd8ef840aae9104b"
   integrity sha512-w7iqhDH9mN8eLClQOYTkhdYUOSpp25eXxfc6VbFOGtzxW34JcvctH2bKjj4jD4++z4R5iO5D+pg48W2e03I65A==
@@ -2280,7 +2280,7 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.0.tgz#719551d2352d301ac8b81db732acb6bdc28dbdef"
   integrity sha512-1w52Nyx4Gq47uuu0EVcsHBxZFJgurQ+rTKS3qMHxR1GY2T8c2AJYd6vZoZ9q1rupaDjU0yT+Jc2XTyXkjeMA+Q==
 
-"@types/md5-file@^4.0.0":
+"@types/md5-file@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/md5-file/-/md5-file-4.0.0.tgz#01c986144648a757ac6e7ada665fa665c253289d"
   integrity sha512-t+qg7R25oYo6z3iWI+9CRky2mgQ51RGvLqlCPV+xa6dKp0YDomv0TArLK/CdcReFZwQHn/YMNRZx+4AUWXPtlg==
@@ -7988,10 +7988,10 @@ gatsby-transformer-sharp@2.1.18:
     probe-image-size "^4.0.0"
     sharp "^0.21.3"
 
-gatsby@2.3.31:
-  version "2.3.31"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.3.31.tgz#9ec87eea5ac02e74e96748aabffea9c268a45382"
-  integrity sha512-kUkwhkDgPYJX+huwue6kpW8eaERFN6lL8Cym/POeNSqC7O+oUFtxS30Xg1L2JDax8WYVaGP9Wq427Zd7/u9SOQ==
+gatsby@2.3.32:
+  version "2.3.32"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.3.32.tgz#bb6bb141c8122cd023eddc9d1aaec1dbea4917f2"
+  integrity sha512-nSlc6IdNoOfzuDme+Z2gSkqmXB+0/j3Y+ElFSE6G8m3hCkV+2CuP7YsREe9V/K1609QwJcmQFRNAqtS1/uYjXw==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -16499,10 +16499,10 @@ styled-components@4.2.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-icons@7.10.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-7.10.0.tgz#fa5bc1e4d09f7d9a889892b1f28a8ce383e6f7ec"
-  integrity sha512-R+0CiLjrcUUEjiLsowcH/bNHD9c8KinwGtaLO3/Nekj+WX5NQNNlplog4uyAiPKoaUlc+EAgTj7IqhvEtRfVqw==
+styled-icons@7.11.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-7.11.0.tgz#8c965692daf39ed48d16825b056c74be99d1e6cf"
+  integrity sha512-2U68xzDTNIGfE4yRySKf1RisaS/xIxDKTrrNSRxMQaq5b81Jg708zZ8vD0ybSXpXEBuy9R0b/WMp5ajqDKL+3w==
   dependencies:
     "@emotion/is-prop-valid" "^0.7.3"
     tslib "^1.9.3"

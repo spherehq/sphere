@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.6.0...@spherehq/platform@0.6.1) (2019-04-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.3.32 ([c6fada4](https://github.com/spherehq/sphere/commit/c6fada4))
+* **deps:** update dependency gatsby to v2.3.32 ([#33](https://github.com/spherehq/sphere/issues/33)) ([5be4fbf](https://github.com/spherehq/sphere/commit/5be4fbf))
+* **deps:** update dependency styled-icons to v7.11.0 ([c2f76f9](https://github.com/spherehq/sphere/commit/c2f76f9))
+
+
+
+
+
 # [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.5.0...@spherehq/platform@0.6.0) (2019-04-26)
 
 
