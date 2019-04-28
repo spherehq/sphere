@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/cli",
   "description": "Command line tool for managing your sphere content",
-  "version": "0.6.12",
+  "version": "0.6.13",
   "author": "Jason Brown",
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
     "@sindresorhus/slugify": "^0.9.1",
-    "@spherehq/database": "^0.4.0",
+    "@spherehq/database": "^0.4.1",
     "cli-ux": "^5.2.1",
     "email-validator": "^2.0.4",
     "fs-extra": "^7.0.1",

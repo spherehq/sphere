@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.4.0...@spherehq/database@0.4.1) (2019-04-28)
+
+
+### Bug Fixes
+
+* removed -e from being required in ci ([9eb7f25](https://github.com/spherehq/sphere/commit/9eb7f25))
+
+
+
+
+
 # [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.3.8...@spherehq/database@0.4.0) (2019-04-28)
 
 
