@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.3.8...@spherehq/database@0.4.0) (2019-04-28)
+
+
+### Features
+
+* updated prettier settings for generated files ([9dc3534](https://github.com/spherehq/sphere/commit/9dc3534))
+
+
+
+
+
 ## [0.3.8](https://github.com/spherehq/sphere/compare/@spherehq/database@0.3.7...@spherehq/database@0.3.8) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/database
