@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "prepublishOnly": "yarn --cwd ../database generate:client",
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node-dev src/server.ts",
     "build": "tsc --project tsconfig.json"
   },

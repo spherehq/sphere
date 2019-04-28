@@ -4,10 +4,8 @@ datamodel:
   - schemas/account.prisma
   - schemas/sphere.prisma
 
-hooks:
-  post-deploy:
-    - 'yarn generate:client'
-    - 'yarn generate:schema'
 generate:
   - generator: typescript-client
     output: ./generated/prisma-client/
+  - generator: graphql-schema
+    output: ../api/schema/generated/prisma.graphql

@@ -6,10 +6,10 @@
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
   "scripts": {
+    "prepublishOnly": "yarn generate:client",
     "deploy": "prisma deploy",
     "generate:client": "prisma generate -e .env",
-    "postgenerate:client": "tsc --declaration",
-    "generate:schema": "graphql get-schema --project database --dotenv .env"
+    "postgenerate:client": "tsc --declaration"
   },
   "dependencies": {
     "graphql-cli": "^3.0.11",
