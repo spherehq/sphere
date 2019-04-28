@@ -31,6 +31,6 @@ exports.models = [
 exports.Prisma = prisma_client_lib_1.makePrismaClientClass({
     typeDefs: prisma_schema_1.typeDefs,
     models: exports.models,
-    endpoint: "https://spherehq-production_jason-brown.prisma.sh/sphere/production"
+    endpoint: "https://google.com"
 });
 exports.prisma = new exports.Prisma();

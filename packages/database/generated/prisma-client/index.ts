@@ -1636,6 +1636,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://spherehq-production_jason-brown.prisma.sh/sphere/production`
+  endpoint: `https://google.com`
 });
 export const prisma = new Prisma();

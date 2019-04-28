@@ -66,7 +66,7 @@ jobs:
             aws configure set default.s3.multipart_chunksize 16MB
             aws s3 sync public $BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=31536000
             aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
-  migrate-database-schema:
+  database-schema-dry-run:
     docker:
       - image: circleci/node:10.15.3
 
@@ -82,6 +82,23 @@ jobs:
       - run:
           name: Dry run database migration
           command: yarn deploy --dry-run
+  migrate-database-schema:
+    docker:
+      - image: circleci/node:10.15.3
+
+    working_directory: ~/repo/packages/database
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: Run database migration
+          command: yarn deploy
+            
 workflows:
   version: 2
   release-packages:
@@ -108,18 +125,19 @@ workflows:
             - build-release-image
   build-and-release-database:
     jobs:
-      - migrate-database-schema: # factor how dry-runs can be carried out - manual approval?
+      - database-schema-dry-run:
+          filters:
+              branches:
+                ignore: /.*/
+              tags:
+                only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
+      - migrate-database-schema:
+          type: approval
+          requires:
+            - database-schema-dry-run
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
-      - update-package-dependencies: # may result in another release - manual approval?
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /@spherehq\/database@[0-9]+.[0-9]+.[0-9]+/
-          requires: 
-            - build-release-image
 
