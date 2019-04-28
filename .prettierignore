@@ -12,3 +12,4 @@ package.json
 **/**/*.graphql
 docker-compose.yml
 prisma.yml
+**/generated/**
