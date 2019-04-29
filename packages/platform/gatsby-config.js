@@ -72,10 +72,6 @@ const baseConfig = {
               noInlineHighlight: true,
             },
           },
-          {
-            resolve: `gatsby-remark-code-buttons`,
-            options: {},
-          },
         ],
       },
     },
