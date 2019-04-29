@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.7...@spherehq/geometry@0.4.0) (2019-04-29)
+
+
+### Features
+
+* added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
+
+
+
+
+
 ## [0.3.7](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.6...@spherehq/geometry@0.3.7) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
