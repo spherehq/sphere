@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.2...@spherehq/platform@0.7.3) (2019-04-29)
+
+
+### Bug Fixes
+
+* slug paths for content nesting incorrectly ([d40cb33](https://github.com/spherehq/sphere/commit/d40cb33))
+
+
+
+
+
 ## [0.7.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.1...@spherehq/platform@0.7.2) (2019-04-29)
 
 
