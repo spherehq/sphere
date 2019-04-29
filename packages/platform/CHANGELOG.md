@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.3...@spherehq/platform@0.7.4) (2019-04-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.3.33 ([e82cf5a](https://github.com/spherehq/sphere/commit/e82cf5a))
+* **deps:** update dependency gatsby to v2.3.33 ([#38](https://github.com/spherehq/sphere/issues/38)) ([82d664b](https://github.com/spherehq/sphere/commit/82d664b))
+* **deps:** update dependency gatsby-remark-code-buttons to v1.2.2 ([eb2a8a4](https://github.com/spherehq/sphere/commit/eb2a8a4))
+* **deps:** update dependency gatsby-remark-code-buttons to v1.2.2 ([#36](https://github.com/spherehq/sphere/issues/36)) ([c5487b3](https://github.com/spherehq/sphere/commit/c5487b3))
+* **deps:** update dependency mdast-util-to-hast to v5 ([1b6b123](https://github.com/spherehq/sphere/commit/1b6b123))
+* **deps:** update dependency mdast-util-to-hast to v5 ([#35](https://github.com/spherehq/sphere/issues/35)) ([0213d16](https://github.com/spherehq/sphere/commit/0213d16))
+
+
+
+
+
 ## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.2...@spherehq/platform@0.7.3) (2019-04-29)
 
 
