@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.12...@spherehq/api@0.5.0) (2019-04-29)
+
+
+### Features
+
+* added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
+
+
+
+
+
 ## [0.4.12](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.11...@spherehq/api@0.4.12) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/api
