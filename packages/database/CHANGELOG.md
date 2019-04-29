@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.5.1...@spherehq/database@0.6.0) (2019-04-29)
+
+
+### Features
+
+* added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
+
+
+
+
+
 ## [0.5.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.5.0...@spherehq/database@0.5.1) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/database
