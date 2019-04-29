@@ -52,3 +52,18 @@ exports.createPagesStatefully = async ({ store, actions }, options, done) => {
 
   done()
 }
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-loading-skeleton/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}

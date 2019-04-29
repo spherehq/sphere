@@ -12,9 +12,11 @@ import Layout from './src/components/layout'
 
 const cache = new InMemoryCache()
 
+const windowGlobal = typeof window !== 'undefined' && window
+
 persistCache({
   cache,
-  storage: window.localStorage,
+  storage: windowGlobal.localStorage,
 })
 
 const client = new ApolloClient({
