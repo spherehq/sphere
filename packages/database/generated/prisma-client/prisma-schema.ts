@@ -10,6 +10,7 @@ export const typeDefs = /* GraphQL */ `type Account {
   emailAddress: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+  spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere!]
 }
 
 type AccountConnection {
@@ -23,11 +24,19 @@ input AccountCreateInput {
   firstName: String!
   lastName: String!
   emailAddress: String!
+  spheres: SphereCreateManyWithoutAssociatedWithInput
 }
 
-input AccountCreateManyInput {
-  create: [AccountCreateInput!]
+input AccountCreateManyWithoutSpheresInput {
+  create: [AccountCreateWithoutSpheresInput!]
   connect: [AccountWhereUniqueInput!]
+}
+
+input AccountCreateWithoutSpheresInput {
+  status: AccountStatus
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
 }
 
 type AccountEdge {
@@ -168,18 +177,12 @@ input AccountSubscriptionWhereInput {
   NOT: [AccountSubscriptionWhereInput!]
 }
 
-input AccountUpdateDataInput {
-  status: AccountStatus
-  firstName: String
-  lastName: String
-  emailAddress: String
-}
-
 input AccountUpdateInput {
   status: AccountStatus
   firstName: String
   lastName: String
   emailAddress: String
+  spheres: SphereUpdateManyWithoutAssociatedWithInput
 }
 
 input AccountUpdateManyDataInput {
@@ -189,18 +192,6 @@ input AccountUpdateManyDataInput {
   emailAddress: String
 }
 
-input AccountUpdateManyInput {
-  create: [AccountCreateInput!]
-  update: [AccountUpdateWithWhereUniqueNestedInput!]
-  upsert: [AccountUpsertWithWhereUniqueNestedInput!]
-  delete: [AccountWhereUniqueInput!]
-  connect: [AccountWhereUniqueInput!]
-  set: [AccountWhereUniqueInput!]
-  disconnect: [AccountWhereUniqueInput!]
-  deleteMany: [AccountScalarWhereInput!]
-  updateMany: [AccountUpdateManyWithWhereNestedInput!]
-}
-
 input AccountUpdateManyMutationInput {
   status: AccountStatus
   firstName: String
@@ -208,20 +199,39 @@ input AccountUpdateManyMutationInput {
   emailAddress: String
 }
 
+input AccountUpdateManyWithoutSpheresInput {
+  create: [AccountCreateWithoutSpheresInput!]
+  delete: [AccountWhereUniqueInput!]
+  connect: [AccountWhereUniqueInput!]
+  set: [AccountWhereUniqueInput!]
+  disconnect: [AccountWhereUniqueInput!]
+  update: [AccountUpdateWithWhereUniqueWithoutSpheresInput!]
+  upsert: [AccountUpsertWithWhereUniqueWithoutSpheresInput!]
+  deleteMany: [AccountScalarWhereInput!]
+  updateMany: [AccountUpdateManyWithWhereNestedInput!]
+}
+
 input AccountUpdateManyWithWhereNestedInput {
   where: AccountScalarWhereInput!
   data: AccountUpdateManyDataInput!
 }
 
-input AccountUpdateWithWhereUniqueNestedInput {
-  where: AccountWhereUniqueInput!
-  data: AccountUpdateDataInput!
+input AccountUpdateWithoutSpheresDataInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
 }
 
-input AccountUpsertWithWhereUniqueNestedInput {
+input AccountUpdateWithWhereUniqueWithoutSpheresInput {
   where: AccountWhereUniqueInput!
-  update: AccountUpdateDataInput!
-  create: AccountCreateInput!
+  data: AccountUpdateWithoutSpheresDataInput!
+}
+
+input AccountUpsertWithWhereUniqueWithoutSpheresInput {
+  where: AccountWhereUniqueInput!
+  update: AccountUpdateWithoutSpheresDataInput!
+  create: AccountCreateWithoutSpheresInput!
 }
 
 input AccountWhereInput {
@@ -301,6 +311,9 @@ input AccountWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+  spheres_every: SphereWhereInput
+  spheres_some: SphereWhereInput
+  spheres_none: SphereWhereInput
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]
@@ -772,12 +785,22 @@ type SphereConnection {
 input SphereCreateInput {
   alias: String!
   slugPrefix: String
-  associatedWith: AccountCreateManyInput
+  associatedWith: AccountCreateManyWithoutSpheresInput
+}
+
+input SphereCreateManyWithoutAssociatedWithInput {
+  create: [SphereCreateWithoutAssociatedWithInput!]
+  connect: [SphereWhereUniqueInput!]
 }
 
 input SphereCreateOneInput {
   create: SphereCreateInput
   connect: SphereWhereUniqueInput
+}
+
+input SphereCreateWithoutAssociatedWithInput {
+  alias: String!
+  slugPrefix: String
 }
 
 type SphereEdge {
@@ -806,6 +829,70 @@ type SpherePreviousValues {
   updatedAt: DateTime!
 }
 
+input SphereScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  alias: String
+  alias_not: String
+  alias_in: [String!]
+  alias_not_in: [String!]
+  alias_lt: String
+  alias_lte: String
+  alias_gt: String
+  alias_gte: String
+  alias_contains: String
+  alias_not_contains: String
+  alias_starts_with: String
+  alias_not_starts_with: String
+  alias_ends_with: String
+  alias_not_ends_with: String
+  slugPrefix: String
+  slugPrefix_not: String
+  slugPrefix_in: [String!]
+  slugPrefix_not_in: [String!]
+  slugPrefix_lt: String
+  slugPrefix_lte: String
+  slugPrefix_gt: String
+  slugPrefix_gte: String
+  slugPrefix_contains: String
+  slugPrefix_not_contains: String
+  slugPrefix_starts_with: String
+  slugPrefix_not_starts_with: String
+  slugPrefix_ends_with: String
+  slugPrefix_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [SphereScalarWhereInput!]
+  OR: [SphereScalarWhereInput!]
+  NOT: [SphereScalarWhereInput!]
+}
+
 type SphereSubscriptionPayload {
   mutation: MutationType!
   node: Sphere
@@ -827,18 +914,40 @@ input SphereSubscriptionWhereInput {
 input SphereUpdateDataInput {
   alias: String
   slugPrefix: String
-  associatedWith: AccountUpdateManyInput
+  associatedWith: AccountUpdateManyWithoutSpheresInput
 }
 
 input SphereUpdateInput {
   alias: String
   slugPrefix: String
-  associatedWith: AccountUpdateManyInput
+  associatedWith: AccountUpdateManyWithoutSpheresInput
+}
+
+input SphereUpdateManyDataInput {
+  alias: String
+  slugPrefix: String
 }
 
 input SphereUpdateManyMutationInput {
   alias: String
   slugPrefix: String
+}
+
+input SphereUpdateManyWithoutAssociatedWithInput {
+  create: [SphereCreateWithoutAssociatedWithInput!]
+  delete: [SphereWhereUniqueInput!]
+  connect: [SphereWhereUniqueInput!]
+  set: [SphereWhereUniqueInput!]
+  disconnect: [SphereWhereUniqueInput!]
+  update: [SphereUpdateWithWhereUniqueWithoutAssociatedWithInput!]
+  upsert: [SphereUpsertWithWhereUniqueWithoutAssociatedWithInput!]
+  deleteMany: [SphereScalarWhereInput!]
+  updateMany: [SphereUpdateManyWithWhereNestedInput!]
+}
+
+input SphereUpdateManyWithWhereNestedInput {
+  where: SphereScalarWhereInput!
+  data: SphereUpdateManyDataInput!
 }
 
 input SphereUpdateOneRequiredInput {
@@ -848,9 +957,25 @@ input SphereUpdateOneRequiredInput {
   connect: SphereWhereUniqueInput
 }
 
+input SphereUpdateWithoutAssociatedWithDataInput {
+  alias: String
+  slugPrefix: String
+}
+
+input SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
+  where: SphereWhereUniqueInput!
+  data: SphereUpdateWithoutAssociatedWithDataInput!
+}
+
 input SphereUpsertNestedInput {
   update: SphereUpdateDataInput!
   create: SphereCreateInput!
+}
+
+input SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
+  where: SphereWhereUniqueInput!
+  update: SphereUpdateWithoutAssociatedWithDataInput!
+  create: SphereCreateWithoutAssociatedWithInput!
 }
 
 input SphereWhereInput {
