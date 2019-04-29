@@ -39,3 +39,16 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+exports.createPagesStatefully = async ({ store, actions }, options, done) => {
+  if (process.env.NODE_ENV !== `production`) {
+    const { createPage } = actions
+
+    createPage({
+      component: path.resolve(`./src/pages/404.tsx`),
+      path: `/dev-404-page/`,
+    })
+  }
+
+  done()
+}

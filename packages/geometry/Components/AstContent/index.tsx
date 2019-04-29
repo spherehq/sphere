@@ -54,7 +54,7 @@ const ContextAwareDiv = props => {
   )
 }
 
-const Image = props => {
+export const Image = props => {
   const StyledImage = styled.img`
     width: 100vw;
     position: relative;

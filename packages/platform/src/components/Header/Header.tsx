@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import { Link } from 'gatsby'
 import { IconNames } from '@blueprintjs/icons'
 
 import { styled, ThemeInterface } from '@spherehq/geometry/Theme'
@@ -48,7 +48,9 @@ export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
       <StyledHeaderContent>
         <Flex alignItems="center" justifyContent="space-between">
           <Box style={{ height: '42px' }}>
-            <Logo width="42" height="42" fillColor={theme.palette.primary} />
+            <Link to="/">
+              <Logo width="42" height="42" fillColor={theme.palette.primary} />
+            </Link>
           </Box>
           <Box width={2 / 3}>
             <Search />

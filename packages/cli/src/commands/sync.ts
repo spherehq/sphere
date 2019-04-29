@@ -128,48 +128,53 @@ export default class Sync extends Command {
       cli.action.stop(`${posts.length} files to sync `)
 
       cli.action.start('Synchronizing content')
+      const config: { alias: string } = fs.readJSONSync(
+        path.join(this.config.configDir, `config.json`),
+      )
+
       try {
-        const config: { alias: string } = fs.readJSONSync(
-          path.join(this.config.configDir, `config.json`),
-        )
         posts.forEach(async post => {
-          await prisma.upsertPost({
-            where: { slug: post.slug },
-            create: {
-              title: post.title,
-              slug: post.slug,
-              content: post.content,
-              timeToRead: post.timeToRead,
-              metadata: {
-                create: {
-                  fileHash: post.fileHash,
-                  filename: post.filename,
+          try {
+            await prisma.upsertPost({
+              where: { slug: `${config.alias}/${post.slug}` },
+              create: {
+                title: post.title,
+                slug: `${config.alias}/${post.slug}`,
+                content: post.content,
+                timeToRead: post.timeToRead,
+                metadata: {
+                  create: {
+                    fileHash: post.fileHash,
+                    filename: post.filename,
+                  },
+                },
+                associatedWith: {
+                  connect: {
+                    alias: config.alias,
+                  },
                 },
               },
-              associatedWith: {
-                connect: {
-                  alias: config.alias,
+              update: {
+                title: post.title,
+                slug: `${config.alias}/${post.slug}`,
+                content: post.content,
+                timeToRead: post.timeToRead,
+                metadata: {
+                  create: {
+                    fileHash: post.fileHash,
+                    filename: post.filename,
+                  },
+                },
+                associatedWith: {
+                  connect: {
+                    alias: config.alias,
+                  },
                 },
               },
-            },
-            update: {
-              title: post.title,
-              slug: post.slug,
-              content: post.content,
-              timeToRead: post.timeToRead,
-              metadata: {
-                create: {
-                  fileHash: post.fileHash,
-                  filename: post.filename,
-                },
-              },
-              associatedWith: {
-                connect: {
-                  alias: config.alias,
-                },
-              },
-            },
-          })
+            })
+          } catch (error) {
+            this.error(error)
+          }
         })
       } catch (error) {
         this.error(error)
@@ -178,7 +183,7 @@ export default class Sync extends Command {
       cli.action.stop()
 
       cli.table<{ title: string }>(posts, {
-        name: { header: 'Title', get: row => row.title },
+        title: { header: 'Title', get: row => row.title },
       })
     })
   }
