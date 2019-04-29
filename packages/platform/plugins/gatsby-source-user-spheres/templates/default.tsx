@@ -5,12 +5,6 @@ import { graphql } from 'gatsby'
 import { AstContent } from '@spherehq/geometry/Components/AstContent'
 import { styled } from '@spherehq/geometry/Theme'
 
-const StyledContainer = styled.div`
-  max-width: 740px;
-  margin-left: auto;
-  margin-right: auto;
-`
-
 const StyledImagePlaceholder = styled.div`
   width: 100vw;
   position: relative;
@@ -31,7 +25,7 @@ const StyledImagePlaceholder = styled.div`
 const SphereTemplatePage = ({ data, loading = false }) => {
   if (loading) {
     return (
-      <StyledContainer>
+      <React.Fragment>
         <h1>
           <Skeleton />
         </h1>
@@ -44,7 +38,7 @@ const SphereTemplatePage = ({ data, loading = false }) => {
         <p>
           <Skeleton count={2} />
         </p>
-      </StyledContainer>
+      </React.Fragment>
     )
   }
 

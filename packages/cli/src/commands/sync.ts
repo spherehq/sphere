@@ -182,8 +182,25 @@ export default class Sync extends Command {
 
       cli.action.stop()
 
-      cli.table<{ title: string }>(posts, {
-        title: { header: 'Title', get: row => row.title },
+      const terminalLink = require('terminal-link')
+      cli.table<{ title: string; slug: string }>(posts, {
+        title: {
+          header: 'Title',
+          get: row => row.title,
+        },
+        link: {
+          header: '',
+          get: row =>
+            terminalLink(
+              `open in browser`,
+              `https://sphere.sh/@${config.alias}/${row.slug}`,
+              {
+                fallback: (_, link) => {
+                  return link
+                },
+              },
+            ),
+        },
       })
     })
   }
