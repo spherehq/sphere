@@ -17,9 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     result.data.sphere.posts.forEach(post => {
       createPage({
-        path: `${post.associatedWith.slugPrefix}${post.associatedWith.alias}/${
-          post.slug
-        }`,
+        path: `${post.associatedWith.slugPrefix}${post.slug}`,
         component: path.resolve(`${__dirname}/templates/default.tsx`),
         context: {
           slug: post.slug,
