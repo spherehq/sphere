@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.6](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.5...@spherehq/platform@0.7.6) (2019-04-29)
+
+
+### Bug Fixes
+
+* removed plugin for code buttons ([dcbd994](https://github.com/spherehq/sphere/commit/dcbd994))
+
+
+
+
+
 ## [0.7.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.4...@spherehq/platform@0.7.5) (2019-04-29)
 
 
