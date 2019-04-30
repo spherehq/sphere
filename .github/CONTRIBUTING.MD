@@ -35,7 +35,7 @@ Please see our [Contributor Code of Conduct](https://www.sphere.sh/code-of-condu
 3. Clone your fork.
 4. Create a new branch from master for your change.
 5. Navigate into the directory of the package you wish to modify.
-6. Run `npm install` to install dependencies for this package.
+6. Run `yarn install` to install dependencies for this package.
 7. Follow the steps for the specific package below.
 
 ### Submit Pull Request
