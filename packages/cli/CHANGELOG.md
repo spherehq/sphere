@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.7.3...@spherehq/cli@0.8.0) (2019-04-30)
+
+
+### Features
+
+* added console output after init to show created config path ([f064b7a](https://github.com/spherehq/sphere/commit/f064b7a))
+
+
+
+
+
 ## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.7.2...@spherehq/cli@0.7.3) (2019-04-30)
 
 
