@@ -2,9 +2,7 @@
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![Maintainability](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/maintainability)](https://codeclimate.com/github/spherehq/sphere/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/test_coverage)](https://codeclimate.com/github/spherehq/sphere/test_coverage)[![CircleCI](https://circleci.com/gh/spherehq/sphere.svg?style=svg)](https://circleci.com/gh/spherehq/sphere)
 
-<div align="center">
-### where communities gather around content
-</div>
+ <h3 align="center">where communities gather around content</h3>
 
 This is the main monorepo codebase of [Sphere.sh](https://sphere.sh). We use [lerna](https://github.com/lerna/lerna) to manage and release packages.
 
