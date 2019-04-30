@@ -1,6 +1,7 @@
 type Sphere {
   id: ID! @unique
   alias: String! @unique
+  aliasSlug: String! @unique
   slugPrefix: String! @default(value: "@")
   associatedWith: [Account!]!
     @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
