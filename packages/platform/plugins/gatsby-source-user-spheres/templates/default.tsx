@@ -55,6 +55,7 @@ const SphereTemplatePage = ({ data, loading = false }) => {
   }
   prismjs(Object.assign({ markdownAST }, {}), options)
   // @TODO create a node transformer plugin to do this on all sphere nodes
+
   return AstContent(
     hastReparseRaw(
       toHast(markdownAST, {
@@ -71,6 +72,15 @@ export const query = graphql`
     sphere {
       page: post(where: { slug: $slug }) {
         content
+        updatedAt
+        timeToRead
+        associatedWith {
+          author: associatedWith(first: 1) {
+            firstName
+            lastName
+            emailAddress
+          }
+        }
       }
     }
   }

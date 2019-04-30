@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.createPagesStatefully = async ({ store, actions }, options, done) => {
+exports.createPagesStatefully = async ({ actions }, _, done) => {
   if (process.env.NODE_ENV !== `production`) {
     const { createPage } = actions
 
