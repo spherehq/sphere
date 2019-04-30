@@ -128,18 +128,22 @@ export default class Sync extends Command {
       cli.action.stop(`${posts.length} files to sync `)
 
       cli.action.start('Synchronizing content')
-      const config: { alias: string } = fs.readJSONSync(
-        path.join(this.config.configDir, `config.json`),
-      )
+      const config: {
+        alias: string
+        aliasSlug: string
+        emailAddress: string
+      } = fs.readJSONSync(path.join(this.config.configDir, `config.json`))
 
       try {
         posts.forEach(async post => {
           try {
+            const slug = `${config.aliasSlug}/${post.slug}`
             await prisma.upsertPost({
-              where: { slug: `${config.alias}/${post.slug}` },
+              where: { slug },
               create: {
                 title: post.title,
-                slug: `${config.alias}/${post.slug}`,
+                // tslint:disable-next-line:object-shorthand-properties-first
+                slug,
                 content: post.content,
                 timeToRead: post.timeToRead,
                 metadata: {
@@ -153,10 +157,14 @@ export default class Sync extends Command {
                     alias: config.alias,
                   },
                 },
+                author: {
+                  connect: { emailAddress: config.emailAddress },
+                },
               },
               update: {
                 title: post.title,
-                slug: `${config.alias}/${post.slug}`,
+                // tslint:disable-next-line:object-shorthand-properties-first
+                slug,
                 content: post.content,
                 timeToRead: post.timeToRead,
                 metadata: {
@@ -193,9 +201,9 @@ export default class Sync extends Command {
           get: row =>
             terminalLink(
               `open in browser`,
-              `https://sphere.sh/@${config.alias}/${row.slug}`,
+              `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
               {
-                fallback: (_, link) => {
+                fallback: (_, link: string) => {
                   return link
                 },
               },

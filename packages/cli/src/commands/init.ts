@@ -142,12 +142,16 @@ export default class Sync extends Command {
               .sphere({ alias })
               .associatedWith({ where: { emailAddress } })).length > 0
           ) {
-            const slugPrefix = await prisma.sphere({ alias }).slugPrefix()
+            const { slugPrefix, aliasSlug } = await prisma.sphere({ alias })
 
-            saveConfig(this.config.configDir, { alias })
+            saveConfig(this.config.configDir, {
+              alias,
+              aliasSlug,
+              emailAddress,
+            })
 
             this.log(
-              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
+              `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${aliasSlug} 🎉`,
             )
           }
         } catch (error) {
@@ -173,17 +177,18 @@ export default class Sync extends Command {
         } = await confirmDataEntry()
         cli.action.start(`Creating sphere with alias of ${alias}`)
         try {
-          const { slugPrefix } = await prisma.createSphere({
-            alias: slugify(alias),
+          const { slugPrefix, aliasSlug } = await prisma.createSphere({
+            alias,
+            aliasSlug: slugify(alias),
             associatedWith: { create: { firstName, lastName, emailAddress } },
           })
 
           cli.action.stop()
 
-          saveConfig(this.config.configDir, { alias })
+          saveConfig(this.config.configDir, { alias, aliasSlug, emailAddress })
 
           this.log(
-            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${alias} 🎉`,
+            `Successfully created new sphere: https://sphere.sh/${slugPrefix}${aliasSlug} 🎉`,
           )
         } catch (error) {
           this.error(error)

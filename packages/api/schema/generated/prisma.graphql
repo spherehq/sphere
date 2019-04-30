@@ -7,6 +7,7 @@ type Account {
   createdAt: DateTime!
   updatedAt: DateTime!
   spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere!]
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
 
 type AccountConnection {
@@ -21,6 +22,7 @@ input AccountCreateInput {
   lastName: String!
   emailAddress: String!
   spheres: SphereCreateManyWithoutAssociatedWithInput
+  posts: PostCreateManyWithoutAuthorInput
 }
 
 input AccountCreateManyWithoutSpheresInput {
@@ -28,11 +30,25 @@ input AccountCreateManyWithoutSpheresInput {
   connect: [AccountWhereUniqueInput!]
 }
 
+input AccountCreateOneWithoutPostsInput {
+  create: AccountCreateWithoutPostsInput
+  connect: AccountWhereUniqueInput
+}
+
+input AccountCreateWithoutPostsInput {
+  status: AccountStatus
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  spheres: SphereCreateManyWithoutAssociatedWithInput
+}
+
 input AccountCreateWithoutSpheresInput {
   status: AccountStatus
   firstName: String!
   lastName: String!
   emailAddress: String!
+  posts: PostCreateManyWithoutAuthorInput
 }
 
 type AccountEdge {
@@ -179,6 +195,7 @@ input AccountUpdateInput {
   lastName: String
   emailAddress: String
   spheres: SphereUpdateManyWithoutAssociatedWithInput
+  posts: PostUpdateManyWithoutAuthorInput
 }
 
 input AccountUpdateManyDataInput {
@@ -212,16 +229,37 @@ input AccountUpdateManyWithWhereNestedInput {
   data: AccountUpdateManyDataInput!
 }
 
+input AccountUpdateOneRequiredWithoutPostsInput {
+  create: AccountCreateWithoutPostsInput
+  update: AccountUpdateWithoutPostsDataInput
+  upsert: AccountUpsertWithoutPostsInput
+  connect: AccountWhereUniqueInput
+}
+
+input AccountUpdateWithoutPostsDataInput {
+  status: AccountStatus
+  firstName: String
+  lastName: String
+  emailAddress: String
+  spheres: SphereUpdateManyWithoutAssociatedWithInput
+}
+
 input AccountUpdateWithoutSpheresDataInput {
   status: AccountStatus
   firstName: String
   lastName: String
   emailAddress: String
+  posts: PostUpdateManyWithoutAuthorInput
 }
 
 input AccountUpdateWithWhereUniqueWithoutSpheresInput {
   where: AccountWhereUniqueInput!
   data: AccountUpdateWithoutSpheresDataInput!
+}
+
+input AccountUpsertWithoutPostsInput {
+  update: AccountUpdateWithoutPostsDataInput!
+  create: AccountCreateWithoutPostsInput!
 }
 
 input AccountUpsertWithWhereUniqueWithoutSpheresInput {
@@ -310,6 +348,9 @@ input AccountWhereInput {
   spheres_every: SphereWhereInput
   spheres_some: SphereWhereInput
   spheres_none: SphereWhereInput
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]
@@ -401,6 +442,7 @@ type Post {
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS!
+  author: Account!
   metadata: PostMetadata!
   associatedWith: Sphere!
 }
@@ -419,6 +461,24 @@ type PostConnection {
 }
 
 input PostCreateInput {
+  title: String!
+  content: Json!
+  slug: String!
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt: DateTime
+  status: POST_STATUS
+  author: AccountCreateOneWithoutPostsInput!
+  metadata: PostMetadataCreateOneInput!
+  associatedWith: SphereCreateOneInput!
+}
+
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutAuthorInput {
   title: String!
   content: Json!
   slug: String!
@@ -614,6 +674,92 @@ type PostPreviousValues {
   status: POST_STATUS!
 }
 
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  timeToRead: Int
+  timeToRead_not: Int
+  timeToRead_in: [Int!]
+  timeToRead_not_in: [Int!]
+  timeToRead_lt: Int
+  timeToRead_lte: Int
+  timeToRead_gt: Int
+  timeToRead_gte: Int
+  isPublished: Boolean
+  isPublished_not: Boolean
+  publishedAt: DateTime
+  publishedAt_not: DateTime
+  publishedAt_in: [DateTime!]
+  publishedAt_not_in: [DateTime!]
+  publishedAt_lt: DateTime
+  publishedAt_lte: DateTime
+  publishedAt_gt: DateTime
+  publishedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  status: POST_STATUS
+  status_not: POST_STATUS
+  status_in: [POST_STATUS!]
+  status_not_in: [POST_STATUS!]
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+}
+
 type PostSubscriptionPayload {
   mutation: MutationType!
   node: Post
@@ -640,8 +786,19 @@ input PostUpdateInput {
   isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
+  author: AccountUpdateOneRequiredWithoutPostsInput
   metadata: PostMetadataUpdateOneRequiredInput
   associatedWith: SphereUpdateOneRequiredInput
+}
+
+input PostUpdateManyDataInput {
+  title: String
+  content: Json
+  slug: String
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt: DateTime
+  status: POST_STATUS
 }
 
 input PostUpdateManyMutationInput {
@@ -652,6 +809,46 @@ input PostUpdateManyMutationInput {
   isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateWithoutAuthorDataInput {
+  title: String
+  content: Json
+  slug: String
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt: DateTime
+  status: POST_STATUS
+  metadata: PostMetadataUpdateOneRequiredInput
+  associatedWith: SphereUpdateOneRequiredInput
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAuthorDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -735,6 +932,7 @@ input PostWhereInput {
   status_not: POST_STATUS
   status_in: [POST_STATUS!]
   status_not_in: [POST_STATUS!]
+  author: AccountWhereInput
   metadata: PostMetadataWhereInput
   associatedWith: SphereWhereInput
   AND: [PostWhereInput!]
@@ -766,6 +964,7 @@ type Query {
 type Sphere {
   id: ID!
   alias: String!
+  aliasSlug: String!
   slugPrefix: String!
   associatedWith(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account!]
   createdAt: DateTime!
@@ -780,6 +979,7 @@ type SphereConnection {
 
 input SphereCreateInput {
   alias: String!
+  aliasSlug: String!
   slugPrefix: String
   associatedWith: AccountCreateManyWithoutSpheresInput
 }
@@ -796,6 +996,7 @@ input SphereCreateOneInput {
 
 input SphereCreateWithoutAssociatedWithInput {
   alias: String!
+  aliasSlug: String!
   slugPrefix: String
 }
 
@@ -809,6 +1010,8 @@ enum SphereOrderByInput {
   id_DESC
   alias_ASC
   alias_DESC
+  aliasSlug_ASC
+  aliasSlug_DESC
   slugPrefix_ASC
   slugPrefix_DESC
   createdAt_ASC
@@ -820,6 +1023,7 @@ enum SphereOrderByInput {
 type SpherePreviousValues {
   id: ID!
   alias: String!
+  aliasSlug: String!
   slugPrefix: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -854,6 +1058,20 @@ input SphereScalarWhereInput {
   alias_not_starts_with: String
   alias_ends_with: String
   alias_not_ends_with: String
+  aliasSlug: String
+  aliasSlug_not: String
+  aliasSlug_in: [String!]
+  aliasSlug_not_in: [String!]
+  aliasSlug_lt: String
+  aliasSlug_lte: String
+  aliasSlug_gt: String
+  aliasSlug_gte: String
+  aliasSlug_contains: String
+  aliasSlug_not_contains: String
+  aliasSlug_starts_with: String
+  aliasSlug_not_starts_with: String
+  aliasSlug_ends_with: String
+  aliasSlug_not_ends_with: String
   slugPrefix: String
   slugPrefix_not: String
   slugPrefix_in: [String!]
@@ -909,23 +1127,27 @@ input SphereSubscriptionWhereInput {
 
 input SphereUpdateDataInput {
   alias: String
+  aliasSlug: String
   slugPrefix: String
   associatedWith: AccountUpdateManyWithoutSpheresInput
 }
 
 input SphereUpdateInput {
   alias: String
+  aliasSlug: String
   slugPrefix: String
   associatedWith: AccountUpdateManyWithoutSpheresInput
 }
 
 input SphereUpdateManyDataInput {
   alias: String
+  aliasSlug: String
   slugPrefix: String
 }
 
 input SphereUpdateManyMutationInput {
   alias: String
+  aliasSlug: String
   slugPrefix: String
 }
 
@@ -955,6 +1177,7 @@ input SphereUpdateOneRequiredInput {
 
 input SphereUpdateWithoutAssociatedWithDataInput {
   alias: String
+  aliasSlug: String
   slugPrefix: String
 }
 
@@ -1003,6 +1226,20 @@ input SphereWhereInput {
   alias_not_starts_with: String
   alias_ends_with: String
   alias_not_ends_with: String
+  aliasSlug: String
+  aliasSlug_not: String
+  aliasSlug_in: [String!]
+  aliasSlug_not_in: [String!]
+  aliasSlug_lt: String
+  aliasSlug_lte: String
+  aliasSlug_gt: String
+  aliasSlug_gte: String
+  aliasSlug_contains: String
+  aliasSlug_not_contains: String
+  aliasSlug_starts_with: String
+  aliasSlug_not_starts_with: String
+  aliasSlug_ends_with: String
+  aliasSlug_not_ends_with: String
   slugPrefix: String
   slugPrefix_not: String
   slugPrefix_in: [String!]
@@ -1044,6 +1281,7 @@ input SphereWhereInput {
 input SphereWhereUniqueInput {
   id: ID
   alias: String
+  aliasSlug: String
 }
 
 type Subscription {

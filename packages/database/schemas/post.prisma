@@ -16,6 +16,7 @@ type Post {
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS! @default(value: DRAFT)
+  author: Account!
   metadata: PostMetadata!
     @relation(name: "MetadataAssociatedWithPost", onDelete: CASCADE)
   associatedWith: Sphere!
