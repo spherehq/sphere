@@ -150,6 +150,8 @@ export default class Sync extends Command {
               emailAddress,
             })
 
+            this.log(`Updated config file located: ${this.config.configDir}`)
+
             this.log(
               `Successfully connected to sphere: https://sphere.sh/${slugPrefix}${aliasSlug} 🎉`,
             )
@@ -186,6 +188,8 @@ export default class Sync extends Command {
           cli.action.stop()
 
           saveConfig(this.config.configDir, { alias, aliasSlug, emailAddress })
+
+          this.log(`Created config file located: ${this.config.configDir}`)
 
           this.log(
             `Successfully created new sphere: https://sphere.sh/${slugPrefix}${aliasSlug} 🎉`,
