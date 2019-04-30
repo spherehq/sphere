@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.8.0...@spherehq/cli@0.9.0) (2019-04-30)
+
+
+### Features
+
+* added cli new version available message ([b5aa0f7](https://github.com/spherehq/sphere/commit/b5aa0f7))
+
+
+
+
+
 # [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.7.3...@spherehq/cli@0.8.0) (2019-04-30)
 
 
