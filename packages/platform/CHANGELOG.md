@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.8](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.7...@spherehq/platform@0.7.8) (2019-04-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-remark-code-buttons to v2.0.1 ([25fa500](https://github.com/spherehq/sphere/commit/25fa500))
+
+
+
+
+
 ## [0.7.7](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.6...@spherehq/platform@0.7.7) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/platform
