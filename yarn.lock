@@ -8045,12 +8045,12 @@ gatsby-react-router-scroll@^2.0.7:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-remark-code-buttons@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-code-buttons/-/gatsby-remark-code-buttons-2.0.0.tgz#ef471f8d005b74511d86c0139b472fd7f453b699"
-  integrity sha512-vdeCAev6N9iRJb4AOvJZtAUQu+gsZUtnR9yaurFAgau6sp8J0C5Sakxodhcax3m3wmmAo5S687Dow0Ln2s91Mw==
+gatsby-remark-code-buttons@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-code-buttons/-/gatsby-remark-code-buttons-2.0.1.tgz#7b75a432623b3a1a8f62b18575e52e86bc25bf9d"
+  integrity sha512-/pvW4BONz6g/O8v5+cR2gviNFh36ta296D3vCvD85jVk3qdzRkHiAjtez9N5x+L/wICaCt6DNj/r2v18lX9LBA==
   dependencies:
-    query-string "^6.2.0"
+    query-string "^6.5.0"
     unist-util-visit "^1.4.0"
 
 gatsby-remark-prismjs@3.2.8:
@@ -14577,10 +14577,10 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-query-string@^6.2.0:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.4.2.tgz#8be1dbd105306aebf86022144f575a29d516b713"
-  integrity sha512-DfJqAen17LfLA3rQ+H5S4uXphrF+ANU1lT2ijds4V/Tj4gZxA3gx5/tg1bz7kYCmwna7LyJNCYqO7jNRzo3aLw==
+query-string@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.5.0.tgz#2e1a70125af01f6f04573692d02c09302a1d8bfc"
+  integrity sha512-TYC4hDjZSvVxLMEucDMySkuAS9UIzSbAiYGyA9GWCjLKB8fQpviFbjd20fD7uejCDxZS+ftSdBKE6DS+xucJFg==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
