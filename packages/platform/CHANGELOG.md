@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.10...@spherehq/platform@0.8.0) (2019-04-30)
+
+
+### Features
+
+* added updated, time to read fields to post query [skip ci] ([2def68f](https://github.com/spherehq/sphere/commit/2def68f))
+
+
+
+
+
 ## [0.7.10](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.7.9...@spherehq/platform@0.7.10) (2019-04-30)
 
 **Note:** Version bump only for package @spherehq/platform

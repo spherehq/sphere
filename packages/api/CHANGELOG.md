@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.2...@spherehq/api@0.5.3) (2019-04-30)
+
+
+### Bug Fixes
+
+* fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([cbe3585](https://github.com/spherehq/sphere/commit/cbe3585))
+
+
+
+
+
 ## [0.5.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.1...@spherehq/api@0.5.2) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/api
