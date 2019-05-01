@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.9.1...@spherehq/platform@0.9.2) (2019-05-01)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency date-fns to 2.0.0-alpha.27 ([d0d1959](https://github.com/spherehq/sphere/commit/d0d1959))
+
+
+
+
+
 ## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.9.0...@spherehq/platform@0.9.1) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/platform
