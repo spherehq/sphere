@@ -6,7 +6,7 @@ import { Query } from 'react-apollo'
 import { PageRendererProps } from 'gatsby'
 import { styled } from '@spherehq/geometry/Theme'
 
-import SphereTemplatePage from '../../plugins/gatsby-source-user-spheres/templates/default'
+import SphereTemplatePage from '../../plugins/gatsby-source-user-spheres/templates/post'
 
 const StyledContainer = styled.div`
   max-width: 740px;

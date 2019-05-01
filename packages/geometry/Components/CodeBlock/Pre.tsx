@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { styled } from '@spherehq/geometry/Theme'
+import { styled } from '../../Theme'
 
 const StyledPre = styled.pre`
   padding: 27px;

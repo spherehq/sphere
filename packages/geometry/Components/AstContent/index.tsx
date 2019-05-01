@@ -1,11 +1,11 @@
 import * as React from 'react'
 import rehypeReact from 'rehype-react'
 
-import { Divider } from '@spherehq/geometry/Components/Divider'
-import { Table } from '@spherehq/geometry/Components/Table'
-import { UnorderedList, OrderedList } from '@spherehq/geometry/Components/List'
-import { PreBlock, CodeBlock } from '@spherehq/geometry/Components/CodeBlock'
-import { styled } from '@spherehq/geometry/Theme'
+import { Divider } from '../../Components/Divider'
+import { Table } from '../../Components/Table'
+import { UnorderedList, OrderedList } from '../../Components/List'
+import { PreBlock, CodeBlock } from '../../Components/CodeBlock'
+import { styled } from '../../Theme'
 
 const ContentDivider = () => (
   <div style={{ margin: '48px auto', width: '84px' }}>

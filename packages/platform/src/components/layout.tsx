@@ -17,7 +17,6 @@ import { Header } from './Header'
 const HeaderWithTheme = withTheme(Header)
 
 const StyledContainer = styled(Container)`
-  margin-top: 20px;
   padding: 64px 32px;
   min-height: 50vh;
 `
@@ -50,7 +49,7 @@ export default ({ children }) => (
           <GlobalStyle />
           <HeaderWithTheme />
           <main>
-            <StyledContainer limitWidth>{children}</StyledContainer>
+            <StyledContainer>{children}</StyledContainer>
           </main>
           <Footer />
         </React.Fragment>

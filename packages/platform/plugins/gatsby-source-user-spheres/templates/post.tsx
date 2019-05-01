@@ -68,18 +68,15 @@ const SphereTemplatePage = ({ data, loading = false }) => {
 export default SphereTemplatePage
 
 export const query = graphql`
-  query SphereTemplatePageQuery($slug: String!) {
+  query SphereTemplatePostQuery($slug: String!) {
     sphere {
       page: post(where: { slug: $slug }) {
         content
         updatedAt
         timeToRead
-        associatedWith {
-          author: associatedWith(first: 1) {
-            firstName
-            lastName
-            emailAddress
-          }
+        author {
+          firstName
+          lastName
         }
       }
     }

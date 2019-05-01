@@ -65,8 +65,12 @@ const MissonCard = styled(BoxWithShadow)`
   }
 `
 
+const StyledContainer = styled(Container)`
+  padding: 0 32px;
+`
+
 export default () => (
-  <React.Fragment>
+  <StyledContainer limitWidth>
     <Container padding={{ xs: 0, md: 8, lg: 13 }}>
       <Box my={9}>
         <SubHeading>Our Mission</SubHeading>
@@ -111,5 +115,5 @@ export default () => (
         </MissonCard>
       </Box>
     </Grid>
-  </React.Fragment>
+  </StyledContainer>
 )

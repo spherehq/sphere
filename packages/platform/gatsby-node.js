@@ -40,18 +40,18 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.createPagesStatefully = async ({ actions }, _, done) => {
-  if (process.env.NODE_ENV !== `production`) {
-    const { createPage } = actions
+// exports.createPagesStatefully = async ({ actions }, _, done) => {
+//   if (process.env.NODE_ENV !== `production`) {
+//     const { createPage } = actions
 
-    createPage({
-      component: path.resolve(`./src/pages/404.tsx`),
-      path: `/dev-404-page/`,
-    })
-  }
+//     createPage({
+//       component: path.resolve(`./src/pages/404.tsx`),
+//       path: `/dev-404-page/`,
+//     })
+//   }
 
-  done()
-}
+//   done()
+// }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {

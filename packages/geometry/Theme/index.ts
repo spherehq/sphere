@@ -50,9 +50,6 @@ export const theme: ThemeInterface = {
         0.01}em)`,
   },
 
-  // Nb. @material-ui/system currently looks for 'palette' on theme
-  // This may change in https://github.com/mui-org/material-ui/issues/13663
-  // at which point we could drop this alias
   palette: colors.colors,
   siteWidth: 1200,
 }

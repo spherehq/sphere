@@ -29,13 +29,13 @@ input AccountCreateInput {
   posts: PostCreateManyWithoutAuthorInput
 }
 
-input AccountCreateManyWithoutSpheresInput {
-  create: [AccountCreateWithoutSpheresInput!]
-  connect: [AccountWhereUniqueInput!]
-}
-
 input AccountCreateOneWithoutPostsInput {
   create: AccountCreateWithoutPostsInput
+  connect: AccountWhereUniqueInput
+}
+
+input AccountCreateOneWithoutSpheresInput {
+  create: AccountCreateWithoutSpheresInput
   connect: AccountWhereUniqueInput
 }
 
@@ -87,88 +87,6 @@ type AccountPreviousValues {
   updatedAt: DateTime!
 }
 
-input AccountScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  status: AccountStatus
-  status_not: AccountStatus
-  status_in: [AccountStatus!]
-  status_not_in: [AccountStatus!]
-  firstName: String
-  firstName_not: String
-  firstName_in: [String!]
-  firstName_not_in: [String!]
-  firstName_lt: String
-  firstName_lte: String
-  firstName_gt: String
-  firstName_gte: String
-  firstName_contains: String
-  firstName_not_contains: String
-  firstName_starts_with: String
-  firstName_not_starts_with: String
-  firstName_ends_with: String
-  firstName_not_ends_with: String
-  lastName: String
-  lastName_not: String
-  lastName_in: [String!]
-  lastName_not_in: [String!]
-  lastName_lt: String
-  lastName_lte: String
-  lastName_gt: String
-  lastName_gte: String
-  lastName_contains: String
-  lastName_not_contains: String
-  lastName_starts_with: String
-  lastName_not_starts_with: String
-  lastName_ends_with: String
-  lastName_not_ends_with: String
-  emailAddress: String
-  emailAddress_not: String
-  emailAddress_in: [String!]
-  emailAddress_not_in: [String!]
-  emailAddress_lt: String
-  emailAddress_lte: String
-  emailAddress_gt: String
-  emailAddress_gte: String
-  emailAddress_contains: String
-  emailAddress_not_contains: String
-  emailAddress_starts_with: String
-  emailAddress_not_starts_with: String
-  emailAddress_ends_with: String
-  emailAddress_not_ends_with: String
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  AND: [AccountScalarWhereInput!]
-  OR: [AccountScalarWhereInput!]
-  NOT: [AccountScalarWhereInput!]
-}
-
 enum AccountStatus {
   VERIFIED
   ACTIVE
@@ -202,13 +120,6 @@ input AccountUpdateInput {
   posts: PostUpdateManyWithoutAuthorInput
 }
 
-input AccountUpdateManyDataInput {
-  status: AccountStatus
-  firstName: String
-  lastName: String
-  emailAddress: String
-}
-
 input AccountUpdateManyMutationInput {
   status: AccountStatus
   firstName: String
@@ -216,27 +127,17 @@ input AccountUpdateManyMutationInput {
   emailAddress: String
 }
 
-input AccountUpdateManyWithoutSpheresInput {
-  create: [AccountCreateWithoutSpheresInput!]
-  delete: [AccountWhereUniqueInput!]
-  connect: [AccountWhereUniqueInput!]
-  set: [AccountWhereUniqueInput!]
-  disconnect: [AccountWhereUniqueInput!]
-  update: [AccountUpdateWithWhereUniqueWithoutSpheresInput!]
-  upsert: [AccountUpsertWithWhereUniqueWithoutSpheresInput!]
-  deleteMany: [AccountScalarWhereInput!]
-  updateMany: [AccountUpdateManyWithWhereNestedInput!]
-}
-
-input AccountUpdateManyWithWhereNestedInput {
-  where: AccountScalarWhereInput!
-  data: AccountUpdateManyDataInput!
-}
-
 input AccountUpdateOneRequiredWithoutPostsInput {
   create: AccountCreateWithoutPostsInput
   update: AccountUpdateWithoutPostsDataInput
   upsert: AccountUpsertWithoutPostsInput
+  connect: AccountWhereUniqueInput
+}
+
+input AccountUpdateOneRequiredWithoutSpheresInput {
+  create: AccountCreateWithoutSpheresInput
+  update: AccountUpdateWithoutSpheresDataInput
+  upsert: AccountUpsertWithoutSpheresInput
   connect: AccountWhereUniqueInput
 }
 
@@ -256,18 +157,12 @@ input AccountUpdateWithoutSpheresDataInput {
   posts: PostUpdateManyWithoutAuthorInput
 }
 
-input AccountUpdateWithWhereUniqueWithoutSpheresInput {
-  where: AccountWhereUniqueInput!
-  data: AccountUpdateWithoutSpheresDataInput!
-}
-
 input AccountUpsertWithoutPostsInput {
   update: AccountUpdateWithoutPostsDataInput!
   create: AccountCreateWithoutPostsInput!
 }
 
-input AccountUpsertWithWhereUniqueWithoutSpheresInput {
-  where: AccountWhereUniqueInput!
+input AccountUpsertWithoutSpheresInput {
   update: AccountUpdateWithoutSpheresDataInput!
   create: AccountCreateWithoutSpheresInput!
 }
@@ -474,12 +369,29 @@ input PostCreateInput {
   status: POST_STATUS
   author: AccountCreateOneWithoutPostsInput!
   metadata: PostMetadataCreateOneInput!
-  associatedWith: SphereCreateOneInput!
+  associatedWith: SphereCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutAssociatedWithInput {
+  create: [PostCreateWithoutAssociatedWithInput!]
+  connect: [PostWhereUniqueInput!]
 }
 
 input PostCreateManyWithoutAuthorInput {
   create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutAssociatedWithInput {
+  title: String!
+  content: Json!
+  slug: String!
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt: DateTime
+  status: POST_STATUS
+  author: AccountCreateOneWithoutPostsInput!
+  metadata: PostMetadataCreateOneInput!
 }
 
 input PostCreateWithoutAuthorInput {
@@ -491,7 +403,7 @@ input PostCreateWithoutAuthorInput {
   publishedAt: DateTime
   status: POST_STATUS
   metadata: PostMetadataCreateOneInput!
-  associatedWith: SphereCreateOneInput!
+  associatedWith: SphereCreateOneWithoutPostsInput!
 }
 
 type PostEdge {
@@ -792,7 +704,7 @@ input PostUpdateInput {
   status: POST_STATUS
   author: AccountUpdateOneRequiredWithoutPostsInput
   metadata: PostMetadataUpdateOneRequiredInput
-  associatedWith: SphereUpdateOneRequiredInput
+  associatedWith: SphereUpdateOneRequiredWithoutPostsInput
 }
 
 input PostUpdateManyDataInput {
@@ -815,6 +727,18 @@ input PostUpdateManyMutationInput {
   status: POST_STATUS
 }
 
+input PostUpdateManyWithoutAssociatedWithInput {
+  create: [PostCreateWithoutAssociatedWithInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAssociatedWithInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAssociatedWithInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
 input PostUpdateManyWithoutAuthorInput {
   create: [PostCreateWithoutAuthorInput!]
   delete: [PostWhereUniqueInput!]
@@ -832,6 +756,18 @@ input PostUpdateManyWithWhereNestedInput {
   data: PostUpdateManyDataInput!
 }
 
+input PostUpdateWithoutAssociatedWithDataInput {
+  title: String
+  content: Json
+  slug: String
+  timeToRead: Int
+  isPublished: Boolean
+  publishedAt: DateTime
+  status: POST_STATUS
+  author: AccountUpdateOneRequiredWithoutPostsInput
+  metadata: PostMetadataUpdateOneRequiredInput
+}
+
 input PostUpdateWithoutAuthorDataInput {
   title: String
   content: Json
@@ -841,12 +777,23 @@ input PostUpdateWithoutAuthorDataInput {
   publishedAt: DateTime
   status: POST_STATUS
   metadata: PostMetadataUpdateOneRequiredInput
-  associatedWith: SphereUpdateOneRequiredInput
+  associatedWith: SphereUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAssociatedWithDataInput!
 }
 
 input PostUpdateWithWhereUniqueWithoutAuthorInput {
   where: PostWhereUniqueInput!
   data: PostUpdateWithoutAuthorDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAssociatedWithDataInput!
+  create: PostCreateWithoutAssociatedWithInput!
 }
 
 input PostUpsertWithWhereUniqueWithoutAuthorInput {
@@ -970,9 +917,10 @@ type Sphere {
   alias: String!
   aliasSlug: String!
   slugPrefix: String!
-  associatedWith(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account!]
+  associatedWith: Account!
   createdAt: DateTime!
   updatedAt: DateTime!
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
 
 type SphereConnection {
@@ -985,7 +933,8 @@ input SphereCreateInput {
   alias: String!
   aliasSlug: String!
   slugPrefix: String
-  associatedWith: AccountCreateManyWithoutSpheresInput
+  associatedWith: AccountCreateOneWithoutSpheresInput!
+  posts: PostCreateManyWithoutAssociatedWithInput
 }
 
 input SphereCreateManyWithoutAssociatedWithInput {
@@ -993,8 +942,8 @@ input SphereCreateManyWithoutAssociatedWithInput {
   connect: [SphereWhereUniqueInput!]
 }
 
-input SphereCreateOneInput {
-  create: SphereCreateInput
+input SphereCreateOneWithoutPostsInput {
+  create: SphereCreateWithoutPostsInput
   connect: SphereWhereUniqueInput
 }
 
@@ -1002,6 +951,14 @@ input SphereCreateWithoutAssociatedWithInput {
   alias: String!
   aliasSlug: String!
   slugPrefix: String
+  posts: PostCreateManyWithoutAssociatedWithInput
+}
+
+input SphereCreateWithoutPostsInput {
+  alias: String!
+  aliasSlug: String!
+  slugPrefix: String
+  associatedWith: AccountCreateOneWithoutSpheresInput!
 }
 
 type SphereEdge {
@@ -1129,18 +1086,12 @@ input SphereSubscriptionWhereInput {
   NOT: [SphereSubscriptionWhereInput!]
 }
 
-input SphereUpdateDataInput {
-  alias: String
-  aliasSlug: String
-  slugPrefix: String
-  associatedWith: AccountUpdateManyWithoutSpheresInput
-}
-
 input SphereUpdateInput {
   alias: String
   aliasSlug: String
   slugPrefix: String
-  associatedWith: AccountUpdateManyWithoutSpheresInput
+  associatedWith: AccountUpdateOneRequiredWithoutSpheresInput
+  posts: PostUpdateManyWithoutAssociatedWithInput
 }
 
 input SphereUpdateManyDataInput {
@@ -1172,10 +1123,10 @@ input SphereUpdateManyWithWhereNestedInput {
   data: SphereUpdateManyDataInput!
 }
 
-input SphereUpdateOneRequiredInput {
-  create: SphereCreateInput
-  update: SphereUpdateDataInput
-  upsert: SphereUpsertNestedInput
+input SphereUpdateOneRequiredWithoutPostsInput {
+  create: SphereCreateWithoutPostsInput
+  update: SphereUpdateWithoutPostsDataInput
+  upsert: SphereUpsertWithoutPostsInput
   connect: SphereWhereUniqueInput
 }
 
@@ -1183,6 +1134,14 @@ input SphereUpdateWithoutAssociatedWithDataInput {
   alias: String
   aliasSlug: String
   slugPrefix: String
+  posts: PostUpdateManyWithoutAssociatedWithInput
+}
+
+input SphereUpdateWithoutPostsDataInput {
+  alias: String
+  aliasSlug: String
+  slugPrefix: String
+  associatedWith: AccountUpdateOneRequiredWithoutSpheresInput
 }
 
 input SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
@@ -1190,9 +1149,9 @@ input SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
   data: SphereUpdateWithoutAssociatedWithDataInput!
 }
 
-input SphereUpsertNestedInput {
-  update: SphereUpdateDataInput!
-  create: SphereCreateInput!
+input SphereUpsertWithoutPostsInput {
+  update: SphereUpdateWithoutPostsDataInput!
+  create: SphereCreateWithoutPostsInput!
 }
 
 input SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
@@ -1258,9 +1217,7 @@ input SphereWhereInput {
   slugPrefix_not_starts_with: String
   slugPrefix_ends_with: String
   slugPrefix_not_ends_with: String
-  associatedWith_every: AccountWhereInput
-  associatedWith_some: AccountWhereInput
-  associatedWith_none: AccountWhereInput
+  associatedWith: AccountWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1277,6 +1234,9 @@ input SphereWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
   AND: [SphereWhereInput!]
   OR: [SphereWhereInput!]
   NOT: [SphereWhereInput!]
