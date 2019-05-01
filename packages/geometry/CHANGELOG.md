@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.1...@spherehq/geometry@0.6.0) (2019-05-01)
+
+
+### Features
+
+* added avatar component and updated card styles ([fb7a6c5](https://github.com/spherehq/sphere/commit/fb7a6c5))
+
+
+
+
+
 ## [0.5.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.0...@spherehq/geometry@0.5.1) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/geometry

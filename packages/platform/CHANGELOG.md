@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.9.2...@spherehq/platform@0.10.0) (2019-05-01)
+
+
+### Bug Fixes
+
+* fixed inconsistent margin on social icons in footer ([1c9cac8](https://github.com/spherehq/sphere/commit/1c9cac8))
+
+
+### Features
+
+* added avatar component and updated card styles ([fb7a6c5](https://github.com/spherehq/sphere/commit/fb7a6c5))
+
+
+
+
+
 ## [0.9.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.9.1...@spherehq/platform@0.9.2) (2019-05-01)
 
 
