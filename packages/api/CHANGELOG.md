@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.6...@spherehq/api@0.6.0) (2019-05-01)
+
+
+### Features
+
+* added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
+
+
+
+
+
 ## [0.5.6](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.5...@spherehq/api@0.5.6) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/api

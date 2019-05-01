@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.6.5...@spherehq/database@0.7.0) (2019-05-01)
+
+
+### Features
+
+* added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
+
+
+
+
+
 ## [0.6.5](https://github.com/spherehq/sphere/compare/@spherehq/database@0.6.4...@spherehq/database@0.6.5) (2019-04-30)
 
 **Note:** Version bump only for package @spherehq/database
