@@ -176,49 +176,44 @@ export interface ClientConstructor<T> {
 }
 export declare type POST_STATUS = "PUBLISHED" | "DRAFT" | "ARCHIVED" | "SYNCING";
 export declare type SphereOrderByInput = "id_ASC" | "id_DESC" | "alias_ASC" | "alias_DESC" | "aliasSlug_ASC" | "aliasSlug_DESC" | "slugPrefix_ASC" | "slugPrefix_DESC" | "createdAt_ASC" | "createdAt_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
-export declare type AccountOrderByInput = "id_ASC" | "id_DESC" | "status_ASC" | "status_DESC" | "firstName_ASC" | "firstName_DESC" | "lastName_ASC" | "lastName_DESC" | "emailAddress_ASC" | "emailAddress_DESC" | "createdAt_ASC" | "createdAt_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export declare type PostOrderByInput = "id_ASC" | "id_DESC" | "title_ASC" | "title_DESC" | "content_ASC" | "content_DESC" | "slug_ASC" | "slug_DESC" | "timeToRead_ASC" | "timeToRead_DESC" | "isPublished_ASC" | "isPublished_DESC" | "publishedAt_ASC" | "publishedAt_DESC" | "createdAt_ASC" | "createdAt_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "status_ASC" | "status_DESC";
+export declare type AccountOrderByInput = "id_ASC" | "id_DESC" | "status_ASC" | "status_DESC" | "firstName_ASC" | "firstName_DESC" | "lastName_ASC" | "lastName_DESC" | "emailAddress_ASC" | "emailAddress_DESC" | "createdAt_ASC" | "createdAt_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export declare type AccountStatus = "VERIFIED" | "ACTIVE" | "INACTIVE";
 export declare type PostMetadataOrderByInput = "id_ASC" | "id_DESC" | "fileHash_ASC" | "fileHash_DESC" | "filename_ASC" | "filename_DESC" | "createdAt_ASC" | "createdAt_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export declare type MutationType = "CREATED" | "UPDATED" | "DELETED";
-export interface SphereUpdateWithoutAssociatedWithDataInput {
-    alias?: String;
-    aliasSlug?: String;
-    slugPrefix?: String;
+export interface SphereUpdateManyWithoutAssociatedWithInput {
+    create?: SphereCreateWithoutAssociatedWithInput[] | SphereCreateWithoutAssociatedWithInput;
+    delete?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+    connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+    set?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+    disconnect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+    update?: SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[] | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput;
+    upsert?: SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[] | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput;
+    deleteMany?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+    updateMany?: SphereUpdateManyWithWhereNestedInput[] | SphereUpdateManyWithWhereNestedInput;
 }
 export declare type AccountWhereUniqueInput = AtLeastOne<{
     id: ID_Input;
     emailAddress?: String;
 }>;
-export interface PostCreateManyWithoutAuthorInput {
-    create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
-    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+export interface AccountCreateOneWithoutPostsInput {
+    create?: AccountCreateWithoutPostsInput;
+    connect?: AccountWhereUniqueInput;
 }
-export interface SphereUpsertNestedInput {
-    update: SphereUpdateDataInput;
-    create: SphereCreateInput;
+export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
+    where: PostWhereUniqueInput;
+    data: PostUpdateWithoutAuthorDataInput;
 }
-export interface PostCreateWithoutAuthorInput {
-    title: String;
-    content: Json;
-    slug: String;
-    timeToRead?: Int;
-    isPublished?: Boolean;
-    publishedAt?: DateTimeInput;
-    status?: POST_STATUS;
-    metadata: PostMetadataCreateOneInput;
-    associatedWith: SphereCreateOneInput;
+export interface AccountCreateWithoutPostsInput {
+    status?: AccountStatus;
+    firstName: String;
+    lastName: String;
+    emailAddress: String;
+    spheres?: SphereCreateManyWithoutAssociatedWithInput;
 }
-export interface PostUpdateManyWithoutAuthorInput {
-    create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
-    delete?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-    set?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-    disconnect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-    update?: PostUpdateWithWhereUniqueWithoutAuthorInput[] | PostUpdateWithWhereUniqueWithoutAuthorInput;
-    upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[] | PostUpsertWithWhereUniqueWithoutAuthorInput;
-    deleteMany?: PostScalarWhereInput[] | PostScalarWhereInput;
-    updateMany?: PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput;
+export interface PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
+    where: PostWhereUniqueInput;
+    data: PostUpdateWithoutAssociatedWithDataInput;
 }
 export interface PostMetadataCreateOneInput {
     create?: PostMetadataCreateInput;
@@ -285,9 +280,9 @@ export interface SphereSubscriptionWhereInput {
     OR?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput;
     NOT?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput;
 }
-export interface SphereCreateOneInput {
-    create?: SphereCreateInput;
-    connect?: SphereWhereUniqueInput;
+export interface PostCreateManyWithoutAuthorInput {
+    create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
+    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
 }
 export interface PostMetadataSubscriptionWhereInput {
     mutation_in?: MutationType[] | MutationType;
@@ -299,11 +294,16 @@ export interface PostMetadataSubscriptionWhereInput {
     OR?: PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput;
     NOT?: PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput;
 }
-export interface SphereCreateInput {
-    alias: String;
-    aliasSlug: String;
-    slugPrefix?: String;
-    associatedWith?: AccountCreateManyWithoutSpheresInput;
+export interface PostCreateWithoutAuthorInput {
+    title: String;
+    content: Json;
+    slug: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    metadata: PostMetadataCreateOneInput;
+    associatedWith: SphereCreateOneWithoutPostsInput;
 }
 export interface AccountSubscriptionWhereInput {
     mutation_in?: MutationType[] | MutationType;
@@ -315,16 +315,35 @@ export interface AccountSubscriptionWhereInput {
     OR?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
     NOT?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
 }
-export interface AccountCreateManyWithoutSpheresInput {
-    create?: AccountCreateWithoutSpheresInput[] | AccountCreateWithoutSpheresInput;
-    connect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput;
+export interface SphereCreateOneWithoutPostsInput {
+    create?: SphereCreateWithoutPostsInput;
+    connect?: SphereWhereUniqueInput;
 }
 export interface SphereUpdateInput {
     alias?: String;
     aliasSlug?: String;
     slugPrefix?: String;
-    associatedWith?: AccountUpdateManyWithoutSpheresInput;
+    associatedWith?: AccountUpdateOneRequiredWithoutSpheresInput;
+    posts?: PostUpdateManyWithoutAssociatedWithInput;
 }
+export interface SphereCreateWithoutPostsInput {
+    alias: String;
+    aliasSlug: String;
+    slugPrefix?: String;
+    associatedWith: AccountCreateOneWithoutSpheresInput;
+}
+export interface PostMetadataUpdateManyMutationInput {
+    fileHash?: String;
+    filename?: String;
+}
+export interface AccountCreateOneWithoutSpheresInput {
+    create?: AccountCreateWithoutSpheresInput;
+    connect?: AccountWhereUniqueInput;
+}
+export declare type PostWhereUniqueInput = AtLeastOne<{
+    id: ID_Input;
+    slug?: String;
+}>;
 export interface AccountCreateWithoutSpheresInput {
     status?: AccountStatus;
     firstName: String;
@@ -332,9 +351,17 @@ export interface AccountCreateWithoutSpheresInput {
     emailAddress: String;
     posts?: PostCreateManyWithoutAuthorInput;
 }
-export interface PostMetadataUpdateInput {
-    fileHash?: String;
-    filename?: String;
+export interface PostUpdateInput {
+    title?: String;
+    content?: Json;
+    slug?: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    author?: AccountUpdateOneRequiredWithoutPostsInput;
+    metadata?: PostMetadataUpdateOneRequiredInput;
+    associatedWith?: SphereUpdateOneRequiredWithoutPostsInput;
 }
 export interface AccountUpdateInput {
     status?: AccountStatus;
@@ -344,239 +371,68 @@ export interface AccountUpdateInput {
     spheres?: SphereUpdateManyWithoutAssociatedWithInput;
     posts?: PostUpdateManyWithoutAuthorInput;
 }
-export declare type PostWhereUniqueInput = AtLeastOne<{
+export declare type PostMetadataWhereUniqueInput = AtLeastOne<{
     id: ID_Input;
-    slug?: String;
 }>;
-export interface SphereUpdateManyWithoutAssociatedWithInput {
-    create?: SphereCreateWithoutAssociatedWithInput[] | SphereCreateWithoutAssociatedWithInput;
-    delete?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-    connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-    set?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-    disconnect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-    update?: SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[] | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput;
-    upsert?: SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[] | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput;
-    deleteMany?: SphereScalarWhereInput[] | SphereScalarWhereInput;
-    updateMany?: SphereUpdateManyWithWhereNestedInput[] | SphereUpdateManyWithWhereNestedInput;
+export interface SphereUpdateOneRequiredWithoutPostsInput {
+    create?: SphereCreateWithoutPostsInput;
+    update?: SphereUpdateWithoutPostsDataInput;
+    upsert?: SphereUpsertWithoutPostsInput;
+    connect?: SphereWhereUniqueInput;
 }
-export interface AccountUpdateWithoutPostsDataInput {
-    status?: AccountStatus;
-    firstName?: String;
-    lastName?: String;
-    emailAddress?: String;
-    spheres?: SphereUpdateManyWithoutAssociatedWithInput;
+export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
+    where: PostWhereUniqueInput;
+    update: PostUpdateWithoutAuthorDataInput;
+    create: PostCreateWithoutAuthorInput;
 }
 export interface SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
     where: SphereWhereUniqueInput;
     data: SphereUpdateWithoutAssociatedWithDataInput;
 }
-export declare type PostMetadataWhereUniqueInput = AtLeastOne<{
-    id: ID_Input;
-}>;
-export interface PostScalarWhereInput {
-    id?: ID_Input;
-    id_not?: ID_Input;
-    id_in?: ID_Input[] | ID_Input;
-    id_not_in?: ID_Input[] | ID_Input;
-    id_lt?: ID_Input;
-    id_lte?: ID_Input;
-    id_gt?: ID_Input;
-    id_gte?: ID_Input;
-    id_contains?: ID_Input;
-    id_not_contains?: ID_Input;
-    id_starts_with?: ID_Input;
-    id_not_starts_with?: ID_Input;
-    id_ends_with?: ID_Input;
-    id_not_ends_with?: ID_Input;
-    title?: String;
-    title_not?: String;
-    title_in?: String[] | String;
-    title_not_in?: String[] | String;
-    title_lt?: String;
-    title_lte?: String;
-    title_gt?: String;
-    title_gte?: String;
-    title_contains?: String;
-    title_not_contains?: String;
-    title_starts_with?: String;
-    title_not_starts_with?: String;
-    title_ends_with?: String;
-    title_not_ends_with?: String;
-    slug?: String;
-    slug_not?: String;
-    slug_in?: String[] | String;
-    slug_not_in?: String[] | String;
-    slug_lt?: String;
-    slug_lte?: String;
-    slug_gt?: String;
-    slug_gte?: String;
-    slug_contains?: String;
-    slug_not_contains?: String;
-    slug_starts_with?: String;
-    slug_not_starts_with?: String;
-    slug_ends_with?: String;
-    slug_not_ends_with?: String;
-    timeToRead?: Int;
-    timeToRead_not?: Int;
-    timeToRead_in?: Int[] | Int;
-    timeToRead_not_in?: Int[] | Int;
-    timeToRead_lt?: Int;
-    timeToRead_lte?: Int;
-    timeToRead_gt?: Int;
-    timeToRead_gte?: Int;
-    isPublished?: Boolean;
-    isPublished_not?: Boolean;
-    publishedAt?: DateTimeInput;
-    publishedAt_not?: DateTimeInput;
-    publishedAt_in?: DateTimeInput[] | DateTimeInput;
-    publishedAt_not_in?: DateTimeInput[] | DateTimeInput;
-    publishedAt_lt?: DateTimeInput;
-    publishedAt_lte?: DateTimeInput;
-    publishedAt_gt?: DateTimeInput;
-    publishedAt_gte?: DateTimeInput;
-    createdAt?: DateTimeInput;
-    createdAt_not?: DateTimeInput;
-    createdAt_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_lt?: DateTimeInput;
-    createdAt_lte?: DateTimeInput;
-    createdAt_gt?: DateTimeInput;
-    createdAt_gte?: DateTimeInput;
-    updatedAt?: DateTimeInput;
-    updatedAt_not?: DateTimeInput;
-    updatedAt_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_lt?: DateTimeInput;
-    updatedAt_lte?: DateTimeInput;
-    updatedAt_gt?: DateTimeInput;
-    updatedAt_gte?: DateTimeInput;
-    status?: POST_STATUS;
-    status_not?: POST_STATUS;
-    status_in?: POST_STATUS[] | POST_STATUS;
-    status_not_in?: POST_STATUS[] | POST_STATUS;
-    AND?: PostScalarWhereInput[] | PostScalarWhereInput;
-    OR?: PostScalarWhereInput[] | PostScalarWhereInput;
-    NOT?: PostScalarWhereInput[] | PostScalarWhereInput;
+export interface AccountUpsertWithoutSpheresInput {
+    update: AccountUpdateWithoutSpheresDataInput;
+    create: AccountCreateWithoutSpheresInput;
 }
-export interface AccountCreateWithoutPostsInput {
-    status?: AccountStatus;
-    firstName: String;
-    lastName: String;
-    emailAddress: String;
-    spheres?: SphereCreateManyWithoutAssociatedWithInput;
-}
-export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
-    where: SphereWhereUniqueInput;
-    update: SphereUpdateWithoutAssociatedWithDataInput;
-    create: SphereCreateWithoutAssociatedWithInput;
-}
-export interface PostCreateInput {
-    title: String;
-    content: Json;
-    slug: String;
-    timeToRead?: Int;
-    isPublished?: Boolean;
-    publishedAt?: DateTimeInput;
-    status?: POST_STATUS;
-    author: AccountCreateOneWithoutPostsInput;
-    metadata: PostMetadataCreateOneInput;
-    associatedWith: SphereCreateOneInput;
-}
-export interface SphereScalarWhereInput {
-    id?: ID_Input;
-    id_not?: ID_Input;
-    id_in?: ID_Input[] | ID_Input;
-    id_not_in?: ID_Input[] | ID_Input;
-    id_lt?: ID_Input;
-    id_lte?: ID_Input;
-    id_gt?: ID_Input;
-    id_gte?: ID_Input;
-    id_contains?: ID_Input;
-    id_not_contains?: ID_Input;
-    id_starts_with?: ID_Input;
-    id_not_starts_with?: ID_Input;
-    id_ends_with?: ID_Input;
-    id_not_ends_with?: ID_Input;
+export interface SphereUpdateWithoutAssociatedWithDataInput {
     alias?: String;
-    alias_not?: String;
-    alias_in?: String[] | String;
-    alias_not_in?: String[] | String;
-    alias_lt?: String;
-    alias_lte?: String;
-    alias_gt?: String;
-    alias_gte?: String;
-    alias_contains?: String;
-    alias_not_contains?: String;
-    alias_starts_with?: String;
-    alias_not_starts_with?: String;
-    alias_ends_with?: String;
-    alias_not_ends_with?: String;
     aliasSlug?: String;
-    aliasSlug_not?: String;
-    aliasSlug_in?: String[] | String;
-    aliasSlug_not_in?: String[] | String;
-    aliasSlug_lt?: String;
-    aliasSlug_lte?: String;
-    aliasSlug_gt?: String;
-    aliasSlug_gte?: String;
-    aliasSlug_contains?: String;
-    aliasSlug_not_contains?: String;
-    aliasSlug_starts_with?: String;
-    aliasSlug_not_starts_with?: String;
-    aliasSlug_ends_with?: String;
-    aliasSlug_not_ends_with?: String;
     slugPrefix?: String;
-    slugPrefix_not?: String;
-    slugPrefix_in?: String[] | String;
-    slugPrefix_not_in?: String[] | String;
-    slugPrefix_lt?: String;
-    slugPrefix_lte?: String;
-    slugPrefix_gt?: String;
-    slugPrefix_gte?: String;
-    slugPrefix_contains?: String;
-    slugPrefix_not_contains?: String;
-    slugPrefix_starts_with?: String;
-    slugPrefix_not_starts_with?: String;
-    slugPrefix_ends_with?: String;
-    slugPrefix_not_ends_with?: String;
-    createdAt?: DateTimeInput;
-    createdAt_not?: DateTimeInput;
-    createdAt_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_lt?: DateTimeInput;
-    createdAt_lte?: DateTimeInput;
-    createdAt_gt?: DateTimeInput;
-    createdAt_gte?: DateTimeInput;
-    updatedAt?: DateTimeInput;
-    updatedAt_not?: DateTimeInput;
-    updatedAt_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_lt?: DateTimeInput;
-    updatedAt_lte?: DateTimeInput;
-    updatedAt_gt?: DateTimeInput;
-    updatedAt_gte?: DateTimeInput;
-    AND?: SphereScalarWhereInput[] | SphereScalarWhereInput;
-    OR?: SphereScalarWhereInput[] | SphereScalarWhereInput;
-    NOT?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+    posts?: PostUpdateManyWithoutAssociatedWithInput;
 }
-export interface AccountUpdateManyMutationInput {
+export interface AccountUpdateWithoutSpheresDataInput {
     status?: AccountStatus;
     firstName?: String;
     lastName?: String;
     emailAddress?: String;
+    posts?: PostUpdateManyWithoutAuthorInput;
 }
-export interface SphereUpdateManyWithWhereNestedInput {
-    where: SphereScalarWhereInput;
-    data: SphereUpdateManyDataInput;
+export interface PostUpdateManyWithoutAssociatedWithInput {
+    create?: PostCreateWithoutAssociatedWithInput[] | PostCreateWithoutAssociatedWithInput;
+    delete?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    set?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    disconnect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    update?: PostUpdateWithWhereUniqueWithoutAssociatedWithInput[] | PostUpdateWithWhereUniqueWithoutAssociatedWithInput;
+    upsert?: PostUpsertWithWhereUniqueWithoutAssociatedWithInput[] | PostUpsertWithWhereUniqueWithoutAssociatedWithInput;
+    deleteMany?: PostScalarWhereInput[] | PostScalarWhereInput;
+    updateMany?: PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput;
 }
-export interface PostUpdateManyWithWhereNestedInput {
-    where: PostScalarWhereInput;
-    data: PostUpdateManyDataInput;
-}
-export interface SphereUpdateManyDataInput {
+export interface SphereUpdateWithoutPostsDataInput {
     alias?: String;
     aliasSlug?: String;
     slugPrefix?: String;
+    associatedWith?: AccountUpdateOneRequiredWithoutSpheresInput;
+}
+export interface PostUpdateWithoutAuthorDataInput {
+    title?: String;
+    content?: Json;
+    slug?: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    metadata?: PostMetadataUpdateOneRequiredInput;
+    associatedWith?: SphereUpdateOneRequiredWithoutPostsInput;
 }
 export interface AccountCreateInput {
     status?: AccountStatus;
@@ -586,19 +442,46 @@ export interface AccountCreateInput {
     spheres?: SphereCreateManyWithoutAssociatedWithInput;
     posts?: PostCreateManyWithoutAuthorInput;
 }
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-    where: PostWhereUniqueInput;
-    update: PostUpdateWithoutAuthorDataInput;
-    create: PostCreateWithoutAuthorInput;
+export interface PostUpdateWithoutAssociatedWithDataInput {
+    title?: String;
+    content?: Json;
+    slug?: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    author?: AccountUpdateOneRequiredWithoutPostsInput;
+    metadata?: PostMetadataUpdateOneRequiredInput;
 }
 export interface SphereCreateWithoutAssociatedWithInput {
     alias: String;
     aliasSlug: String;
     slugPrefix?: String;
+    posts?: PostCreateManyWithoutAssociatedWithInput;
 }
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-    where: PostWhereUniqueInput;
-    data: PostUpdateWithoutAuthorDataInput;
+export interface AccountUpdateOneRequiredWithoutPostsInput {
+    create?: AccountCreateWithoutPostsInput;
+    update?: AccountUpdateWithoutPostsDataInput;
+    upsert?: AccountUpsertWithoutPostsInput;
+    connect?: AccountWhereUniqueInput;
+}
+export interface PostCreateWithoutAssociatedWithInput {
+    title: String;
+    content: Json;
+    slug: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    author: AccountCreateOneWithoutPostsInput;
+    metadata: PostMetadataCreateOneInput;
+}
+export interface AccountUpdateWithoutPostsDataInput {
+    status?: AccountStatus;
+    firstName?: String;
+    lastName?: String;
+    emailAddress?: String;
+    spheres?: SphereUpdateManyWithoutAssociatedWithInput;
 }
 export interface AccountWhereInput {
     id?: ID_Input;
@@ -687,16 +570,9 @@ export interface AccountWhereInput {
     OR?: AccountWhereInput[] | AccountWhereInput;
     NOT?: AccountWhereInput[] | AccountWhereInput;
 }
-export interface PostUpdateWithoutAuthorDataInput {
-    title?: String;
-    content?: Json;
-    slug?: String;
-    timeToRead?: Int;
-    isPublished?: Boolean;
-    publishedAt?: DateTimeInput;
-    status?: POST_STATUS;
-    metadata?: PostMetadataUpdateOneRequiredInput;
-    associatedWith?: SphereUpdateOneRequiredInput;
+export interface AccountUpsertWithoutPostsInput {
+    update: AccountUpdateWithoutPostsDataInput;
+    create: AccountCreateWithoutPostsInput;
 }
 export interface PostSubscriptionWhereInput {
     mutation_in?: MutationType[] | MutationType;
@@ -714,23 +590,18 @@ export interface PostMetadataUpdateOneRequiredInput {
     upsert?: PostMetadataUpsertNestedInput;
     connect?: PostMetadataWhereUniqueInput;
 }
-export interface PostMetadataUpdateManyMutationInput {
-    fileHash?: String;
-    filename?: String;
+export interface SphereCreateInput {
+    alias: String;
+    aliasSlug: String;
+    slugPrefix?: String;
+    associatedWith: AccountCreateOneWithoutSpheresInput;
+    posts?: PostCreateManyWithoutAssociatedWithInput;
 }
 export interface PostMetadataUpdateDataInput {
     fileHash?: String;
     filename?: String;
 }
-export interface AccountUpsertWithoutPostsInput {
-    update: AccountUpdateWithoutPostsDataInput;
-    create: AccountCreateWithoutPostsInput;
-}
-export interface PostMetadataUpsertNestedInput {
-    update: PostMetadataUpdateDataInput;
-    create: PostMetadataCreateInput;
-}
-export interface PostUpdateInput {
+export interface PostUpdateManyMutationInput {
     title?: String;
     content?: Json;
     slug?: String;
@@ -738,26 +609,342 @@ export interface PostUpdateInput {
     isPublished?: Boolean;
     publishedAt?: DateTimeInput;
     status?: POST_STATUS;
-    author?: AccountUpdateOneRequiredWithoutPostsInput;
-    metadata?: PostMetadataUpdateOneRequiredInput;
-    associatedWith?: SphereUpdateOneRequiredInput;
 }
-export interface SphereUpdateOneRequiredInput {
-    create?: SphereCreateInput;
-    update?: SphereUpdateDataInput;
-    upsert?: SphereUpsertNestedInput;
-    connect?: SphereWhereUniqueInput;
+export interface PostMetadataUpsertNestedInput {
+    update: PostMetadataUpdateDataInput;
+    create: PostMetadataCreateInput;
+}
+export interface AccountUpdateManyMutationInput {
+    status?: AccountStatus;
+    firstName?: String;
+    lastName?: String;
+    emailAddress?: String;
+}
+export interface PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
+    where: PostWhereUniqueInput;
+    update: PostUpdateWithoutAssociatedWithDataInput;
+    create: PostCreateWithoutAssociatedWithInput;
 }
 export declare type SphereWhereUniqueInput = AtLeastOne<{
     id: ID_Input;
     alias?: String;
     aliasSlug?: String;
 }>;
-export interface SphereUpdateDataInput {
+export interface PostScalarWhereInput {
+    id?: ID_Input;
+    id_not?: ID_Input;
+    id_in?: ID_Input[] | ID_Input;
+    id_not_in?: ID_Input[] | ID_Input;
+    id_lt?: ID_Input;
+    id_lte?: ID_Input;
+    id_gt?: ID_Input;
+    id_gte?: ID_Input;
+    id_contains?: ID_Input;
+    id_not_contains?: ID_Input;
+    id_starts_with?: ID_Input;
+    id_not_starts_with?: ID_Input;
+    id_ends_with?: ID_Input;
+    id_not_ends_with?: ID_Input;
+    title?: String;
+    title_not?: String;
+    title_in?: String[] | String;
+    title_not_in?: String[] | String;
+    title_lt?: String;
+    title_lte?: String;
+    title_gt?: String;
+    title_gte?: String;
+    title_contains?: String;
+    title_not_contains?: String;
+    title_starts_with?: String;
+    title_not_starts_with?: String;
+    title_ends_with?: String;
+    title_not_ends_with?: String;
+    slug?: String;
+    slug_not?: String;
+    slug_in?: String[] | String;
+    slug_not_in?: String[] | String;
+    slug_lt?: String;
+    slug_lte?: String;
+    slug_gt?: String;
+    slug_gte?: String;
+    slug_contains?: String;
+    slug_not_contains?: String;
+    slug_starts_with?: String;
+    slug_not_starts_with?: String;
+    slug_ends_with?: String;
+    slug_not_ends_with?: String;
+    timeToRead?: Int;
+    timeToRead_not?: Int;
+    timeToRead_in?: Int[] | Int;
+    timeToRead_not_in?: Int[] | Int;
+    timeToRead_lt?: Int;
+    timeToRead_lte?: Int;
+    timeToRead_gt?: Int;
+    timeToRead_gte?: Int;
+    isPublished?: Boolean;
+    isPublished_not?: Boolean;
+    publishedAt?: DateTimeInput;
+    publishedAt_not?: DateTimeInput;
+    publishedAt_in?: DateTimeInput[] | DateTimeInput;
+    publishedAt_not_in?: DateTimeInput[] | DateTimeInput;
+    publishedAt_lt?: DateTimeInput;
+    publishedAt_lte?: DateTimeInput;
+    publishedAt_gt?: DateTimeInput;
+    publishedAt_gte?: DateTimeInput;
+    createdAt?: DateTimeInput;
+    createdAt_not?: DateTimeInput;
+    createdAt_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_lt?: DateTimeInput;
+    createdAt_lte?: DateTimeInput;
+    createdAt_gt?: DateTimeInput;
+    createdAt_gte?: DateTimeInput;
+    updatedAt?: DateTimeInput;
+    updatedAt_not?: DateTimeInput;
+    updatedAt_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_lt?: DateTimeInput;
+    updatedAt_lte?: DateTimeInput;
+    updatedAt_gt?: DateTimeInput;
+    updatedAt_gte?: DateTimeInput;
+    status?: POST_STATUS;
+    status_not?: POST_STATUS;
+    status_in?: POST_STATUS[] | POST_STATUS;
+    status_not_in?: POST_STATUS[] | POST_STATUS;
+    AND?: PostScalarWhereInput[] | PostScalarWhereInput;
+    OR?: PostScalarWhereInput[] | PostScalarWhereInput;
+    NOT?: PostScalarWhereInput[] | PostScalarWhereInput;
+}
+export interface PostCreateManyWithoutAssociatedWithInput {
+    create?: PostCreateWithoutAssociatedWithInput[] | PostCreateWithoutAssociatedWithInput;
+    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+}
+export interface PostUpdateManyWithWhereNestedInput {
+    where: PostScalarWhereInput;
+    data: PostUpdateManyDataInput;
+}
+export interface SphereWhereInput {
+    id?: ID_Input;
+    id_not?: ID_Input;
+    id_in?: ID_Input[] | ID_Input;
+    id_not_in?: ID_Input[] | ID_Input;
+    id_lt?: ID_Input;
+    id_lte?: ID_Input;
+    id_gt?: ID_Input;
+    id_gte?: ID_Input;
+    id_contains?: ID_Input;
+    id_not_contains?: ID_Input;
+    id_starts_with?: ID_Input;
+    id_not_starts_with?: ID_Input;
+    id_ends_with?: ID_Input;
+    id_not_ends_with?: ID_Input;
+    alias?: String;
+    alias_not?: String;
+    alias_in?: String[] | String;
+    alias_not_in?: String[] | String;
+    alias_lt?: String;
+    alias_lte?: String;
+    alias_gt?: String;
+    alias_gte?: String;
+    alias_contains?: String;
+    alias_not_contains?: String;
+    alias_starts_with?: String;
+    alias_not_starts_with?: String;
+    alias_ends_with?: String;
+    alias_not_ends_with?: String;
+    aliasSlug?: String;
+    aliasSlug_not?: String;
+    aliasSlug_in?: String[] | String;
+    aliasSlug_not_in?: String[] | String;
+    aliasSlug_lt?: String;
+    aliasSlug_lte?: String;
+    aliasSlug_gt?: String;
+    aliasSlug_gte?: String;
+    aliasSlug_contains?: String;
+    aliasSlug_not_contains?: String;
+    aliasSlug_starts_with?: String;
+    aliasSlug_not_starts_with?: String;
+    aliasSlug_ends_with?: String;
+    aliasSlug_not_ends_with?: String;
+    slugPrefix?: String;
+    slugPrefix_not?: String;
+    slugPrefix_in?: String[] | String;
+    slugPrefix_not_in?: String[] | String;
+    slugPrefix_lt?: String;
+    slugPrefix_lte?: String;
+    slugPrefix_gt?: String;
+    slugPrefix_gte?: String;
+    slugPrefix_contains?: String;
+    slugPrefix_not_contains?: String;
+    slugPrefix_starts_with?: String;
+    slugPrefix_not_starts_with?: String;
+    slugPrefix_ends_with?: String;
+    slugPrefix_not_ends_with?: String;
+    associatedWith?: AccountWhereInput;
+    createdAt?: DateTimeInput;
+    createdAt_not?: DateTimeInput;
+    createdAt_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_lt?: DateTimeInput;
+    createdAt_lte?: DateTimeInput;
+    createdAt_gt?: DateTimeInput;
+    createdAt_gte?: DateTimeInput;
+    updatedAt?: DateTimeInput;
+    updatedAt_not?: DateTimeInput;
+    updatedAt_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_lt?: DateTimeInput;
+    updatedAt_lte?: DateTimeInput;
+    updatedAt_gt?: DateTimeInput;
+    updatedAt_gte?: DateTimeInput;
+    posts_every?: PostWhereInput;
+    posts_some?: PostWhereInput;
+    posts_none?: PostWhereInput;
+    AND?: SphereWhereInput[] | SphereWhereInput;
+    OR?: SphereWhereInput[] | SphereWhereInput;
+    NOT?: SphereWhereInput[] | SphereWhereInput;
+}
+export interface PostUpdateManyDataInput {
+    title?: String;
+    content?: Json;
+    slug?: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+}
+export interface PostMetadataUpdateInput {
+    fileHash?: String;
+    filename?: String;
+}
+export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
+    where: SphereWhereUniqueInput;
+    update: SphereUpdateWithoutAssociatedWithDataInput;
+    create: SphereCreateWithoutAssociatedWithInput;
+}
+export interface SphereUpsertWithoutPostsInput {
+    update: SphereUpdateWithoutPostsDataInput;
+    create: SphereCreateWithoutPostsInput;
+}
+export interface PostUpdateManyWithoutAuthorInput {
+    create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
+    delete?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    set?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    disconnect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+    update?: PostUpdateWithWhereUniqueWithoutAuthorInput[] | PostUpdateWithWhereUniqueWithoutAuthorInput;
+    upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[] | PostUpsertWithWhereUniqueWithoutAuthorInput;
+    deleteMany?: PostScalarWhereInput[] | PostScalarWhereInput;
+    updateMany?: PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput;
+}
+export interface SphereUpdateManyDataInput {
     alias?: String;
     aliasSlug?: String;
     slugPrefix?: String;
-    associatedWith?: AccountUpdateManyWithoutSpheresInput;
+}
+export interface SphereUpdateManyWithWhereNestedInput {
+    where: SphereScalarWhereInput;
+    data: SphereUpdateManyDataInput;
+}
+export interface SphereScalarWhereInput {
+    id?: ID_Input;
+    id_not?: ID_Input;
+    id_in?: ID_Input[] | ID_Input;
+    id_not_in?: ID_Input[] | ID_Input;
+    id_lt?: ID_Input;
+    id_lte?: ID_Input;
+    id_gt?: ID_Input;
+    id_gte?: ID_Input;
+    id_contains?: ID_Input;
+    id_not_contains?: ID_Input;
+    id_starts_with?: ID_Input;
+    id_not_starts_with?: ID_Input;
+    id_ends_with?: ID_Input;
+    id_not_ends_with?: ID_Input;
+    alias?: String;
+    alias_not?: String;
+    alias_in?: String[] | String;
+    alias_not_in?: String[] | String;
+    alias_lt?: String;
+    alias_lte?: String;
+    alias_gt?: String;
+    alias_gte?: String;
+    alias_contains?: String;
+    alias_not_contains?: String;
+    alias_starts_with?: String;
+    alias_not_starts_with?: String;
+    alias_ends_with?: String;
+    alias_not_ends_with?: String;
+    aliasSlug?: String;
+    aliasSlug_not?: String;
+    aliasSlug_in?: String[] | String;
+    aliasSlug_not_in?: String[] | String;
+    aliasSlug_lt?: String;
+    aliasSlug_lte?: String;
+    aliasSlug_gt?: String;
+    aliasSlug_gte?: String;
+    aliasSlug_contains?: String;
+    aliasSlug_not_contains?: String;
+    aliasSlug_starts_with?: String;
+    aliasSlug_not_starts_with?: String;
+    aliasSlug_ends_with?: String;
+    aliasSlug_not_ends_with?: String;
+    slugPrefix?: String;
+    slugPrefix_not?: String;
+    slugPrefix_in?: String[] | String;
+    slugPrefix_not_in?: String[] | String;
+    slugPrefix_lt?: String;
+    slugPrefix_lte?: String;
+    slugPrefix_gt?: String;
+    slugPrefix_gte?: String;
+    slugPrefix_contains?: String;
+    slugPrefix_not_contains?: String;
+    slugPrefix_starts_with?: String;
+    slugPrefix_not_starts_with?: String;
+    slugPrefix_ends_with?: String;
+    slugPrefix_not_ends_with?: String;
+    createdAt?: DateTimeInput;
+    createdAt_not?: DateTimeInput;
+    createdAt_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+    createdAt_lt?: DateTimeInput;
+    createdAt_lte?: DateTimeInput;
+    createdAt_gt?: DateTimeInput;
+    createdAt_gte?: DateTimeInput;
+    updatedAt?: DateTimeInput;
+    updatedAt_not?: DateTimeInput;
+    updatedAt_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+    updatedAt_lt?: DateTimeInput;
+    updatedAt_lte?: DateTimeInput;
+    updatedAt_gt?: DateTimeInput;
+    updatedAt_gte?: DateTimeInput;
+    AND?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+    OR?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+    NOT?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+}
+export interface AccountUpdateOneRequiredWithoutSpheresInput {
+    create?: AccountCreateWithoutSpheresInput;
+    update?: AccountUpdateWithoutSpheresDataInput;
+    upsert?: AccountUpsertWithoutSpheresInput;
+    connect?: AccountWhereUniqueInput;
+}
+export interface PostCreateInput {
+    title: String;
+    content: Json;
+    slug: String;
+    timeToRead?: Int;
+    isPublished?: Boolean;
+    publishedAt?: DateTimeInput;
+    status?: POST_STATUS;
+    author: AccountCreateOneWithoutPostsInput;
+    metadata: PostMetadataCreateOneInput;
+    associatedWith: SphereCreateOneWithoutPostsInput;
+}
+export interface SphereUpdateManyMutationInput {
+    alias?: String;
+    aliasSlug?: String;
+    slugPrefix?: String;
 }
 export interface PostWhereInput {
     id?: ID_Input;
@@ -847,240 +1034,9 @@ export interface PostWhereInput {
     OR?: PostWhereInput[] | PostWhereInput;
     NOT?: PostWhereInput[] | PostWhereInput;
 }
-export interface AccountUpdateManyWithoutSpheresInput {
-    create?: AccountCreateWithoutSpheresInput[] | AccountCreateWithoutSpheresInput;
-    delete?: AccountWhereUniqueInput[] | AccountWhereUniqueInput;
-    connect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput;
-    set?: AccountWhereUniqueInput[] | AccountWhereUniqueInput;
-    disconnect?: AccountWhereUniqueInput[] | AccountWhereUniqueInput;
-    update?: AccountUpdateWithWhereUniqueWithoutSpheresInput[] | AccountUpdateWithWhereUniqueWithoutSpheresInput;
-    upsert?: AccountUpsertWithWhereUniqueWithoutSpheresInput[] | AccountUpsertWithWhereUniqueWithoutSpheresInput;
-    deleteMany?: AccountScalarWhereInput[] | AccountScalarWhereInput;
-    updateMany?: AccountUpdateManyWithWhereNestedInput[] | AccountUpdateManyWithWhereNestedInput;
-}
-export interface SphereUpdateManyMutationInput {
-    alias?: String;
-    aliasSlug?: String;
-    slugPrefix?: String;
-}
-export interface AccountUpdateWithWhereUniqueWithoutSpheresInput {
-    where: AccountWhereUniqueInput;
-    data: AccountUpdateWithoutSpheresDataInput;
-}
-export interface AccountUpdateOneRequiredWithoutPostsInput {
-    create?: AccountCreateWithoutPostsInput;
-    update?: AccountUpdateWithoutPostsDataInput;
-    upsert?: AccountUpsertWithoutPostsInput;
-    connect?: AccountWhereUniqueInput;
-}
-export interface AccountUpdateWithoutSpheresDataInput {
-    status?: AccountStatus;
-    firstName?: String;
-    lastName?: String;
-    emailAddress?: String;
-    posts?: PostUpdateManyWithoutAuthorInput;
-}
-export interface PostUpdateManyDataInput {
-    title?: String;
-    content?: Json;
-    slug?: String;
-    timeToRead?: Int;
-    isPublished?: Boolean;
-    publishedAt?: DateTimeInput;
-    status?: POST_STATUS;
-}
-export interface AccountUpdateManyDataInput {
-    status?: AccountStatus;
-    firstName?: String;
-    lastName?: String;
-    emailAddress?: String;
-}
-export interface AccountUpdateManyWithWhereNestedInput {
-    where: AccountScalarWhereInput;
-    data: AccountUpdateManyDataInput;
-}
-export interface AccountScalarWhereInput {
-    id?: ID_Input;
-    id_not?: ID_Input;
-    id_in?: ID_Input[] | ID_Input;
-    id_not_in?: ID_Input[] | ID_Input;
-    id_lt?: ID_Input;
-    id_lte?: ID_Input;
-    id_gt?: ID_Input;
-    id_gte?: ID_Input;
-    id_contains?: ID_Input;
-    id_not_contains?: ID_Input;
-    id_starts_with?: ID_Input;
-    id_not_starts_with?: ID_Input;
-    id_ends_with?: ID_Input;
-    id_not_ends_with?: ID_Input;
-    status?: AccountStatus;
-    status_not?: AccountStatus;
-    status_in?: AccountStatus[] | AccountStatus;
-    status_not_in?: AccountStatus[] | AccountStatus;
-    firstName?: String;
-    firstName_not?: String;
-    firstName_in?: String[] | String;
-    firstName_not_in?: String[] | String;
-    firstName_lt?: String;
-    firstName_lte?: String;
-    firstName_gt?: String;
-    firstName_gte?: String;
-    firstName_contains?: String;
-    firstName_not_contains?: String;
-    firstName_starts_with?: String;
-    firstName_not_starts_with?: String;
-    firstName_ends_with?: String;
-    firstName_not_ends_with?: String;
-    lastName?: String;
-    lastName_not?: String;
-    lastName_in?: String[] | String;
-    lastName_not_in?: String[] | String;
-    lastName_lt?: String;
-    lastName_lte?: String;
-    lastName_gt?: String;
-    lastName_gte?: String;
-    lastName_contains?: String;
-    lastName_not_contains?: String;
-    lastName_starts_with?: String;
-    lastName_not_starts_with?: String;
-    lastName_ends_with?: String;
-    lastName_not_ends_with?: String;
-    emailAddress?: String;
-    emailAddress_not?: String;
-    emailAddress_in?: String[] | String;
-    emailAddress_not_in?: String[] | String;
-    emailAddress_lt?: String;
-    emailAddress_lte?: String;
-    emailAddress_gt?: String;
-    emailAddress_gte?: String;
-    emailAddress_contains?: String;
-    emailAddress_not_contains?: String;
-    emailAddress_starts_with?: String;
-    emailAddress_not_starts_with?: String;
-    emailAddress_ends_with?: String;
-    emailAddress_not_ends_with?: String;
-    createdAt?: DateTimeInput;
-    createdAt_not?: DateTimeInput;
-    createdAt_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_lt?: DateTimeInput;
-    createdAt_lte?: DateTimeInput;
-    createdAt_gt?: DateTimeInput;
-    createdAt_gte?: DateTimeInput;
-    updatedAt?: DateTimeInput;
-    updatedAt_not?: DateTimeInput;
-    updatedAt_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_lt?: DateTimeInput;
-    updatedAt_lte?: DateTimeInput;
-    updatedAt_gt?: DateTimeInput;
-    updatedAt_gte?: DateTimeInput;
-    AND?: AccountScalarWhereInput[] | AccountScalarWhereInput;
-    OR?: AccountScalarWhereInput[] | AccountScalarWhereInput;
-    NOT?: AccountScalarWhereInput[] | AccountScalarWhereInput;
-}
-export interface AccountUpsertWithWhereUniqueWithoutSpheresInput {
-    where: AccountWhereUniqueInput;
-    update: AccountUpdateWithoutSpheresDataInput;
-    create: AccountCreateWithoutSpheresInput;
-}
 export interface SphereCreateManyWithoutAssociatedWithInput {
     create?: SphereCreateWithoutAssociatedWithInput[] | SphereCreateWithoutAssociatedWithInput;
     connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-}
-export interface AccountCreateOneWithoutPostsInput {
-    create?: AccountCreateWithoutPostsInput;
-    connect?: AccountWhereUniqueInput;
-}
-export interface PostUpdateManyMutationInput {
-    title?: String;
-    content?: Json;
-    slug?: String;
-    timeToRead?: Int;
-    isPublished?: Boolean;
-    publishedAt?: DateTimeInput;
-    status?: POST_STATUS;
-}
-export interface SphereWhereInput {
-    id?: ID_Input;
-    id_not?: ID_Input;
-    id_in?: ID_Input[] | ID_Input;
-    id_not_in?: ID_Input[] | ID_Input;
-    id_lt?: ID_Input;
-    id_lte?: ID_Input;
-    id_gt?: ID_Input;
-    id_gte?: ID_Input;
-    id_contains?: ID_Input;
-    id_not_contains?: ID_Input;
-    id_starts_with?: ID_Input;
-    id_not_starts_with?: ID_Input;
-    id_ends_with?: ID_Input;
-    id_not_ends_with?: ID_Input;
-    alias?: String;
-    alias_not?: String;
-    alias_in?: String[] | String;
-    alias_not_in?: String[] | String;
-    alias_lt?: String;
-    alias_lte?: String;
-    alias_gt?: String;
-    alias_gte?: String;
-    alias_contains?: String;
-    alias_not_contains?: String;
-    alias_starts_with?: String;
-    alias_not_starts_with?: String;
-    alias_ends_with?: String;
-    alias_not_ends_with?: String;
-    aliasSlug?: String;
-    aliasSlug_not?: String;
-    aliasSlug_in?: String[] | String;
-    aliasSlug_not_in?: String[] | String;
-    aliasSlug_lt?: String;
-    aliasSlug_lte?: String;
-    aliasSlug_gt?: String;
-    aliasSlug_gte?: String;
-    aliasSlug_contains?: String;
-    aliasSlug_not_contains?: String;
-    aliasSlug_starts_with?: String;
-    aliasSlug_not_starts_with?: String;
-    aliasSlug_ends_with?: String;
-    aliasSlug_not_ends_with?: String;
-    slugPrefix?: String;
-    slugPrefix_not?: String;
-    slugPrefix_in?: String[] | String;
-    slugPrefix_not_in?: String[] | String;
-    slugPrefix_lt?: String;
-    slugPrefix_lte?: String;
-    slugPrefix_gt?: String;
-    slugPrefix_gte?: String;
-    slugPrefix_contains?: String;
-    slugPrefix_not_contains?: String;
-    slugPrefix_starts_with?: String;
-    slugPrefix_not_starts_with?: String;
-    slugPrefix_ends_with?: String;
-    slugPrefix_not_ends_with?: String;
-    associatedWith_every?: AccountWhereInput;
-    associatedWith_some?: AccountWhereInput;
-    associatedWith_none?: AccountWhereInput;
-    createdAt?: DateTimeInput;
-    createdAt_not?: DateTimeInput;
-    createdAt_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-    createdAt_lt?: DateTimeInput;
-    createdAt_lte?: DateTimeInput;
-    createdAt_gt?: DateTimeInput;
-    createdAt_gte?: DateTimeInput;
-    updatedAt?: DateTimeInput;
-    updatedAt_not?: DateTimeInput;
-    updatedAt_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-    updatedAt_lt?: DateTimeInput;
-    updatedAt_lte?: DateTimeInput;
-    updatedAt_gt?: DateTimeInput;
-    updatedAt_gte?: DateTimeInput;
-    AND?: SphereWhereInput[] | SphereWhereInput;
-    OR?: SphereWhereInput[] | SphereWhereInput;
-    NOT?: SphereWhereInput[] | SphereWhereInput;
 }
 export interface NodeNode {
     id: ID_Output;
@@ -1223,43 +1179,45 @@ export interface SpherePromise extends Promise<Sphere>, Fragmentable {
     alias: () => Promise<String>;
     aliasSlug: () => Promise<String>;
     slugPrefix: () => Promise<String>;
-    associatedWith: <T = FragmentableArray<Account>>(args?: {
-        where?: AccountWhereInput;
-        orderBy?: AccountOrderByInput;
+    associatedWith: <T = AccountPromise>() => T;
+    createdAt: () => Promise<DateTimeOutput>;
+    updatedAt: () => Promise<DateTimeOutput>;
+    posts: <T = FragmentableArray<Post>>(args?: {
+        where?: PostWhereInput;
+        orderBy?: PostOrderByInput;
         skip?: Int;
         after?: String;
         before?: String;
         first?: Int;
         last?: Int;
     }) => T;
-    createdAt: () => Promise<DateTimeOutput>;
-    updatedAt: () => Promise<DateTimeOutput>;
 }
 export interface SphereSubscription extends Promise<AsyncIterator<Sphere>>, Fragmentable {
     id: () => Promise<AsyncIterator<ID_Output>>;
     alias: () => Promise<AsyncIterator<String>>;
     aliasSlug: () => Promise<AsyncIterator<String>>;
     slugPrefix: () => Promise<AsyncIterator<String>>;
-    associatedWith: <T = Promise<AsyncIterator<AccountSubscription>>>(args?: {
-        where?: AccountWhereInput;
-        orderBy?: AccountOrderByInput;
+    associatedWith: <T = AccountSubscription>() => T;
+    createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+    updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+    posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
+        where?: PostWhereInput;
+        orderBy?: PostOrderByInput;
         skip?: Int;
         after?: String;
         before?: String;
         first?: Int;
         last?: Int;
     }) => T;
-    createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-    updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
-export interface BatchPayload {
-    count: Long;
+export interface AggregatePostMetadata {
+    count: Int;
 }
-export interface BatchPayloadPromise extends Promise<BatchPayload>, Fragmentable {
-    count: () => Promise<Long>;
+export interface AggregatePostMetadataPromise extends Promise<AggregatePostMetadata>, Fragmentable {
+    count: () => Promise<Int>;
 }
-export interface BatchPayloadSubscription extends Promise<AsyncIterator<BatchPayload>>, Fragmentable {
-    count: () => Promise<AsyncIterator<Long>>;
+export interface AggregatePostMetadataSubscription extends Promise<AsyncIterator<AggregatePostMetadata>>, Fragmentable {
+    count: () => Promise<AsyncIterator<Int>>;
 }
 export interface AccountConnection {
     pageInfo: PageInfo;
@@ -1274,30 +1232,6 @@ export interface AccountConnectionSubscription extends Promise<AsyncIterator<Acc
     pageInfo: <T = PageInfoSubscription>() => T;
     edges: <T = Promise<AsyncIterator<AccountEdgeSubscription>>>() => T;
     aggregate: <T = AggregateAccountSubscription>() => T;
-}
-export interface AggregatePostMetadata {
-    count: Int;
-}
-export interface AggregatePostMetadataPromise extends Promise<AggregatePostMetadata>, Fragmentable {
-    count: () => Promise<Int>;
-}
-export interface AggregatePostMetadataSubscription extends Promise<AsyncIterator<AggregatePostMetadata>>, Fragmentable {
-    count: () => Promise<AsyncIterator<Int>>;
-}
-export interface PostMetadata {
-    id: ID_Output;
-    fileHash: String;
-    filename?: String;
-}
-export interface PostMetadataPromise extends Promise<PostMetadata>, Fragmentable {
-    id: () => Promise<ID_Output>;
-    fileHash: () => Promise<String>;
-    filename: () => Promise<String>;
-}
-export interface PostMetadataSubscription extends Promise<AsyncIterator<PostMetadata>>, Fragmentable {
-    id: () => Promise<AsyncIterator<ID_Output>>;
-    fileHash: () => Promise<AsyncIterator<String>>;
-    filename: () => Promise<AsyncIterator<String>>;
 }
 export interface PostMetadataConnection {
     pageInfo: PageInfo;
@@ -1324,6 +1258,30 @@ export interface PostMetadataPreviousValuesPromise extends Promise<PostMetadataP
     filename: () => Promise<String>;
 }
 export interface PostMetadataPreviousValuesSubscription extends Promise<AsyncIterator<PostMetadataPreviousValues>>, Fragmentable {
+    id: () => Promise<AsyncIterator<ID_Output>>;
+    fileHash: () => Promise<AsyncIterator<String>>;
+    filename: () => Promise<AsyncIterator<String>>;
+}
+export interface BatchPayload {
+    count: Long;
+}
+export interface BatchPayloadPromise extends Promise<BatchPayload>, Fragmentable {
+    count: () => Promise<Long>;
+}
+export interface BatchPayloadSubscription extends Promise<AsyncIterator<BatchPayload>>, Fragmentable {
+    count: () => Promise<AsyncIterator<Long>>;
+}
+export interface PostMetadata {
+    id: ID_Output;
+    fileHash: String;
+    filename?: String;
+}
+export interface PostMetadataPromise extends Promise<PostMetadata>, Fragmentable {
+    id: () => Promise<ID_Output>;
+    fileHash: () => Promise<String>;
+    filename: () => Promise<String>;
+}
+export interface PostMetadataSubscription extends Promise<AsyncIterator<PostMetadata>>, Fragmentable {
     id: () => Promise<AsyncIterator<ID_Output>>;
     fileHash: () => Promise<AsyncIterator<String>>;
     filename: () => Promise<AsyncIterator<String>>;
@@ -1364,23 +1322,17 @@ export interface AggregateSpherePromise extends Promise<AggregateSphere>, Fragme
 export interface AggregateSphereSubscription extends Promise<AsyncIterator<AggregateSphere>>, Fragmentable {
     count: () => Promise<AsyncIterator<Int>>;
 }
-export interface SphereSubscriptionPayload {
-    mutation: MutationType;
-    node: Sphere;
-    updatedFields: String[];
-    previousValues: SpherePreviousValues;
+export interface PostMetadataEdge {
+    node: PostMetadata;
+    cursor: String;
 }
-export interface SphereSubscriptionPayloadPromise extends Promise<SphereSubscriptionPayload>, Fragmentable {
-    mutation: () => Promise<MutationType>;
-    node: <T = SpherePromise>() => T;
-    updatedFields: () => Promise<String[]>;
-    previousValues: <T = SpherePreviousValuesPromise>() => T;
+export interface PostMetadataEdgePromise extends Promise<PostMetadataEdge>, Fragmentable {
+    node: <T = PostMetadataPromise>() => T;
+    cursor: () => Promise<String>;
 }
-export interface SphereSubscriptionPayloadSubscription extends Promise<AsyncIterator<SphereSubscriptionPayload>>, Fragmentable {
-    mutation: () => Promise<AsyncIterator<MutationType>>;
-    node: <T = SphereSubscription>() => T;
-    updatedFields: () => Promise<AsyncIterator<String[]>>;
-    previousValues: <T = SpherePreviousValuesSubscription>() => T;
+export interface PostMetadataEdgeSubscription extends Promise<AsyncIterator<PostMetadataEdge>>, Fragmentable {
+    node: <T = PostMetadataSubscription>() => T;
+    cursor: () => Promise<AsyncIterator<String>>;
 }
 export interface PostSubscriptionPayload {
     mutation: MutationType;
@@ -1487,44 +1439,6 @@ export interface AccountSubscriptionPayloadSubscription extends Promise<AsyncIte
     updatedFields: () => Promise<AsyncIterator<String[]>>;
     previousValues: <T = AccountPreviousValuesSubscription>() => T;
 }
-export interface PostMetadataEdge {
-    node: PostMetadata;
-    cursor: String;
-}
-export interface PostMetadataEdgePromise extends Promise<PostMetadataEdge>, Fragmentable {
-    node: <T = PostMetadataPromise>() => T;
-    cursor: () => Promise<String>;
-}
-export interface PostMetadataEdgeSubscription extends Promise<AsyncIterator<PostMetadataEdge>>, Fragmentable {
-    node: <T = PostMetadataSubscription>() => T;
-    cursor: () => Promise<AsyncIterator<String>>;
-}
-export interface SphereConnection {
-    pageInfo: PageInfo;
-    edges: SphereEdge[];
-}
-export interface SphereConnectionPromise extends Promise<SphereConnection>, Fragmentable {
-    pageInfo: <T = PageInfoPromise>() => T;
-    edges: <T = FragmentableArray<SphereEdge>>() => T;
-    aggregate: <T = AggregateSpherePromise>() => T;
-}
-export interface SphereConnectionSubscription extends Promise<AsyncIterator<SphereConnection>>, Fragmentable {
-    pageInfo: <T = PageInfoSubscription>() => T;
-    edges: <T = Promise<AsyncIterator<SphereEdgeSubscription>>>() => T;
-    aggregate: <T = AggregateSphereSubscription>() => T;
-}
-export interface PostEdge {
-    node: Post;
-    cursor: String;
-}
-export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
-    node: <T = PostPromise>() => T;
-    cursor: () => Promise<String>;
-}
-export interface PostEdgeSubscription extends Promise<AsyncIterator<PostEdge>>, Fragmentable {
-    node: <T = PostSubscription>() => T;
-    cursor: () => Promise<AsyncIterator<String>>;
-}
 export interface Account {
     id: ID_Output;
     status: AccountStatus;
@@ -1588,15 +1502,59 @@ export interface AccountSubscription extends Promise<AsyncIterator<Account>>, Fr
         last?: Int;
     }) => T;
 }
+export interface SphereConnection {
+    pageInfo: PageInfo;
+    edges: SphereEdge[];
+}
+export interface SphereConnectionPromise extends Promise<SphereConnection>, Fragmentable {
+    pageInfo: <T = PageInfoPromise>() => T;
+    edges: <T = FragmentableArray<SphereEdge>>() => T;
+    aggregate: <T = AggregateSpherePromise>() => T;
+}
+export interface SphereConnectionSubscription extends Promise<AsyncIterator<SphereConnection>>, Fragmentable {
+    pageInfo: <T = PageInfoSubscription>() => T;
+    edges: <T = Promise<AsyncIterator<SphereEdgeSubscription>>>() => T;
+    aggregate: <T = AggregateSphereSubscription>() => T;
+}
+export interface PostEdge {
+    node: Post;
+    cursor: String;
+}
+export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
+    node: <T = PostPromise>() => T;
+    cursor: () => Promise<String>;
+}
+export interface PostEdgeSubscription extends Promise<AsyncIterator<PostEdge>>, Fragmentable {
+    node: <T = PostSubscription>() => T;
+    cursor: () => Promise<AsyncIterator<String>>;
+}
+export interface SphereSubscriptionPayload {
+    mutation: MutationType;
+    node: Sphere;
+    updatedFields: String[];
+    previousValues: SpherePreviousValues;
+}
+export interface SphereSubscriptionPayloadPromise extends Promise<SphereSubscriptionPayload>, Fragmentable {
+    mutation: () => Promise<MutationType>;
+    node: <T = SpherePromise>() => T;
+    updatedFields: () => Promise<String[]>;
+    previousValues: <T = SpherePreviousValuesPromise>() => T;
+}
+export interface SphereSubscriptionPayloadSubscription extends Promise<AsyncIterator<SphereSubscriptionPayload>>, Fragmentable {
+    mutation: () => Promise<AsyncIterator<MutationType>>;
+    node: <T = SphereSubscription>() => T;
+    updatedFields: () => Promise<AsyncIterator<String[]>>;
+    previousValues: <T = SpherePreviousValuesSubscription>() => T;
+}
 export declare type Int = number;
 export declare type Boolean = boolean;
 export declare type Long = string;
 export declare type ID_Input = string | number;
 export declare type ID_Output = string;
-export declare type Json = any;
-export declare type String = string;
 export declare type DateTimeInput = Date | string;
 export declare type DateTimeOutput = string;
+export declare type String = string;
+export declare type Json = any;
 export declare const models: Model[];
 export declare const Prisma: ClientConstructor<Prisma>;
 export declare const prisma: Prisma;

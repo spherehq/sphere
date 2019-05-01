@@ -98,13 +98,6 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleInterface>`
     margin: 1rem 0;
   }
 
-  
-  ${props => props.theme.breakpoints.down('md')} {
-    h1 {
-      margin: 0 0 1rem 0;
-    }
-  }
-
   button {
     margin: 0;
     border: 0;
