@@ -137,11 +137,7 @@ export default class Sync extends Command {
         ])
 
         try {
-          if (
-            (await prisma
-              .sphere({ alias })
-              .associatedWith({ where: { emailAddress } })).length > 0
-          ) {
+          if (await prisma.sphere({ alias }).associatedWith()) {
             const { slugPrefix, aliasSlug } = await prisma.sphere({ alias })
 
             saveConfig(this.config.configDir, {
