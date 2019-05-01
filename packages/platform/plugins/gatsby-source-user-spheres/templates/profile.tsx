@@ -41,7 +41,6 @@ const SphereTemplateProfile = ({
           {
             id: string
             title: string
-            timeToRead: number
             slug: string
             updatedAt: string
           }
@@ -58,14 +57,12 @@ const SphereTemplateProfile = ({
         linkAs={Link}
         title={post.title}
         link={`/${data.sphere.sphere.slugPrefix}${post.slug}`}
-        timeToRead={post.timeToRead}
         heroImageUrl={`https://picsum.photos/348/170/?random=${index}`}
         dateTime={post.updatedAt}
         author={{
           firstName,
           lastName,
-          alias: `${data.sphere.sphere.slugPrefix}
-                ${data.sphere.sphere.alias}`,
+          alias: `${data.sphere.sphere.slugPrefix}${data.sphere.sphere.alias}`,
         }}
       />
     </Box>
@@ -86,7 +83,7 @@ const SphereTemplateProfile = ({
           <ContentDivider />
         </Box>
         <Box width={1}>
-          <Grid gap as="ul">
+          <Grid rowGap={{ xs: 8, lg: 7 }} gap as="ul">
             {posts}
           </Grid>
         </Box>

@@ -3,8 +3,9 @@ import * as React from 'react'
 import { styled } from '../../Theme'
 import { Box } from '../../Components/Box'
 import { Flex } from '../../Components/Flex'
-import { AuthorBlock, AuthorProps } from '../../Components/AuthorBlock'
-import { formatDistance } from 'date-fns'
+import { Avatar } from '../../Components/Avatar'
+import { AuthorProps } from '../../Components/AuthorBlock/AuthorBlock'
+import { formatDistanceStrict } from 'date-fns'
 
 const StyledHeadingBox = styled(Box)`
   padding: 18px;
@@ -18,18 +19,18 @@ const StyledHeadingBox = styled(Box)`
     font-weight: 700;
     line-height: 28px;
     letter-spacing: -1px;
-    margin: 5px 0;
+    margin: 0;
     overflow: hidden;
     color: ${props => props.theme.colors.primary};
   }
 `
 
-const StyledHeroImageBox = styled<{ imageUrl: string | undefined }>(Box)`
+const StyledHeroImageBox = styled(Box)<{ imageUrl: string | undefined }>`
   display: block;
+  position: relative;
   height: 170px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  overflow: hidden;
 
   background-image: url(${props => props.imageUrl});
   background-position: center;
@@ -46,7 +47,7 @@ const StyledHeroImageBox = styled<{ imageUrl: string | undefined }>(Box)`
   }
 ` as React.FunctionComponent<{ imageUrl: string | undefined }>
 
-const StyledLink = styled.a`
+const StyledLink = styled.a<{ to: string }>`
   display: block;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -55,28 +56,16 @@ const StyledLink = styled.a`
   transition: all 0.2s ease-in-out 0s;
   box-shadow: 0px 2px 8px rgba(51, 51, 51, 0.2485);
 
+  &:focus {
+    outline: none;
+  }
+
   &:hover {
-    box-shadow: 0px 15px 40px rgba(51, 51, 51, 0.15);
-  }
-`
+    ${props => props.theme.breakpoints.up('md')} {
+      box-shadow: 0px 15px 40px rgba(51, 51, 51, 0.15);
+    }
 
-const StyledSeparatorBox = styled(Box)`
-  &::before {
-    font-size: 15px;
-    line-height: 15px;
-    padding: 0 8px;
-    color: ${props => props.theme.colors.primary};
-    content: '|';
-  }
-`
-
-const StyledTimeToReadBox = styled(Box)`
-  span {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: #555555;
+    text-decoration: none;
   }
 `
 
@@ -86,41 +75,62 @@ const StyledPublishedAtBox = styled(Box)`
     font-weight: 700;
     line-height: 15px;
     text-transform: uppercase;
-    color: #555555;
+    color: #666666;
   }
+
+  span + span {
+    font-weight: 400;
+    text-transform: none;
+  }
+`
+
+const StyledAvatarWrapper = styled.div`
+  position: absolute;
+  bottom: -22.5px;
+  left: 18px;
 `
 
 export const ArticleCard = ({
   title,
   link,
-  timeToRead,
+  linkAs,
   heroImageUrl,
   dateTime,
+  author,
 }: {
   title: string
   link: string
   linkAs?: any
-  timeToRead: number
   heroImageUrl?: string
   dateTime: string
   author: AuthorProps
 }) => (
   <Box>
-    <StyledLink href={link}>
-      <StyledHeroImageBox imageUrl={heroImageUrl} />
+    <StyledLink href={link} to={link} as={linkAs}>
+      <StyledHeroImageBox imageUrl={heroImageUrl}>
+        <StyledAvatarWrapper>
+          <Avatar
+            firstName={author.firstName}
+            lastName={author.lastName}
+            mini={true}
+            withShadow
+          />
+        </StyledAvatarWrapper>
+      </StyledHeroImageBox>
       <StyledHeadingBox>
-        <Flex>
+        <Flex alignItems={`center`} justifyContent={`flex-start`} mt={5}>
           <StyledPublishedAtBox>
+            <span>{`${author.firstName} ${author.lastName}`}</span>{' '}
             <span>
-              {formatDistance(new Date(dateTime), new Date(), {
-                addSuffix: true,
-              })}
+              {`wrote this ${formatDistanceStrict(
+                new Date(dateTime),
+                new Date(),
+                {
+                  addSuffix: true,
+                },
+              )}`}
             </span>
           </StyledPublishedAtBox>
-          <StyledSeparatorBox />
-          <StyledTimeToReadBox>
-            <span>{`${timeToRead} min read`}</span>
-          </StyledTimeToReadBox>
         </Flex>
         <h1>{title}</h1>
       </StyledHeadingBox>
