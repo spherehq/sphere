@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.8.2...@spherehq/platform@0.9.0) (2019-05-01)
+
+
+### Features
+
+* added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
+
+
+
+
+
 ## [0.8.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.8.1...@spherehq/platform@0.8.2) (2019-05-01)
 
 
