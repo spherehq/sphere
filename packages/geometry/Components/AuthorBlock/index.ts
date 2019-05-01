@@ -1,1 +1,1 @@
-export { AuthorBlock, AuthorProps } from './AuthorBlock'
+export { AuthorBlock } from './AuthorBlock'
