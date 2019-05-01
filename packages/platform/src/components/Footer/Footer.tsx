@@ -65,7 +65,7 @@ export const Footer: React.FC<{}> = () => (
               <LinkList linkAs={Link} />
             </Box>
             <Flex justifyContent="flex-end">
-              <Grid gap mr={8} mt={8}>
+              <Grid gap mt={8}>
                 <Box>
                   <IconLink
                     href="https://github.com/spherehq"
