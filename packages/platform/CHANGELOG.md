@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.8.1...@spherehq/platform@0.8.2) (2019-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-helmet to v5.2.1 ([2bf8c41](https://github.com/spherehq/sphere/commit/2bf8c41))
+
+
+
+
+
 ## [0.8.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.8.0...@spherehq/platform@0.8.1) (2019-04-30)
 
 **Note:** Version bump only for package @spherehq/platform
