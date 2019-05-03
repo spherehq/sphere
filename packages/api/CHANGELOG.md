@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.5](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.4...@spherehq/api@0.6.5) (2019-05-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/node to v5.1.2 ([f206b03](https://github.com/spherehq/sphere/commit/f206b03))
+
+
+
+
+
 ## [0.6.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.3...@spherehq/api@0.6.4) (2019-05-03)
 
 **Note:** Version bump only for package @spherehq/api
