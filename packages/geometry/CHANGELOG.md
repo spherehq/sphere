@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.0...@spherehq/geometry@0.6.1) (2019-05-06)
+
+**Note:** Version bump only for package @spherehq/geometry
+
+
+
+
+
 # [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.1...@spherehq/geometry@0.6.0) (2019-05-01)
 
 
