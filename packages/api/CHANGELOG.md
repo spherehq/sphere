@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.10](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.9...@spherehq/api@0.6.10) (2019-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql to v14.3.0 ([e3dbcfd](https://github.com/spherehq/sphere/commit/e3dbcfd))
+
+
+
+
+
 ## [0.6.9](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.8...@spherehq/api@0.6.9) (2019-05-06)
 
 **Note:** Version bump only for package @spherehq/api
