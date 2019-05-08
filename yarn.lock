@@ -17187,6 +17187,11 @@ traverse-chain@~0.1.0:
   resolved "https://registry.yarnpkg.com/traverse-chain/-/traverse-chain-0.1.0.tgz#61dbc2d53b69ff6091a12a168fd7d433107e40f1"
   integrity sha1-YdvC1Ttp/2CRoSoWj9fUMxB+QPE=
 
+tree-kill@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.1.tgz#5398f374e2f292b9dcc7b2e71e30a5c3bb6c743a"
+  integrity sha512-4hjqbObwlh2dLyW4tcz0Ymw0ggoaVDMveUB9w8kFSQScdRLo0gxO9J7WFcUBo+W3C1TLdFIEwNOWebgZZ0RH9Q==
+
 treeify@^1.0.1, treeify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/treeify/-/treeify-1.1.0.tgz#4e31c6a463accd0943879f30667c4fdaff411bb8"
@@ -17267,10 +17272,10 @@ ts-invariant@^0.4.0:
   dependencies:
     tslib "^1.9.3"
 
-ts-node-dev@1.0.0-pre.35:
-  version "1.0.0-pre.35"
-  resolved "https://registry.yarnpkg.com/ts-node-dev/-/ts-node-dev-1.0.0-pre.35.tgz#56019c6b726ceadce8535d510fd463c443ac1273"
-  integrity sha512-GaJkjlSXVXcXSNd2bk8StYqObT1WqyBpKF+uxmD40E9C6vDPIZjJWRyFx4nGE8Frw+5YAch00liZLybyHYgkoQ==
+ts-node-dev@1.0.0-pre.37:
+  version "1.0.0-pre.37"
+  resolved "https://registry.yarnpkg.com/ts-node-dev/-/ts-node-dev-1.0.0-pre.37.tgz#726e929298dd30d7353b470736deaa702a78fb1f"
+  integrity sha512-4xqOeutuwJCsA+cmRoHZqjavySZ8WD/btBBZwXlBQ8PJVkg6YuGzRb8/qeICusQ1bPVL4Myl+XZjZqcIx2WuGw==
   dependencies:
     dateformat "~1.0.4-1.2.3"
     dynamic-dedupe "^0.3.0"
@@ -17280,6 +17285,7 @@ ts-node-dev@1.0.0-pre.35:
     node-notifier "^5.4.0"
     resolve "^1.0.0"
     rimraf "^2.6.1"
+    tree-kill "^1.2.1"
     ts-node "*"
     tsconfig "^7.0.0"
 
