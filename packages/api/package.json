@@ -35,6 +35,6 @@
     "dotenv-cli": "2.0.0",
     "nodemon": "1.19.0",
     "rimraf": "2.6.3",
-    "ts-node-dev": "1.0.0-pre.37"
+    "ts-node-dev": "1.0.0-pre.38"
   }
 }
