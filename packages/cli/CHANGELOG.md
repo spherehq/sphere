@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.9.6...@spherehq/cli@0.10.0) (2019-05-10)
+
+
+### Features
+
+* added publish and unpublish commands ([d354295](https://github.com/spherehq/sphere/commit/d354295))
+
+
+
+
+
 ## [0.9.6](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.9.5...@spherehq/cli@0.9.6) (2019-05-06)
 
 **Note:** Version bump only for package @spherehq/cli
