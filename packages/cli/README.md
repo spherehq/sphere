@@ -10,7 +10,7 @@ $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.9.6 linux-x64 node-v10.15.3
+@spherehq/cli/0.10.0 linux-x64 node-v10.15.3
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
@@ -58,11 +58,11 @@ EXAMPLE
   $ sphere init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/spherehq/sphere/blob/v0.9.6/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/spherehq/sphere/blob/v0.10.0/src/commands/init.ts)_
 
 ## `sphere sync [FILE]`
 
-Synchronize your sphere's content with local copies
+Synchronize your sphere's content with local/remote copies
 
 ```
 USAGE
@@ -77,7 +77,7 @@ EXAMPLE
   $ sphere sync example.md
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/spherehq/sphere/blob/v0.9.6/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/spherehq/sphere/blob/v0.10.0/src/commands/sync.ts)_
 <!-- commandsstop -->
 
 ## Contributing
