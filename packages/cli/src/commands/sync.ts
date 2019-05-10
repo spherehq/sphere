@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command'
 import { cli } from 'cli-ux'
-import { prisma } from '@spherehq/database'
+import { prisma, POST_STATUS } from '@spherehq/database'
 
 import * as md5File from 'md5-file'
 import * as markdown from 'remark-parse'
@@ -13,10 +13,14 @@ import * as english from 'retext-english'
 import * as visit from 'unist-util-visit'
 import * as path from 'path'
 import * as fs from 'fs-extra'
+import * as inquirer from 'inquirer'
+import chalk from 'chalk'
 
 const remark = require('remark')
 const selectAll = require('unist-util-select').selectAll
 const slugify = require('@sindresorhus/slugify')
+const array = require('lodash/array')
+const terminalLink = require('terminal-link')
 
 const processMarkdown = (filename: string, contentDirectory: string) => {
   const processor = remark()
@@ -73,11 +77,14 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
     timeToRead: timeToRead(),
     fileHash: hash,
     slug: slugify(path.basename(filename, '.md')),
+    isPublished: false,
+    status: 'DRAFT' as POST_STATUS,
   }
 }
 
 export default class Sync extends Command {
-  static description = "Synchronize your sphere's content with local copies"
+  static description =
+    "Synchronize your sphere's content with local/remote copies"
 
   static examples = [`$ sphere sync example.md`]
 
@@ -117,7 +124,7 @@ export default class Sync extends Command {
         this.error(err)
       }
 
-      const posts = !args.file
+      let posts = !args.file
         ? files
             .filter(filename => path.extname(filename) === '.md')
             .map(filename => {
@@ -134,82 +141,235 @@ export default class Sync extends Command {
         emailAddress: string
       } = fs.readJSONSync(path.join(this.config.configDir, `config.json`))
 
-      try {
-        posts.forEach(async post => {
-          try {
-            const slug = `${config.aliasSlug}/${post.slug}`
-            await prisma.upsertPost({
-              where: { slug },
-              create: {
-                title: post.title,
-                // tslint:disable-next-line:object-shorthand-properties-first
-                slug,
-                content: post.content,
-                timeToRead: post.timeToRead,
-                metadata: {
-                  create: {
-                    fileHash: post.fileHash,
-                    filename: post.filename,
-                  },
-                },
-                associatedWith: {
-                  connect: {
-                    alias: config.alias,
-                  },
-                },
-                author: {
-                  connect: { emailAddress: config.emailAddress },
-                },
-              },
-              update: {
-                title: post.title,
-                // tslint:disable-next-line:object-shorthand-properties-first
-                slug,
-                content: post.content,
-                timeToRead: post.timeToRead,
-                metadata: {
-                  create: {
-                    fileHash: post.fileHash,
-                    filename: post.filename,
-                  },
-                },
-                associatedWith: {
-                  connect: {
-                    alias: config.alias,
-                  },
-                },
-              },
-            })
-          } catch (error) {
-            this.error(error)
+      posts = await Promise.all(
+        posts.map(async draftPost => {
+          // Determine status of post
+          const slug = `${config.aliasSlug}/${draftPost.slug}`
+
+          const exists = await prisma.$exists.post({ slug })
+          if (exists) {
+            const post = await prisma.post({ slug })
+            return {
+              ...draftPost,
+              isPublished: post.isPublished,
+              status: post.status,
+            }
           }
-        })
-      } catch (error) {
-        this.error(error)
-      }
+
+          return draftPost
+        }),
+      )
+
+      posts.forEach(async post => {
+        try {
+          const slug = `${config.aliasSlug}/${post.slug}`
+          await prisma.upsertPost({
+            where: { slug },
+            create: {
+              title: post.title,
+              // tslint:disable-next-line:object-shorthand-properties-first
+              slug,
+              content: post.content,
+              timeToRead: post.timeToRead,
+              metadata: {
+                create: {
+                  fileHash: post.fileHash,
+                  filename: post.filename,
+                },
+              },
+              associatedWith: {
+                connect: {
+                  alias: config.alias,
+                },
+              },
+              author: {
+                connect: { emailAddress: config.emailAddress },
+              },
+            },
+            update: {
+              title: post.title,
+              // tslint:disable-next-line:object-shorthand-properties-first
+              slug,
+              content: post.content,
+              timeToRead: post.timeToRead,
+              metadata: {
+                create: {
+                  fileHash: post.fileHash,
+                  filename: post.filename,
+                },
+              },
+              associatedWith: {
+                connect: {
+                  alias: config.alias,
+                },
+              },
+              isPublished: post.isPublished,
+              status: post.status,
+            },
+          })
+        } catch (error) {
+          this.error(error)
+        }
+      })
 
       cli.action.stop()
 
-      const terminalLink = require('terminal-link')
-      cli.table<{ title: string; slug: string }>(posts, {
-        title: {
-          header: 'Title',
-          get: row => row.title,
-        },
-        link: {
-          header: '',
-          get: row =>
-            terminalLink(
-              `open in browser`,
-              `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
-              {
-                fallback: (_, link: string) => {
-                  return link
-                },
-              },
-            ),
-        },
+      let allPosts = await prisma.posts({
+        where: { associatedWith: { alias: config.alias } },
       })
+
+      if (allPosts.length > 0) {
+        const { toPublish } = await inquirer.prompt([
+          {
+            name: 'toPublish',
+            message: `Which post(s) would you like to publish/unpublish?`,
+            type: 'checkbox',
+            choices: allPosts.map(post => {
+              return {
+                name: post.title,
+                value: post,
+                checked: post.isPublished,
+              }
+            }),
+            validate: () => {
+              return true
+            },
+          },
+        ])
+
+        const previouslyPublished = allPosts.filter(post => post.isPublished)
+        const toUnpublish = array.difference(previouslyPublished, toPublish)
+
+        if (toUnpublish.length > 0) {
+          this.log(
+            chalk.red.bold(`We're going to unpublish the following posts: \n`),
+          )
+          await cli.wait(300)
+          cli.table<{ title: string; slug: string; status: POST_STATUS }>(
+            toUnpublish,
+            {
+              title: {
+                header: 'Title',
+                get: row => row.title,
+              },
+              link: {
+                header: 'Link',
+                get: row =>
+                  terminalLink(
+                    `open in browser`,
+                    `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                    {
+                      fallback: (_, link: string) => {
+                        return link
+                      },
+                    },
+                  ),
+              },
+            },
+          )
+
+          await cli.wait(300)
+          const confirm = await cli.confirm(`Continue? ${chalk.bold('y/N')}`)
+
+          if (confirm) {
+            await Promise.all(
+              toUnpublish.map(
+                async post =>
+                  await prisma.updatePost({
+                    data: {
+                      isPublished: false,
+                      status: 'DRAFT',
+                    },
+                    where: { id: post.id },
+                  }),
+              ),
+            )
+          }
+        }
+
+        if (toPublish.filter(post => !post.isPublished).length > 0) {
+          this.log(
+            chalk.green.bold(`We're going to publish the following posts: \n`),
+          )
+          await cli.wait(300)
+          cli.table<{ title: string; slug: string; status: POST_STATUS }>(
+            toPublish,
+            {
+              title: {
+                header: 'Title',
+                get: row => row.title,
+              },
+              link: {
+                header: 'Link',
+                get: row =>
+                  terminalLink(
+                    `open in browser`,
+                    `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                    {
+                      fallback: (_, link: string) => {
+                        return link
+                      },
+                    },
+                  ),
+              },
+            },
+          )
+
+          await cli.wait(300)
+          const confirm = await cli.confirm(`Continue? ${chalk.bold('Y/n')}`)
+
+          if (confirm) {
+            await Promise.all(
+              toPublish.map(
+                async post =>
+                  await prisma.updatePost({
+                    data: {
+                      isPublished: true,
+                      status: 'PUBLISHED',
+                    },
+                    where: { id: post.id },
+                  }),
+              ),
+            )
+          }
+        }
+
+        allPosts = await prisma.posts({
+          where: { associatedWith: { alias: config.alias } },
+        })
+      }
+
+      this.log(chalk.bold(`Here's a summary of all your posts: \n`))
+      cli.wait(300)
+      cli.table<{ title: string; slug: string; status: POST_STATUS }>(
+        allPosts,
+        {
+          title: {
+            header: 'Title',
+            get: row => row.title,
+          },
+          status: {
+            header: 'Status',
+            get: row =>
+              row.status === 'PUBLISHED'
+                ? chalk.green(row.status)
+                : chalk.gray(row.status),
+          },
+          link: {
+            header: 'Link',
+            get: row =>
+              terminalLink(
+                `open in browser`,
+                `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                {
+                  fallback: (_, link: string) => {
+                    return link
+                  },
+                },
+              ),
+          },
+        },
+      )
     })
   }
 }
