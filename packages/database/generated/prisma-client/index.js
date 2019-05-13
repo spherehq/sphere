@@ -12,6 +12,10 @@ exports.models = [
         embedded: false
     },
     {
+        name: "Image",
+        embedded: false
+    },
+    {
         name: "PostMetadata",
         embedded: false
     },

@@ -39,6 +39,7 @@
     "remark-rehype": "^4.0.0",
     "remark-retext": "^3.1.2",
     "remark-stringify": "^6.0.4",
+    "request": "^2.88.0",
     "retext-english": "^3.0.2",
     "terminal-link": "^1.3.0",
     "to-vfile": "^5.0.2",

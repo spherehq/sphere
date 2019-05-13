@@ -8,6 +8,7 @@ enum POST_STATUS {
 type Post {
   id: ID! @unique
   title: String!
+  featuredImage: Image
   content: Json!
   slug: String! @unique
   timeToRead: Int! @default(value: 1)
@@ -23,8 +24,19 @@ type Post {
     @relation(name: "PostAssociatedWithSphere", onDelete: CASCADE)
 }
 
+type Image {
+  id: ID! @unique
+  filename: String!
+  alt: String! @default(value: "")
+  url: String!
+  urlAlias: String! # internal reference for preserving local file paths - UNSAFE
+  fileHash: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type PostMetadata {
   id: ID! @unique
-  fileHash: String! # internal reference for knowing when file changes have occured since last sync
+  fileHash: String! # internal reference for knowing when file changes have occurred since last sync
   filename: String
 }

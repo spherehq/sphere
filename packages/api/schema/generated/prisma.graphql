@@ -260,6 +260,10 @@ type AggregateAccount {
   count: Int!
 }
 
+type AggregateImage {
+  count: Int!
+}
+
 type AggregatePost {
   count: Int!
 }
@@ -278,6 +282,215 @@ type BatchPayload {
 
 scalar DateTime
 
+type Image {
+  id: ID!
+  filename: String!
+  alt: String!
+  url: String!
+  fileHash: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ImageConnection {
+  pageInfo: PageInfo!
+  edges: [ImageEdge]!
+  aggregate: AggregateImage!
+}
+
+input ImageCreateInput {
+  filename: String!
+  alt: String
+  url: String!
+  fileHash: String!
+}
+
+input ImageCreateOneInput {
+  create: ImageCreateInput
+  connect: ImageWhereUniqueInput
+}
+
+type ImageEdge {
+  node: Image!
+  cursor: String!
+}
+
+enum ImageOrderByInput {
+  id_ASC
+  id_DESC
+  filename_ASC
+  filename_DESC
+  alt_ASC
+  alt_DESC
+  url_ASC
+  url_DESC
+  fileHash_ASC
+  fileHash_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ImagePreviousValues {
+  id: ID!
+  filename: String!
+  alt: String!
+  url: String!
+  fileHash: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ImageSubscriptionPayload {
+  mutation: MutationType!
+  node: Image
+  updatedFields: [String!]
+  previousValues: ImagePreviousValues
+}
+
+input ImageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ImageWhereInput
+  AND: [ImageSubscriptionWhereInput!]
+  OR: [ImageSubscriptionWhereInput!]
+  NOT: [ImageSubscriptionWhereInput!]
+}
+
+input ImageUpdateDataInput {
+  filename: String
+  alt: String
+  url: String
+  fileHash: String
+}
+
+input ImageUpdateInput {
+  filename: String
+  alt: String
+  url: String
+  fileHash: String
+}
+
+input ImageUpdateManyMutationInput {
+  filename: String
+  alt: String
+  url: String
+  fileHash: String
+}
+
+input ImageUpdateOneInput {
+  create: ImageCreateInput
+  update: ImageUpdateDataInput
+  upsert: ImageUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: ImageWhereUniqueInput
+}
+
+input ImageUpsertNestedInput {
+  update: ImageUpdateDataInput!
+  create: ImageCreateInput!
+}
+
+input ImageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  filename: String
+  filename_not: String
+  filename_in: [String!]
+  filename_not_in: [String!]
+  filename_lt: String
+  filename_lte: String
+  filename_gt: String
+  filename_gte: String
+  filename_contains: String
+  filename_not_contains: String
+  filename_starts_with: String
+  filename_not_starts_with: String
+  filename_ends_with: String
+  filename_not_ends_with: String
+  alt: String
+  alt_not: String
+  alt_in: [String!]
+  alt_not_in: [String!]
+  alt_lt: String
+  alt_lte: String
+  alt_gt: String
+  alt_gte: String
+  alt_contains: String
+  alt_not_contains: String
+  alt_starts_with: String
+  alt_not_starts_with: String
+  alt_ends_with: String
+  alt_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  fileHash: String
+  fileHash_not: String
+  fileHash_in: [String!]
+  fileHash_not_in: [String!]
+  fileHash_lt: String
+  fileHash_lte: String
+  fileHash_gt: String
+  fileHash_gte: String
+  fileHash_contains: String
+  fileHash_not_contains: String
+  fileHash_starts_with: String
+  fileHash_not_starts_with: String
+  fileHash_ends_with: String
+  fileHash_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ImageWhereInput!]
+  OR: [ImageWhereInput!]
+  NOT: [ImageWhereInput!]
+}
+
+input ImageWhereUniqueInput {
+  id: ID
+}
+
 scalar Json
 
 scalar Long
@@ -289,6 +502,12 @@ type Mutation {
   upsertAccount(where: AccountWhereUniqueInput!, create: AccountCreateInput!, update: AccountUpdateInput!): Account!
   deleteAccount(where: AccountWhereUniqueInput!): Account
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
+  createImage(data: ImageCreateInput!): Image!
+  updateImage(data: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image
+  updateManyImages(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): BatchPayload!
+  upsertImage(where: ImageWhereUniqueInput!, create: ImageCreateInput!, update: ImageUpdateInput!): Image!
+  deleteImage(where: ImageWhereUniqueInput!): Image
+  deleteManyImages(where: ImageWhereInput): BatchPayload!
   createPost(data: PostCreateInput!): Post!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
@@ -329,6 +548,7 @@ type PageInfo {
 type Post {
   id: ID!
   title: String!
+  featuredImage: Image
   content: Json!
   slug: String!
   timeToRead: Int!
@@ -357,6 +577,7 @@ type PostConnection {
 
 input PostCreateInput {
   title: String!
+  featuredImage: ImageCreateOneInput
   content: Json!
   slug: String!
   timeToRead: Int
@@ -380,6 +601,7 @@ input PostCreateManyWithoutAuthorInput {
 
 input PostCreateWithoutAssociatedWithInput {
   title: String!
+  featuredImage: ImageCreateOneInput
   content: Json!
   slug: String!
   timeToRead: Int
@@ -392,6 +614,7 @@ input PostCreateWithoutAssociatedWithInput {
 
 input PostCreateWithoutAuthorInput {
   title: String!
+  featuredImage: ImageCreateOneInput
   content: Json!
   slug: String!
   timeToRead: Int
@@ -692,6 +915,7 @@ input PostSubscriptionWhereInput {
 
 input PostUpdateInput {
   title: String
+  featuredImage: ImageUpdateOneInput
   content: Json
   slug: String
   timeToRead: Int
@@ -754,6 +978,7 @@ input PostUpdateManyWithWhereNestedInput {
 
 input PostUpdateWithoutAssociatedWithDataInput {
   title: String
+  featuredImage: ImageUpdateOneInput
   content: Json
   slug: String
   timeToRead: Int
@@ -766,6 +991,7 @@ input PostUpdateWithoutAssociatedWithDataInput {
 
 input PostUpdateWithoutAuthorDataInput {
   title: String
+  featuredImage: ImageUpdateOneInput
   content: Json
   slug: String
   timeToRead: Int
@@ -827,6 +1053,7 @@ input PostWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  featuredImage: ImageWhereInput
   slug: String
   slug_not: String
   slug_in: [String!]
@@ -896,6 +1123,9 @@ type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account]!
   accountsConnection(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AccountConnection!
+  image(where: ImageWhereUniqueInput!): Image
+  images(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Image]!
+  imagesConnection(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ImageConnection!
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
@@ -1246,6 +1476,7 @@ input SphereWhereUniqueInput {
 
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
+  image(where: ImageSubscriptionWhereInput): ImageSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   postMetadata(where: PostMetadataSubscriptionWhereInput): PostMetadataSubscriptionPayload
   sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload

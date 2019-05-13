@@ -14,6 +14,8 @@ import * as visit from 'unist-util-visit'
 import * as path from 'path'
 import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
+import * as request from 'request'
+
 import chalk from 'chalk'
 
 const remark = require('remark')
@@ -21,6 +23,18 @@ const selectAll = require('unist-util-select').selectAll
 const slugify = require('@sindresorhus/slugify')
 const array = require('lodash/array')
 const terminalLink = require('terminal-link')
+
+const processImages = (
+  images: { alt: string; url: string }[],
+): { alt: string; url: string }[] => {
+  console.log(
+    images.map(
+      image => request(image.url).pipe(fs.createWriteStream('image.url')).path,
+    ),
+  )
+
+  return images
+}
 
 const processMarkdown = (filename: string, contentDirectory: string) => {
   const processor = remark()
@@ -34,6 +48,14 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
   const headings = selectAll('heading', content).filter(
     heading => heading.depth === 1,
   )
+
+  const images = selectAll('* > image', content).map(
+    (image: { alt: string; url: string }) => {
+      return { alt: image.alt, url: image.url }
+    },
+  )
+
+  processImages(images)
 
   // @TODO reverse order (multiple headings of same depth)
   const title = headings.length > 0 ? toString(headings.shift()) : '' // Otherwise use filename excluding ext
@@ -72,6 +94,7 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
 
   return {
     title,
+    images,
     content,
     filename,
     timeToRead: timeToRead(),
