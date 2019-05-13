@@ -15,6 +15,7 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 
 export interface Exists {
   account: (where?: AccountWhereInput) => Promise<boolean>;
+  image: (where?: ImageWhereInput) => Promise<boolean>;
   post: (where?: PostWhereInput) => Promise<boolean>;
   postMetadata: (where?: PostMetadataWhereInput) => Promise<boolean>;
   sphere: (where?: SphereWhereInput) => Promise<boolean>;
@@ -62,6 +63,29 @@ export interface Prisma {
       last?: Int;
     }
   ) => AccountConnectionPromise;
+  image: (where: ImageWhereUniqueInput) => ImagePromise;
+  images: (
+    args?: {
+      where?: ImageWhereInput;
+      orderBy?: ImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Image>;
+  imagesConnection: (
+    args?: {
+      where?: ImageWhereInput;
+      orderBy?: ImageOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => ImageConnectionPromise;
   post: (where: PostWhereUniqueInput) => PostPromise;
   posts: (
     args?: {
@@ -153,6 +177,22 @@ export interface Prisma {
   ) => AccountPromise;
   deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise;
   deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise;
+  createImage: (data: ImageCreateInput) => ImagePromise;
+  updateImage: (
+    args: { data: ImageUpdateInput; where: ImageWhereUniqueInput }
+  ) => ImagePromise;
+  updateManyImages: (
+    args: { data: ImageUpdateManyMutationInput; where?: ImageWhereInput }
+  ) => BatchPayloadPromise;
+  upsertImage: (
+    args: {
+      where: ImageWhereUniqueInput;
+      create: ImageCreateInput;
+      update: ImageUpdateInput;
+    }
+  ) => ImagePromise;
+  deleteImage: (where: ImageWhereUniqueInput) => ImagePromise;
+  deleteManyImages: (where?: ImageWhereInput) => BatchPayloadPromise;
   createPost: (data: PostCreateInput) => PostPromise;
   updatePost: (
     args: { data: PostUpdateInput; where: PostWhereUniqueInput }
@@ -220,6 +260,9 @@ export interface Subscription {
   account: (
     where?: AccountSubscriptionWhereInput
   ) => AccountSubscriptionPayloadSubscription;
+  image: (
+    where?: ImageSubscriptionWhereInput
+  ) => ImageSubscriptionPayloadSubscription;
   post: (
     where?: PostSubscriptionWhereInput
   ) => PostSubscriptionPayloadSubscription;
@@ -293,6 +336,22 @@ export type AccountOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type ImageOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "filename_ASC"
+  | "filename_DESC"
+  | "alt_ASC"
+  | "alt_DESC"
+  | "url_ASC"
+  | "url_DESC"
+  | "fileHash_ASC"
+  | "fileHash_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
 export type AccountStatus = "VERIFIED" | "ACTIVE" | "INACTIVE";
 
 export type PostMetadataOrderByInput =
@@ -309,24 +368,13 @@ export type PostMetadataOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface SphereUpdateManyWithoutAssociatedWithInput {
-  create?:
-    | SphereCreateWithoutAssociatedWithInput[]
-    | SphereCreateWithoutAssociatedWithInput;
-  delete?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-  connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-  set?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-  disconnect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-  update?:
-    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[]
-    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput;
-  upsert?:
-    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[]
-    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput;
-  deleteMany?: SphereScalarWhereInput[] | SphereScalarWhereInput;
-  updateMany?:
-    | SphereUpdateManyWithWhereNestedInput[]
-    | SphereUpdateManyWithWhereNestedInput;
+export interface AccountUpdateInput {
+  status?: AccountStatus;
+  firstName?: String;
+  lastName?: String;
+  emailAddress?: String;
+  spheres?: SphereUpdateManyWithoutAssociatedWithInput;
+  posts?: PostUpdateManyWithoutAuthorInput;
 }
 
 export type AccountWhereUniqueInput = AtLeastOne<{
@@ -334,22 +382,40 @@ export type AccountWhereUniqueInput = AtLeastOne<{
   emailAddress?: String;
 }>;
 
-export interface AccountCreateOneWithoutPostsInput {
-  create?: AccountCreateWithoutPostsInput;
-  connect?: AccountWhereUniqueInput;
+export interface PostCreateWithoutAssociatedWithInput {
+  title: String;
+  featuredImage?: ImageCreateOneInput;
+  content: Json;
+  slug: String;
+  timeToRead?: Int;
+  isPublished?: Boolean;
+  publishedAt?: DateTimeInput;
+  status?: POST_STATUS;
+  author: AccountCreateOneWithoutPostsInput;
+  metadata: PostMetadataCreateOneInput;
 }
 
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  data: PostUpdateWithoutAuthorDataInput;
+export interface PostUpdateManyWithoutAuthorInput {
+  create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
+  delete?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+  set?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+  disconnect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+  update?:
+    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
+    | PostUpdateWithWhereUniqueWithoutAuthorInput;
+  upsert?:
+    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
+    | PostUpsertWithWhereUniqueWithoutAuthorInput;
+  deleteMany?: PostScalarWhereInput[] | PostScalarWhereInput;
+  updateMany?:
+    | PostUpdateManyWithWhereNestedInput[]
+    | PostUpdateManyWithWhereNestedInput;
 }
 
-export interface AccountCreateWithoutPostsInput {
-  status?: AccountStatus;
-  firstName: String;
-  lastName: String;
-  emailAddress: String;
-  spheres?: SphereCreateManyWithoutAssociatedWithInput;
+export interface ImageCreateOneInput {
+  create?: ImageCreateInput;
+  connect?: ImageWhereUniqueInput;
 }
 
 export interface PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
@@ -357,9 +423,11 @@ export interface PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
   data: PostUpdateWithoutAssociatedWithDataInput;
 }
 
-export interface PostMetadataCreateOneInput {
-  create?: PostMetadataCreateInput;
-  connect?: PostMetadataWhereUniqueInput;
+export interface ImageCreateInput {
+  filename: String;
+  alt?: String;
+  url: String;
+  fileHash: String;
 }
 
 export interface PostMetadataWhereInput {
@@ -410,9 +478,9 @@ export interface PostMetadataWhereInput {
   NOT?: PostMetadataWhereInput[] | PostMetadataWhereInput;
 }
 
-export interface PostMetadataCreateInput {
-  fileHash: String;
-  filename?: String;
+export interface AccountCreateOneWithoutPostsInput {
+  create?: AccountCreateWithoutPostsInput;
+  connect?: AccountWhereUniqueInput;
 }
 
 export interface SphereSubscriptionWhereInput {
@@ -426,9 +494,12 @@ export interface SphereSubscriptionWhereInput {
   NOT?: SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput;
 }
 
-export interface PostCreateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
-  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
+export interface AccountCreateWithoutPostsInput {
+  status?: AccountStatus;
+  firstName: String;
+  lastName: String;
+  emailAddress: String;
+  spheres?: SphereCreateManyWithoutAssociatedWithInput;
 }
 
 export interface PostMetadataSubscriptionWhereInput {
@@ -448,32 +519,112 @@ export interface PostMetadataSubscriptionWhereInput {
     | PostMetadataSubscriptionWhereInput;
 }
 
-export interface PostCreateWithoutAuthorInput {
-  title: String;
-  content: Json;
-  slug: String;
-  timeToRead?: Int;
-  isPublished?: Boolean;
-  publishedAt?: DateTimeInput;
-  status?: POST_STATUS;
-  metadata: PostMetadataCreateOneInput;
-  associatedWith: SphereCreateOneWithoutPostsInput;
+export interface PostMetadataCreateOneInput {
+  create?: PostMetadataCreateInput;
+  connect?: PostMetadataWhereUniqueInput;
 }
 
-export interface AccountSubscriptionWhereInput {
+export interface ImageSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: AccountWhereInput;
-  AND?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
-  OR?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
-  NOT?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+  node?: ImageWhereInput;
+  AND?: ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput;
+  OR?: ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput;
+  NOT?: ImageSubscriptionWhereInput[] | ImageSubscriptionWhereInput;
 }
 
-export interface SphereCreateOneWithoutPostsInput {
-  create?: SphereCreateWithoutPostsInput;
-  connect?: SphereWhereUniqueInput;
+export interface PostMetadataCreateInput {
+  fileHash: String;
+  filename?: String;
+}
+
+export interface SphereWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  alias?: String;
+  alias_not?: String;
+  alias_in?: String[] | String;
+  alias_not_in?: String[] | String;
+  alias_lt?: String;
+  alias_lte?: String;
+  alias_gt?: String;
+  alias_gte?: String;
+  alias_contains?: String;
+  alias_not_contains?: String;
+  alias_starts_with?: String;
+  alias_not_starts_with?: String;
+  alias_ends_with?: String;
+  alias_not_ends_with?: String;
+  aliasSlug?: String;
+  aliasSlug_not?: String;
+  aliasSlug_in?: String[] | String;
+  aliasSlug_not_in?: String[] | String;
+  aliasSlug_lt?: String;
+  aliasSlug_lte?: String;
+  aliasSlug_gt?: String;
+  aliasSlug_gte?: String;
+  aliasSlug_contains?: String;
+  aliasSlug_not_contains?: String;
+  aliasSlug_starts_with?: String;
+  aliasSlug_not_starts_with?: String;
+  aliasSlug_ends_with?: String;
+  aliasSlug_not_ends_with?: String;
+  slugPrefix?: String;
+  slugPrefix_not?: String;
+  slugPrefix_in?: String[] | String;
+  slugPrefix_not_in?: String[] | String;
+  slugPrefix_lt?: String;
+  slugPrefix_lte?: String;
+  slugPrefix_gt?: String;
+  slugPrefix_gte?: String;
+  slugPrefix_contains?: String;
+  slugPrefix_not_contains?: String;
+  slugPrefix_starts_with?: String;
+  slugPrefix_not_starts_with?: String;
+  slugPrefix_ends_with?: String;
+  slugPrefix_not_ends_with?: String;
+  associatedWith?: AccountWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  posts_every?: PostWhereInput;
+  posts_some?: PostWhereInput;
+  posts_none?: PostWhereInput;
+  AND?: SphereWhereInput[] | SphereWhereInput;
+  OR?: SphereWhereInput[] | SphereWhereInput;
+  NOT?: SphereWhereInput[] | SphereWhereInput;
+}
+
+export interface PostCreateManyWithoutAuthorInput {
+  create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
+  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
 }
 
 export interface SphereUpdateInput {
@@ -484,6 +635,34 @@ export interface SphereUpdateInput {
   posts?: PostUpdateManyWithoutAssociatedWithInput;
 }
 
+export interface PostCreateWithoutAuthorInput {
+  title: String;
+  featuredImage?: ImageCreateOneInput;
+  content: Json;
+  slug: String;
+  timeToRead?: Int;
+  isPublished?: Boolean;
+  publishedAt?: DateTimeInput;
+  status?: POST_STATUS;
+  metadata: PostMetadataCreateOneInput;
+  associatedWith: SphereCreateOneWithoutPostsInput;
+}
+
+export interface PostMetadataUpdateManyMutationInput {
+  fileHash?: String;
+  filename?: String;
+}
+
+export interface SphereCreateOneWithoutPostsInput {
+  create?: SphereCreateWithoutPostsInput;
+  connect?: SphereWhereUniqueInput;
+}
+
+export interface PostMetadataUpdateInput {
+  fileHash?: String;
+  filename?: String;
+}
+
 export interface SphereCreateWithoutPostsInput {
   alias: String;
   aliasSlug: String;
@@ -491,9 +670,18 @@ export interface SphereCreateWithoutPostsInput {
   associatedWith: AccountCreateOneWithoutSpheresInput;
 }
 
-export interface PostMetadataUpdateManyMutationInput {
-  fileHash?: String;
-  filename?: String;
+export interface PostUpdateInput {
+  title?: String;
+  featuredImage?: ImageUpdateOneInput;
+  content?: Json;
+  slug?: String;
+  timeToRead?: Int;
+  isPublished?: Boolean;
+  publishedAt?: DateTimeInput;
+  status?: POST_STATUS;
+  author?: AccountUpdateOneRequiredWithoutPostsInput;
+  metadata?: PostMetadataUpdateOneRequiredInput;
+  associatedWith?: SphereUpdateOneRequiredWithoutPostsInput;
 }
 
 export interface AccountCreateOneWithoutSpheresInput {
@@ -514,43 +702,53 @@ export interface AccountCreateWithoutSpheresInput {
   posts?: PostCreateManyWithoutAuthorInput;
 }
 
-export interface PostUpdateInput {
+export interface ImageUpdateInput {
+  filename?: String;
+  alt?: String;
+  url?: String;
+  fileHash?: String;
+}
+
+export interface PostUpdateWithoutAuthorDataInput {
   title?: String;
+  featuredImage?: ImageUpdateOneInput;
   content?: Json;
   slug?: String;
   timeToRead?: Int;
   isPublished?: Boolean;
   publishedAt?: DateTimeInput;
   status?: POST_STATUS;
-  author?: AccountUpdateOneRequiredWithoutPostsInput;
   metadata?: PostMetadataUpdateOneRequiredInput;
   associatedWith?: SphereUpdateOneRequiredWithoutPostsInput;
-}
-
-export interface AccountUpdateInput {
-  status?: AccountStatus;
-  firstName?: String;
-  lastName?: String;
-  emailAddress?: String;
-  spheres?: SphereUpdateManyWithoutAssociatedWithInput;
-  posts?: PostUpdateManyWithoutAuthorInput;
 }
 
 export type PostMetadataWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface SphereUpdateOneRequiredWithoutPostsInput {
-  create?: SphereCreateWithoutPostsInput;
-  update?: SphereUpdateWithoutPostsDataInput;
-  upsert?: SphereUpsertWithoutPostsInput;
-  connect?: SphereWhereUniqueInput;
+export interface SphereUpdateManyWithoutAssociatedWithInput {
+  create?:
+    | SphereCreateWithoutAssociatedWithInput[]
+    | SphereCreateWithoutAssociatedWithInput;
+  delete?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+  connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+  set?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+  disconnect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+  update?:
+    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[]
+    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput;
+  upsert?:
+    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[]
+    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput;
+  deleteMany?: SphereScalarWhereInput[] | SphereScalarWhereInput;
+  updateMany?:
+    | SphereUpdateManyWithWhereNestedInput[]
+    | SphereUpdateManyWithWhereNestedInput;
 }
 
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  update: PostUpdateWithoutAuthorDataInput;
-  create: PostCreateWithoutAuthorInput;
+export interface SphereUpsertWithoutPostsInput {
+  update: SphereUpdateWithoutPostsDataInput;
+  create: SphereCreateWithoutPostsInput;
 }
 
 export interface SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
@@ -558,9 +756,12 @@ export interface SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
   data: SphereUpdateWithoutAssociatedWithDataInput;
 }
 
-export interface AccountUpsertWithoutSpheresInput {
-  update: AccountUpdateWithoutSpheresDataInput;
-  create: AccountCreateWithoutSpheresInput;
+export interface AccountUpdateWithoutSpheresDataInput {
+  status?: AccountStatus;
+  firstName?: String;
+  lastName?: String;
+  emailAddress?: String;
+  posts?: PostUpdateManyWithoutAuthorInput;
 }
 
 export interface SphereUpdateWithoutAssociatedWithDataInput {
@@ -570,12 +771,11 @@ export interface SphereUpdateWithoutAssociatedWithDataInput {
   posts?: PostUpdateManyWithoutAssociatedWithInput;
 }
 
-export interface AccountUpdateWithoutSpheresDataInput {
-  status?: AccountStatus;
-  firstName?: String;
-  lastName?: String;
-  emailAddress?: String;
-  posts?: PostUpdateManyWithoutAuthorInput;
+export interface AccountUpdateOneRequiredWithoutSpheresInput {
+  create?: AccountCreateWithoutSpheresInput;
+  update?: AccountUpdateWithoutSpheresDataInput;
+  upsert?: AccountUpsertWithoutSpheresInput;
+  connect?: AccountWhereUniqueInput;
 }
 
 export interface PostUpdateManyWithoutAssociatedWithInput {
@@ -598,23 +798,16 @@ export interface PostUpdateManyWithoutAssociatedWithInput {
     | PostUpdateManyWithWhereNestedInput;
 }
 
-export interface SphereUpdateWithoutPostsDataInput {
-  alias?: String;
-  aliasSlug?: String;
-  slugPrefix?: String;
-  associatedWith?: AccountUpdateOneRequiredWithoutSpheresInput;
+export interface SphereUpdateOneRequiredWithoutPostsInput {
+  create?: SphereCreateWithoutPostsInput;
+  update?: SphereUpdateWithoutPostsDataInput;
+  upsert?: SphereUpsertWithoutPostsInput;
+  connect?: SphereWhereUniqueInput;
 }
 
-export interface PostUpdateWithoutAuthorDataInput {
-  title?: String;
-  content?: Json;
-  slug?: String;
-  timeToRead?: Int;
-  isPublished?: Boolean;
-  publishedAt?: DateTimeInput;
-  status?: POST_STATUS;
-  metadata?: PostMetadataUpdateOneRequiredInput;
-  associatedWith?: SphereUpdateOneRequiredWithoutPostsInput;
+export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput;
+  data: PostUpdateWithoutAuthorDataInput;
 }
 
 export interface AccountCreateInput {
@@ -628,6 +821,7 @@ export interface AccountCreateInput {
 
 export interface PostUpdateWithoutAssociatedWithDataInput {
   title?: String;
+  featuredImage?: ImageUpdateOneInput;
   content?: Json;
   slug?: String;
   timeToRead?: Int;
@@ -645,31 +839,112 @@ export interface SphereCreateWithoutAssociatedWithInput {
   posts?: PostCreateManyWithoutAssociatedWithInput;
 }
 
-export interface AccountUpdateOneRequiredWithoutPostsInput {
-  create?: AccountCreateWithoutPostsInput;
-  update?: AccountUpdateWithoutPostsDataInput;
-  upsert?: AccountUpsertWithoutPostsInput;
-  connect?: AccountWhereUniqueInput;
+export interface ImageUpdateOneInput {
+  create?: ImageCreateInput;
+  update?: ImageUpdateDataInput;
+  upsert?: ImageUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: ImageWhereUniqueInput;
 }
 
-export interface PostCreateWithoutAssociatedWithInput {
-  title: String;
-  content: Json;
-  slug: String;
-  timeToRead?: Int;
-  isPublished?: Boolean;
-  publishedAt?: DateTimeInput;
-  status?: POST_STATUS;
-  author: AccountCreateOneWithoutPostsInput;
-  metadata: PostMetadataCreateOneInput;
+export interface ImageWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  filename?: String;
+  filename_not?: String;
+  filename_in?: String[] | String;
+  filename_not_in?: String[] | String;
+  filename_lt?: String;
+  filename_lte?: String;
+  filename_gt?: String;
+  filename_gte?: String;
+  filename_contains?: String;
+  filename_not_contains?: String;
+  filename_starts_with?: String;
+  filename_not_starts_with?: String;
+  filename_ends_with?: String;
+  filename_not_ends_with?: String;
+  alt?: String;
+  alt_not?: String;
+  alt_in?: String[] | String;
+  alt_not_in?: String[] | String;
+  alt_lt?: String;
+  alt_lte?: String;
+  alt_gt?: String;
+  alt_gte?: String;
+  alt_contains?: String;
+  alt_not_contains?: String;
+  alt_starts_with?: String;
+  alt_not_starts_with?: String;
+  alt_ends_with?: String;
+  alt_not_ends_with?: String;
+  url?: String;
+  url_not?: String;
+  url_in?: String[] | String;
+  url_not_in?: String[] | String;
+  url_lt?: String;
+  url_lte?: String;
+  url_gt?: String;
+  url_gte?: String;
+  url_contains?: String;
+  url_not_contains?: String;
+  url_starts_with?: String;
+  url_not_starts_with?: String;
+  url_ends_with?: String;
+  url_not_ends_with?: String;
+  fileHash?: String;
+  fileHash_not?: String;
+  fileHash_in?: String[] | String;
+  fileHash_not_in?: String[] | String;
+  fileHash_lt?: String;
+  fileHash_lte?: String;
+  fileHash_gt?: String;
+  fileHash_gte?: String;
+  fileHash_contains?: String;
+  fileHash_not_contains?: String;
+  fileHash_starts_with?: String;
+  fileHash_not_starts_with?: String;
+  fileHash_ends_with?: String;
+  fileHash_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: ImageWhereInput[] | ImageWhereInput;
+  OR?: ImageWhereInput[] | ImageWhereInput;
+  NOT?: ImageWhereInput[] | ImageWhereInput;
 }
 
-export interface AccountUpdateWithoutPostsDataInput {
-  status?: AccountStatus;
-  firstName?: String;
-  lastName?: String;
-  emailAddress?: String;
-  spheres?: SphereUpdateManyWithoutAssociatedWithInput;
+export interface ImageUpdateDataInput {
+  filename?: String;
+  alt?: String;
+  url?: String;
+  fileHash?: String;
 }
 
 export interface AccountWhereInput {
@@ -760,27 +1035,27 @@ export interface AccountWhereInput {
   NOT?: AccountWhereInput[] | AccountWhereInput;
 }
 
-export interface AccountUpsertWithoutPostsInput {
-  update: AccountUpdateWithoutPostsDataInput;
-  create: AccountCreateWithoutPostsInput;
+export interface ImageUpsertNestedInput {
+  update: ImageUpdateDataInput;
+  create: ImageCreateInput;
 }
 
-export interface PostSubscriptionWhereInput {
+export interface AccountSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: PostWhereInput;
-  AND?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
-  OR?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
-  NOT?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
+  node?: AccountWhereInput;
+  AND?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+  OR?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+  NOT?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
 }
 
-export interface PostMetadataUpdateOneRequiredInput {
-  create?: PostMetadataCreateInput;
-  update?: PostMetadataUpdateDataInput;
-  upsert?: PostMetadataUpsertNestedInput;
-  connect?: PostMetadataWhereUniqueInput;
+export interface AccountUpdateOneRequiredWithoutPostsInput {
+  create?: AccountCreateWithoutPostsInput;
+  update?: AccountUpdateWithoutPostsDataInput;
+  upsert?: AccountUpsertWithoutPostsInput;
+  connect?: AccountWhereUniqueInput;
 }
 
 export interface SphereCreateInput {
@@ -791,9 +1066,12 @@ export interface SphereCreateInput {
   posts?: PostCreateManyWithoutAssociatedWithInput;
 }
 
-export interface PostMetadataUpdateDataInput {
-  fileHash?: String;
-  filename?: String;
+export interface AccountUpdateWithoutPostsDataInput {
+  status?: AccountStatus;
+  firstName?: String;
+  lastName?: String;
+  emailAddress?: String;
+  spheres?: SphereUpdateManyWithoutAssociatedWithInput;
 }
 
 export interface PostUpdateManyMutationInput {
@@ -806,16 +1084,52 @@ export interface PostUpdateManyMutationInput {
   status?: POST_STATUS;
 }
 
+export interface AccountUpsertWithoutPostsInput {
+  update: AccountUpdateWithoutPostsDataInput;
+  create: AccountCreateWithoutPostsInput;
+}
+
+export interface ImageUpdateManyMutationInput {
+  filename?: String;
+  alt?: String;
+  url?: String;
+  fileHash?: String;
+}
+
+export interface PostMetadataUpdateOneRequiredInput {
+  create?: PostMetadataCreateInput;
+  update?: PostMetadataUpdateDataInput;
+  upsert?: PostMetadataUpsertNestedInput;
+  connect?: PostMetadataWhereUniqueInput;
+}
+
+export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput;
+  update: PostUpdateWithoutAuthorDataInput;
+  create: PostCreateWithoutAuthorInput;
+}
+
+export interface PostMetadataUpdateDataInput {
+  fileHash?: String;
+  filename?: String;
+}
+
+export type SphereWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  alias?: String;
+  aliasSlug?: String;
+}>;
+
 export interface PostMetadataUpsertNestedInput {
   update: PostMetadataUpdateDataInput;
   create: PostMetadataCreateInput;
 }
 
-export interface AccountUpdateManyMutationInput {
-  status?: AccountStatus;
-  firstName?: String;
-  lastName?: String;
-  emailAddress?: String;
+export interface PostCreateManyWithoutAssociatedWithInput {
+  create?:
+    | PostCreateWithoutAssociatedWithInput[]
+    | PostCreateWithoutAssociatedWithInput;
+  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
 }
 
 export interface PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
@@ -824,11 +1138,16 @@ export interface PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
   create: PostCreateWithoutAssociatedWithInput;
 }
 
-export type SphereWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  alias?: String;
-  aliasSlug?: String;
-}>;
+export interface PostSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: PostWhereInput;
+  AND?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
+  OR?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
+  NOT?: PostSubscriptionWhereInput[] | PostSubscriptionWhereInput;
+}
 
 export interface PostScalarWhereInput {
   id?: ID_Input;
@@ -916,98 +1235,20 @@ export interface PostScalarWhereInput {
   NOT?: PostScalarWhereInput[] | PostScalarWhereInput;
 }
 
-export interface PostCreateManyWithoutAssociatedWithInput {
-  create?:
-    | PostCreateWithoutAssociatedWithInput[]
-    | PostCreateWithoutAssociatedWithInput;
-  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-}
+export type ImageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
 
 export interface PostUpdateManyWithWhereNestedInput {
   where: PostScalarWhereInput;
   data: PostUpdateManyDataInput;
 }
 
-export interface SphereWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  alias?: String;
-  alias_not?: String;
-  alias_in?: String[] | String;
-  alias_not_in?: String[] | String;
-  alias_lt?: String;
-  alias_lte?: String;
-  alias_gt?: String;
-  alias_gte?: String;
-  alias_contains?: String;
-  alias_not_contains?: String;
-  alias_starts_with?: String;
-  alias_not_starts_with?: String;
-  alias_ends_with?: String;
-  alias_not_ends_with?: String;
-  aliasSlug?: String;
-  aliasSlug_not?: String;
-  aliasSlug_in?: String[] | String;
-  aliasSlug_not_in?: String[] | String;
-  aliasSlug_lt?: String;
-  aliasSlug_lte?: String;
-  aliasSlug_gt?: String;
-  aliasSlug_gte?: String;
-  aliasSlug_contains?: String;
-  aliasSlug_not_contains?: String;
-  aliasSlug_starts_with?: String;
-  aliasSlug_not_starts_with?: String;
-  aliasSlug_ends_with?: String;
-  aliasSlug_not_ends_with?: String;
-  slugPrefix?: String;
-  slugPrefix_not?: String;
-  slugPrefix_in?: String[] | String;
-  slugPrefix_not_in?: String[] | String;
-  slugPrefix_lt?: String;
-  slugPrefix_lte?: String;
-  slugPrefix_gt?: String;
-  slugPrefix_gte?: String;
-  slugPrefix_contains?: String;
-  slugPrefix_not_contains?: String;
-  slugPrefix_starts_with?: String;
-  slugPrefix_not_starts_with?: String;
-  slugPrefix_ends_with?: String;
-  slugPrefix_not_ends_with?: String;
-  associatedWith?: AccountWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  posts_every?: PostWhereInput;
-  posts_some?: PostWhereInput;
-  posts_none?: PostWhereInput;
-  AND?: SphereWhereInput[] | SphereWhereInput;
-  OR?: SphereWhereInput[] | SphereWhereInput;
-  NOT?: SphereWhereInput[] | SphereWhereInput;
+export interface AccountUpdateManyMutationInput {
+  status?: AccountStatus;
+  firstName?: String;
+  lastName?: String;
+  emailAddress?: String;
 }
 
 export interface PostUpdateManyDataInput {
@@ -1020,38 +1261,11 @@ export interface PostUpdateManyDataInput {
   status?: POST_STATUS;
 }
 
-export interface PostMetadataUpdateInput {
-  fileHash?: String;
-  filename?: String;
-}
-
-export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
-  where: SphereWhereUniqueInput;
-  update: SphereUpdateWithoutAssociatedWithDataInput;
-  create: SphereCreateWithoutAssociatedWithInput;
-}
-
-export interface SphereUpsertWithoutPostsInput {
-  update: SphereUpdateWithoutPostsDataInput;
-  create: SphereCreateWithoutPostsInput;
-}
-
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput;
-  delete?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-  connect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-  set?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-  disconnect?: PostWhereUniqueInput[] | PostWhereUniqueInput;
-  update?:
-    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    | PostUpdateWithWhereUniqueWithoutAuthorInput;
-  upsert?:
-    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    | PostUpsertWithWhereUniqueWithoutAuthorInput;
-  deleteMany?: PostScalarWhereInput[] | PostScalarWhereInput;
-  updateMany?:
-    | PostUpdateManyWithWhereNestedInput[]
-    | PostUpdateManyWithWhereNestedInput;
+export interface SphereUpdateWithoutPostsDataInput {
+  alias?: String;
+  aliasSlug?: String;
+  slugPrefix?: String;
+  associatedWith?: AccountUpdateOneRequiredWithoutSpheresInput;
 }
 
 export interface SphereUpdateManyDataInput {
@@ -1143,15 +1357,27 @@ export interface SphereScalarWhereInput {
   NOT?: SphereScalarWhereInput[] | SphereScalarWhereInput;
 }
 
-export interface AccountUpdateOneRequiredWithoutSpheresInput {
-  create?: AccountCreateWithoutSpheresInput;
-  update?: AccountUpdateWithoutSpheresDataInput;
-  upsert?: AccountUpsertWithoutSpheresInput;
-  connect?: AccountWhereUniqueInput;
+export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
+  where: SphereWhereUniqueInput;
+  update: SphereUpdateWithoutAssociatedWithDataInput;
+  create: SphereCreateWithoutAssociatedWithInput;
+}
+
+export interface SphereCreateManyWithoutAssociatedWithInput {
+  create?:
+    | SphereCreateWithoutAssociatedWithInput[]
+    | SphereCreateWithoutAssociatedWithInput;
+  connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
+}
+
+export interface AccountUpsertWithoutSpheresInput {
+  update: AccountUpdateWithoutSpheresDataInput;
+  create: AccountCreateWithoutSpheresInput;
 }
 
 export interface PostCreateInput {
   title: String;
+  featuredImage?: ImageCreateOneInput;
   content: Json;
   slug: String;
   timeToRead?: Int;
@@ -1198,6 +1424,7 @@ export interface PostWhereInput {
   title_not_starts_with?: String;
   title_ends_with?: String;
   title_not_ends_with?: String;
+  featuredImage?: ImageWhereInput;
   slug?: String;
   slug_not?: String;
   slug_in?: String[] | String;
@@ -1258,13 +1485,6 @@ export interface PostWhereInput {
   NOT?: PostWhereInput[] | PostWhereInput;
 }
 
-export interface SphereCreateManyWithoutAssociatedWithInput {
-  create?:
-    | SphereCreateWithoutAssociatedWithInput[]
-    | SphereCreateWithoutAssociatedWithInput;
-  connect?: SphereWhereUniqueInput[] | SphereWhereUniqueInput;
-}
-
 export interface NodeNode {
   id: ID_Output;
 }
@@ -1300,25 +1520,25 @@ export interface SpherePreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface PostConnection {
+export interface ImageConnection {
   pageInfo: PageInfo;
-  edges: PostEdge[];
+  edges: ImageEdge[];
 }
 
-export interface PostConnectionPromise
-  extends Promise<PostConnection>,
+export interface ImageConnectionPromise
+  extends Promise<ImageConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PostEdge>>() => T;
-  aggregate: <T = AggregatePostPromise>() => T;
+  edges: <T = FragmentableArray<ImageEdge>>() => T;
+  aggregate: <T = AggregateImagePromise>() => T;
 }
 
-export interface PostConnectionSubscription
-  extends Promise<AsyncIterator<PostConnection>>,
+export interface ImageConnectionSubscription
+  extends Promise<AsyncIterator<ImageConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePostSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ImageEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateImageSubscription>() => T;
 }
 
 export interface PostPreviousValues {
@@ -1362,79 +1582,6 @@ export interface PostPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   status: () => Promise<AsyncIterator<POST_STATUS>>;
-}
-
-export interface AggregateAccount {
-  count: Int;
-}
-
-export interface AggregateAccountPromise
-  extends Promise<AggregateAccount>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAccountSubscription
-  extends Promise<AsyncIterator<AggregateAccount>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AccountEdge {
-  node: Account;
-  cursor: String;
-}
-
-export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
-  node: <T = AccountPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AccountEdgeSubscription
-  extends Promise<AsyncIterator<AccountEdge>>,
-    Fragmentable {
-  node: <T = AccountSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SphereEdge {
-  node: Sphere;
-  cursor: String;
-}
-
-export interface SphereEdgePromise extends Promise<SphereEdge>, Fragmentable {
-  node: <T = SpherePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SphereEdgeSubscription
-  extends Promise<AsyncIterator<SphereEdge>>,
-    Fragmentable {
-  node: <T = SphereSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Sphere {
@@ -1490,62 +1637,54 @@ export interface SphereSubscription
   ) => T;
 }
 
-export interface AggregatePostMetadata {
+export interface AccountEdge {
+  node: Account;
+  cursor: String;
+}
+
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
+    Fragmentable {
+  node: <T = AccountSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateAccount {
   count: Int;
 }
 
-export interface AggregatePostMetadataPromise
-  extends Promise<AggregatePostMetadata>,
+export interface AggregateAccountPromise
+  extends Promise<AggregateAccount>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregatePostMetadataSubscription
-  extends Promise<AsyncIterator<AggregatePostMetadata>>,
+export interface AggregateAccountSubscription
+  extends Promise<AsyncIterator<AggregateAccount>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AccountConnection {
-  pageInfo: PageInfo;
-  edges: AccountEdge[];
+export interface SphereEdge {
+  node: Sphere;
+  cursor: String;
 }
 
-export interface AccountConnectionPromise
-  extends Promise<AccountConnection>,
+export interface SphereEdgePromise extends Promise<SphereEdge>, Fragmentable {
+  node: <T = SpherePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SphereEdgeSubscription
+  extends Promise<AsyncIterator<SphereEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AccountEdge>>() => T;
-  aggregate: <T = AggregateAccountPromise>() => T;
-}
-
-export interface AccountConnectionSubscription
-  extends Promise<AsyncIterator<AccountConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AccountEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAccountSubscription>() => T;
-}
-
-export interface PostMetadataConnection {
-  pageInfo: PageInfo;
-  edges: PostMetadataEdge[];
-}
-
-export interface PostMetadataConnectionPromise
-  extends Promise<PostMetadataConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PostMetadataEdge>>() => T;
-  aggregate: <T = AggregatePostMetadataPromise>() => T;
-}
-
-export interface PostMetadataConnectionSubscription
-  extends Promise<AsyncIterator<PostMetadataConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePostMetadataSubscription>() => T;
+  node: <T = SphereSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface PostMetadataPreviousValues {
@@ -1570,20 +1709,101 @@ export interface PostMetadataPreviousValuesSubscription
   filename: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BatchPayload {
-  count: Long;
+export interface AggregatePostMetadata {
+  count: Int;
 }
 
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
+export interface AggregatePostMetadataPromise
+  extends Promise<AggregatePostMetadata>,
     Fragmentable {
-  count: () => Promise<Long>;
+  count: () => Promise<Int>;
 }
 
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
+export interface AggregatePostMetadataSubscription
+  extends Promise<AsyncIterator<AggregatePostMetadata>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PostMetadataConnection {
+  pageInfo: PageInfo;
+  edges: PostMetadataEdge[];
+}
+
+export interface PostMetadataConnectionPromise
+  extends Promise<PostMetadataConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PostMetadataEdge>>() => T;
+  aggregate: <T = AggregatePostMetadataPromise>() => T;
+}
+
+export interface PostMetadataConnectionSubscription
+  extends Promise<AsyncIterator<PostMetadataConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePostMetadataSubscription>() => T;
+}
+
+export interface AccountConnection {
+  pageInfo: PageInfo;
+  edges: AccountEdge[];
+}
+
+export interface AccountConnectionPromise
+  extends Promise<AccountConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AccountEdge>>() => T;
+  aggregate: <T = AggregateAccountPromise>() => T;
+}
+
+export interface AccountConnectionSubscription
+  extends Promise<AsyncIterator<AccountConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AccountEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAccountSubscription>() => T;
+}
+
+export interface AggregatePost {
+  count: Int;
+}
+
+export interface AggregatePostPromise
+  extends Promise<AggregatePost>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePostSubscription
+  extends Promise<AsyncIterator<AggregatePost>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface PostMetadata {
@@ -1608,20 +1828,29 @@ export interface PostMetadataSubscription
   filename: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregatePost {
-  count: Int;
+export interface SphereSubscriptionPayload {
+  mutation: MutationType;
+  node: Sphere;
+  updatedFields: String[];
+  previousValues: SpherePreviousValues;
 }
 
-export interface AggregatePostPromise
-  extends Promise<AggregatePost>,
+export interface SphereSubscriptionPayloadPromise
+  extends Promise<SphereSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = SpherePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SpherePreviousValuesPromise>() => T;
 }
 
-export interface AggregatePostSubscription
-  extends Promise<AsyncIterator<AggregatePost>>,
+export interface SphereSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SphereSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SpherePreviousValuesSubscription>() => T;
 }
 
 export interface PostMetadataSubscriptionPayload {
@@ -1649,111 +1878,67 @@ export interface PostMetadataSubscriptionPayloadSubscription
   previousValues: <T = PostMetadataPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateSphere {
-  count: Int;
+export interface PostConnection {
+  pageInfo: PageInfo;
+  edges: PostEdge[];
 }
 
-export interface AggregateSpherePromise
-  extends Promise<AggregateSphere>,
+export interface PostConnectionPromise
+  extends Promise<PostConnection>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PostEdge>>() => T;
+  aggregate: <T = AggregatePostPromise>() => T;
 }
 
-export interface AggregateSphereSubscription
-  extends Promise<AsyncIterator<AggregateSphere>>,
+export interface PostConnectionSubscription
+  extends Promise<AsyncIterator<PostConnection>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePostSubscription>() => T;
 }
 
-export interface PostMetadataEdge {
-  node: PostMetadata;
+export interface AccountSubscriptionPayload {
+  mutation: MutationType;
+  node: Account;
+  updatedFields: String[];
+  previousValues: AccountPreviousValues;
+}
+
+export interface AccountSubscriptionPayloadPromise
+  extends Promise<AccountSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AccountPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AccountPreviousValuesPromise>() => T;
+}
+
+export interface AccountSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AccountSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AccountPreviousValuesSubscription>() => T;
+}
+
+export interface ImageEdge {
+  node: Image;
   cursor: String;
 }
 
-export interface PostMetadataEdgePromise
-  extends Promise<PostMetadataEdge>,
-    Fragmentable {
-  node: <T = PostMetadataPromise>() => T;
+export interface ImageEdgePromise extends Promise<ImageEdge>, Fragmentable {
+  node: <T = ImagePromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface PostMetadataEdgeSubscription
-  extends Promise<AsyncIterator<PostMetadataEdge>>,
+export interface ImageEdgeSubscription
+  extends Promise<AsyncIterator<ImageEdge>>,
     Fragmentable {
-  node: <T = PostMetadataSubscription>() => T;
+  node: <T = ImageSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface PostSubscriptionPayload {
-  mutation: MutationType;
-  node: Post;
-  updatedFields: String[];
-  previousValues: PostPreviousValues;
-}
-
-export interface PostSubscriptionPayloadPromise
-  extends Promise<PostSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PostPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PostPreviousValuesPromise>() => T;
-}
-
-export interface PostSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PostSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PostPreviousValuesSubscription>() => T;
-}
-
-export interface Post {
-  id: ID_Output;
-  title: String;
-  content: Json;
-  slug: String;
-  timeToRead: Int;
-  isPublished: Boolean;
-  publishedAt?: DateTimeOutput;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-  status: POST_STATUS;
-}
-
-export interface PostPromise extends Promise<Post>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  content: () => Promise<Json>;
-  slug: () => Promise<String>;
-  timeToRead: () => Promise<Int>;
-  isPublished: () => Promise<Boolean>;
-  publishedAt: () => Promise<DateTimeOutput>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  status: () => Promise<POST_STATUS>;
-  author: <T = AccountPromise>() => T;
-  metadata: <T = PostMetadataPromise>() => T;
-  associatedWith: <T = SpherePromise>() => T;
-}
-
-export interface PostSubscription
-  extends Promise<AsyncIterator<Post>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<Json>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  timeToRead: () => Promise<AsyncIterator<Int>>;
-  isPublished: () => Promise<AsyncIterator<Boolean>>;
-  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  status: () => Promise<AsyncIterator<POST_STATUS>>;
-  author: <T = AccountSubscription>() => T;
-  metadata: <T = PostMetadataSubscription>() => T;
-  associatedWith: <T = SphereSubscription>() => T;
 }
 
 export interface AccountPreviousValues {
@@ -1790,29 +1975,74 @@ export interface AccountPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AccountSubscriptionPayload {
-  mutation: MutationType;
-  node: Account;
-  updatedFields: String[];
-  previousValues: AccountPreviousValues;
+export interface SphereConnection {
+  pageInfo: PageInfo;
+  edges: SphereEdge[];
 }
 
-export interface AccountSubscriptionPayloadPromise
-  extends Promise<AccountSubscriptionPayload>,
+export interface SphereConnectionPromise
+  extends Promise<SphereConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AccountPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AccountPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SphereEdge>>() => T;
+  aggregate: <T = AggregateSpherePromise>() => T;
 }
 
-export interface AccountSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
+export interface SphereConnectionSubscription
+  extends Promise<AsyncIterator<SphereConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = AccountSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = AccountPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SphereEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSphereSubscription>() => T;
+}
+
+export interface Post {
+  id: ID_Output;
+  title: String;
+  content: Json;
+  slug: String;
+  timeToRead: Int;
+  isPublished: Boolean;
+  publishedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  status: POST_STATUS;
+}
+
+export interface PostPromise extends Promise<Post>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  featuredImage: <T = ImagePromise>() => T;
+  content: () => Promise<Json>;
+  slug: () => Promise<String>;
+  timeToRead: () => Promise<Int>;
+  isPublished: () => Promise<Boolean>;
+  publishedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  status: () => Promise<POST_STATUS>;
+  author: <T = AccountPromise>() => T;
+  metadata: <T = PostMetadataPromise>() => T;
+  associatedWith: <T = SpherePromise>() => T;
+}
+
+export interface PostSubscription
+  extends Promise<AsyncIterator<Post>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  featuredImage: <T = ImageSubscription>() => T;
+  content: () => Promise<AsyncIterator<Json>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  timeToRead: () => Promise<AsyncIterator<Int>>;
+  isPublished: () => Promise<AsyncIterator<Boolean>>;
+  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  status: () => Promise<AsyncIterator<POST_STATUS>>;
+  author: <T = AccountSubscription>() => T;
+  metadata: <T = PostMetadataSubscription>() => T;
+  associatedWith: <T = SphereSubscription>() => T;
 }
 
 export interface Account {
@@ -1891,27 +2121,6 @@ export interface AccountSubscription
   ) => T;
 }
 
-export interface SphereConnection {
-  pageInfo: PageInfo;
-  edges: SphereEdge[];
-}
-
-export interface SphereConnectionPromise
-  extends Promise<SphereConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SphereEdge>>() => T;
-  aggregate: <T = AggregateSpherePromise>() => T;
-}
-
-export interface SphereConnectionSubscription
-  extends Promise<AsyncIterator<SphereConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SphereEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSphereSubscription>() => T;
-}
-
 export interface PostEdge {
   node: Post;
   cursor: String;
@@ -1929,29 +2138,187 @@ export interface PostEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface SphereSubscriptionPayload {
+export interface PostSubscriptionPayload {
   mutation: MutationType;
-  node: Sphere;
+  node: Post;
   updatedFields: String[];
-  previousValues: SpherePreviousValues;
+  previousValues: PostPreviousValues;
 }
 
-export interface SphereSubscriptionPayloadPromise
-  extends Promise<SphereSubscriptionPayload>,
+export interface PostSubscriptionPayloadPromise
+  extends Promise<PostSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = SpherePromise>() => T;
+  node: <T = PostPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = SpherePreviousValuesPromise>() => T;
+  previousValues: <T = PostPreviousValuesPromise>() => T;
 }
 
-export interface SphereSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
+export interface PostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SphereSubscription>() => T;
+  node: <T = PostSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SpherePreviousValuesSubscription>() => T;
+  previousValues: <T = PostPreviousValuesSubscription>() => T;
+}
+
+export interface Image {
+  id: ID_Output;
+  filename: String;
+  alt: String;
+  url: String;
+  fileHash: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ImagePromise extends Promise<Image>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  filename: () => Promise<String>;
+  alt: () => Promise<String>;
+  url: () => Promise<String>;
+  fileHash: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ImageSubscription
+  extends Promise<AsyncIterator<Image>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  filename: () => Promise<AsyncIterator<String>>;
+  alt: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  fileHash: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ImagePreviousValues {
+  id: ID_Output;
+  filename: String;
+  alt: String;
+  url: String;
+  fileHash: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ImagePreviousValuesPromise
+  extends Promise<ImagePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  filename: () => Promise<String>;
+  alt: () => Promise<String>;
+  url: () => Promise<String>;
+  fileHash: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ImagePreviousValuesSubscription
+  extends Promise<AsyncIterator<ImagePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  filename: () => Promise<AsyncIterator<String>>;
+  alt: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  fileHash: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ImageSubscriptionPayload {
+  mutation: MutationType;
+  node: Image;
+  updatedFields: String[];
+  previousValues: ImagePreviousValues;
+}
+
+export interface ImageSubscriptionPayloadPromise
+  extends Promise<ImageSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ImagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ImagePreviousValuesPromise>() => T;
+}
+
+export interface ImageSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ImageSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ImageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ImagePreviousValuesSubscription>() => T;
+}
+
+export interface AggregateImage {
+  count: Int;
+}
+
+export interface AggregateImagePromise
+  extends Promise<AggregateImage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateImageSubscription
+  extends Promise<AsyncIterator<AggregateImage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface PostMetadataEdge {
+  node: PostMetadata;
+  cursor: String;
+}
+
+export interface PostMetadataEdgePromise
+  extends Promise<PostMetadataEdge>,
+    Fragmentable {
+  node: <T = PostMetadataPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PostMetadataEdgeSubscription
+  extends Promise<AsyncIterator<PostMetadataEdge>>,
+    Fragmentable {
+  node: <T = PostMetadataSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateSphere {
+  count: Int;
+}
+
+export interface AggregateSpherePromise
+  extends Promise<AggregateSphere>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateSphereSubscription
+  extends Promise<AsyncIterator<AggregateSphere>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 /*
@@ -1967,12 +2334,6 @@ export type Boolean = boolean;
 export type Long = string;
 
 /*
-The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
-*/
-export type ID_Input = string | number;
-export type ID_Output = string;
-
-/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string;
@@ -1981,6 +2342,12 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
+
+/*
+The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
+*/
+export type ID_Input = string | number;
+export type ID_Output = string;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
@@ -2000,6 +2367,10 @@ export const models: Model[] = [
   },
   {
     name: "Post",
+    embedded: false
+  },
+  {
+    name: "Image",
     embedded: false
   },
   {
