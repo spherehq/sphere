@@ -21,10 +21,10 @@ mdast-util-definitions@^1.2.0:
   dependencies:
     unist-util-visit "^1.0.0"
 
-mdast-util-to-hast@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-5.0.0.tgz#42ca287ee88fcf0a57123816215d5db507b682a7"
-  integrity sha512-Yxx+/mdvhOaz3u4+UHokVMF038IgMIzgnEexjJcFaG3k47RHDEYCRZZE/YWO8pjwkyqT3UdTjCrX89ljkNoxCg==
+mdast-util-to-hast@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-6.0.0.tgz#7547f76266670bdd394e58d9110a10dee8c9a881"
+  integrity sha512-r1ARBzOsH4ChGlLWZ0vGcGLzPToSCu4VowkSQdCgNlwaLR3M0QA+NvJFeCv8dG2pomsql90dFaR0vz6uy+3e1w==
   dependencies:
     collapse-white-space "^1.0.0"
     detab "^2.0.0"
