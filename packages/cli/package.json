@@ -52,7 +52,7 @@
     "@oclif/tslint": "3.1.1",
     "@types/fs-extra": "5.1.0",
     "@types/inquirer": "6.0.1",
-    "@types/lodash": "4.14.126",
+    "@types/lodash": "4.14.127",
     "@types/md5-file": "4.0.0",
     "@types/node": "10.14.6",
     "@types/terminal-link": "1.1.0",
