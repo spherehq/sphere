@@ -16735,10 +16735,10 @@ styled-components@4.2.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-icons@7.14.0:
-  version "7.14.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-7.14.0.tgz#50eba786105b0e6555d810a342321e410cdc318b"
-  integrity sha512-9CrWUpEPEd2WJ6wW4SHTqJevmjW+u5tbgPxykDX1W9CEPbSDmWdUAlZ1NAEuUKzqK6fBmpFImEmPZEVgvSy+Kw==
+styled-icons@7.15.1:
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-7.15.1.tgz#1841af12450f3d596411e5e2f836eb713dc6ccbb"
+  integrity sha512-EZ8Lc4mkVBISj94RfYC807f5Lv3947I3UsPx3MRa1tuiPKfN2fIA5C+i8gTZiqFUkN9n8yJsLjrspe+sJYHx+Q==
   dependencies:
     "@emotion/is-prop-valid" "^0.7.3"
     tslib "^1.9.3"
