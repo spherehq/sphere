@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.7...@spherehq/cli@0.10.8) (2019-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v8 ([61f3196](https://github.com/spherehq/sphere/commit/61f3196))
+* **deps:** update dependency fs-extra to v8 ([#95](https://github.com/spherehq/sphere/issues/95)) ([1f7772c](https://github.com/spherehq/sphere/commit/1f7772c))
+
+
+
+
+
 ## [0.10.7](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.6...@spherehq/cli@0.10.7) (2019-05-17)
 
 **Note:** Version bump only for package @spherehq/cli
