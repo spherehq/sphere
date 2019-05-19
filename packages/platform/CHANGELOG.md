@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.26](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.25...@spherehq/platform@0.10.26) (2019-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mdast-util-to-hast to v6 ([21f9667](https://github.com/spherehq/sphere/commit/21f9667))
+* **deps:** update dependency mdast-util-to-hast to v6 ([#105](https://github.com/spherehq/sphere/issues/105)) ([3164621](https://github.com/spherehq/sphere/commit/3164621))
+
+
+
+
+
 ## [0.10.25](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.24...@spherehq/platform@0.10.25) (2019-05-18)
 
 
