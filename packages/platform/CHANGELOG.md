@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.32](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.31...@spherehq/platform@0.10.32) (2019-05-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-apollo to v2.5.6 ([e68cfdd](https://github.com/spherehq/sphere/commit/e68cfdd))
+
+
+
+
+
 ## [0.10.31](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.30...@spherehq/platform@0.10.31) (2019-05-21)
 
 
