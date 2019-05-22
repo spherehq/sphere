@@ -47,7 +47,7 @@
     "react-apollo": "2.5.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
-    "react-loading-skeleton": "1.1.1",
+    "react-loading-skeleton": "1.1.2",
     "rehype-react": "3.1.0",
     "styled-components": "4.2.0",
     "styled-icons": "7.15.1"
