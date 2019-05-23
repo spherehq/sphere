@@ -7,7 +7,7 @@
   "main": "generated/prisma-client/index.js",
   "scripts": {
     "prepublishOnly": "yarn generate:client",
-    "postinstall": "generate:prisma-config",
+    "postinstall": "yarn generate:prisma-config",
     "deploy": "prisma deploy",
     "generate:prisma-config": "dotenv -- envsub prisma.yml.dist prisma.yml",
     "generate:client": "prisma generate",
