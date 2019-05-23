@@ -8,7 +8,7 @@
   "module": "index.ts",
   "source": "index.ts",
   "dependencies": {
-    "@material-ui/system": "^3.0.0-alpha.2"
+    "@material-ui/system": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"
