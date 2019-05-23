@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.38](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.37...@spherehq/platform@0.10.38) (2019-05-23)
+
+**Note:** Version bump only for package @spherehq/platform
+
+
+
+
+
 ## [0.10.37](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.36...@spherehq/platform@0.10.37) (2019-05-23)
 
 ### Bug Fixes

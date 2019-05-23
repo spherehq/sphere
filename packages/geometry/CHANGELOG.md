@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.1...@spherehq/geometry@0.6.2) (2019-05-23)
+
+
+### Bug Fixes
+
+* database command ([8dbfa53](https://github.com/spherehq/sphere/commit/8dbfa53))
+
+
+
+
+
 ## [0.6.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.0...@spherehq/geometry@0.6.1) (2019-05-06)
 
 **Note:** Version bump only for package @spherehq/geometry
