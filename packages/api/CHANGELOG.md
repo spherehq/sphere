@@ -3,262 +3,243 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.6.8](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.7...@spherehq/api@0.6.8) (2019-05-06)
+## [0.6.31](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.30...@spherehq/api@0.6.31) (2019-05-23)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql to v14.3.1 ([48142d9](https://github.com/spherehq/sphere/commit/48142d9))
+
+## [0.6.30](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.29...@spherehq/api@0.6.30) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/api
 
+## [0.6.29](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.28...@spherehq/api@0.6.29) (2019-05-22)
 
+### Bug Fixes
 
+- **deps:** update dependency @sentry/node to v5.3.0 ([b220356](https://github.com/spherehq/sphere/commit/b220356))
 
+## [0.6.28](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.27...@spherehq/api@0.6.28) (2019-05-21)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.27](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.26...@spherehq/api@0.6.27) (2019-05-21)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql-middleware-sentry to v3.2.0 ([e3b1fd2](https://github.com/spherehq/sphere/commit/e3b1fd2))
+
+## [0.6.26](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.25...@spherehq/api@0.6.26) (2019-05-17)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.25](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.24...@spherehq/api@0.6.25) (2019-05-16)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.24](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.23...@spherehq/api@0.6.24) (2019-05-15)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.23](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.22...@spherehq/api@0.6.23) (2019-05-13)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.22](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.21...@spherehq/api@0.6.22) (2019-05-13)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.21](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.20...@spherehq/api@0.6.21) (2019-05-10)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.20](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.19...@spherehq/api@0.6.20) (2019-05-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.19](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.18...@spherehq/api@0.6.19) (2019-05-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.18](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.17...@spherehq/api@0.6.18) (2019-05-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.17](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.16...@spherehq/api@0.6.17) (2019-05-08)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.16](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.15...@spherehq/api@0.6.16) (2019-05-08)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.15](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.14...@spherehq/api@0.6.15) (2019-05-08)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.14](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.13...@spherehq/api@0.6.14) (2019-05-08)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.2.0 ([1d5b0f5](https://github.com/spherehq/sphere/commit/1d5b0f5))
+
+## [0.6.13](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.12...@spherehq/api@0.6.13) (2019-05-08)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.12](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.11...@spherehq/api@0.6.12) (2019-05-07)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.5.0 ([eb8d671](https://github.com/spherehq/sphere/commit/eb8d671))
+
+## [0.6.11](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.10...@spherehq/api@0.6.11) (2019-05-07)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.10](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.9...@spherehq/api@0.6.10) (2019-05-07)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql to v14.3.0 ([e3dbcfd](https://github.com/spherehq/sphere/commit/e3dbcfd))
+
+## [0.6.9](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.8...@spherehq/api@0.6.9) (2019-05-06)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.8](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.7...@spherehq/api@0.6.8) (2019-05-06)
+
+**Note:** Version bump only for package @spherehq/api
 
 ## [0.6.7](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.6...@spherehq/api@0.6.7) (2019-05-03)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.6](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.5...@spherehq/api@0.6.6) (2019-05-03)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.5](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.4...@spherehq/api@0.6.5) (2019-05-03)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.1.2 ([f206b03](https://github.com/spherehq/sphere/commit/f206b03))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.1.2 ([f206b03](https://github.com/spherehq/sphere/commit/f206b03))
 
 ## [0.6.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.3...@spherehq/api@0.6.4) (2019-05-03)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.2...@spherehq/api@0.6.3) (2019-05-02)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.6.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.1...@spherehq/api@0.6.2) (2019-05-02)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.0...@spherehq/api@0.6.1) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 # [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.6...@spherehq/api@0.6.0) (2019-05-01)
-
 
 ### Features
 
-* added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
-
-
-
-
+- added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
 
 ## [0.5.6](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.5...@spherehq/api@0.5.6) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.5.5](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.4...@spherehq/api@0.5.5) (2019-04-30)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.5.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.3...@spherehq/api@0.5.4) (2019-04-30)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.5.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.2...@spherehq/api@0.5.3) (2019-04-30)
-
 
 ### Bug Fixes
 
-* fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([cbe3585](https://github.com/spherehq/sphere/commit/cbe3585))
-
-
-
-
+- fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([cbe3585](https://github.com/spherehq/sphere/commit/cbe3585))
 
 ## [0.5.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.1...@spherehq/api@0.5.2) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.5.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.5.0...@spherehq/api@0.5.1) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 # [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.12...@spherehq/api@0.5.0) (2019-04-29)
-
 
 ### Features
 
-* added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
-
-
-
-
+- added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
 
 ## [0.4.12](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.11...@spherehq/api@0.4.12) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.11](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.10...@spherehq/api@0.4.11) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.4.10](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.9...@spherehq/api@0.4.10) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.9](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.8...@spherehq/api@0.4.9) (2019-04-28)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.4.8](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.7...@spherehq/api@0.4.8) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.7](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.6...@spherehq/api@0.4.7) (2019-04-26)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.1.0 ([86b948e](https://github.com/spherehq/sphere/commit/86b948e))
-* **deps:** update dependency @sentry/node to v5.1.0 ([#16](https://github.com/spherehq/sphere/issues/16)) ([992608f](https://github.com/spherehq/sphere/commit/992608f))
-* **deps:** update dependency graphql-type-json to v0.3.0 ([da8713d](https://github.com/spherehq/sphere/commit/da8713d))
-* **deps:** update dependency graphql-type-json to v0.3.0 ([#26](https://github.com/spherehq/sphere/issues/26)) ([f58b3a4](https://github.com/spherehq/sphere/commit/f58b3a4))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.1.0 ([86b948e](https://github.com/spherehq/sphere/commit/86b948e))
+- **deps:** update dependency @sentry/node to v5.1.0 ([#16](https://github.com/spherehq/sphere/issues/16)) ([992608f](https://github.com/spherehq/sphere/commit/992608f))
+- **deps:** update dependency graphql-type-json to v0.3.0 ([da8713d](https://github.com/spherehq/sphere/commit/da8713d))
+- **deps:** update dependency graphql-type-json to v0.3.0 ([#26](https://github.com/spherehq/sphere/issues/26)) ([f58b3a4](https://github.com/spherehq/sphere/commit/f58b3a4))
 
 ## [0.4.6](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.5...@spherehq/api@0.4.6) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.5](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.4...@spherehq/api@0.4.5) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.4.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.3...@spherehq/api@0.4.4) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.2...@spherehq/api@0.4.3) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.4.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.1...@spherehq/api@0.4.2) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.4.0...@spherehq/api@0.4.1) (2019-04-24)
-
 
 ### Bug Fixes
 
-* updated prisma endpoint ([6e95de0](https://github.com/spherehq/sphere/commit/6e95de0))
-
-
-
-
+- updated prisma endpoint ([6e95de0](https://github.com/spherehq/sphere/commit/6e95de0))
 
 # [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.3.4...@spherehq/api@0.4.0) (2019-04-24)
 
-
 ### Features
 
-* added init for existing and new spheres ([5d41e74](https://github.com/spherehq/sphere/commit/5d41e74))
-* added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
-
-
-
-
+- added init for existing and new spheres ([5d41e74](https://github.com/spherehq/sphere/commit/5d41e74))
+- added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
 
 ## [0.3.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.3.3...@spherehq/api@0.3.4) (2019-04-19)
 

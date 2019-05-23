@@ -3,130 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.1...@spherehq/geometry@0.6.0) (2019-05-01)
+## [0.6.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.0...@spherehq/geometry@0.6.1) (2019-05-06)
 
+**Note:** Version bump only for package @spherehq/geometry
+
+# [0.6.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.1...@spherehq/geometry@0.6.0) (2019-05-01)
 
 ### Features
 
-* added avatar component and updated card styles ([fb7a6c5](https://github.com/spherehq/sphere/commit/fb7a6c5))
-
-
-
-
+- added avatar component and updated card styles ([fb7a6c5](https://github.com/spherehq/sphere/commit/fb7a6c5))
 
 ## [0.5.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.5.0...@spherehq/geometry@0.5.1) (2019-05-01)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 # [0.5.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.4.2...@spherehq/geometry@0.5.0) (2019-05-01)
-
 
 ### Features
 
-* added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
-
-
-
-
+- added profile page to sphere ([8160734](https://github.com/spherehq/sphere/commit/8160734))
 
 ## [0.4.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.4.1...@spherehq/geometry@0.4.2) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 ## [0.4.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.4.0...@spherehq/geometry@0.4.1) (2019-04-29)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 # [0.4.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.7...@spherehq/geometry@0.4.0) (2019-04-29)
-
 
 ### Features
 
-* added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
-
-
-
-
+- added loadable posts from api ([424cfec](https://github.com/spherehq/sphere/commit/424cfec))
 
 ## [0.3.7](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.6...@spherehq/geometry@0.3.7) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 ## [0.3.6](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.5...@spherehq/geometry@0.3.6) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
-
-
-
-
 
 ## [0.3.5](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.4...@spherehq/geometry@0.3.5) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 ## [0.3.4](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.3...@spherehq/geometry@0.3.4) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
-
-
-
-
 
 ## [0.3.3](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.2...@spherehq/geometry@0.3.3) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 ## [0.3.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.1...@spherehq/geometry@0.3.2) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
-
-
-
-
 
 ## [0.3.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.3.0...@spherehq/geometry@0.3.1) (2019-04-26)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 # [0.3.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.2.6...@spherehq/geometry@0.3.0) (2019-04-24)
-
 
 ### Features
 
-* added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
-* standardised content rendering ([40cdddb](https://github.com/spherehq/sphere/commit/40cdddb))
-
-
-
-
+- added page layouts and markdown processing ([d96dffb](https://github.com/spherehq/sphere/commit/d96dffb))
+- standardised content rendering ([40cdddb](https://github.com/spherehq/sphere/commit/40cdddb))
 
 ## [0.2.6](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.2.5...@spherehq/geometry@0.2.6) (2019-04-19)
 
