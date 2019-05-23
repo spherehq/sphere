@@ -7,7 +7,9 @@
   "main": "generated/prisma-client/index.js",
   "scripts": {
     "prepublishOnly": "yarn generate:client",
+    "postinstall": "generate:prisma-config",
     "deploy": "prisma deploy",
+    "generate:prisma-config": "dotenv -- envsub prisma.yml.dist prisma.yml",
     "generate:client": "prisma generate",
     "postgenerate:client": "tsc --declaration"
   },
@@ -20,5 +22,7 @@
     "access": "public"
   },
   "gitHead": "23a94ebf782016784a8fc59a627b8a8e4fc9e3bb",
-  "devDependencies": {}
+  "devDependencies": {
+    "envsub": "^3.0.9"
+  }
 }

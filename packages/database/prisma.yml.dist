@@ -1,4 +1,4 @@
-endpoint: https://spherehq-production_jason-brown.prisma.sh/sphere/production
+endpoint: ${PRISMA_ENDPOINT}
 datamodel: 
   - schemas/post.prisma
   - schemas/account.prisma
