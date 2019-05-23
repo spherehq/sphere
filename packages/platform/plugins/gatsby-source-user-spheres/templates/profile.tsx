@@ -22,12 +22,6 @@ const StyledContainer = styled(Container)`
   }
 `
 
-const ContentDivider = () => (
-  <div style={{ margin: '18px 0 36px 0', width: '84px' }}>
-    <Divider />
-  </div>
-)
-
 const SphereTemplateProfile = ({
   data,
 }: {
@@ -78,9 +72,6 @@ const SphereTemplateProfile = ({
             alias={`${data.sphere.sphere.slugPrefix}
                 ${data.sphere.sphere.alias}`}
           />
-        </Box>
-        <Box width={1}>
-          <ContentDivider />
         </Box>
         <Box width={1}>
           <Grid rowGap={{ xs: 8, lg: 7 }} gap as="ul">
