@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/platform",
   "description": "Sphere platform",
-  "version": "0.10.35",
+  "version": "0.10.36",
   "author": "Jason Brown",
   "license": "MIT",
   "private": true,
