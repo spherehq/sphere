@@ -111,6 +111,15 @@ const baseConfig = {
     },
     'gatsby-plugin-playground',
     'gatsby-source-user-spheres',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-54855935-4',
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
   ],
 }
 
