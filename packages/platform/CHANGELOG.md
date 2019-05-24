@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.39...@spherehq/platform@0.11.0) (2019-05-24)
+
+
+### Features
+
+* added ga tracking ([fe39fd1](https://github.com/spherehq/sphere/commit/fe39fd1))
+
+
+
+
+
 ## [0.10.39](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.38...@spherehq/platform@0.10.39) (2019-05-24)
 
 
