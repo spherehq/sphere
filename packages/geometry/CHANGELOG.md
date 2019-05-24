@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.2...@spherehq/geometry@0.7.0) (2019-05-24)
+
+
+### Features
+
+* added ga tracking ([fe39fd1](https://github.com/spherehq/sphere/commit/fe39fd1))
+
+
+
+
+
 ## [0.6.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.1...@spherehq/geometry@0.6.2) (2019-05-23)
 
 
