@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.8.0...@spherehq/database@0.8.1) (2019-05-23)
+
+**Note:** Version bump only for package @spherehq/database
+
+
+
+
+
+# [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.7.3...@spherehq/database@0.8.0) (2019-05-23)
+
+
+### Bug Fixes
+
+* database command ([8dbfa53](https://github.com/spherehq/sphere/commit/8dbfa53))
+
+
+### Features
+
+* added db config generator ([6543dd7](https://github.com/spherehq/sphere/commit/6543dd7))
+
+
+
+
+
 ## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/database@0.7.2...@spherehq/database@0.7.3) (2019-05-15)
 
 **Note:** Version bump only for package @spherehq/database

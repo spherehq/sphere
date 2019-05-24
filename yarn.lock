@@ -6906,7 +6906,7 @@ envinfo@^5.8.1:
   resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-5.12.1.tgz#83068c33e0972eb657d6bc69a6df30badefb46ef"
   integrity sha512-pwdo0/G3CIkQ0y6PCXq4RdkvId2elvtPCJMG0konqlrfkWQbf1DWeH9K2b/cvu2YgGvPPTOnonZxXM1gikFu1w==
 
-envsub@^3.0.9:
+envsub@3.0.9:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/envsub/-/envsub-3.0.9.tgz#b89a17c8ffb1460e1fc534764603b03cf6e0a7fe"
   integrity sha512-3tjwXTxkjfU6SLeOAZ8f2uEK0g+dFFknG93vWvjpNF6YIKvhZMatSDX58D56cgWxfBjWG6ZQcz/4hwHnWc4FGQ==
@@ -8070,6 +8070,13 @@ gatsby-link@^2.1.1:
     "@babel/runtime" "^7.0.0"
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
+
+gatsby-plugin-google-analytics@2.0.20:
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.0.20.tgz#ee8f10228a072247686a33d180d978abc574327c"
+  integrity sha512-bv2vlHdG14MIuZU0yUzGvb5Y3kL+UBY2Ii3v9PgYX7Bu7r5np/vMy82vtafkRUsrA3hcK9ipxUw8kmviurvFtQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 gatsby-plugin-manifest@2.1.1:
   version "2.1.1"
