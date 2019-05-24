@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.0...@spherehq/platform@0.11.1) (2019-05-24)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency gatsby-plugin-google-analytics to 2.0.20 ([db68d82](https://github.com/spherehq/sphere/commit/db68d82))
+
+
+
+
+
 # [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.10.39...@spherehq/platform@0.11.0) (2019-05-24)
 
 
