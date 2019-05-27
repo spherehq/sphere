@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.3...@spherehq/platform@0.11.4) (2019-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.7.3 ([1923f4b](https://github.com/spherehq/sphere/commit/1923f4b))
+
+
+
+
+
 ## [0.11.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.2...@spherehq/platform@0.11.3) (2019-05-25)
 
 
