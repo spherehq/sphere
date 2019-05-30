@@ -2,7 +2,7 @@ version: 2
 jobs:
   release:
     docker:
-      - image: circleci/node:10.15.3
+      - image: circleci/node:10.16.0
 
     working_directory: ~/repo
 
@@ -68,7 +68,7 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
   database-schema-dry-run:
     docker:
-      - image: circleci/node:10.15.3
+      - image: circleci/node:10.16.0
 
     working_directory: ~/repo/packages/database
 
@@ -84,7 +84,7 @@ jobs:
           command: yarn deploy --dry-run
   migrate-database-schema:
     docker:
-      - image: circleci/node:10.15.3
+      - image: circleci/node:10.16.0
 
     working_directory: ~/repo/packages/database
 
