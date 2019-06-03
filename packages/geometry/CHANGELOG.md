@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.0...@spherehq/geometry@0.7.1) (2019-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @material-ui/system to v4 ([c658091](https://github.com/spherehq/sphere/commit/c658091))
+
+
+
+
+
 # [0.7.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.2...@spherehq/geometry@0.7.0) (2019-05-24)
 
 
