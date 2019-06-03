@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { GithubIcon } from 'styled-icons/fa-brands/GithubIcon'
-import { TwitterIcon } from 'styled-icons/fa-brands/TwitterIcon'
+import { Github } from 'styled-icons/fa-brands/Github'
+import { Twitter } from 'styled-icons/fa-brands/Twitter'
 import { Link } from 'gatsby'
 
 import { styled } from '@spherehq/geometry/Theme'
@@ -30,7 +30,7 @@ const IconLink = styled.a`
 
 export const Footer: React.FC<{}> = () => (
   <StyledFooter>
-    <Box py={9}>
+    <Box py={[6, 6, 9]}>
       <Container limitWidth>
         <Grid gap>
           <Box mt={6} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
@@ -73,7 +73,7 @@ export const Footer: React.FC<{}> = () => (
                     rel="noopener"
                     target="_blank"
                   >
-                    <GithubIcon width="24" />
+                    <Github width="24" />
                   </IconLink>
                 </Box>
                 <Box>
@@ -82,7 +82,7 @@ export const Footer: React.FC<{}> = () => (
                     rel="noopener"
                     target="_blank"
                   >
-                    <TwitterIcon width="24" />
+                    <Twitter width="24" />
                   </IconLink>
                 </Box>
               </Grid>
