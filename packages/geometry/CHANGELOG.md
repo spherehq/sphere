@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.1...@spherehq/geometry@0.7.2) (2019-06-03)
+
+
+### Bug Fixes
+
+* fixed icon paths and padding on mobile footer ([324f01f](https://github.com/spherehq/sphere/commit/324f01f))
+
+
+
+
+
 ## [0.7.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.0...@spherehq/geometry@0.7.1) (2019-06-03)
 
 

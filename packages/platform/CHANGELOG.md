@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.16](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.15...@spherehq/platform@0.11.16) (2019-06-03)
+
+
+### Bug Fixes
+
+* fixed icon paths and padding on mobile footer ([324f01f](https://github.com/spherehq/sphere/commit/324f01f))
+
+
+
+
+
 ## [0.11.15](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.14...@spherehq/platform@0.11.15) (2019-06-03)
 
 **Note:** Version bump only for package @spherehq/platform
