@@ -1,16 +1,17 @@
 import * as React from 'react'
 
-import { Github } from 'styled-icons/fa-brands/Github'
-import { Twitter } from 'styled-icons/fa-brands/Twitter'
+import { GithubIcon } from 'styled-icons/fa-brands/GithubIcon'
+import { TwitterIcon } from 'styled-icons/fa-brands/TwitterIcon'
+import { Link } from 'gatsby'
 
 import { styled } from '@spherehq/geometry/Theme'
 import { Box } from '@spherehq/geometry/Components/Box'
 import { Flex } from '@spherehq/geometry/Components/Flex'
 import { Container } from '@spherehq/geometry/Components/Container'
 import { Divider } from '@spherehq/geometry/Components/Divider'
-import { LinkList } from '../LinkList'
-import { Link } from 'gatsby'
 import { Grid } from '@spherehq/geometry/Components/Grid'
+
+import { LinkList } from '../LinkList'
 import { InputField, FormWrapper, PrimaryButton } from '../SubscribeForm'
 
 const StyledFooter = styled.footer`
@@ -72,7 +73,7 @@ export const Footer: React.FC<{}> = () => (
                     rel="noopener"
                     target="_blank"
                   >
-                    <Github width="24" />
+                    <GithubIcon width="24" />
                   </IconLink>
                 </Box>
                 <Box>
@@ -81,7 +82,7 @@ export const Footer: React.FC<{}> = () => (
                     rel="noopener"
                     target="_blank"
                   >
-                    <Twitter width="24" />
+                    <TwitterIcon width="24" />
                   </IconLink>
                 </Box>
               </Grid>
