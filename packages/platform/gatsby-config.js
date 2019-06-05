@@ -116,8 +116,8 @@ const baseConfig = {
       options: {
         trackingId: 'UA-54855935-4',
         head: false,
-        anonymize: true,
-        respectDNT: true,
+        anonymize: false,
+        respectDNT: false,
       },
     },
   ],
