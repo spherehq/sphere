@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.22](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.21...@spherehq/platform@0.11.22) (2019-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency apollo-boost to v0.4.2 ([703717d](https://github.com/spherehq/sphere/commit/703717d))
+* **deps:** update dependency date-fns to v2.0.0-alpha.29 ([1528cbf](https://github.com/spherehq/sphere/commit/1528cbf))
+* **deps:** update dependency date-fns to v2.0.0-alpha.31 ([55d5f26](https://github.com/spherehq/sphere/commit/55d5f26))
+* **deps:** update dependency styled-components to v4.3.0 ([116f867](https://github.com/spherehq/sphere/commit/116f867))
+* **deps:** update dependency styled-icons to v8.1.0 ([0902a9d](https://github.com/spherehq/sphere/commit/0902a9d))
+* **deps:** update gatsby monorepo ([f460af4](https://github.com/spherehq/sphere/commit/f460af4))
+
+
+
+
+
 ## [0.11.21](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.20...@spherehq/platform@0.11.21) (2019-06-05)
 
 **Note:** Version bump only for package @spherehq/platform
