@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.26](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.25...@spherehq/platform@0.11.26) (2019-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-source-graphql to v2.0.19 ([abeb4ca](https://github.com/spherehq/sphere/commit/abeb4ca))
+
+
+
+
+
 ## [0.11.25](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.24...@spherehq/platform@0.11.25) (2019-06-07)
 
 
