@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.29...@spherehq/platform@0.12.0) (2019-06-11)
+
+
+### Features
+
+* added links for bugs and feature requests ([a74d957](https://github.com/spherehq/sphere/commit/a74d957))
+
+
+
+
+
 ## [0.11.29](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.28...@spherehq/platform@0.11.29) (2019-06-11)
 
 
