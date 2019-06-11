@@ -30,11 +30,13 @@ const sections = [
         title: 'Community',
       },
       {
-        linkHref: '/',
+        linkHref:
+          'https://github.com/spherehq/sphere/issues/new?assignees=&labels=bug&template=bug_report.md&title=bug%3A+',
         title: 'Bug Reports',
       },
       {
-        linkHref: '/',
+        linkHref:
+          'https://github.com/spherehq/sphere/issues/new?assignees=&labels=feature+request&template=feature_request.md&title=feat%3A+',
         title: 'Feature Requests',
       },
       {
