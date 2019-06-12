@@ -5,7 +5,6 @@ import { styled } from '@spherehq/geometry/Theme'
 import { Grid } from '@spherehq/geometry/Components/Grid'
 import { Box } from '@spherehq/geometry/Components/Box'
 import { Container } from '@spherehq/geometry/Components/Container'
-import { Divider } from '@spherehq/geometry/Components/Divider'
 import { ArticleCard } from '@spherehq/geometry/Components/ArticleCard'
 import { AuthorBlock } from '@spherehq/geometry/Components/AuthorBlock'
 
