@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2019-06-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @material-ui/system to v4 ([37daf3f](https://github.com/spherehq/sphere/commit/37daf3f))
+* database command ([eb6e5d3](https://github.com/spherehq/sphere/commit/eb6e5d3))
+* file casing for Table breaking build ([c88238c](https://github.com/spherehq/sphere/commit/c88238c))
+* fixed icon paths and padding on mobile footer ([395fed6](https://github.com/spherehq/sphere/commit/395fed6))
+* formatting ([49f7755](https://github.com/spherehq/sphere/commit/49f7755))
+
+
+### Features
+
+* added about page ([a727341](https://github.com/spherehq/sphere/commit/a727341))
+* added avatar component and updated card styles ([f64c0c2](https://github.com/spherehq/sphere/commit/f64c0c2))
+* added ga tracking ([a10080f](https://github.com/spherehq/sphere/commit/a10080f))
+* added layout and legal docs ([d232782](https://github.com/spherehq/sphere/commit/d232782))
+* added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
+* added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
+* added profile page to sphere ([c482c42](https://github.com/spherehq/sphere/commit/c482c42))
+* standardised content rendering ([493c102](https://github.com/spherehq/sphere/commit/493c102))
+* started working on building sphere content ([5e9034f](https://github.com/spherehq/sphere/commit/5e9034f))
+* updated layout ([4dc239e](https://github.com/spherehq/sphere/commit/4dc239e))
+
+
+
+
+
 ## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.2...@spherehq/geometry@0.7.3) (2019-06-07)
 
 **Note:** Version bump only for package @spherehq/geometry
