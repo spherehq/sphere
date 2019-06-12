@@ -14964,7 +14964,7 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@16.8.6, react@^16.8.4:
+react@16.8.6, react@^16.4.2, react@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
@@ -16457,6 +16457,13 @@ spdy@^4.0.0:
     http-deceiver "^1.2.7"
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
+
+spectrum-icons@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/spectrum-icons/-/spectrum-icons-0.0.3.tgz#fb6dd5e7522f34e8ad1130588010c56e09ba484f"
+  integrity sha512-f0B8vSHQ/YoYXdAEY5lzKKY6RHd9Oug7sZW0O6kgCm6KgKd8EZKfAXMbRiZOm5/aRVFRmBYBqZp2C/7wPwk5Fg==
+  dependencies:
+    react "^16.4.2"
 
 split-on-first@^1.0.0:
   version "1.1.0"

@@ -26,7 +26,7 @@ const sections = [
     title: 'Support',
     items: [
       {
-        linkHref: '/',
+        linkHref: 'https://spectrum.chat/sphere',
         title: 'Community',
       },
       {
@@ -64,7 +64,7 @@ const sections = [
   },
 ]
 
-const Link = styled.a<{ to: string }>`
+const Link = styled.a<{ to?: string }>`
   position: relative;
   display: inline-block;
   color: ${props => props.theme.colors.palette.yellow.base};
@@ -113,9 +113,15 @@ export const LinkList = ({ linkAs }) => (
         <StyledList>
           {items.map(({ title, linkHref }) => (
             <li key={title}>
-              <Link href={linkHref} to={linkHref} as={linkAs}>
-                {title}
-              </Link>
+              {linkHref.includes(`http`) ? (
+                <Link href={linkHref} rel="noopener" target="_blank">
+                  {title}
+                </Link>
+              ) : (
+                <Link href={linkHref} to={linkHref} as={linkAs}>
+                  {title}
+                </Link>
+              )}
             </li>
           ))}
         </StyledList>

@@ -4,6 +4,8 @@ import { Github } from 'styled-icons/fa-brands/Github'
 import { Twitter } from 'styled-icons/fa-brands/Twitter'
 import { Link } from 'gatsby'
 
+import Icon from 'spectrum-icons'
+
 import { styled } from '@spherehq/geometry/Theme'
 import { Box } from '@spherehq/geometry/Components/Box'
 import { Flex } from '@spherehq/geometry/Components/Flex'
@@ -83,6 +85,15 @@ export const Footer: React.FC<{}> = () => (
                     target="_blank"
                   >
                     <Twitter width="24" />
+                  </IconLink>
+                </Box>
+                <Box>
+                  <IconLink
+                    href="https://spectrum.chat/sphere"
+                    rel="noopener"
+                    target="_blank"
+                  >
+                    <Icon glyph="logo" size={24} />
                   </IconLink>
                 </Box>
               </Grid>
