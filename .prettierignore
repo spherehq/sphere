@@ -13,3 +13,4 @@ package.json
 docker-compose.yml
 prisma.yml
 **/generated/**
+ci/*
