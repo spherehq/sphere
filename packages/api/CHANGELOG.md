@@ -3,140 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.6.46](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.45...@spherehq/api@0.6.46) (2019-06-07)
+## [0.6.50](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.49...@spherehq/api@0.6.50) (2019-06-12)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.6.3 ([3d82454](https://github.com/spherehq/sphere/commit/3d82454))
+
+## [0.6.49](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.48...@spherehq/api@0.6.49) (2019-06-12)
 
 **Note:** Version bump only for package @spherehq/api
 
+## [0.6.48](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.47...@spherehq/api@0.6.48) (2019-06-12)
 
+**Note:** Version bump only for package @spherehq/api
 
+## [0.6.47](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.46...@spherehq/api@0.6.47) (2019-06-11)
 
+**Note:** Version bump only for package @spherehq/api
+
+## [0.6.46](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.45...@spherehq/api@0.6.46) (2019-06-07)
+
+**Note:** Version bump only for package @spherehq/api
 
 ## [0.6.45](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.44...@spherehq/api@0.6.45) (2019-06-07)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.44](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.43...@spherehq/api@0.6.44) (2019-06-06)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.2 ([ac82ee2](https://github.com/spherehq/sphere/commit/ac82ee2))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.2 ([ac82ee2](https://github.com/spherehq/sphere/commit/ac82ee2))
 
 ## [0.6.43](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.42...@spherehq/api@0.6.43) (2019-06-01)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.1 ([e5407d7](https://github.com/spherehq/sphere/commit/e5407d7))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.1 ([e5407d7](https://github.com/spherehq/sphere/commit/e5407d7))
 
 ## [0.6.42](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.41...@spherehq/api@0.6.42) (2019-05-31)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.0 ([7c9d3f4](https://github.com/spherehq/sphere/commit/7c9d3f4))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.0 ([7c9d3f4](https://github.com/spherehq/sphere/commit/7c9d3f4))
 
 ## [0.6.41](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.40...@spherehq/api@0.6.41) (2019-05-31)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.4.0 ([e5cd107](https://github.com/spherehq/sphere/commit/e5cd107))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.4.0 ([e5cd107](https://github.com/spherehq/sphere/commit/e5cd107))
 
 ## [0.6.40](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.39...@spherehq/api@0.6.40) (2019-05-30)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.39](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.38...@spherehq/api@0.6.39) (2019-05-30)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.38](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.37...@spherehq/api@0.6.38) (2019-05-30)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.5.1 ([b2e3055](https://github.com/spherehq/sphere/commit/b2e3055))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.5.1 ([b2e3055](https://github.com/spherehq/sphere/commit/b2e3055))
 
 ## [0.6.37](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.36...@spherehq/api@0.6.37) (2019-05-30)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.36](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.35...@spherehq/api@0.6.36) (2019-05-29)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.6.35](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.34...@spherehq/api@0.6.35) (2019-05-28)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.34](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.33...@spherehq/api@0.6.34) (2019-05-25)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.6.33](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.32...@spherehq/api@0.6.33) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.6.32](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.31...@spherehq/api@0.6.32) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.6.31](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.30...@spherehq/api@0.6.31) (2019-05-23)
 
