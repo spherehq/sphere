@@ -8,3 +8,4 @@ lerna-debug.log
 .npmrc
 .env
 .env.*
+ci/credentials.yaml

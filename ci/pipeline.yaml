@@ -179,10 +179,6 @@ jobs:
                 mv cache/node_modules repo/node_modules
                 cd repo/packages/database
                 yarn deploy --dry-run
-          params: 
-            GH_TOKEN: ((GH_TOKEN))
-            SSH_PRIVATE_KEY: ((SSH_PRIVATE_KEY))
-            NPM_TOKEN: ((NPM_TOKEN))
       
 
             
