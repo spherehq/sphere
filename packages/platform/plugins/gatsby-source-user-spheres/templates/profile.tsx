@@ -100,7 +100,7 @@ export const query = graphql`
       sphere(where: { alias: $alias }) {
         alias
         slugPrefix
-        posts(where: { status: DRAFT }) {
+        posts(where: { status: PUBLISHED }) {
           id
           title
           updatedAt
