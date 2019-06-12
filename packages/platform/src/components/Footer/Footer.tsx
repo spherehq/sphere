@@ -2,15 +2,16 @@ import * as React from 'react'
 
 import { Github } from 'styled-icons/fa-brands/Github'
 import { Twitter } from 'styled-icons/fa-brands/Twitter'
+import { Link } from 'gatsby'
 
 import { styled } from '@spherehq/geometry/Theme'
 import { Box } from '@spherehq/geometry/Components/Box'
 import { Flex } from '@spherehq/geometry/Components/Flex'
 import { Container } from '@spherehq/geometry/Components/Container'
 import { Divider } from '@spherehq/geometry/Components/Divider'
-import { LinkList } from '../LinkList'
-import { Link } from 'gatsby'
 import { Grid } from '@spherehq/geometry/Components/Grid'
+
+import { LinkList } from '../LinkList'
 import { InputField, FormWrapper, PrimaryButton } from '../SubscribeForm'
 
 const StyledFooter = styled.footer`
@@ -29,7 +30,7 @@ const IconLink = styled.a`
 
 export const Footer: React.FC<{}> = () => (
   <StyledFooter>
-    <Box py={9}>
+    <Box py={[6, 6, 9]}>
       <Container limitWidth>
         <Grid gap>
           <Box mt={6} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>

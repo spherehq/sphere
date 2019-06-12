@@ -1,16 +1,17 @@
 import * as React from 'react'
+
 import { Link } from 'gatsby'
 import { IconNames } from '@blueprintjs/icons'
 
 import { styled, ThemeInterface } from '@spherehq/geometry/Theme'
-import { ZINDEX_STICKY_HEADER, TRANSITON_TIME_MS } from './constants'
-
-import { Logo } from '../Logo'
 import { Box } from '@spherehq/geometry/Components/Box'
 import { Flex } from '@spherehq/geometry/Components/Flex'
 import { Container } from '@spherehq/geometry/Components/Container'
+
+import { ZINDEX_STICKY_HEADER, TRANSITON_TIME_MS } from './constants'
 import { Search } from '../Search'
 import { Icon } from '../Icon'
+import { Logo } from '../Logo'
 
 const StyledHeaderWrapper = styled.header<{
   hasShadow: boolean

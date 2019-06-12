@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.2...@spherehq/geometry@0.7.3) (2019-06-07)
+
+**Note:** Version bump only for package @spherehq/geometry
+
+
+
+
+
+## [0.7.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.1...@spherehq/geometry@0.7.2) (2019-06-03)
+
+
+### Bug Fixes
+
+* fixed icon paths and padding on mobile footer ([324f01f](https://github.com/spherehq/sphere/commit/324f01f))
+
+
+
+
+
+## [0.7.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.7.0...@spherehq/geometry@0.7.1) (2019-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @material-ui/system to v4 ([c658091](https://github.com/spherehq/sphere/commit/c658091))
+
+
+
+
+
 # [0.7.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.6.2...@spherehq/geometry@0.7.0) (2019-05-24)
 
 

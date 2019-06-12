@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(`
     {
       sphere {
-        posts(where: { status: DRAFT }) {
+        posts(where: { status: PUBLISHED }) {
           slug
           associatedWith {
             alias

@@ -3,21 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.24](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.23...@spherehq/cli@0.10.24) (2019-06-11)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.23](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.22...@spherehq/cli@0.10.23) (2019-06-07)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.22](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.21...@spherehq/cli@0.10.22) (2019-06-06)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.21](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.20...@spherehq/cli@0.10.21) (2019-06-03)
+
+### Bug Fixes
+
+- **deps:** update dependency to-vfile to v6 ([9cc96b3](https://github.com/spherehq/sphere/commit/9cc96b3))
+
+## [0.10.20](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.19...@spherehq/cli@0.10.20) (2019-05-31)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.19](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.18...@spherehq/cli@0.10.19) (2019-05-30)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.18](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.17...@spherehq/cli@0.10.18) (2019-05-30)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.17](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.16...@spherehq/cli@0.10.17) (2019-05-29)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.16](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.15...@spherehq/cli@0.10.16) (2019-05-29)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.15](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.14...@spherehq/cli@0.10.15) (2019-05-26)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.10.14](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.13...@spherehq/cli@0.10.14) (2019-05-25)
+
+**Note:** Version bump only for package @spherehq/cli
+
 ## [0.10.13](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.12...@spherehq/cli@0.10.13) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/cli
 
-
-
-
-
 ## [0.10.12](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.11...@spherehq/cli@0.10.12) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/cli
-
-
-
-
 
 ## [0.10.11](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.10...@spherehq/cli@0.10.11) (2019-05-23)
 
