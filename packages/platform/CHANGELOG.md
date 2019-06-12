@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.12.0...@spherehq/platform@0.12.1) (2019-06-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-alpha.32 ([baeba22](https://github.com/spherehq/sphere/commit/baeba22))
+* **deps:** update gatsby monorepo ([23965b7](https://github.com/spherehq/sphere/commit/23965b7))
+
+
+
+
+
 # [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.11.29...@spherehq/platform@0.12.0) (2019-06-11)
 
 
