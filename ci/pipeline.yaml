@@ -1,6 +1,6 @@
 resource_types:
   - name: npm-cache
-    type: docker-image
+    type: registry-image
     source: 
       repository: ymedlop/npm-cache-resource
 
@@ -63,7 +63,7 @@ jobs:
         config:
           platform: linux
           image_resource:
-            type: docker-image
+            type: registry-image
             source:
               repository: node
               tag: 10.16.0
@@ -146,7 +146,7 @@ jobs:
                 aws configure set default.s3.max_queue_size 10000
                 aws configure set default.s3.multipart_threshold 64MB
                 aws configure set default.s3.multipart_chunksize 16MB
-                aws s3 sync public $BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=31536000
+                aws s3 sync public s3://$BUCKET_NAME --acl public-read --delete --no-progress --only-show-errors --cache-control max-age=31536000
                 aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
           params:
             CLOUDFRONT_DISTRIBUTION_ID: ((CLOUDFRONT_DISTRIBUTION_ID))
@@ -156,13 +156,13 @@ jobs:
 
   - name: database-schema-dry-run
     plan: 
-      - get: git-tag-platform
+      - get: git-tag-database
         trigger: true
       - task: "Dry run database migration"
         config:
           platform: linux
           image_resource:
-            type: docker-image
+            type: registry-image
             source:
               repository: node
               tag: 10.16.0
