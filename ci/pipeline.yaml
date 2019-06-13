@@ -94,6 +94,8 @@ jobs:
             GH_USERNAME: ((GITHUB_USERNAME))
             SSH_PRIVATE_KEY: ((SSH_PRIVATE_KEY))
             NPM_TOKEN: ((NPM_TOKEN))
+            PRISMA_ENDPOINT: ((PRISMA_ENDPOINT))
+            SPHERE_GRAPHQL_ENDPOINT: ((SPHERE_GRAPHQL_ENDPOINT))
 
   - name: build-platform-image
     plan: 
