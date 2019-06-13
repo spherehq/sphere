@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.13.0...@spherehq/platform@0.13.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency spectrum-icons to 0.0.3 ([bbea98c](https://github.com/spherehq/sphere/commit/bbea98c))
+* **deps:** update dependency date-fns to v2.0.0-alpha.33 ([d053673](https://github.com/spherehq/sphere/commit/d053673))
+* **deps:** update gatsby monorepo ([727286d](https://github.com/spherehq/sphere/commit/727286d))
+
+
+
+
+
 # 0.13.0 (2019-06-12)
 
 
