@@ -1,8 +1,36 @@
+groups:
+  - name: overview
+    jobs:
+      - publish-packages
+      - cache
+      - test
+      - build-and-release-platform-from-image
+      - build-platform-image
+      - database-schema-dry-run
+      - database-schema-migrate
+  - name: packages
+    jobs:
+      - publish-packages
+      - cache
+  - name: platform
+    jobs:
+    - build-and-release-platform-from-image
+    - build-platform-image
+  - name: database
+    jobs:
+    - database-schema-dry-run
+    - database-schema-migrate
+
+
 resource_types:
   - name: npm-cache
     type: registry-image
     source: 
       repository: ymedlop/npm-cache-resource
+  - name: pull-request
+    type: docker-image
+    source:
+      repository: teliaoss/github-pr-resource
 
 resources:
   - name: git
@@ -45,7 +73,51 @@ resources:
       username: ((DOCKER_USERNAME))
       password: ((DOCKER_PASSWORD))
 
+  - name: pull-request
+    type: pull-request
+    check_every: 1h
+    source:
+      repository: itsdalmo/test-repository
+      access_token: ((GITHUB_TOKEN))
+
 jobs:
+  - name: test
+    plan:
+    - get: pull-request
+      trigger: true
+      version: every
+    - put: pull-request
+      params:
+        path: pull-request
+        status: pending
+    - task: unit-test
+      config:
+        platform: linux
+        image_resource:
+          type: registry-image
+          source:
+            repository: node
+            tag: 10.16.0
+        inputs:
+          - name: pull-request
+        run:
+          path: /bin/sh
+          args:
+            - -xce
+            - |
+              cd pull-request
+              yarn test
+
+      on_failure:
+        put: pull-request
+        params:
+          path: pull-request
+          status: failure
+    - put: pull-request
+      params:
+        path: pull-request
+        status: success
+
   - name: cache
     plan:
       - get: git
@@ -160,6 +232,8 @@ jobs:
     plan: 
       - get: git-tag-database
         trigger: true
+      - get: npm-repo-cache 
+        passed: [cache]
       - task: "Dry run database migration"
         config:
           platform: linux
@@ -169,7 +243,7 @@ jobs:
               repository: node
               tag: 10.16.0
           inputs:
-            - name: git
+            - name: git-tag-database
               path: repo
             - name: npm-repo-cache
               path: /cache
@@ -180,7 +254,46 @@ jobs:
               - |
                 mv cache/node_modules repo/node_modules
                 cd repo/packages/database
-                yarn deploy --dry-run
+                yarn prisma login --key $PRISMA_CLUSTER_KEY
+                yarn generate:prisma-config
+                yarn deploy --dry-run 
+          params:
+            PRISMA_ENDPOINT: ((PRISMA_ENDPOINT))
+            PRISMA_SECRET: ((PRISMA_SECRET))
+            PRISMA_CLUSTER_KEY: ((PRISMA_CLUSTER_KEY))
+
+  - name: database-schema-migrate
+    plan: 
+      - get: git-tag-database
+      - get: npm-repo-cache 
+        passed: [cache]
+      - task: "Run database migration"
+        config:
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: node
+              tag: 10.16.0
+          inputs:
+            - name: git-tag-database
+              path: repo
+            - name: npm-repo-cache
+              path: /cache
+          run: 
+            path: /bin/sh
+            args: 
+              - -exc
+              - |
+                mv cache/node_modules repo/node_modules
+                cd repo/packages/database
+                yarn prisma login --key $PRISMA_CLUSTER_KEY
+                yarn generate:prisma-config
+                yarn deploy --no-seed
+          params:
+            PRISMA_ENDPOINT: ((PRISMA_ENDPOINT))
+            PRISMA_SECRET: ((PRISMA_SECRET))
+            PRISMA_CLUSTER_KEY: ((PRISMA_CLUSTER_KEY))
       
 
             

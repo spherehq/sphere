@@ -7,8 +7,8 @@
   "private": true,
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
+    "dev": "gatsby develop",
+    "start": "yarn run dev",
     "serve": "gatsby serve",
     "test": "npx npm-run-all test:unit",
     "test:unit": "jest"

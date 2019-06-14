@@ -1,4 +1,5 @@
 endpoint: ${PRISMA_ENDPOINT}
+secret: ${PRISMA_SECRET}
 datamodel: 
   - schemas/post.prisma
   - schemas/account.prisma
