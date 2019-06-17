@@ -1,0 +1,14 @@
+# import SphereWhereUniqueInput, SphereWhereInput, SphereOrderByInput, Sphere from './../../../../schema/generated/prisma.graphql'
+
+type Query {
+  spheres(
+    where: SphereWhereInput
+    orderBy: SphereOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Sphere]!
+  sphere(where: SphereWhereUniqueInput!): Sphere
+}

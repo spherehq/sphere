@@ -8,7 +8,9 @@ import { sentry } from 'graphql-middleware-sentry'
 import { prisma } from '@spherehq/database'
 
 import { environment } from './config'
+
 import ContentSchema from './modules/content'
+import AccountSchema from './modules/account'
 
 // tslint:disable-next-line:prefer-array-literal
 const middleware: Array<
@@ -27,7 +29,7 @@ if (process.env.SENTRY_DSN) {
 }
 
 const schemaWithMiddleware = applyMiddleware(
-  mergeSchemas({ schemas: [ContentSchema] }),
+  mergeSchemas({ schemas: [ContentSchema, AccountSchema] }),
   ...middleware,
 )
 

@@ -3,7 +3,7 @@ import { gql } from 'apollo-server'
 
 import * as graphqlFields from 'graphql-fields'
 
-export const PostResolver = (
+export const SphereResolver = (
   _: any,
   args: any,
   context: { db: Prisma },
@@ -21,5 +21,5 @@ export const PostResolver = (
     )
     .join(' ')} }`
 
-  return context.db.post(args.where).$fragment(fragment)
+  return context.db.sphere(args.where).$fragment(fragment)
 }
