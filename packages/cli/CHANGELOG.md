@@ -3,42 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 0.11.0 (2019-06-12)
+## [0.11.2](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.11.1...@spherehq/cli@0.11.2) (2019-06-13)
 
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.11.1](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.11.0...@spherehq/cli@0.11.1) (2019-06-13)
+
+**Note:** Version bump only for package @spherehq/cli
+
+# 0.11.0 (2019-06-12)
 
 ### Bug Fixes
 
-* 404 page and window error ([2775580](https://github.com/spherehq/sphere/commit/2775580))
-* broken import for unified ([4aadf6f](https://github.com/spherehq/sphere/commit/4aadf6f))
-* fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
-* fixed graphql update for associated accounts ([5a9cf84](https://github.com/spherehq/sphere/commit/5a9cf84))
-* formatting ([49f7755](https://github.com/spherehq/sphere/commit/49f7755))
-* **deps:** update dependency fs-extra to v8 ([29ad16c](https://github.com/spherehq/sphere/commit/29ad16c))
-* improved handling of headings for titles ([b3a1b26](https://github.com/spherehq/sphere/commit/b3a1b26))
-* restricted files to markdown (.md) extension ([8449ad6](https://github.com/spherehq/sphere/commit/8449ad6))
-* tsconfig -b failing due to composite flag ([2727b50](https://github.com/spherehq/sphere/commit/2727b50))
-* **deps:** update dependency fs-extra to v8 ([#95](https://github.com/spherehq/sphere/issues/95)) ([ee735b8](https://github.com/spherehq/sphere/commit/ee735b8))
-* **deps:** update dependency to-vfile to v6 ([1a7e707](https://github.com/spherehq/sphere/commit/1a7e707))
-
+- 404 page and window error ([2775580](https://github.com/spherehq/sphere/commit/2775580))
+- broken import for unified ([4aadf6f](https://github.com/spherehq/sphere/commit/4aadf6f))
+- fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
+- fixed graphql update for associated accounts ([5a9cf84](https://github.com/spherehq/sphere/commit/5a9cf84))
+- formatting ([49f7755](https://github.com/spherehq/sphere/commit/49f7755))
+- **deps:** update dependency fs-extra to v8 ([29ad16c](https://github.com/spherehq/sphere/commit/29ad16c))
+- improved handling of headings for titles ([b3a1b26](https://github.com/spherehq/sphere/commit/b3a1b26))
+- restricted files to markdown (.md) extension ([8449ad6](https://github.com/spherehq/sphere/commit/8449ad6))
+- tsconfig -b failing due to composite flag ([2727b50](https://github.com/spherehq/sphere/commit/2727b50))
+- **deps:** update dependency fs-extra to v8 ([#95](https://github.com/spherehq/sphere/issues/95)) ([ee735b8](https://github.com/spherehq/sphere/commit/ee735b8))
+- **deps:** update dependency to-vfile to v6 ([1a7e707](https://github.com/spherehq/sphere/commit/1a7e707))
 
 ### Features
 
-* added cli new version available message ([d871a6a](https://github.com/spherehq/sphere/commit/d871a6a))
-* added cli scaffolding with sync command ([381e937](https://github.com/spherehq/sphere/commit/381e937))
-* added console output after init to show created config path ([d993fea](https://github.com/spherehq/sphere/commit/d993fea))
-* added existance checks for sphere from config ([5f30b28](https://github.com/spherehq/sphere/commit/5f30b28))
-* added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
-* added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
-* added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
-* added publish and unpublish commands ([46595c3](https://github.com/spherehq/sphere/commit/46595c3))
-* started working on building sphere content ([5e9034f](https://github.com/spherehq/sphere/commit/5e9034f))
-* updated cli to create and update posts with sphere api ([6b5f6ac](https://github.com/spherehq/sphere/commit/6b5f6ac))
-* updated cli to display sync'd files ([e8768dc](https://github.com/spherehq/sphere/commit/e8768dc))
-* updated layout ([4dc239e](https://github.com/spherehq/sphere/commit/4dc239e))
-
-
-
-
+- added cli new version available message ([d871a6a](https://github.com/spherehq/sphere/commit/d871a6a))
+- added cli scaffolding with sync command ([381e937](https://github.com/spherehq/sphere/commit/381e937))
+- added console output after init to show created config path ([d993fea](https://github.com/spherehq/sphere/commit/d993fea))
+- added existance checks for sphere from config ([5f30b28](https://github.com/spherehq/sphere/commit/5f30b28))
+- added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
+- added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
+- added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
+- added publish and unpublish commands ([46595c3](https://github.com/spherehq/sphere/commit/46595c3))
+- started working on building sphere content ([5e9034f](https://github.com/spherehq/sphere/commit/5e9034f))
+- updated cli to create and update posts with sphere api ([6b5f6ac](https://github.com/spherehq/sphere/commit/6b5f6ac))
+- updated cli to display sync'd files ([e8768dc](https://github.com/spherehq/sphere/commit/e8768dc))
+- updated layout ([4dc239e](https://github.com/spherehq/sphere/commit/4dc239e))
 
 ## [0.10.24](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.10.23...@spherehq/cli@0.10.24) (2019-06-11)
 

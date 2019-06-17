@@ -3,48 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 0.7.0 (2019-06-12)
+## [0.7.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.0...@spherehq/api@0.7.1) (2019-06-13)
 
+**Note:** Version bump only for package @spherehq/api
+
+# 0.7.0 (2019-06-12)
 
 ### Bug Fixes
 
-* fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
-* **deps:** update dependency apollo-server to v2.5.0 ([812cc42](https://github.com/spherehq/sphere/commit/812cc42))
-* package deps for graphql ([740e347](https://github.com/spherehq/sphere/commit/740e347))
-* **deps:** update dependency graphql to v14.3.0 ([7086457](https://github.com/spherehq/sphere/commit/7086457))
-* removed .env.production from git ([2cbf9f7](https://github.com/spherehq/sphere/commit/2cbf9f7))
-* removed .env.production from git ([5a26e49](https://github.com/spherehq/sphere/commit/5a26e49))
-* **deps:** update dependency @sentry/node to v5.1.0 ([a4fd3c1](https://github.com/spherehq/sphere/commit/a4fd3c1))
-* **deps:** update dependency @sentry/node to v5.1.0 ([#16](https://github.com/spherehq/sphere/issues/16)) ([7b8ce46](https://github.com/spherehq/sphere/commit/7b8ce46))
-* **deps:** update dependency @sentry/node to v5.1.2 ([ddf2109](https://github.com/spherehq/sphere/commit/ddf2109))
-* **deps:** update dependency @sentry/node to v5.2.0 ([13904af](https://github.com/spherehq/sphere/commit/13904af))
-* **deps:** update dependency @sentry/node to v5.3.0 ([44d4aad](https://github.com/spherehq/sphere/commit/44d4aad))
-* **deps:** update dependency @sentry/node to v5.4.0 ([04b5a55](https://github.com/spherehq/sphere/commit/04b5a55))
-* **deps:** update dependency apollo-server to v2.5.1 ([e013605](https://github.com/spherehq/sphere/commit/e013605))
-* **deps:** update dependency apollo-server to v2.6.0 ([23cc37f](https://github.com/spherehq/sphere/commit/23cc37f))
-* **deps:** update dependency apollo-server to v2.6.1 ([ed2f082](https://github.com/spherehq/sphere/commit/ed2f082))
-* **deps:** update dependency apollo-server to v2.6.2 ([0af8379](https://github.com/spherehq/sphere/commit/0af8379))
-* updated prisma endpoint ([c6f7e82](https://github.com/spherehq/sphere/commit/c6f7e82))
-* **deps:** update dependency apollo-server to v2.6.3 ([355b7c8](https://github.com/spherehq/sphere/commit/355b7c8))
-* **deps:** update dependency graphql to v14.3.1 ([6856a7d](https://github.com/spherehq/sphere/commit/6856a7d))
-* **deps:** update dependency graphql-middleware-sentry to v3.2.0 ([30d58ee](https://github.com/spherehq/sphere/commit/30d58ee))
-* **deps:** update dependency graphql-type-json to v0.3.0 ([4e43319](https://github.com/spherehq/sphere/commit/4e43319))
-* **deps:** update dependency graphql-type-json to v0.3.0 ([#26](https://github.com/spherehq/sphere/issues/26)) ([5f44354](https://github.com/spherehq/sphere/commit/5f44354))
-
+- fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
+- **deps:** update dependency apollo-server to v2.5.0 ([812cc42](https://github.com/spherehq/sphere/commit/812cc42))
+- package deps for graphql ([740e347](https://github.com/spherehq/sphere/commit/740e347))
+- **deps:** update dependency graphql to v14.3.0 ([7086457](https://github.com/spherehq/sphere/commit/7086457))
+- removed .env.production from git ([2cbf9f7](https://github.com/spherehq/sphere/commit/2cbf9f7))
+- removed .env.production from git ([5a26e49](https://github.com/spherehq/sphere/commit/5a26e49))
+- **deps:** update dependency @sentry/node to v5.1.0 ([a4fd3c1](https://github.com/spherehq/sphere/commit/a4fd3c1))
+- **deps:** update dependency @sentry/node to v5.1.0 ([#16](https://github.com/spherehq/sphere/issues/16)) ([7b8ce46](https://github.com/spherehq/sphere/commit/7b8ce46))
+- **deps:** update dependency @sentry/node to v5.1.2 ([ddf2109](https://github.com/spherehq/sphere/commit/ddf2109))
+- **deps:** update dependency @sentry/node to v5.2.0 ([13904af](https://github.com/spherehq/sphere/commit/13904af))
+- **deps:** update dependency @sentry/node to v5.3.0 ([44d4aad](https://github.com/spherehq/sphere/commit/44d4aad))
+- **deps:** update dependency @sentry/node to v5.4.0 ([04b5a55](https://github.com/spherehq/sphere/commit/04b5a55))
+- **deps:** update dependency apollo-server to v2.5.1 ([e013605](https://github.com/spherehq/sphere/commit/e013605))
+- **deps:** update dependency apollo-server to v2.6.0 ([23cc37f](https://github.com/spherehq/sphere/commit/23cc37f))
+- **deps:** update dependency apollo-server to v2.6.1 ([ed2f082](https://github.com/spherehq/sphere/commit/ed2f082))
+- **deps:** update dependency apollo-server to v2.6.2 ([0af8379](https://github.com/spherehq/sphere/commit/0af8379))
+- updated prisma endpoint ([c6f7e82](https://github.com/spherehq/sphere/commit/c6f7e82))
+- **deps:** update dependency apollo-server to v2.6.3 ([355b7c8](https://github.com/spherehq/sphere/commit/355b7c8))
+- **deps:** update dependency graphql to v14.3.1 ([6856a7d](https://github.com/spherehq/sphere/commit/6856a7d))
+- **deps:** update dependency graphql-middleware-sentry to v3.2.0 ([30d58ee](https://github.com/spherehq/sphere/commit/30d58ee))
+- **deps:** update dependency graphql-type-json to v0.3.0 ([4e43319](https://github.com/spherehq/sphere/commit/4e43319))
+- **deps:** update dependency graphql-type-json to v0.3.0 ([#26](https://github.com/spherehq/sphere/issues/26)) ([5f44354](https://github.com/spherehq/sphere/commit/5f44354))
 
 ### Features
 
-* added api package ([7c7890e](https://github.com/spherehq/sphere/commit/7c7890e))
-* added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
-* added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
-* added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
-* added profile page to sphere ([c482c42](https://github.com/spherehq/sphere/commit/c482c42))
-* updated api for modular schemas ([d12553c](https://github.com/spherehq/sphere/commit/d12553c))
-* updated cli to display sync'd files ([e8768dc](https://github.com/spherehq/sphere/commit/e8768dc))
-
-
-
-
+- added api package ([7c7890e](https://github.com/spherehq/sphere/commit/7c7890e))
+- added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
+- added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
+- added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
+- added profile page to sphere ([c482c42](https://github.com/spherehq/sphere/commit/c482c42))
+- updated api for modular schemas ([d12553c](https://github.com/spherehq/sphere/commit/d12553c))
+- updated cli to display sync'd files ([e8768dc](https://github.com/spherehq/sphere/commit/e8768dc))
 
 ## [0.6.50](https://github.com/spherehq/sphere/compare/@spherehq/api@0.6.49...@spherehq/api@0.6.50) (2019-06-12)
 

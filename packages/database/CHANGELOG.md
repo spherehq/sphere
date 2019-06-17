@@ -3,65 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 0.9.0 (2019-06-12)
+## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.9.0...@spherehq/database@0.9.1) (2019-06-13)
 
+**Note:** Version bump only for package @spherehq/database
+
+# 0.9.0 (2019-06-12)
 
 ### Bug Fixes
 
-* database command ([eb6e5d3](https://github.com/spherehq/sphere/commit/eb6e5d3))
-* fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
-* removed -e from being required in ci ([16d4822](https://github.com/spherehq/sphere/commit/16d4822))
-* removed .env from git ([c3f8e77](https://github.com/spherehq/sphere/commit/c3f8e77))
-* updated prisma endpoint ([c6f7e82](https://github.com/spherehq/sphere/commit/c6f7e82))
-
+- database command ([eb6e5d3](https://github.com/spherehq/sphere/commit/eb6e5d3))
+- fixed [#46](https://github.com/spherehq/sphere/issues/46) updated schema to include aliasSlug ([816c273](https://github.com/spherehq/sphere/commit/816c273))
+- removed -e from being required in ci ([16d4822](https://github.com/spherehq/sphere/commit/16d4822))
+- removed .env from git ([c3f8e77](https://github.com/spherehq/sphere/commit/c3f8e77))
+- updated prisma endpoint ([c6f7e82](https://github.com/spherehq/sphere/commit/c6f7e82))
 
 ### Features
 
-* added db config generator ([9389cd7](https://github.com/spherehq/sphere/commit/9389cd7))
-* added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
-* added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
-* added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
-* added profile page to sphere ([c482c42](https://github.com/spherehq/sphere/commit/c482c42))
-* setup database binding ([e01f8e3](https://github.com/spherehq/sphere/commit/e01f8e3))
-* updated associated fields and cascade delete ([ffb698c](https://github.com/spherehq/sphere/commit/ffb698c))
-* updated database schema ([7d7bcf5](https://github.com/spherehq/sphere/commit/7d7bcf5))
-* updated prettier settings for generated files ([7061c9d](https://github.com/spherehq/sphere/commit/7061c9d))
-
-
-
-
+- added db config generator ([9389cd7](https://github.com/spherehq/sphere/commit/9389cd7))
+- added init for existing and new spheres ([a1076f8](https://github.com/spherehq/sphere/commit/a1076f8))
+- added loadable posts from api ([8fbfa72](https://github.com/spherehq/sphere/commit/8fbfa72))
+- added page layouts and markdown processing ([6f684eb](https://github.com/spherehq/sphere/commit/6f684eb))
+- added profile page to sphere ([c482c42](https://github.com/spherehq/sphere/commit/c482c42))
+- setup database binding ([e01f8e3](https://github.com/spherehq/sphere/commit/e01f8e3))
+- updated associated fields and cascade delete ([ffb698c](https://github.com/spherehq/sphere/commit/ffb698c))
+- updated database schema ([7d7bcf5](https://github.com/spherehq/sphere/commit/7d7bcf5))
+- updated prettier settings for generated files ([7061c9d](https://github.com/spherehq/sphere/commit/7061c9d))
 
 ## [0.8.2](https://github.com/spherehq/sphere/compare/@spherehq/database@0.8.1...@spherehq/database@0.8.2) (2019-05-29)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 ## [0.8.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.8.0...@spherehq/database@0.8.1) (2019-05-23)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 # [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.7.3...@spherehq/database@0.8.0) (2019-05-23)
-
 
 ### Bug Fixes
 
-* database command ([8dbfa53](https://github.com/spherehq/sphere/commit/8dbfa53))
-
+- database command ([8dbfa53](https://github.com/spherehq/sphere/commit/8dbfa53))
 
 ### Features
 
-* added db config generator ([6543dd7](https://github.com/spherehq/sphere/commit/6543dd7))
-
-
-
-
+- added db config generator ([6543dd7](https://github.com/spherehq/sphere/commit/6543dd7))
 
 ## [0.7.3](https://github.com/spherehq/sphere/compare/@spherehq/database@0.7.2...@spherehq/database@0.7.3) (2019-05-15)
 
