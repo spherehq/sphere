@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.2...@spherehq/api@0.8.0) (2019-06-19)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency ts-node to 8.3.0 ([ecf5114](https://github.com/spherehq/sphere/commit/ecf5114))
+
+
+### Features
+
+* updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
+
+
+
+
+
 ## [0.7.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.1...@spherehq/api@0.7.2) (2019-06-17)
 
 **Note:** Version bump only for package @spherehq/api
