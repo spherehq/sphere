@@ -50,7 +50,7 @@
     "react-loading-skeleton": "1.1.2",
     "rehype-react": "3.1.0",
     "spectrum-icons": "0.0.3",
-    "styled-components": "4.3.1",
+    "styled-components": "4.3.2",
     "styled-icons": "8.1.0"
   },
   "devDependencies": {
