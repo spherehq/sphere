@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.15.0...@spherehq/platform@0.15.1) (2019-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-alpha.35 ([bc7cd6d](https://github.com/spherehq/sphere/commit/bc7cd6d))
+* **deps:** update dependency styled-components to v4.3.2 ([2df5e3d](https://github.com/spherehq/sphere/commit/2df5e3d))
+
+
+
+
+
 # [0.15.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.14.2...@spherehq/platform@0.15.0) (2019-06-20)
 
 
