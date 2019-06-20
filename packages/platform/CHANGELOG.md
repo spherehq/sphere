@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.14.1...@spherehq/platform@0.14.2) (2019-06-20)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([aeecb7f](https://github.com/spherehq/sphere/commit/aeecb7f))
+
+
+
+
+
+## [0.14.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.14.0...@spherehq/platform@0.14.1) (2019-06-19)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([1668a18](https://github.com/spherehq/sphere/commit/1668a18))
+
+
+
+
+
+# [0.14.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.13.4...@spherehq/platform@0.14.0) (2019-06-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @blueprintjs/core to v3.16.0 ([cb2ff75](https://github.com/spherehq/sphere/commit/cb2ff75))
+* **deps:** update dependency apollo-boost to v0.4.3 ([e4ab3ca](https://github.com/spherehq/sphere/commit/e4ab3ca))
+* **deps:** update gatsby monorepo ([a30edef](https://github.com/spherehq/sphere/commit/a30edef))
+* **deps:** update gatsby monorepo ([d43127e](https://github.com/spherehq/sphere/commit/d43127e))
+
+
+### Features
+
+* updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
+
+
+
+
+
 ## [0.13.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.13.3...@spherehq/platform@0.13.4) (2019-06-17)
 
 

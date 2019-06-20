@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.9.1...@spherehq/database@0.10.0) (2019-06-19)
+
+
+### Features
+
+* updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
+
+
+
+
+
 ## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.9.0...@spherehq/database@0.9.1) (2019-06-13)
 
 **Note:** Version bump only for package @spherehq/database
