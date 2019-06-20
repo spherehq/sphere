@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.9.1...@spherehq/api@0.10.0) (2019-06-20)
+
+
+### Features
+
+* updated api resolvers to allow nested params ([35b3ecf](https://github.com/spherehq/sphere/commit/35b3ecf))
+
+
+
+
+
 ## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.9.0...@spherehq/api@0.9.1) (2019-06-20)
 
 
