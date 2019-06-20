@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.14.2...@spherehq/platform@0.15.0) (2019-06-20)
+
+
+### Features
+
+* added sphere account schema and resolver for nested args ([5130c77](https://github.com/spherehq/sphere/commit/5130c77))
+
+
+
+
+
 ## [0.14.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.14.1...@spherehq/platform@0.14.2) (2019-06-20)
 
 
