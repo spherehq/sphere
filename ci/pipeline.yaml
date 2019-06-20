@@ -77,7 +77,7 @@ resources:
     type: pull-request
     check_every: 1h
     source:
-      repository: itsdalmo/test-repository
+      repository: spherehq/sphere
       access_token: ((GITHUB_TOKEN))
 
 jobs:
@@ -86,6 +86,8 @@ jobs:
     - get: pull-request
       trigger: true
       version: every
+    - get: npm-repo-cache 
+      passed: [cache] 
     - put: pull-request
       params:
         path: pull-request
@@ -100,12 +102,16 @@ jobs:
             tag: 10.16.0
         inputs:
           - name: pull-request
+            path: repo
+          - name: npm-repo-cache
+            path: cache
         run:
           path: /bin/sh
           args:
             - -xce
             - |
-              cd pull-request
+              mv cache/node_modules repo/node_modules
+              cd repo
               yarn test
 
       on_failure:
@@ -143,7 +149,7 @@ jobs:
             - name: git
               path: repo
             - name: npm-repo-cache
-              path: /cache
+              path: cache
           run: 
             path: /bin/sh
             args: 

@@ -9,12 +9,6 @@ const resolvers = {
     spheres: SpheresResolver,
     sphere: SphereResolver,
   },
-  // Sphere: {
-  //   posts: (parent, args, context, info) => {
-  //     console.log(args)
-  //     return PostsResolver(parent, args, context, info)
-  //   },
-  // },
 }
 
 export default makeExecutableSchema({ typeDefs, resolvers })

@@ -19,7 +19,6 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    console.log(result)
     result.data.sphere.posts.forEach(post => {
       createPage({
         path: `${post.associatedWith.slugPrefix}${post.slug}`,
