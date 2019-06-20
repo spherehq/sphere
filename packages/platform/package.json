@@ -19,7 +19,7 @@
     "@spherehq/geometry": "^0.8.3",
     "apollo-boost": "0.4.3",
     "apollo-cache-persist": "0.1.1",
-    "date-fns": "2.0.0-alpha.34",
+    "date-fns": "2.0.0-alpha.35",
     "dotenv-cli": "2.0.0",
     "gatsby": "2.10.0",
     "gatsby-image": "2.2.0",
