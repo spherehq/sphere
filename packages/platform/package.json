@@ -11,7 +11,7 @@
     "start": "yarn run dev",
     "serve": "gatsby serve",
     "test": "npx npm-run-all test:unit",
-    "test:unit": "jest"
+    "test:unit": "echo NO TESTS!"
   },
   "dependencies": {
     "@blueprintjs/core": "3.15.1",
