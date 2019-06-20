@@ -833,10 +833,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@blueprintjs/core@3.16.0":
-  version "3.16.0"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.16.0.tgz#7696c5119c5911ed7aeebf2217d89e79c526a8a5"
-  integrity sha512-mhacy/2DhZSu9RolXQ/v6B7izJ618cqYgI9O4BbU8yzTHMwsf4iRdoThEJuA2jDG3dvcQPd6+Ix9KZ6xy9fF8w==
+"@blueprintjs/core@3.16.2":
+  version "3.16.2"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.16.2.tgz#c232e44f14d0352b90335c32ca0c2f5fea032517"
+  integrity sha512-u+mSITWaNDwbdaPrbKx9XyxGsF4725SCAidWjd367ysX7AxCo4PK4SsFQVfXNylXpVWHQhJZekuo7+hdksc9lA==
   dependencies:
     "@blueprintjs/icons" "^3.8.0"
     "@types/dom4" "^2.0.1"
