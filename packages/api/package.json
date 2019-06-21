@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/api",
   "description": "Sphere GraphQL API",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "author": "Jason Brown",
   "license": "MIT",
   "private": true,
@@ -11,7 +11,7 @@
     "start:production": "yarn ts-node src/server.ts"
   },
   "dependencies": {
-    "@sentry/node": "5.4.2",
+    "@sentry/node": "5.4.3",
     "@spherehq/database": "^0.10.1",
     "apollo-server": "2.6.4",
     "graphql-fields": "2.0.3",
