@@ -1,13 +1,13 @@
 FROM node:10.16.0-alpine
 
-ARG NPM_TOKEN
+WORKDIR /usr
 
-WORKDIR /usr/api
-
+COPY packages/api ./packages/api
 COPY package.json .
+COPY tsconfig.json .
+
+WORKDIR /usr/packages/api
 
 RUN yarn --ignore-scripts
-
-COPY . .
 
 CMD [ "yarn", "start:production" ]

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  name: ci-ingress
+  namespace: default
+spec:
+  rules:
+  - host: ci.sphere.sh
+    http:
+      paths:
+      - backend:
+          serviceName: concourse-web
+          servicePort: 8080
+        path: /

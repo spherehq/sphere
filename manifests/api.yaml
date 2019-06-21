@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sphere-api-deployment
+  namespace: sphere
+  labels:
+    stage: production
+    app: api
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      stage: production
+      app: api
+  template:
+    metadata:
+      labels:
+        stage: production
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: spherehq/api:latest
+        ports:
+        - containerPort: 4000
+        envFrom:
+          - configMapRef:
+              name: sphere-api-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sphere-api-config
+  namespace: sphere
+data:
+  APOLLO_INTROSPECTION: "true"
+  APOLLO_PLAYGROUND: "true"
+  PORT: "4000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sphere-api-service
+  namespace: sphere
+  labels:
+    stage: production
+    app: api
+spec:
+  type: NodePort
+  selector:
+    stage: production
+    app: api
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 4000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  name: sphere-api-ingress
+  namespace: sphere
+spec:
+  rules:
+  - host: graph.sphere.sh
+    http:
+      paths:
+      - backend:
+          serviceName: sphere-api-service
+          servicePort: 80
+        path: /

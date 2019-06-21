@@ -25,6 +25,6 @@ type Post {
 
 type PostMetadata {
   id: ID! @unique
-  fileHash: String! # internal reference for knowing when file changes have occured since last sync
+  fileHash: String! # internal reference for knowing when file changes have occurred since last sync
   filename: String
 }
