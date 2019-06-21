@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.10.2...@spherehq/api@0.11.0) (2019-06-21)
+
+
+### Bug Fixes
+
+* **deps:** pin dependency typescript to 3.5.2 ([8b20f4b](https://github.com/spherehq/sphere/commit/8b20f4b))
+
+
+### Features
+
+* added docker and k8s support for deployment of api [skip ci] ([22c3a60](https://github.com/spherehq/sphere/commit/22c3a60))
+
+
+
+
+
 ## [0.10.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.10.1...@spherehq/api@0.10.2) (2019-06-21)
 
 

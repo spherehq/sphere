@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.10.1...@spherehq/database@0.11.0) (2019-06-21)
+
+
+### Features
+
+* added docker and k8s support for deployment of api [skip ci] ([22c3a60](https://github.com/spherehq/sphere/commit/22c3a60))
+
+
+
+
+
 ## [0.10.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.10.0...@spherehq/database@0.10.1) (2019-06-20)
 
 **Note:** Version bump only for package @spherehq/database
