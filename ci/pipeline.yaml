@@ -180,9 +180,9 @@ jobs:
       - get: git-tag-platform
         trigger: true
       - put: docker-platform-image
+        get_params: { skip_download: true }
         params:
           build: ./git-tag-platform/packages/platform
-          skip_download: true
           build_args:
             NPM_TOKEN: ((NPM_TOKEN))
 
