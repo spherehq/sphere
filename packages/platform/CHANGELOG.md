@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.7](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.6...@spherehq/platform@0.16.7) (2019-06-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-apollo to v2.5.8 ([df264d5](https://github.com/spherehq/sphere/commit/df264d5))
+
+
+
+
+
 ## [0.16.6](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.5...@spherehq/platform@0.16.6) (2019-06-21)
 
 **Note:** Version bump only for package @spherehq/platform
