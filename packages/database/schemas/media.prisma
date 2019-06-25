@@ -1,0 +1,9 @@
+enum MEDIA_TYPE {
+  IMAGE
+}
+
+type Media {
+  id: ID! @id
+  url: String!
+  type: MEDIA_TYPE! @default(value: IMAGE)
+}

@@ -13,4 +13,3 @@ spec:
       - backend:
           serviceName: concourse-web
           servicePort: 8080
-        path: /

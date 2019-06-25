@@ -26,6 +26,7 @@ spec:
       containers:
       - name: api
         image: spherehq/api:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 4000
         envFrom:
@@ -75,4 +76,3 @@ spec:
       - backend:
           serviceName: sphere-api-service
           servicePort: 80
-        path: /

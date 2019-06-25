@@ -16,6 +16,14 @@ exports.models = [
         embedded: false
     },
     {
+        name: "MEDIA_TYPE",
+        embedded: false
+    },
+    {
+        name: "Media",
+        embedded: false
+    },
+    {
         name: "AccountStatus",
         embedded: false
     },
@@ -31,6 +39,6 @@ exports.models = [
 exports.Prisma = prisma_client_lib_1.makePrismaClientClass({
     typeDefs: prisma_schema_1.typeDefs,
     models: exports.models,
-    endpoint: "https://spherehq-production_jason-brown.prisma.sh/sphere/production"
+    endpoint: "https://prisma.sphere.sh/sphere/production"
 });
 exports.prisma = new exports.Prisma();

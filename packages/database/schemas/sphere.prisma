@@ -1,11 +1,11 @@
 type Sphere {
-  id: ID! @unique
+  id: ID! @id
   alias: String! @unique
   aliasSlug: String! @unique
   slugPrefix: String! @default(value: "@")
   associatedWith: Account!
     @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   posts: [Post!]! @relation(name: "PostAssociatedWithSphere", onDelete: CASCADE)
 }

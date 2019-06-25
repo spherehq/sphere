@@ -14,6 +14,7 @@ import * as visit from 'unist-util-visit'
 import * as path from 'path'
 import * as fs from 'fs-extra'
 import * as inquirer from 'inquirer'
+import * as request from 'request'
 import chalk from 'chalk'
 
 const remark = require('remark')
@@ -21,6 +22,23 @@ const selectAll = require('unist-util-select').selectAll
 const slugify = require('@sindresorhus/slugify')
 const array = require('lodash/array')
 const terminalLink = require('terminal-link')
+
+function isUrl(s: string): boolean {
+  const regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  return regexp.test(s)
+}
+
+const processImages = (
+  images: { alt: string; url: string }[],
+  dir: string,
+): { alt: string; url: string }[] => {
+  return images.map(image => {
+    return {
+      alt: image.alt,
+      url: isUrl(image.url) ? image.url : path.join(dir, image.url),
+    }
+  })
+}
 
 const processMarkdown = (filename: string, contentDirectory: string) => {
   const processor = remark()
@@ -33,6 +51,15 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
 
   const headings = selectAll('heading', content).filter(
     heading => heading.depth === 1,
+  )
+
+  const images = processImages(
+    selectAll('* > image', content).map(
+      (image: { alt: string; url: string }) => {
+        return { alt: image.alt, url: image.url }
+      },
+    ),
+    contentDirectory,
   )
 
   // @TODO reverse order (multiple headings of same depth)
@@ -69,11 +96,14 @@ const processMarkdown = (filename: string, contentDirectory: string) => {
   }
 
   const hash = md5File.sync(path.join(contentDirectory, filename))
+  const featuredImage = images.shift()
 
   return {
     title,
+    featuredImage,
     content,
     filename,
+    images,
     timeToRead: timeToRead(),
     fileHash: hash,
     slug: slugify(path.basename(filename, '.md')),
@@ -257,7 +287,7 @@ export default class Sync extends Command {
                 get: row =>
                   terminalLink(
                     `open in browser`,
-                    `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                    `https://sphere.sh/@${row.slug}`,
                     {
                       fallback: (_, link: string) => {
                         return link
@@ -304,7 +334,7 @@ export default class Sync extends Command {
                 get: row =>
                   terminalLink(
                     `open in browser`,
-                    `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                    `https://sphere.sh/@${row.slug}`,
                     {
                       fallback: (_, link: string) => {
                         return link
@@ -360,7 +390,7 @@ export default class Sync extends Command {
             get: row =>
               terminalLink(
                 `open in browser`,
-                `https://sphere.sh/@${config.aliasSlug}/${row.slug}`,
+                `https://sphere.sh/@${row.slug}`,
                 {
                   fallback: (_, link: string) => {
                     return link

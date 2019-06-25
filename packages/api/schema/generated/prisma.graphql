@@ -17,6 +17,7 @@ type AccountConnection {
 }
 
 input AccountCreateInput {
+  id: ID
   status: AccountStatus
   firstName: String!
   lastName: String!
@@ -36,6 +37,7 @@ input AccountCreateOneWithoutSpheresInput {
 }
 
 input AccountCreateWithoutPostsInput {
+  id: ID
   status: AccountStatus
   firstName: String!
   lastName: String!
@@ -44,6 +46,7 @@ input AccountCreateWithoutPostsInput {
 }
 
 input AccountCreateWithoutSpheresInput {
+  id: ID
   status: AccountStatus
   firstName: String!
   lastName: String!
@@ -260,6 +263,10 @@ type AggregateAccount {
   count: Int!
 }
 
+type AggregateMedia {
+  count: Int!
+}
+
 type AggregatePost {
   count: Int!
 }
@@ -282,6 +289,218 @@ scalar Json
 
 scalar Long
 
+type Media {
+  id: ID!
+  url: String!
+  type: MEDIA_TYPE!
+}
+
+enum MEDIA_TYPE {
+  IMAGE
+}
+
+type MediaConnection {
+  pageInfo: PageInfo!
+  edges: [MediaEdge]!
+  aggregate: AggregateMedia!
+}
+
+input MediaCreateInput {
+  id: ID
+  url: String!
+  type: MEDIA_TYPE
+}
+
+input MediaCreateManyInput {
+  create: [MediaCreateInput!]
+  connect: [MediaWhereUniqueInput!]
+}
+
+input MediaCreateOneInput {
+  create: MediaCreateInput
+  connect: MediaWhereUniqueInput
+}
+
+type MediaEdge {
+  node: Media!
+  cursor: String!
+}
+
+enum MediaOrderByInput {
+  id_ASC
+  id_DESC
+  url_ASC
+  url_DESC
+  type_ASC
+  type_DESC
+}
+
+type MediaPreviousValues {
+  id: ID!
+  url: String!
+  type: MEDIA_TYPE!
+}
+
+input MediaScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  type: MEDIA_TYPE
+  type_not: MEDIA_TYPE
+  type_in: [MEDIA_TYPE!]
+  type_not_in: [MEDIA_TYPE!]
+  AND: [MediaScalarWhereInput!]
+  OR: [MediaScalarWhereInput!]
+  NOT: [MediaScalarWhereInput!]
+}
+
+type MediaSubscriptionPayload {
+  mutation: MutationType!
+  node: Media
+  updatedFields: [String!]
+  previousValues: MediaPreviousValues
+}
+
+input MediaSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MediaWhereInput
+  AND: [MediaSubscriptionWhereInput!]
+  OR: [MediaSubscriptionWhereInput!]
+  NOT: [MediaSubscriptionWhereInput!]
+}
+
+input MediaUpdateDataInput {
+  url: String
+  type: MEDIA_TYPE
+}
+
+input MediaUpdateInput {
+  url: String
+  type: MEDIA_TYPE
+}
+
+input MediaUpdateManyDataInput {
+  url: String
+  type: MEDIA_TYPE
+}
+
+input MediaUpdateManyInput {
+  create: [MediaCreateInput!]
+  update: [MediaUpdateWithWhereUniqueNestedInput!]
+  upsert: [MediaUpsertWithWhereUniqueNestedInput!]
+  delete: [MediaWhereUniqueInput!]
+  connect: [MediaWhereUniqueInput!]
+  set: [MediaWhereUniqueInput!]
+  disconnect: [MediaWhereUniqueInput!]
+  deleteMany: [MediaScalarWhereInput!]
+  updateMany: [MediaUpdateManyWithWhereNestedInput!]
+}
+
+input MediaUpdateManyMutationInput {
+  url: String
+  type: MEDIA_TYPE
+}
+
+input MediaUpdateManyWithWhereNestedInput {
+  where: MediaScalarWhereInput!
+  data: MediaUpdateManyDataInput!
+}
+
+input MediaUpdateOneInput {
+  create: MediaCreateInput
+  update: MediaUpdateDataInput
+  upsert: MediaUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: MediaWhereUniqueInput
+}
+
+input MediaUpdateWithWhereUniqueNestedInput {
+  where: MediaWhereUniqueInput!
+  data: MediaUpdateDataInput!
+}
+
+input MediaUpsertNestedInput {
+  update: MediaUpdateDataInput!
+  create: MediaCreateInput!
+}
+
+input MediaUpsertWithWhereUniqueNestedInput {
+  where: MediaWhereUniqueInput!
+  update: MediaUpdateDataInput!
+  create: MediaCreateInput!
+}
+
+input MediaWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  type: MEDIA_TYPE
+  type_not: MEDIA_TYPE
+  type_in: [MEDIA_TYPE!]
+  type_not_in: [MEDIA_TYPE!]
+  AND: [MediaWhereInput!]
+  OR: [MediaWhereInput!]
+  NOT: [MediaWhereInput!]
+}
+
+input MediaWhereUniqueInput {
+  id: ID
+}
+
 type Mutation {
   createAccount(data: AccountCreateInput!): Account!
   updateAccount(data: AccountUpdateInput!, where: AccountWhereUniqueInput!): Account
@@ -289,6 +508,12 @@ type Mutation {
   upsertAccount(where: AccountWhereUniqueInput!, create: AccountCreateInput!, update: AccountUpdateInput!): Account!
   deleteAccount(where: AccountWhereUniqueInput!): Account
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
+  createMedia(data: MediaCreateInput!): Media!
+  updateMedia(data: MediaUpdateInput!, where: MediaWhereUniqueInput!): Media
+  updateManyMedias(data: MediaUpdateManyMutationInput!, where: MediaWhereInput): BatchPayload!
+  upsertMedia(where: MediaWhereUniqueInput!, create: MediaCreateInput!, update: MediaUpdateInput!): Media!
+  deleteMedia(where: MediaWhereUniqueInput!): Media
+  deleteManyMedias(where: MediaWhereInput): BatchPayload!
   createPost(data: PostCreateInput!): Post!
   updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
@@ -329,7 +554,9 @@ type PageInfo {
 type Post {
   id: ID!
   title: String!
+  featuredImage: Media
   content: Json!
+  images(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media!]
   slug: String!
   timeToRead: Int!
   isPublished: Boolean!
@@ -356,8 +583,11 @@ type PostConnection {
 }
 
 input PostCreateInput {
+  id: ID
   title: String!
+  featuredImage: MediaCreateOneInput
   content: Json!
+  images: MediaCreateManyInput
   slug: String!
   timeToRead: Int
   isPublished: Boolean
@@ -379,8 +609,11 @@ input PostCreateManyWithoutAuthorInput {
 }
 
 input PostCreateWithoutAssociatedWithInput {
+  id: ID
   title: String!
+  featuredImage: MediaCreateOneInput
   content: Json!
+  images: MediaCreateManyInput
   slug: String!
   timeToRead: Int
   isPublished: Boolean
@@ -391,8 +624,11 @@ input PostCreateWithoutAssociatedWithInput {
 }
 
 input PostCreateWithoutAuthorInput {
+  id: ID
   title: String!
+  featuredImage: MediaCreateOneInput
   content: Json!
+  images: MediaCreateManyInput
   slug: String!
   timeToRead: Int
   isPublished: Boolean
@@ -411,6 +647,8 @@ type PostMetadata {
   id: ID!
   fileHash: String!
   filename: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostMetadataConnection {
@@ -420,6 +658,7 @@ type PostMetadataConnection {
 }
 
 input PostMetadataCreateInput {
+  id: ID
   fileHash: String!
   filename: String
 }
@@ -451,6 +690,8 @@ type PostMetadataPreviousValues {
   id: ID!
   fileHash: String!
   filename: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostMetadataSubscriptionPayload {
@@ -541,6 +782,22 @@ input PostMetadataWhereInput {
   filename_not_starts_with: String
   filename_ends_with: String
   filename_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PostMetadataWhereInput!]
   OR: [PostMetadataWhereInput!]
   NOT: [PostMetadataWhereInput!]
@@ -548,6 +805,7 @@ input PostMetadataWhereInput {
 
 input PostMetadataWhereUniqueInput {
   id: ID
+  fileHash: String
 }
 
 enum PostOrderByInput {
@@ -692,7 +950,9 @@ input PostSubscriptionWhereInput {
 
 input PostUpdateInput {
   title: String
+  featuredImage: MediaUpdateOneInput
   content: Json
+  images: MediaUpdateManyInput
   slug: String
   timeToRead: Int
   isPublished: Boolean
@@ -754,7 +1014,9 @@ input PostUpdateManyWithWhereNestedInput {
 
 input PostUpdateWithoutAssociatedWithDataInput {
   title: String
+  featuredImage: MediaUpdateOneInput
   content: Json
+  images: MediaUpdateManyInput
   slug: String
   timeToRead: Int
   isPublished: Boolean
@@ -766,7 +1028,9 @@ input PostUpdateWithoutAssociatedWithDataInput {
 
 input PostUpdateWithoutAuthorDataInput {
   title: String
+  featuredImage: MediaUpdateOneInput
   content: Json
+  images: MediaUpdateManyInput
   slug: String
   timeToRead: Int
   isPublished: Boolean
@@ -827,6 +1091,10 @@ input PostWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  featuredImage: MediaWhereInput
+  images_every: MediaWhereInput
+  images_some: MediaWhereInput
+  images_none: MediaWhereInput
   slug: String
   slug_not: String
   slug_in: [String!]
@@ -896,6 +1164,9 @@ type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account]!
   accountsConnection(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AccountConnection!
+  media(where: MediaWhereUniqueInput!): Media
+  medias(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media]!
+  mediasConnection(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MediaConnection!
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
@@ -926,6 +1197,7 @@ type SphereConnection {
 }
 
 input SphereCreateInput {
+  id: ID
   alias: String!
   aliasSlug: String!
   slugPrefix: String
@@ -944,6 +1216,7 @@ input SphereCreateOneWithoutPostsInput {
 }
 
 input SphereCreateWithoutAssociatedWithInput {
+  id: ID
   alias: String!
   aliasSlug: String!
   slugPrefix: String
@@ -951,6 +1224,7 @@ input SphereCreateWithoutAssociatedWithInput {
 }
 
 input SphereCreateWithoutPostsInput {
+  id: ID
   alias: String!
   aliasSlug: String!
   slugPrefix: String
@@ -1246,6 +1520,7 @@ input SphereWhereUniqueInput {
 
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
+  media(where: MediaSubscriptionWhereInput): MediaSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   postMetadata(where: PostMetadataSubscriptionWhereInput): PostMetadataSubscriptionPayload
   sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload

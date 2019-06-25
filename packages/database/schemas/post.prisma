@@ -6,15 +6,17 @@ enum POST_STATUS {
 }
 
 type Post {
-  id: ID! @unique
+  id: ID! @id
   title: String!
+  featuredImage: Media @relation(name: "PostFeaturedImage", onDelete: CASCADE)
   content: Json!
+  images: [Media!] @relation(name: "PostImages", onDelete: CASCADE)
   slug: String! @unique
   timeToRead: Int! @default(value: 1)
   isPublished: Boolean! @default(value: false)
   publishedAt: DateTime
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   status: POST_STATUS! @default(value: DRAFT)
   author: Account!
   metadata: PostMetadata!
@@ -24,7 +26,9 @@ type Post {
 }
 
 type PostMetadata {
-  id: ID! @unique
-  fileHash: String! # internal reference for knowing when file changes have occurred since last sync
+  id: ID! @id
+  fileHash: String! @unique # internal reference for knowing when file changes have occurred since last sync
   filename: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

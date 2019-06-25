@@ -5,13 +5,13 @@ enum AccountStatus {
 }
 
 type Account {
-  id: ID! @unique
+  id: ID! @id
   status: AccountStatus! @default(value: INACTIVE)
   firstName: String!
   lastName: String!
   emailAddress: String! @unique
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   spheres: [Sphere!]
     @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
   posts: [Post!]!
