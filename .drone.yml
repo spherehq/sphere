@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: frontend
+- name: test
   image: node:10.16.0
   commands:
   - yarn
