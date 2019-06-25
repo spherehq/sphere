@@ -7,3 +7,6 @@ steps:
   commands:
   - yarn
   - yarn test
+  when:
+    branch:
+    - master
