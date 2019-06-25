@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.11.0...@spherehq/database@0.12.0) (2019-06-25)
+
+
+### Features
+
+* updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
+
+
+
+
+
 # [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.10.1...@spherehq/database@0.11.0) (2019-06-21)
 
 

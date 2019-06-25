@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.11.8...@spherehq/cli@0.12.0) (2019-06-25)
+
+
+### Features
+
+* updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
+
+
+
+
+
 ## [0.11.8](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.11.7...@spherehq/cli@0.11.8) (2019-06-21)
 
 **Note:** Version bump only for package @spherehq/cli
