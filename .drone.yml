@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+
+steps:
+- name: frontend
+  image: node:10.16.0
+  commands:
+  - yarn
+  - yarn test
