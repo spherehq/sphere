@@ -30,6 +30,7 @@ export default ({ children }) => (
             title
             description
             siteUrl
+            version
           }
         }
       }
@@ -43,6 +44,10 @@ export default ({ children }) => (
             <meta
               name="description"
               content={data.site.siteMetadata.description}
+            />
+            <meta
+              name="generator"
+              content={`platform v${data.site.siteMetadata.version}`}
             />
             <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
           </Helmet>

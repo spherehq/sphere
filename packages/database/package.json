@@ -6,7 +6,8 @@
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
   "scripts": {
-    "prepublishOnly": "yarn generate:client",
+    "prepublishOnly": "yarn generate:client && pinst --disable",
+    "postpublish": "pinst --enable",
     "postinstall": "yarn generate:prisma-config",
     "deploy": "prisma deploy",
     "generate:prisma-config": "dotenv -- envsub prisma.yml.dist prisma.yml",
@@ -22,7 +23,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "envsub": "3.0.9"
+    "envsub": "3.0.9",
+    "pinst": "^1.1.1"
   },
   "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713"
 }

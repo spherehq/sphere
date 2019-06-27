@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const pkg = require('./package.json')
 const path = require('path')
 const { NODE_ENV, SPHERE_GRAPHQL_ENDPOINT } = process.env
 
@@ -19,6 +20,7 @@ const baseConfig = {
     description:
       'We help you create a community around your content, a dedicated space for you to express ideas and share with others.',
     siteUrl: 'https://sphere.sh',
+    version: `${pkg.version}`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

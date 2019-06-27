@@ -10617,11 +10617,6 @@ is-url-superb@2.0.0:
   dependencies:
     url-regex "^3.0.0"
 
-is-url@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
-  integrity sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==
-
 is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
@@ -11377,6 +11372,11 @@ lodash.map@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
   integrity sha1-dx7Hg540c9nEzeKLGTlMNWL09tM=
+
+lodash.mapkeys@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.mapkeys/-/lodash.mapkeys-4.6.0.tgz#df2cfa231d7c57c7a8ad003abdad5d73d3ea5195"
+  integrity sha1-3yz6Ix18V8eorQA6va1dc9PqUZU=
 
 lodash.maxby@4.x, lodash.maxby@^4.6.0:
   version "4.6.0"
@@ -13598,6 +13598,16 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+
+pinst@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/pinst/-/pinst-1.1.1.tgz#d5a139611e53ce978525d8b6aa35fefa1f7b2601"
+  integrity sha512-Ipat35aB3aHpScFx9t48U+2gyEwEKEuX+Ngia1LeP1CJWBImoCVHjBVbJnCfhfFPuQG9Xsh7+lyZfY5Um6B+hA==
+  dependencies:
+    load-json-file "^5.0.0"
+    lodash.mapkeys "^4.6.0"
+    meow "^5.0.0"
+    write-json-file "^2.3.0"
 
 pixelmatch@^4.0.0:
   version "4.0.2"
