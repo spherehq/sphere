@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.12.0...@spherehq/database@0.13.0) (2019-06-27)
+
+
+### Features
+
+* added version to generator meta tag ([9f6ca59](https://github.com/spherehq/sphere/commit/9f6ca59))
+
+
+
+
+
 # [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.11.0...@spherehq/database@0.12.0) (2019-06-25)
 
 
