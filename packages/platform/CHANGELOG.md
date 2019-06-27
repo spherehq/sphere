@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.15](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.14...@spherehq/platform@0.16.15) (2019-06-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-beta.2 ([795783b](https://github.com/spherehq/sphere/commit/795783b))
+
+
+
+
+
+## [0.16.14](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.13...@spherehq/platform@0.16.14) (2019-06-27)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([e2095ea](https://github.com/spherehq/sphere/commit/e2095ea))
+
+
+
+
+
+## [0.16.13](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.12...@spherehq/platform@0.16.13) (2019-06-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-beta.1 ([803241a](https://github.com/spherehq/sphere/commit/803241a))
+
+
+
+
+
 ## [0.16.12](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.16.11...@spherehq/platform@0.16.12) (2019-06-25)
 
 **Note:** Version bump only for package @spherehq/platform
