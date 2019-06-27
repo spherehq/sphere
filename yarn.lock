@@ -13606,7 +13606,7 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pinst@^1.1.1:
+pinst@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/pinst/-/pinst-1.1.1.tgz#d5a139611e53ce978525d8b6aa35fefa1f7b2601"
   integrity sha512-Ipat35aB3aHpScFx9t48U+2gyEwEKEuX+Ngia1LeP1CJWBImoCVHjBVbJnCfhfFPuQG9Xsh7+lyZfY5Um6B+hA==
