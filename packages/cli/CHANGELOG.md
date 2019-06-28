@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.4](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.12.3...@spherehq/cli@0.12.4) (2019-06-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency unified to v8 ([d2493a5](https://github.com/spherehq/sphere/commit/d2493a5))
+
+
+
+
+
 ## [0.12.3](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.12.2...@spherehq/cli@0.12.3) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/cli
