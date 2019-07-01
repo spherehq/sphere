@@ -14,7 +14,7 @@
     "test:unit": "echo NO TESTS!"
   },
   "dependencies": {
-    "@blueprintjs/core": "3.16.2",
+    "@blueprintjs/core": "3.17.1",
     "@blueprintjs/icons": "3.9.0",
     "@spherehq/geometry": "^0.9.0",
     "apollo-boost": "0.4.3",
