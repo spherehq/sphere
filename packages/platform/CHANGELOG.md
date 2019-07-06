@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.17](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.16...@spherehq/platform@0.17.17) (2019-07-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-transformer-remark to v2.6.1 ([d4160b5](https://github.com/spherehq/sphere/commit/d4160b5))
+
+
+
+
+
 ## [0.17.16](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.15...@spherehq/platform@0.17.16) (2019-07-05)
 
 
