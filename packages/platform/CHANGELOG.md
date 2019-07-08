@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.22](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.21...@spherehq/platform@0.17.22) (2019-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-robots-txt to v1.5.0 ([2a2231d](https://github.com/spherehq/sphere/commit/2a2231d))
+
+
+
+
+
 ## [0.17.21](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.20...@spherehq/platform@0.17.21) (2019-07-08)
 
 
