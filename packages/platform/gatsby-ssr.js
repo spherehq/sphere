@@ -8,7 +8,7 @@ import fetch from 'isomorphic-fetch'
 import Layout from './src/components/layout'
 
 const client = new ApolloClient({
-  uri: `https://spherehq-production_jason-brown.prisma.sh/sphere/production`,
+  uri: process.env.SPHERE_GRAPHQL_ENDPOINT,
   fetch,
 })
 

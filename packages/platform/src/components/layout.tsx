@@ -17,7 +17,7 @@ import { Header } from './Header'
 const HeaderWithTheme = withTheme(Header)
 
 const StyledContainer = styled(Container)`
-  padding: 64px 32px;
+  padding: 32px;
   min-height: 50vh;
 `
 

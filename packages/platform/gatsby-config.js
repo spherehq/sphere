@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const pkg = require('./package.json')
 const path = require('path')
-const { NODE_ENV, SPHERE_GRAPHQL_ENDPOINT } = process.env
+const { NODE_ENV } = process.env
 
 const faviconSelector = env =>
   env === 'production'
@@ -102,16 +102,7 @@ const baseConfig = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'Sphere',
-        fieldName: 'sphere',
-        url: SPHERE_GRAPHQL_ENDPOINT,
-      },
-    },
     'gatsby-plugin-playground',
-    'gatsby-source-user-spheres',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -120,6 +111,9 @@ const baseConfig = {
         anonymize: true,
         respectDNT: true,
       },
+    },
+    {
+      resolve: '@spherehq/gatsby-theme-spheres',
     },
   ],
 }

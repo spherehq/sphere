@@ -6,7 +6,7 @@ import { Query } from 'react-apollo'
 import { PageRendererProps } from 'gatsby'
 import { styled } from '@spherehq/geometry/Theme'
 
-import SphereTemplatePage from '../../plugins/gatsby-source-user-spheres/templates/post'
+import SphereTemplatePage from '../../templates/post'
 
 const StyledContainer = styled.div`
   max-width: 740px;
@@ -44,7 +44,7 @@ export default (props: PageRendererProps) => {
     )
   }
 
-  const NotFound = (_: RouteComponentProps) => <div />
+  const NotFound = (_: RouteComponentProps) => <h1>Not found</h1>
 
   return (
     <StyledContainer>

@@ -50,11 +50,10 @@ const StyledHeroImageBox = styled(Box)<{ imageUrl: string | undefined }>`
 const StyledLink = styled.a<{ to: string }>`
   display: block;
   border-radius: 5px;
-  border: 1px solid #ddd;
   text-decoration: none;
 
   transition: all 0.2s ease-in-out 0s;
-  box-shadow: 0px 2px 8px rgba(51, 51, 51, 0.2485);
+  box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.1);
 
   &:focus {
     outline: none;
@@ -62,7 +61,7 @@ const StyledLink = styled.a<{ to: string }>`
 
   &:hover {
     ${props => props.theme.breakpoints.up('md')} {
-      box-shadow: 0px 15px 40px rgba(51, 51, 51, 0.15);
+      box-shadow: 0px 4px 10px rgba(51, 51, 51, 0.2);
     }
 
     text-decoration: none;

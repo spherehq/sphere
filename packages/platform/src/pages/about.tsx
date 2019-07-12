@@ -66,7 +66,11 @@ const MissonCard = styled(BoxWithShadow)`
 `
 
 const StyledContainer = styled(Container)`
-  padding: 0 32px;
+  padding: 32px;
+
+  ${props => props.theme.breakpoints.up('md')} {
+    padding: 64px 32px;
+  }
 `
 
 export default () => (

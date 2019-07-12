@@ -20,7 +20,7 @@ persistCache({
 })
 
 const client = new ApolloClient({
-  uri: `https://spherehq-production_jason-brown.prisma.sh/sphere/production`,
+  uri: 'https://graph.sphere.sh',
   fetch,
   cache,
 })

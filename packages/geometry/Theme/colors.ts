@@ -44,8 +44,8 @@ const palette: PaletteInterface = {
   },
   white: '#fafafa',
   black: '#111111',
-  green: '#57e99a',
-  red: '#ff0f00',
+  green: '#a4d037',
+  red: '#f05230',
 }
 
 export interface ColorsInterface {

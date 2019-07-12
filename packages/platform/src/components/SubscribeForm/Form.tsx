@@ -39,12 +39,6 @@ export const InputField = styled.input`
   }
 `
 
-interface PrimaryButtonProps {
-  small?: boolean
-  // tslint:disable-next-line:no-any
-  children?: any
-}
-
 export const PrimaryButton = styled.button`
   background-color: ${props => props.theme.palette.cta};
   border-top-right-radius: 3px;

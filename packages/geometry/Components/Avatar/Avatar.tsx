@@ -18,7 +18,7 @@ const AvatarContainer = styled.div<{ withShadow: boolean; mini: boolean }>`
   ${({ withShadow }) =>
     withShadow &&
     `
-    box-shadow: 0px 8px 8px rgba(51, 51, 51, 0.1);
+    box-shadow: 0px 5px 4px rgba(51, 51, 51, 0.1);
   `}
 
   span {
@@ -67,15 +67,12 @@ export const Avatar = ({
   imageUrl,
 }: AvatarProps) => (
   <Box
-    width={mini ? `42px` : { xs: `76px`, md: `110px`, lg: `110px` }}
-    height={mini ? `42px` : { xs: `76px`, md: `110px`, lg: `110px` }}
+    width={mini ? `42px` : { xs: `76px`, md: `85px`, lg: `85px` }}
+    height={mini ? `42px` : { xs: `76px`, md: `85px`, lg: `85px` }}
   >
     <AvatarContainer withShadow={withShadow} mini={mini}>
       {imageUrl ? (
-        <img
-          src="https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14141997_10157405208100541_4799243288703777088_n.jpg?_nc_cat=100&_nc_ht=scontent-lht6-1.xx&oh=e13c301caa3d9ede775875cd5d775f85&oe=5D315C2F"
-          alt={`${firstName} ${lastName}`}
-        />
+        <img src={imageUrl} alt={`${firstName} ${lastName}`} />
       ) : (
         <span>{`${firstName.substr(0, 1)}${lastName.substr(0, 1)}`}</span>
       )}
