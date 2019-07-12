@@ -15332,14 +15332,13 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-react@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/rehype-react/-/rehype-react-3.1.0.tgz#bdd4b66ff24bd68e57c2f2e716607b3029c9e63e"
-  integrity sha512-7SiLiqNudSGkvhrePkdKqdUvngZqzG+PJhdR5EeIFELz2j2ek4aO5DHbxUXYvaZfqUiBDO2Aeq1OROUmxmu+Vg==
+rehype-react@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/rehype-react/-/rehype-react-4.0.1.tgz#fcb79e99b49ee056cfc266c4992ecfae939e8efa"
+  integrity sha512-xg6PZHqWJLTBQM6ECvzWEZhVqRpbxrx8eAPaWQAoRK7v9lkAuBelBym3AVUvGRzlQsZky9MdKrDzyYTTm1cejQ==
   dependencies:
     "@mapbox/hast-util-table-cell-style" "^0.1.3"
-    has "^1.0.1"
-    hast-to-hyperscript "^5.0.0"
+    hast-to-hyperscript "^7.0.0"
 
 relay-runtime@2.0.0:
   version "2.0.0"
