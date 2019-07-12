@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.31](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.30...@spherehq/platform@0.17.31) (2019-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([4862602](https://github.com/spherehq/sphere/commit/4862602))
+
+
+
+
+
+## [0.17.30](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.29...@spherehq/platform@0.17.30) (2019-07-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.13.15 ([f5a6d09](https://github.com/spherehq/sphere/commit/f5a6d09))
+
+
+
+
+
+## [0.17.29](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.28...@spherehq/platform@0.17.29) (2019-07-11)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([8322449](https://github.com/spherehq/sphere/commit/8322449))
+
+
+
+
+
+## [0.17.28](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.27...@spherehq/platform@0.17.28) (2019-07-10)
+
+**Note:** Version bump only for package @spherehq/platform
+
+
+
+
+
+## [0.17.27](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.26...@spherehq/platform@0.17.27) (2019-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([0379eef](https://github.com/spherehq/sphere/commit/0379eef))
+
+
+
+
+
+## [0.17.26](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.25...@spherehq/platform@0.17.26) (2019-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([ebc1ae8](https://github.com/spherehq/sphere/commit/ebc1ae8))
+
+
+
+
+
+## [0.17.25](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.24...@spherehq/platform@0.17.25) (2019-07-10)
+
+**Note:** Version bump only for package @spherehq/platform
+
+
+
+
+
+## [0.17.24](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.23...@spherehq/platform@0.17.24) (2019-07-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.13.11 ([af4658e](https://github.com/spherehq/sphere/commit/af4658e))
+
+
+
+
+
+## [0.17.23](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.22...@spherehq/platform@0.17.23) (2019-07-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.13.10 ([2057a75](https://github.com/spherehq/sphere/commit/2057a75))
+
+
+
+
+
 ## [0.17.22](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.21...@spherehq/platform@0.17.22) (2019-07-08)
 
 
