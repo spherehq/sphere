@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.9.0...@spherehq/geometry@0.10.0) (2019-07-12)
+
+
+### Features
+
+* new theme plugin and homepage layout ([da7eb7a](https://github.com/spherehq/sphere/commit/da7eb7a))
+
+
+
+
+
 # [0.9.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.8.3...@spherehq/geometry@0.9.0) (2019-06-21)
 
 
