@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.18.0...@spherehq/platform@0.18.1) (2019-07-12)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([040d06f](https://github.com/spherehq/sphere/commit/040d06f))
+
+
+
+
+
 # [0.18.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.17.31...@spherehq/platform@0.18.0) (2019-07-12)
 
 
