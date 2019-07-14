@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.14](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.13...@spherehq/api@0.12.14) (2019-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv-cli to v2.0.1 ([34919b1](https://github.com/spherehq/sphere/commit/34919b1))
+
+
+
+
+
 ## [0.12.13](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.12...@spherehq/api@0.12.13) (2019-07-12)
 
 **Note:** Version bump only for package @spherehq/api

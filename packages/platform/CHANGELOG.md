@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.18.4...@spherehq/platform@0.18.5) (2019-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv-cli to v2.0.1 ([34919b1](https://github.com/spherehq/sphere/commit/34919b1))
+
+
+
+
+
 ## [0.18.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.18.3...@spherehq/platform@0.18.4) (2019-07-14)
 
 
