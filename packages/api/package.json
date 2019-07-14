@@ -33,7 +33,7 @@
     "@types/rimraf": "2.0.2",
     "apollo": "2.15.0",
     "dotenv": "8.0.0",
-    "dotenv-cli": "2.0.0",
+    "dotenv-cli": "2.0.1",
     "nodemon": "1.19.1",
     "rimraf": "2.6.3",
     "ts-node-dev": "1.0.0-pre.40"
