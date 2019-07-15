@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/cli",
   "description": "Command line tool for managing your sphere content",
-  "version": "0.12.7",
+  "version": "0.13.0",
   "author": "Jason Brown",
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
