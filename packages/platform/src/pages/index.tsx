@@ -200,7 +200,7 @@ export default () => (
         <StyledFlex flexDirection={{ xs: 'column', md: 'column', lg: 'row' }}>
           <ContentBox
             width={{ xs: 1, md: 1, lg: '40%' }}
-            px={{ xs: 8, md: 8, lg: 8 }}
+            px={{ xs: 6, md: 6, lg: 8 }}
             py={{ xs: 6, md: 6, lg: 6 }}
           >
             <h5 style={{ margin: 0, fontSize: '12px' }}>Featured</h5>
@@ -398,7 +398,11 @@ export default () => (
       </StyledSignup>
     </Flex>
     <Grid flexDirection={`row`}>
-      <Box width={{ xs: 1, md: 1, lg: '50%' }} mr={{ xs: 0, md: 0, lg: 10 }}>
+      <Box
+        width={{ xs: 1, md: 1, lg: '50%' }}
+        mr={{ xs: 0, md: 0, lg: 10 }}
+        order={{ xs: 2, md: 2, lg: 1 }}
+      >
         <h2>Latest</h2>
         <ArticleList as="ul" flexDirection={`column`}>
           <ArticleListItem
@@ -480,7 +484,11 @@ export default () => (
           />
         </ArticleList>
       </Box>
-      <Box width={{ xs: 1, md: 1, lg: '40%' }} pt={{ xs: 0, md: 0, lg: 6 }}>
+      <Box
+        width={{ xs: 1, md: 1, lg: '40%' }}
+        pt={{ xs: 0, md: 0, lg: 6 }}
+        order={{ xs: 1, md: 1, lg: 2 }}
+      >
         <h2 style={{ fontSize: '22px' }}>Popular right now</h2>
         <MiniArticleList as="ul" flexDirection={`column`}>
           <ArticleListItem

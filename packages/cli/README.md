@@ -11,7 +11,7 @@ $ npm install -g @spherehq/cli
 $ sphere COMMAND
 running command...
 $ sphere (-v|--version|version)
-@spherehq/cli/0.11.0 darwin-x64 node-v10.16.0
+@spherehq/cli/0.12.7 darwin-x64 node-v10.16.0
 $ sphere --help [COMMAND]
 USAGE
   $ sphere COMMAND
@@ -43,7 +43,7 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
 
 ## `sphere init`
 
@@ -61,7 +61,7 @@ EXAMPLE
   $ sphere init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/spherehq/sphere/blob/v0.11.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/spherehq/sphere/blob/v0.12.7/src/commands/init.ts)_
 
 ## `sphere sync [FILE]`
 
@@ -80,7 +80,7 @@ EXAMPLE
   $ sphere sync example.md
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/spherehq/sphere/blob/v0.11.0/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/spherehq/sphere/blob/v0.12.7/src/commands/sync.ts)_
 
 <!-- commandsstop -->
 

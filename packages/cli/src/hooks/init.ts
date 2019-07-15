@@ -52,6 +52,13 @@ const hook: Hook<'init'> = async function(options) {
               this.exit()
             }
           }
+          break
+        case commands.SYNC:
+          if (!exists) {
+            throw new CLIError(
+              `Unable to find a valid account, ensure you've created a sphere by running "sphere init"`,
+            )
+          }
       }
     } catch (error) {
       this.error(error)

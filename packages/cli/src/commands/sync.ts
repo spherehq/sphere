@@ -223,9 +223,15 @@ export default class Sync extends Command {
               content: post.content,
               timeToRead: post.timeToRead,
               metadata: {
-                create: {
-                  fileHash: post.fileHash,
-                  filename: post.filename,
+                upsert: {
+                  create: {
+                    fileHash: post.fileHash,
+                    filename: post.filename,
+                  },
+                  update: {
+                    fileHash: post.fileHash,
+                    filename: post.filename,
+                  },
                 },
               },
               associatedWith: {
@@ -363,11 +369,11 @@ export default class Sync extends Command {
             )
           }
         }
-
-        allPosts = await prisma.posts({
-          where: { associatedWith: { alias: config.alias } },
-        })
       }
+
+      allPosts = await prisma.posts({
+        where: { associatedWith: { alias: config.alias } },
+      })
 
       this.log(chalk.bold(`Here's a summary of all your posts: \n`))
       cli.wait(300)
