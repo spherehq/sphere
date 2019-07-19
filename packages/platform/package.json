@@ -40,7 +40,7 @@
     "gatsby-remark-prismjs": "3.3.3",
     "gatsby-source-filesystem": "2.1.5",
     "gatsby-source-graphql": "2.1.2",
-    "gatsby-transformer-remark": "2.6.6",
+    "gatsby-transformer-remark": "2.6.7",
     "gatsby-transformer-sharp": "2.2.4",
     "hast-util-raw": "5.0.1",
     "isomorphic-fetch": "2.2.1",
