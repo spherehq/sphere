@@ -7,8 +7,4 @@ export const SphereResolver = (
   args: any,
   context: { db: Prisma },
   info,
-) => {
-  const fragment = fragmentWithArgs(info)
-
-  return context.db.sphere(args.where).$fragment(fragment)
-}
+) => context.db.sphere(args.where).$fragment(fragmentWithArgs(info))

@@ -8,6 +8,14 @@ const resolvers = {
     posts: PostsResolver,
     post: PostResolver,
   },
+  Mutation: {
+    mediaUpload: (_, args) => {
+      return args.file.then(file => {
+        console.log(file)
+        return ''
+      })
+    },
+  },
 }
 
 export default makeExecutableSchema({ typeDefs, resolvers })

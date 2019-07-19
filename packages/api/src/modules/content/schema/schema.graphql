@@ -1,4 +1,6 @@
-# import PostWhereInput, PostOrderByInput, PostWhereUniqueInput, Post  from './../../../../schema/generated/prisma.graphql'
+# import PostWhereInput, PostOrderByInput, PostWhereUniqueInput, Post, Media  from './../../../../schema/generated/prisma.graphql'
+
+scalar Upload
 
 type Query {
   posts(
@@ -11,4 +13,8 @@ type Query {
     last: Int
   ): [Post]!
   post(where: PostWhereUniqueInput!): Post
+}
+
+type Mutation {
+  mediaUpload(file: Upload!): String!
 }

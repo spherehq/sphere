@@ -7,8 +7,4 @@ export const PostResolver = (
   args: any,
   context: { db: Prisma },
   info,
-) => {
-  const fragment = fragmentWithArgs(info)
-
-  return context.db.post(args.where).$fragment(fragment)
-}
+) => context.db.post(args.where).$fragment(fragmentWithArgs(info))
