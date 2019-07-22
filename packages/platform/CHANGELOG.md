@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.19.12...@spherehq/platform@0.20.0) (2019-07-22)
+
+
+### Features
+
+* updated footer layout and theme colours ([1ad4a0e](https://github.com/spherehq/sphere/commit/1ad4a0e))
+
+
+
+
+
 ## [0.19.12](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.19.11...@spherehq/platform@0.19.12) (2019-07-22)
 
 

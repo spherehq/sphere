@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.10.0...@spherehq/geometry@0.11.0) (2019-07-22)
+
+
+### Features
+
+* updated footer layout and theme colours ([1ad4a0e](https://github.com/spherehq/sphere/commit/1ad4a0e))
+
+
+
+
+
 # [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.9.0...@spherehq/geometry@0.10.0) (2019-07-12)
 
 
