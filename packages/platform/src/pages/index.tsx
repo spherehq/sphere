@@ -306,7 +306,7 @@ export default () => (
               lastName={`Brown`}
               withShadow
               mini={false}
-              imageUrl={`https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14141997_10157405208100541_4799243288703777088_n.jpg?_nc_cat=100&_nc_ht=scontent-lht6-1.xx&oh=e13c301caa3d9ede775875cd5d775f85&oe=5D315C2F`}
+              imageUrl={`https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/62594329_10161960235125541_6695466780212592640_n.jpg?_nc_cat=109&_nc_oc=AQk3wyjbSS718_4vRRe5fJiznX264QZmPiloy6VG4VTxGLdn9cTfgRT_7pHQkplIRWI&_nc_ht=scontent-lhr3-1.xx&oh=9ef933443fdaf55926e77cd43c9fd199&oe=5DB28F5E`}
             />
             <FollowButton type="button">Follow</FollowButton>
           </Author>

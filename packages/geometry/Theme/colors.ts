@@ -25,12 +25,12 @@ export interface PaletteInterface {
 
 const palette: PaletteInterface = {
   purple: {
-    darkest: '#251d2b',
+    darkest: '#1a161d',
     dark: '#4c4452',
     base: '#766e7d',
     light: '#a49aab',
     lighter: '#d4cadb',
-    lightest: '#f3e9fb',
+    lightest: '#ece8ef',
   },
   blue: {
     base: '#00a7e1',
