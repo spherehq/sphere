@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.12](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.19.11...@spherehq/platform@0.19.12) (2019-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency prismjs to v1.17.1 ([7f144fa](https://github.com/spherehq/sphere/commit/7f144fa))
+
+
+
+
+
 ## [0.19.11](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.19.10...@spherehq/platform@0.19.11) (2019-07-20)
 
 
