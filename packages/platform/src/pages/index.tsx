@@ -36,8 +36,8 @@ const ImageBackground = styled(Box)`
   width: 100%;
 
   ${props => props.theme.breakpoints.up('lg')} {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 `
 
@@ -53,9 +53,11 @@ const ImageBox = styled(Box)`
 `
 
 const StyledFlex = styled(Flex)`
-  box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.1);
+  box-shadow: rgba(51, 51, 51, 0.1) 0px 2px 5px;
+  border: 1px solid ${({ theme }) => theme.colors.palette.purple.lightest};
+  border-radius: 3px;
   height: 450px;
-  border-radius: 5px;
+
   position: relative;
   overflow: hidden;
 
@@ -72,9 +74,19 @@ const ContentBox = styled(Box)`
   padding: 16px;
 
   ${props => props.theme.breakpoints.up('lg')} {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     order: 1;
+  }
+
+  h5,
+  h2,
+  p {
+    color: ${({ theme }) => theme.palette.text};
+  }
+
+  h5 {
+    color: ${({ theme }) => theme.colors.palette.purple.base};
   }
 `
 
@@ -84,19 +96,20 @@ const StyledPublishedAtBox = styled(Box)`
     font-weight: 700;
     line-height: 15px;
     text-transform: uppercase;
-    color: #666666;
+    color: ${({ theme }) => theme.colors.palette.purple.dark};
   }
 
   span + span {
     font-weight: 400;
     text-transform: none;
+    color: ${({ theme }) => theme.colors.palette.purple.base};
   }
 `
 
 const StyledSignup = styled(Box)`
   background-color: rgba(236, 236, 236, 0.9);
   box-shadow: none;
-  color: ${props => props.theme.colors.palette.black};
+  color: ${({ theme }) => theme.palette.text};
   border-radius: 0;
   width: 100vw;
   height: fit-content;
@@ -127,7 +140,7 @@ const StyledSignup = styled(Box)`
 
   h3,
   p {
-    color: ${props => props.theme.colors.palette.black};
+    color: ${({ theme }) => theme.palette.text};
   }
 
   ${FormWrapper} {
@@ -141,16 +154,39 @@ const StyledSignup = styled(Box)`
 `
 
 const FollowButton = styled.button`
-  border: 1px solid ${props => props.theme.colors.palette.purple.light};
-  border-radius: 5px;
-  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.colors.palette.purple.base};
+  color: ${({ theme }) => theme.palette.textAlternative};
+  border-radius: 2px;
+  border: 2px solid transparent;
+  padding: 7px 15px;
   margin-top: 20px;
 
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+
+  outline-offset: 0;
+  outline: none;
+
   &:hover,
-  &:focus,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.palette.purple.dark};
+  }
+
+  &:focus:enabled {
+    border: 2px solid ${({ theme }) => theme.colors.palette.purple.dark};
+  }
+
   &:active {
-    border: 1px solid ${props => props.theme.colors.palette.blue.dark};
-    color: ${props => props.theme.colors.palette.blue.dark};
+    background-color: ${({ theme }) => theme.colors.palette.purple.dark};
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.297554);
+  }
+
+  &:disabled {
+    opacity: 0.3;
   }
 `
 

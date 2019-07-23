@@ -43,15 +43,20 @@ const StyledHeaderContent = styled.div`
   padding: 8px;
 `
 
+const StyledLogoLink = styled(Link)`
+  outline-offset: 0;
+  outline: none;
+`
+
 export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
   <StyledHeaderWrapper hasShadow={true}>
     <Container limitWidth>
       <StyledHeaderContent>
         <Flex alignItems="center" justifyContent="space-between">
           <Box style={{ height: '42px' }}>
-            <Link to="/">
-              <Logo width="42" height="42" fillColor={theme.palette.primary} />
-            </Link>
+            <StyledLogoLink to="/">
+              <Logo width="42" height="42" />
+            </StyledLogoLink>
           </Box>
           <Box width={2 / 3}>
             <Search />
@@ -60,7 +65,7 @@ export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
             <Flex>
               <Box px={4}>
                 <Icon
-                  icon={IconNames.CONSOLE}
+                  icon={IconNames.USER}
                   iconSize={24}
                   color={theme.palette.primary}
                 />
