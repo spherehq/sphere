@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.20.2...@spherehq/platform@0.20.3) (2019-07-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-beta.3 ([db39213](https://github.com/spherehq/sphere/commit/db39213))
+* **deps:** update dependency gatsby to v2.13.35 ([e69eb81](https://github.com/spherehq/sphere/commit/e69eb81))
+
+
+
+
+
 ## [0.20.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.20.1...@spherehq/platform@0.20.2) (2019-07-23)
 
 
