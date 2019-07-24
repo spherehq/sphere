@@ -65,7 +65,7 @@ export interface ColorsInterface {
 export const colors: ColorsInterface = {
   palette,
   primary: palette.purple.darkest,
-  cta: palette.blue.dark,
+  cta: palette.blue.base,
   active: palette.blue.base,
   focus: palette.blue.base,
   application: palette.white,

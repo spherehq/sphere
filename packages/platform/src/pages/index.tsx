@@ -65,7 +65,7 @@ const StyledFlex = styled(Flex)`
 `
 
 const ContentBox = styled(Box)`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.palette.purple.base};
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   order: 2;
@@ -75,6 +75,15 @@ const ContentBox = styled(Box)`
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     order: 1;
+  }
+
+  h5 {
+    color: ${({ theme }) => theme.colors.palette.white};
+  }
+
+  h2,
+  p {
+    color: ${({ theme }) => theme.colors.palette.white};
   }
 `
 

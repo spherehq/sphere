@@ -28,8 +28,7 @@ const StyledSearchButton = styled('button')`
   ${sharedButtonStyles}
   height: 24px;
   margin: 6px 6px 0 0;
-  background-color: ${({ theme, disabled }) =>
-    disabled ? 'transparent' : theme.colors.palette.purple.lightest};
+  background-color: 'transparent';
   color: ${({ theme, disabled }) =>
     disabled ? 'inherit' : theme.colors.palette.white};
   right: 0;
@@ -55,8 +54,8 @@ const StyledInput = styled('input')<{ ref: React.RefObject<HTMLInputElement> }>`
   display: block;
   min-height: ${BUTTON_SIZE}px;
   width: 100%;
-  background-color: ${props => props.theme.colors.palette.purple.lightest};
-  color: ${({ theme }) => theme.colors.palette.purple.darkest};
+  background-color: ${props => props.theme.colors.palette.purple.dark};
+  color: ${({ theme }) => theme.colors.palette.white};
   border: 1px solid transparent;
   border-radius: 3px;
 
@@ -65,7 +64,7 @@ const StyledInput = styled('input')<{ ref: React.RefObject<HTMLInputElement> }>`
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.palette.purple.base};
+    color: ${({ theme }) => theme.colors.palette.purple.light};
   }
 
   &:focus {
@@ -79,8 +78,10 @@ const StyledUnderline = styled('div')<{ isActive: boolean }>`
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   height: 2px;
   margin-top: -2px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.palette.blue.base};
   transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 `
 
 /**
@@ -117,7 +118,7 @@ export const Search = () => {
         <Icon
           icon={IconNames.CROSS}
           iconSize={28}
-          color={theme.palette.primary}
+          color={theme.colors.palette.purple.light}
         />
       </StyledClearButton>
 
@@ -125,7 +126,7 @@ export const Search = () => {
         <Icon
           icon={IconNames.SEARCH}
           iconSize={24}
-          color={theme.palette.primary}
+          color={theme.colors.palette.purple.light}
         />
       </StyledSearchButton>
     </StyledForm>

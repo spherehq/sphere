@@ -16,7 +16,7 @@ import { Logo } from '../Logo'
 const StyledHeaderWrapper = styled.header<{
   hasShadow: boolean
 }>`
-  background-color: ${props => props.theme.colors.palette.white};
+  background-color: ${props => props.theme.palette.primary};
   position: fixed;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@ const StyledHeaderWrapper = styled.header<{
 `
 
 const StyledHeaderContent = styled.div`
-  background-color: ${props => props.theme.colors.palette.white};
+  background-color: ${props => props.theme.palette.primary};
   height: 58px;
   padding: 8px;
 `
@@ -50,7 +50,11 @@ export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
         <Flex alignItems="center" justifyContent="space-between">
           <Box style={{ height: '42px' }}>
             <Link to="/">
-              <Logo width="42" height="42" fillColor={theme.palette.primary} />
+              <Logo
+                width="42"
+                height="42"
+                fillColor={theme.colors.palette.white}
+              />
             </Link>
           </Box>
           <Box width={2 / 3}>
@@ -62,7 +66,7 @@ export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
                 <Icon
                   icon={IconNames.CONSOLE}
                   iconSize={24}
-                  color={theme.palette.primary}
+                  color={theme.colors.palette.white}
                 />
               </Box>
             </Flex>

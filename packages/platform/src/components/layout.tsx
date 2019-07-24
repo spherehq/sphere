@@ -19,6 +19,7 @@ const HeaderWithTheme = withTheme(Header)
 const StyledContainer = styled(Container)`
   padding: 32px;
   min-height: 50vh;
+  background-color: ${({ theme }) => theme.colors.palette.purple.dark};
 `
 
 export default ({ children }) => (
