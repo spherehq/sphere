@@ -39,6 +39,7 @@ const ImageBackground = styled(Box)`
   ${props => props.theme.breakpoints.up('lg')} {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    border-top-left-radius: 0;
   }
 `
 
