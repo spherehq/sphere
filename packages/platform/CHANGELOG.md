@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.21.3...@spherehq/platform@0.22.0) (2019-07-24)
+
+
+### Bug Fixes
+
+* border radius on featured article ([0283c7e](https://github.com/spherehq/sphere/commit/0283c7e))
+
+
+### Features
+
+* updates to layout ([3e62b7a](https://github.com/spherehq/sphere/commit/3e62b7a))
+
+
+
+
+
 ## [0.21.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.21.2...@spherehq/platform@0.21.3) (2019-07-24)
 
 
