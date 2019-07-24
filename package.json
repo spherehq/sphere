@@ -51,6 +51,10 @@
   "workspaces": {
     "packages": [
       "packages/*"
+    ],
+    "nohoist": [
+      "**/electron",
+      "**/electron/**"
     ]
   }
 }
