@@ -30,7 +30,8 @@ const ImageBackground = styled(Box)`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-top-right-radius: 0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border-bottom-right-radius: 0;
   height: 100%;
   width: 100%;
@@ -69,7 +70,8 @@ const StyledFlex = styled(Flex)`
 const ContentBox = styled(Box)`
   background-color: white;
   border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   order: 2;
   padding: 16px;
 
@@ -189,6 +191,21 @@ const FollowButton = styled.button`
     opacity: 0.3;
   }
 `
+
+const FollowAuthor = () => {
+  const [isFollowing, setFollowStatus] = React.useState<boolean>(false)
+
+  return (
+    <FollowButton
+      type="button"
+      onClick={() => {
+        setFollowStatus(isFollowing ? false : true)
+      }}
+    >
+      {isFollowing ? `Following` : `Follow`}
+    </FollowButton>
+  )
+}
 
 const ArticleList = styled(Flex)`
   li {
@@ -344,7 +361,7 @@ export default () => (
               mini={false}
               imageUrl={`https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/62594329_10161960235125541_6695466780212592640_n.jpg?_nc_cat=109&_nc_oc=AQk3wyjbSS718_4vRRe5fJiznX264QZmPiloy6VG4VTxGLdn9cTfgRT_7pHQkplIRWI&_nc_ht=scontent-lhr3-1.xx&oh=9ef933443fdaf55926e77cd43c9fd199&oe=5DB28F5E`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -358,7 +375,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/20.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -372,7 +389,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/men/8.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -386,7 +403,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/2.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -400,7 +417,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/94.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -414,7 +431,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/91.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
         </Grid>
       </Box>

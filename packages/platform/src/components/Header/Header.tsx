@@ -48,7 +48,39 @@ const StyledLogoLink = styled(Link)`
   outline: none;
 `
 
-export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
+const GetStartedButton = styled.button`
+  border: 2px solid ${({ theme }) => theme.colors.palette.purple.dark};
+  color: ${({ theme }) => theme.palette.text};
+  border-radius: 2px;
+  padding: 7px 15px;
+
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+
+  outline-offset: 0;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:focus:enabled {
+    background: ${({ theme }) => theme.colors.palette.purple.dark};
+    color: ${({ theme }) => theme.palette.textAlternative};
+  }
+
+  &:active {
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.297554);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+`
+
+export const Header: React.FC<{ theme: ThemeInterface }> = () => (
   <StyledHeaderWrapper hasShadow={true}>
     <Container limitWidth>
       <StyledHeaderContent>
@@ -58,17 +90,13 @@ export const Header: React.FC<{ theme: ThemeInterface }> = ({ theme }) => (
               <Logo width="42" height="42" />
             </StyledLogoLink>
           </Box>
-          <Box width={2 / 3}>
+          <Box width={[1, 1, 2 / 3]} pl={[6, 6, 0]}>
             <Search />
           </Box>
-          <Box style={{ height: '24px' }}>
+          <Box display={['none', 'none', 'inherit']}>
             <Flex>
-              <Box px={4}>
-                <Icon
-                  icon={IconNames.USER}
-                  iconSize={24}
-                  color={theme.palette.primary}
-                />
+              <Box pr={6}>
+                <GetStartedButton>Get Started</GetStartedButton>
               </Box>
             </Flex>
           </Box>

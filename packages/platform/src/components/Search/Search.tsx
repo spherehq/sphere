@@ -24,7 +24,7 @@ const sharedButtonStyles = css`
   }
 `
 
-const StyledSearchButton = styled('button')`
+const SearchButton = styled('button')<{ hidden: boolean }>`
   ${sharedButtonStyles}
   height: 24px;
   margin: 6px 6px 0 0;
@@ -33,14 +33,34 @@ const StyledSearchButton = styled('button')`
   color: ${({ theme, disabled }) =>
     disabled ? 'inherit' : theme.colors.palette.white};
   right: 0;
+  display: ${({ hidden }) => (hidden ? 'none' : 'block')};
 `
 
 const StyledClearButton = styled('button')<{ hidden: boolean }>`
   ${sharedButtonStyles}
-  margin-top: 2px;
   color: inherit;
-  right: ${BUTTON_SIZE}px;
+  right: 0;
+  height: 100%;
   display: ${({ hidden }) => (hidden ? 'none' : 'block')};
+  overflow: hidden;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  svg {
+    margin-top: 4px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: ${({ theme }) => theme.colors.palette.purple.darkest};
+    outline-offset: 0;
+    outline: none;
+
+    svg {
+      fill: ${({ theme }) => theme.colors.palette.white};
+    }
+  }
 `
 
 const StyledInput = styled('input')<{ ref: React.RefObject<HTMLInputElement> }>`
@@ -81,6 +101,8 @@ const StyledUnderline = styled('div')<{ isActive: boolean }>`
   margin-top: -2px;
   background-color: ${({ theme }) => theme.colors.primary};
   transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 `
 
 /**
@@ -90,10 +112,13 @@ export const Search = () => {
   const [value, setValue] = React.useState('')
   const searchInput = React.createRef<HTMLInputElement>()
 
-  const handleClearButtonClick = e => {
+  const onClear = (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setValue('')
-    searchInput.current.focus()
+
+    if (searchInput.current !== null) {
+      searchInput.current.focus()
+    }
   }
 
   const isInputEmpty = !value
@@ -102,7 +127,7 @@ export const Search = () => {
     <StyledForm>
       <StyledInput
         type="text"
-        placeholder="search"
+        placeholder="search for something great"
         value={value}
         onChange={e => setValue(e.target.value)}
         ref={searchInput}
@@ -111,7 +136,7 @@ export const Search = () => {
 
       <StyledClearButton
         hidden={isInputEmpty}
-        onClick={handleClearButtonClick}
+        onClick={onClear}
         aria-label="Clear"
       >
         <Icon
@@ -121,13 +146,17 @@ export const Search = () => {
         />
       </StyledClearButton>
 
-      <StyledSearchButton disabled={isInputEmpty} aria-label="Search">
+      <SearchButton
+        disabled={isInputEmpty}
+        aria-label="Search"
+        hidden={!isInputEmpty}
+      >
         <Icon
           icon={IconNames.SEARCH}
           iconSize={24}
-          color={theme.palette.primary}
+          color={theme.colors.palette.purple.base}
         />
-      </StyledSearchButton>
+      </SearchButton>
     </StyledForm>
   )
 }
