@@ -49,7 +49,7 @@
     "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "1.22.0",
+    "@oclif/dev-cli": "1.22.2",
     "@oclif/tslint": "3.1.1",
     "@types/fs-extra": "8.0.0",
     "@types/inquirer": "6.0.3",
