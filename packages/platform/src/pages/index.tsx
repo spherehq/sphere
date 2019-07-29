@@ -54,16 +54,17 @@ const ImageBox = styled(Box)`
   }
 `
 
-const StyledFlex = styled(Flex)`
+const FeaturedArticle = styled(Flex)`
   box-shadow: rgba(51, 51, 51, 0.1) 0px 2px 5px;
   border: 1px solid ${({ theme }) => theme.colors.palette.purple.lightest};
-  border-radius: 3px;
+  border-radius: 5px;
   height: 450px;
 
   position: relative;
   overflow: hidden;
 
   ${props => props.theme.breakpoints.up('lg')} {
+    border-radius: 3px;
     height: 285px;
   }
 `
@@ -251,7 +252,9 @@ export default () => (
         width={{ xs: 1, md: 1, lg: '80%', xl: '70%' }}
         pr={{ xs: 0, md: 8, lg: 8 }}
       >
-        <StyledFlex flexDirection={{ xs: 'column', md: 'column', lg: 'row' }}>
+        <FeaturedArticle
+          flexDirection={{ xs: 'column', md: 'column', lg: 'row' }}
+        >
           <ContentBox
             width={{ xs: 1, md: 1, lg: '40%' }}
             px={{ xs: 6, md: 6, lg: 8 }}
@@ -293,9 +296,9 @@ export default () => (
             </Flex>
           </ContentBox>
           <ImageBox width={{ xs: 1, md: 1, lg: '60%' }}>
-            <ImageBackground></ImageBackground>
+            <ImageBackground />
           </ImageBox>
-        </StyledFlex>
+        </FeaturedArticle>
       </Box>
       <Box
         width={{ xs: 1, md: 1, lg: '20%', xl: '30%' }}
