@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.4...@spherehq/platform@0.22.5) (2019-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rehype-react to v4 ([6d4066e](https://github.com/spherehq/sphere/commit/6d4066e))
+* **deps:** update dependency rehype-react to v4 ([#299](https://github.com/spherehq/sphere/issues/299)) ([4034b88](https://github.com/spherehq/sphere/commit/4034b88))
+
+
+
+
+
 ## [0.22.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.3...@spherehq/platform@0.22.4) (2019-07-29)
 
 
