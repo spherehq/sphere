@@ -3,31 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.1.2](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.1...@spherehq/gatsby-theme-spheres@0.1.2) (2019-07-13)
-
+## [0.1.3](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.2...@spherehq/gatsby-theme-spheres@0.1.3) (2019-07-20)
 
 ### Bug Fixes
 
-* **deps:** update gatsby monorepo ([b8057ab](https://github.com/spherehq/sphere/commit/b8057ab))
+- **deps:** update gatsby monorepo ([14cb27c](https://github.com/spherehq/sphere/commit/14cb27c))
 
+## [0.1.2](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.1...@spherehq/gatsby-theme-spheres@0.1.2) (2019-07-13)
 
+### Bug Fixes
 
-
+- **deps:** update gatsby monorepo ([b8057ab](https://github.com/spherehq/sphere/commit/b8057ab))
 
 ## [0.1.1](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.0...@spherehq/gatsby-theme-spheres@0.1.1) (2019-07-12)
 
-
 ### Bug Fixes
 
-* **deps:** update gatsby monorepo ([e74521a](https://github.com/spherehq/sphere/commit/e74521a))
-
-
-
-
+- **deps:** update gatsby monorepo ([e74521a](https://github.com/spherehq/sphere/commit/e74521a))
 
 # 0.1.0 (2019-07-12)
 
-
 ### Features
 
-* new theme plugin and homepage layout ([da7eb7a](https://github.com/spherehq/sphere/commit/da7eb7a))
+- new theme plugin and homepage layout ([da7eb7a](https://github.com/spherehq/sphere/commit/da7eb7a))

@@ -3,43 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.9.0...@spherehq/geometry@0.10.0) (2019-07-12)
+## [0.12.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.12.0...@spherehq/geometry@0.12.1) (2019-07-24)
 
+**Note:** Version bump only for package @spherehq/geometry
+
+# [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.11.0...@spherehq/geometry@0.12.0) (2019-07-23)
 
 ### Features
 
-* new theme plugin and homepage layout ([da7eb7a](https://github.com/spherehq/sphere/commit/da7eb7a))
+- updated styles, colours and elevation ([086a646](https://github.com/spherehq/sphere/commit/086a646))
 
+# [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.10.0...@spherehq/geometry@0.11.0) (2019-07-22)
 
+### Features
 
+- updated footer layout and theme colours ([1ad4a0e](https://github.com/spherehq/sphere/commit/1ad4a0e))
 
+# [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.9.0...@spherehq/geometry@0.10.0) (2019-07-12)
+
+### Features
+
+- new theme plugin and homepage layout ([da7eb7a](https://github.com/spherehq/sphere/commit/da7eb7a))
 
 # [0.9.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.8.3...@spherehq/geometry@0.9.0) (2019-06-21)
 
-
 ### Features
 
-* added docker and k8s support for deployment of api [skip ci] ([22c3a60](https://github.com/spherehq/sphere/commit/22c3a60))
-
-
-
-
+- added docker and k8s support for deployment of api [skip ci](<[22c3a60](https://github.com/spherehq/sphere/commit/22c3a60)>)
 
 ## [0.8.3](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.8.2...@spherehq/geometry@0.8.3) (2019-06-20)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 ## [0.8.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.8.1...@spherehq/geometry@0.8.2) (2019-06-19)
 
 **Note:** Version bump only for package @spherehq/geometry
-
-
-
-
 
 ## [0.8.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.8.0...@spherehq/geometry@0.8.1) (2019-06-13)
 

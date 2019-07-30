@@ -5,7 +5,7 @@ import { Box } from '../Box'
 import { Flex } from '../Flex'
 
 const DividerWrapper = styled(Flex)`
-  background-color: ${props => props.theme.colors.palette.yellow.lightest};
+  background-color: ${props => props.theme.colors.palette.blue.base};
   width: 84px;
   height: 10px;
   border-radius: 14px;
@@ -27,7 +27,7 @@ export const Divider = () => (
     />
     <Bar
       style={{
-        backgroundColor: theme.colors.palette.yellow.dark,
+        backgroundColor: theme.colors.palette.blue.dark,
         marginLeft: '-7px',
       }}
     />

@@ -43,7 +43,7 @@ We use lerna's `--conventional-commits` option and follow the semver convention.
 
 Some packages such as `platform`, `api` and `database` are/require servers which need additional steps such as building docker images or deploying to Amazon services.
 
-You can understand more about our CI/CD process by viewing the [config file](.circleci/config.yml)
+You can understand more about our CI/CD process by viewing the [config file](ci/pipeline.yaml)
 
 ## Contributing
 

@@ -25,12 +25,12 @@ export interface PaletteInterface {
 
 const palette: PaletteInterface = {
   purple: {
-    darkest: '#251d2b',
+    darkest: '#1a161d',
     dark: '#4c4452',
     base: '#766e7d',
     light: '#a49aab',
     lighter: '#d4cadb',
-    lightest: '#f3e9fb',
+    lightest: '#ece8ef',
   },
   blue: {
     base: '#00a7e1',
@@ -65,9 +65,9 @@ export interface ColorsInterface {
 export const colors: ColorsInterface = {
   palette,
   primary: palette.purple.darkest,
-  cta: palette.blue.dark,
-  active: palette.blue.base,
-  focus: palette.blue.base,
+  cta: palette.blue.base,
+  active: palette.blue.dark,
+  focus: palette.blue.dark,
   application: palette.white,
   text: palette.purple.darkest,
   textAlternative: palette.white,

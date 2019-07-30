@@ -67,14 +67,14 @@ const sections = [
 const Link = styled.a<{ to?: string }>`
   position: relative;
   display: inline-block;
-  color: ${props => props.theme.colors.palette.yellow.base};
+  color: ${props => props.theme.colors.palette.white};
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
   letter-spacing: 1px;
 
   &:hover {
-    color: ${props => props.theme.colors.palette.yellow.dark};
+    color: ${props => props.theme.colors.palette.blue.base};
     text-decoration: none;
 
     &::after {
@@ -92,7 +92,7 @@ const Link = styled.a<{ to?: string }>`
     height: 2px;
     width: 0%;
     opacity: 0;
-    background-color: ${props => props.theme.colors.palette.yellow.base};
+    background-color: ${props => props.theme.colors.palette.blue.base};
     transition: opacity 0.2s ease-in-out 0s, width 0.2s ease-in-out 0s;
   }
 `

@@ -14,7 +14,7 @@ export const InputField = styled.input`
   border-bottom-left-radius: 3px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 3px 0 rgba(51, 51, 51, 0.2485);
   border: solid 1px #d8d8dc;
   box-sizing: border-box;
 
@@ -26,7 +26,11 @@ export const InputField = styled.input`
   font-stretch: normal;
   line-height: 24px;
   letter-spacing: normal;
-  color: #666666;
+  color: ${props => props.theme.colors.palette.black};
+
+  &::placeholder {
+    color: ${props => props.theme.colors.palette.purple.light};
+  }
 
   &:active,
   &:focus {
@@ -48,7 +52,6 @@ export const PrimaryButton = styled.button`
   width: 168px;
   height: 48px;
   border: none;
-  box-shadow: 0 2px 8px 0 rgba(51, 51, 51, 0.25);
 
   font-family: 'Titillium Web', sans-serif;
   font-size: 16px;
@@ -67,7 +70,7 @@ export const PrimaryButton = styled.button`
 
   &:active:enabled {
     background-color: ${props => props.theme.palette.active};
-    box-shadow: inset 0 1px 4px 0 ${props => props.theme.colors.palette.black};
+    box-shadow: inset 0px 1px 4px rgba(51, 51, 51, 0.2485);
   }
 
   &:focus {

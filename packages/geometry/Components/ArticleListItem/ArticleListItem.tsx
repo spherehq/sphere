@@ -11,14 +11,14 @@ const ImagePreview = styled(Box)<{ pic: string; large: boolean }>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 5px;
-  box-shadow: 0px 2px 2px rgba(51, 51, 51, 0.1);
+  border-radius: 3px;
+  box-shadow: 0px 2px 8px rgba(51, 51, 51, 0.2485);
   margin-bottom: 15px;
   width: 85px;
   height: 85px;
 
   ${props => props.theme.breakpoints.up('md')} {
-    box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.1);
+    box-shadow: 0px 2px 8px rgba(51, 51, 51, 0.2485);
     width: ${props => (props.large ? `150px` : `85px`)};
     height: ${props => (props.large ? `140px` : `75px`)};
   }
@@ -30,28 +30,32 @@ const ArticleMetaInline = styled(Box)`
     font-weight: 700;
     line-height: 15px;
     text-transform: uppercase;
-    color: ${props => props.theme.colors.palette.purple.dark};
+    color: ${({ theme }) => theme.colors.palette.purple.dark};
   }
 
   span + span {
     font-weight: 400;
     text-transform: none;
+    color: ${({ theme }) => theme.colors.palette.purple.base};
   }
 `
 
 const StyledLink = styled.a<{ to: string }>`
   display: block;
-  color: ${props => props.theme.palette.primary};
+  color: ${({ theme }) => theme.palette.text};
 
   &:hover,
   &:focus {
-    ${props => props.theme.breakpoints.up('md')} {
+    outline-offset: 0;
+    outline: none;
+
+    ${({ theme }) => theme.breakpoints.up('md')} {
       text-decoration: none;
 
       h3 {
-        color: ${props => props.theme.colors.palette.blue.dark};
+        color: ${({ theme }) => theme.colors.palette.blue.dark};
         text-decoration: underline;
-        text-decoration-color: ${props => props.theme.colors.palette.blue.base};
+        text-decoration-color: ${({ theme }) => theme.colors.palette.blue.base};
       }
     }
   }
@@ -60,6 +64,7 @@ const StyledLink = styled.a<{ to: string }>`
 const SummaryText = styled.p`
   font-size: 14px;
   line-height: 16px;
+  letter-spacing: -0.2px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

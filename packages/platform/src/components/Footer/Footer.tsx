@@ -32,75 +32,72 @@ const IconLink = styled.a`
 
 export const Footer: React.FC<{}> = () => (
   <StyledFooter>
-    <Box py={[6, 6, 9]}>
-      <Container limitWidth>
-        <Grid gap>
-          <Box mt={6} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
-            <Box mb={8}>
-              <Divider />
-            </Box>
-            <Box width={{ xs: 1, md: '80%', lg: 2 / 3 }}>
-              <h3>Would you like to try it?</h3>
-              <p style={{ fontSize: '16px' }}>
-                We’re launching a private beta in <strong>Q2 2019</strong>, free
-                for anyone interested, with a full release of the platform later
-                in 2019.
-              </p>
-              <FormWrapper>
-                <InputField
-                  id="email"
-                  type="email"
-                  placeholder="Email address"
-                />
-                <PrimaryButton>Notify me</PrimaryButton>
-              </FormWrapper>
-              <p style={{ fontSize: '12px', lineHeight: '28px', opacity: 0.8 }}>
-                We promise to send you only updates about our launch, nothing
-                more.
-              </p>
-            </Box>
+    <Container limitWidth>
+      <Grid gap py={[6, 6, 6]}>
+        <Box mt={6} width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}>
+          <Box width={{ xs: 1, md: '80%', lg: 2 / 3 }}>
+            <h3>Would you like to try it?</h3>
+            <p style={{ fontSize: '16px' }}>
+              We’re launching a private beta in <strong>Q2 2019</strong>, free
+              for anyone interested, with a full release of the platform later
+              in 2019.
+            </p>
+            <FormWrapper>
+              <InputField id="email" type="email" placeholder="Email address" />
+              <PrimaryButton>Notify me</PrimaryButton>
+            </FormWrapper>
+            <p
+              style={{
+                fontSize: '12px',
+                lineHeight: '28px',
+                opacity: 0.8,
+              }}
+            >
+              We promise to send you only updates about our launch, nothing
+              more.
+            </p>
           </Box>
-          <Box
-            mt={{ xs: 4, md: 9, lg: 9 }}
-            width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}
-          >
-            <Box style={{ marginTop: '10px' }}>
-              <LinkList linkAs={Link} />
-            </Box>
-            <Flex justifyContent="flex-end">
-              <Grid gap mt={8}>
-                <Box>
-                  <IconLink
-                    href="https://github.com/spherehq"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <Github width="24" />
-                  </IconLink>
-                </Box>
-                <Box>
-                  <IconLink
-                    href="https://twitter.com/fullstopmediahq"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <Twitter width="24" />
-                  </IconLink>
-                </Box>
-                <Box>
-                  <IconLink
-                    href="https://spectrum.chat/sphere"
-                    rel="noopener"
-                    target="_blank"
-                  >
-                    <Icon glyph="logo" size={24} />
-                  </IconLink>
-                </Box>
-              </Grid>
-            </Flex>
+        </Box>
+        <Box
+          mt={{ xs: 4, md: 9, lg: 9 }}
+          width={{ xs: 1, md: 1 / 2, lg: 1 / 2 }}
+        >
+          <Box style={{ marginTop: '10px' }}>
+            <LinkList linkAs={Link} />
           </Box>
-        </Grid>
-      </Container>
-    </Box>
+          <Flex justifyContent="flex-end">
+            <Grid gap mt={8}>
+              <Box>
+                <IconLink
+                  href="https://github.com/spherehq"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <Github width="24" />
+                </IconLink>
+              </Box>
+              <Box>
+                <IconLink
+                  href="https://twitter.com/fullstopmediahq"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <Twitter width="24" />
+                </IconLink>
+              </Box>
+              <Box>
+                <IconLink
+                  href="https://spectrum.chat/sphere"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <Icon glyph="logo" size={24} />
+                </IconLink>
+              </Box>
+            </Grid>
+          </Flex>
+        </Box>
+      </Grid>
+    </Container>
   </StyledFooter>
 )
