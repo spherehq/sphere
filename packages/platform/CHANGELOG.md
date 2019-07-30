@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.10](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.9...@spherehq/platform@0.22.10) (2019-07-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @blueprintjs/icons to v3.10.0 ([2ba273b](https://github.com/spherehq/sphere/commit/2ba273b))
+
+
+
+
+
 ## [0.22.9](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.8...@spherehq/platform@0.22.9) (2019-07-30)
 
 
