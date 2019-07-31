@@ -8,10 +8,6 @@ import { Container } from '@spherehq/geometry/Components/Container'
 
 const StyledContainer = styled(Container)`
   padding: 32px;
-
-  ${props => props.theme.breakpoints.up('md')} {
-    padding: 64px 32px;
-  }
 `
 
 const DefaultTemplatePage = ({ data }) => {

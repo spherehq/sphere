@@ -37,14 +37,7 @@ const HeroHeading = styled.h1`
 
 const BoxWithShadow = styled(Box)`
   box-shadow: 0px 2px 8px rgba(51, 51, 51, 0.2485);
-  transition: box-shadow 0.5s ease-in-out 0s;
   border-radius: 3px;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0px 15px 40px rgba(51, 51, 51, 0.15);
-    border-radius: 3px;
-  }
 `
 
 const MissionHeading = styled(SubHeading)`
@@ -55,11 +48,6 @@ const MissionHeading = styled(SubHeading)`
 const MissonCard = styled(BoxWithShadow)`
   text-align: center;
 
-  &:focus {
-    outline: ${props => props.theme.colors.palette.purple.base} dotted 2px;
-    outline-offset: 5px;
-  }
-
   p {
     font-size: 16px;
   }
@@ -67,10 +55,6 @@ const MissonCard = styled(BoxWithShadow)`
 
 const StyledContainer = styled(Container)`
   padding: 32px;
-
-  ${props => props.theme.breakpoints.up('md')} {
-    padding: 64px 32px;
-  }
 `
 
 export default () => (

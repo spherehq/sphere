@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleInterface>`
     color: ${colorValue('text')};
     margin: 0;
     ${typography('body')}
+    letter-spacing: -0.2px;
 
   a {
     color: ${colorValue('cta')};

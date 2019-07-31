@@ -3,319 +3,203 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.12.19](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.18...@spherehq/api@0.12.19) (2019-07-22)
+## [0.12.25](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.24...@spherehq/api@0.12.25) (2019-07-30)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.8.0 ([5f78bdd](https://github.com/spherehq/sphere/commit/5f78bdd))
+
+## [0.12.24](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.23...@spherehq/api@0.12.24) (2019-07-29)
 
 **Note:** Version bump only for package @spherehq/api
 
+## [0.12.23](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.22...@spherehq/api@0.12.23) (2019-07-28)
 
+**Note:** Version bump only for package @spherehq/api
 
+## [0.12.22](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.21...@spherehq/api@0.12.22) (2019-07-27)
 
+### Bug Fixes
+
+- **deps:** update dependency graphql-middleware to v3.0.3 ([e5ed4b3](https://github.com/spherehq/sphere/commit/e5ed4b3))
+
+## [0.12.21](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.20...@spherehq/api@0.12.21) (2019-07-27)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.20](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.19...@spherehq/api@0.12.20) (2019-07-25)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.7.1 ([fc7d2db](https://github.com/spherehq/sphere/commit/fc7d2db))
+
+## [0.12.19](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.18...@spherehq/api@0.12.19) (2019-07-22)
+
+**Note:** Version bump only for package @spherehq/api
 
 ## [0.12.18](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.17...@spherehq/api@0.12.18) (2019-07-22)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.17](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.16...@spherehq/api@0.12.17) (2019-07-17)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.16](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.15...@spherehq/api@0.12.16) (2019-07-16)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.7.0 ([8dae010](https://github.com/spherehq/sphere/commit/8dae010))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.7.0 ([8dae010](https://github.com/spherehq/sphere/commit/8dae010))
 
 ## [0.12.15](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.14...@spherehq/api@0.12.15) (2019-07-16)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.14](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.13...@spherehq/api@0.12.14) (2019-07-14)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency dotenv-cli to v2.0.1 ([34919b1](https://github.com/spherehq/sphere/commit/34919b1))
-
-
-
-
+- **deps:** update dependency dotenv-cli to v2.0.1 ([34919b1](https://github.com/spherehq/sphere/commit/34919b1))
 
 ## [0.12.13](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.12...@spherehq/api@0.12.13) (2019-07-12)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.12](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.11...@spherehq/api@0.12.12) (2019-07-11)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.9 ([b647db6](https://github.com/spherehq/sphere/commit/b647db6))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.9 ([b647db6](https://github.com/spherehq/sphere/commit/b647db6))
 
 ## [0.12.11](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.10...@spherehq/api@0.12.11) (2019-07-09)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.8 ([ba601c9](https://github.com/spherehq/sphere/commit/ba601c9))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.8 ([ba601c9](https://github.com/spherehq/sphere/commit/ba601c9))
 
 ## [0.12.10](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.9...@spherehq/api@0.12.10) (2019-07-08)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.9](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.8...@spherehq/api@0.12.9) (2019-07-05)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.5.0 ([f7dcf00](https://github.com/spherehq/sphere/commit/f7dcf00))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.5.0 ([f7dcf00](https://github.com/spherehq/sphere/commit/f7dcf00))
 
 ## [0.12.8](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.7...@spherehq/api@0.12.8) (2019-07-03)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.7](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.6...@spherehq/api@0.12.7) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.12.6](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.5...@spherehq/api@0.12.6) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.5](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.4...@spherehq/api@0.12.5) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.3...@spherehq/api@0.12.4) (2019-06-26)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.7 ([e4592dc](https://github.com/spherehq/sphere/commit/e4592dc))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.7 ([e4592dc](https://github.com/spherehq/sphere/commit/e4592dc))
 
 ## [0.12.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.2...@spherehq/api@0.12.3) (2019-06-25)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.12.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.1...@spherehq/api@0.12.2) (2019-06-25)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.6 ([d47920b](https://github.com/spherehq/sphere/commit/d47920b))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.6 ([d47920b](https://github.com/spherehq/sphere/commit/d47920b))
 
 ## [0.12.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.0...@spherehq/api@0.12.1) (2019-06-25)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 # [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.11.4...@spherehq/api@0.12.0) (2019-06-25)
-
 
 ### Features
 
-* updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
-
-
-
-
+- updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
 
 ## [0.11.4](https://github.com/spherehq/sphere/compare/@spherehq/api@0.11.3...@spherehq/api@0.11.4) (2019-06-25)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.5 ([aaa66ff](https://github.com/spherehq/sphere/commit/aaa66ff))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.5 ([aaa66ff](https://github.com/spherehq/sphere/commit/aaa66ff))
 
 ## [0.11.3](https://github.com/spherehq/sphere/compare/@spherehq/api@0.11.2...@spherehq/api@0.11.3) (2019-06-25)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 ## [0.11.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.11.1...@spherehq/api@0.11.2) (2019-06-24)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.11.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.11.0...@spherehq/api@0.11.1) (2019-06-22)
 
 **Note:** Version bump only for package @spherehq/api
 
-
-
-
-
 # [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.10.2...@spherehq/api@0.11.0) (2019-06-21)
-
 
 ### Bug Fixes
 
-* **deps:** pin dependency typescript to 3.5.2 ([8b20f4b](https://github.com/spherehq/sphere/commit/8b20f4b))
-
+- **deps:** pin dependency typescript to 3.5.2 ([8b20f4b](https://github.com/spherehq/sphere/commit/8b20f4b))
 
 ### Features
 
-* added docker and k8s support for deployment of api [skip ci] ([22c3a60](https://github.com/spherehq/sphere/commit/22c3a60))
-
-
-
-
+- added docker and k8s support for deployment of api [skip ci](<[22c3a60](https://github.com/spherehq/sphere/commit/22c3a60)>)
 
 ## [0.10.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.10.1...@spherehq/api@0.10.2) (2019-06-21)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.4.3 ([e2373a9](https://github.com/spherehq/sphere/commit/e2373a9))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.4.3 ([e2373a9](https://github.com/spherehq/sphere/commit/e2373a9))
 
 ## [0.10.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.10.0...@spherehq/api@0.10.1) (2019-06-20)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency apollo-server to v2.6.4 ([9ef22c9](https://github.com/spherehq/sphere/commit/9ef22c9))
-
-
-
-
+- **deps:** update dependency apollo-server to v2.6.4 ([9ef22c9](https://github.com/spherehq/sphere/commit/9ef22c9))
 
 # [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.9.1...@spherehq/api@0.10.0) (2019-06-20)
 
-
 ### Features
 
-* updated api resolvers to allow nested params ([35b3ecf](https://github.com/spherehq/sphere/commit/35b3ecf))
-
-
-
-
+- updated api resolvers to allow nested params ([35b3ecf](https://github.com/spherehq/sphere/commit/35b3ecf))
 
 ## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.9.0...@spherehq/api@0.9.1) (2019-06-20)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency @sentry/node to v5.4.2 ([e1dc8af](https://github.com/spherehq/sphere/commit/e1dc8af))
-
-
-
-
+- **deps:** update dependency @sentry/node to v5.4.2 ([e1dc8af](https://github.com/spherehq/sphere/commit/e1dc8af))
 
 # [0.9.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.8.0...@spherehq/api@0.9.0) (2019-06-20)
 
-
 ### Features
 
-* added sphere account schema and resolver for nested args ([5130c77](https://github.com/spherehq/sphere/commit/5130c77))
-
-
-
-
+- added sphere account schema and resolver for nested args ([5130c77](https://github.com/spherehq/sphere/commit/5130c77))
 
 # [0.8.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.2...@spherehq/api@0.8.0) (2019-06-19)
 
-
 ### Bug Fixes
 
-* **deps:** pin dependency ts-node to 8.3.0 ([ecf5114](https://github.com/spherehq/sphere/commit/ecf5114))
-
+- **deps:** pin dependency ts-node to 8.3.0 ([ecf5114](https://github.com/spherehq/sphere/commit/ecf5114))
 
 ### Features
 
-* updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
-
-
-
-
+- updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
 
 ## [0.7.2](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.1...@spherehq/api@0.7.2) (2019-06-17)
 
 **Note:** Version bump only for package @spherehq/api
-
-
-
-
 
 ## [0.7.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.7.0...@spherehq/api@0.7.1) (2019-06-13)
 

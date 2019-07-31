@@ -1,6 +1,6 @@
 <img src="./sphere-logo.png">
 
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![Maintainability](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/maintainability)](https://codeclimate.com/github/spherehq/sphere/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/test_coverage)](https://codeclimate.com/github/spherehq/sphere/test_coverage)[![CircleCI](https://circleci.com/gh/spherehq/sphere.svg?style=svg)](https://circleci.com/gh/spherehq/sphere)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![Maintainability](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/maintainability)](https://codeclimate.com/github/spherehq/sphere/maintainability)[![CodeFactor](https://www.codefactor.io/repository/github/spherehq/sphere/badge)](https://www.codefactor.io/repository/github/spherehq/sphere) [![Test Coverage](https://api.codeclimate.com/v1/badges/a88399d1da7c5697b4c7/test_coverage)](https://codeclimate.com/github/spherehq/sphere/test_coverage)[![CircleCI](https://circleci.com/gh/spherehq/sphere.svg?style=svg)](https://circleci.com/gh/spherehq/sphere)
 
  <h3 align="center">where communities gather around content</h3>
 
@@ -43,7 +43,7 @@ We use lerna's `--conventional-commits` option and follow the semver convention.
 
 Some packages such as `platform`, `api` and `database` are/require servers which need additional steps such as building docker images or deploying to Amazon services.
 
-You can understand more about our CI/CD process by viewing the [config file](.circleci/config.yml)
+You can understand more about our CI/CD process by viewing the [config file](ci/pipeline.yaml)
 
 ## Contributing
 

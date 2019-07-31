@@ -30,14 +30,16 @@ const ImageBackground = styled(Box)`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-top-right-radius: 0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border-bottom-right-radius: 0;
   height: 100%;
   width: 100%;
 
   ${props => props.theme.breakpoints.up('lg')} {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 0;
   }
 `
 
@@ -52,14 +54,17 @@ const ImageBox = styled(Box)`
   }
 `
 
-const StyledFlex = styled(Flex)`
-  box-shadow: 0px 2px 5px rgba(51, 51, 51, 0.1);
-  height: 450px;
+const FeaturedArticle = styled(Flex)`
+  box-shadow: rgba(51, 51, 51, 0.1) 0px 2px 5px;
+  border: 1px solid ${({ theme }) => theme.colors.palette.purple.lightest};
   border-radius: 5px;
+  height: 450px;
+
   position: relative;
   overflow: hidden;
 
   ${props => props.theme.breakpoints.up('lg')} {
+    border-radius: 3px;
     height: 285px;
   }
 `
@@ -67,14 +72,25 @@ const StyledFlex = styled(Flex)`
 const ContentBox = styled(Box)`
   background-color: white;
   border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   order: 2;
   padding: 16px;
 
   ${props => props.theme.breakpoints.up('lg')} {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     order: 1;
+  }
+
+  h5,
+  h2,
+  p {
+    color: ${({ theme }) => theme.palette.text};
+  }
+
+  h5 {
+    color: ${({ theme }) => theme.colors.palette.purple.base};
   }
 `
 
@@ -84,19 +100,20 @@ const StyledPublishedAtBox = styled(Box)`
     font-weight: 700;
     line-height: 15px;
     text-transform: uppercase;
-    color: #666666;
+    color: ${({ theme }) => theme.colors.palette.purple.dark};
   }
 
   span + span {
     font-weight: 400;
     text-transform: none;
+    color: ${({ theme }) => theme.colors.palette.purple.base};
   }
 `
 
 const StyledSignup = styled(Box)`
   background-color: rgba(236, 236, 236, 0.9);
   box-shadow: none;
-  color: ${props => props.theme.colors.palette.black};
+  color: ${({ theme }) => theme.palette.text};
   border-radius: 0;
   width: 100vw;
   height: fit-content;
@@ -127,7 +144,7 @@ const StyledSignup = styled(Box)`
 
   h3,
   p {
-    color: ${props => props.theme.colors.palette.black};
+    color: ${({ theme }) => theme.palette.text};
   }
 
   ${FormWrapper} {
@@ -141,18 +158,56 @@ const StyledSignup = styled(Box)`
 `
 
 const FollowButton = styled.button`
-  border: 1px solid ${props => props.theme.colors.palette.purple.light};
-  border-radius: 5px;
-  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.colors.palette.purple.base};
+  color: ${({ theme }) => theme.palette.textAlternative};
+  border-radius: 2px;
+  border: 2px solid transparent;
+  padding: 7px 15px;
   margin-top: 20px;
 
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+
+  outline-offset: 0;
+  outline: none;
+
   &:hover,
-  &:focus,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.palette.purple.dark};
+  }
+
+  &:focus:enabled {
+    border: 2px solid ${({ theme }) => theme.colors.palette.purple.dark};
+  }
+
   &:active {
-    border: 1px solid ${props => props.theme.colors.palette.blue.dark};
-    color: ${props => props.theme.colors.palette.blue.dark};
+    background-color: ${({ theme }) => theme.colors.palette.purple.dark};
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.297554);
+  }
+
+  &:disabled {
+    opacity: 0.3;
   }
 `
+
+const FollowAuthor = () => {
+  const [isFollowing, setFollowStatus] = React.useState<boolean>(false)
+
+  return (
+    <FollowButton
+      type="button"
+      onClick={() => {
+        setFollowStatus(isFollowing ? false : true)
+      }}
+    >
+      {isFollowing ? `Following` : `Follow`}
+    </FollowButton>
+  )
+}
 
 const ArticleList = styled(Flex)`
   li {
@@ -197,7 +252,9 @@ export default () => (
         width={{ xs: 1, md: 1, lg: '80%', xl: '70%' }}
         pr={{ xs: 0, md: 8, lg: 8 }}
       >
-        <StyledFlex flexDirection={{ xs: 'column', md: 'column', lg: 'row' }}>
+        <FeaturedArticle
+          flexDirection={{ xs: 'column', md: 'column', lg: 'row' }}
+        >
           <ContentBox
             width={{ xs: 1, md: 1, lg: '40%' }}
             px={{ xs: 6, md: 6, lg: 8 }}
@@ -239,9 +296,9 @@ export default () => (
             </Flex>
           </ContentBox>
           <ImageBox width={{ xs: 1, md: 1, lg: '60%' }}>
-            <ImageBackground></ImageBackground>
+            <ImageBackground />
           </ImageBox>
-        </StyledFlex>
+        </FeaturedArticle>
       </Box>
       <Box
         width={{ xs: 1, md: 1, lg: '20%', xl: '30%' }}
@@ -308,7 +365,7 @@ export default () => (
               mini={false}
               imageUrl={`https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/62594329_10161960235125541_6695466780212592640_n.jpg?_nc_cat=109&_nc_oc=AQk3wyjbSS718_4vRRe5fJiznX264QZmPiloy6VG4VTxGLdn9cTfgRT_7pHQkplIRWI&_nc_ht=scontent-lhr3-1.xx&oh=9ef933443fdaf55926e77cd43c9fd199&oe=5DB28F5E`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -322,7 +379,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/20.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -336,7 +393,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/men/8.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -350,7 +407,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/2.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -364,7 +421,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/94.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
           <Author
             alignItems="center"
@@ -378,7 +435,7 @@ export default () => (
               mini={false}
               imageUrl={`https://randomuser.me/api/portraits/women/91.jpg`}
             />
-            <FollowButton type="button">Follow</FollowButton>
+            <FollowAuthor />
           </Author>
         </Grid>
       </Box>
