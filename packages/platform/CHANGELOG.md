@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.16](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.15...@spherehq/platform@0.22.16) (2019-08-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-react-helmet to v3.1.3 ([3ec6193](https://github.com/spherehq/sphere/commit/3ec6193))
+
+
+
+
+
 ## [0.22.15](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.14...@spherehq/platform@0.22.15) (2019-08-01)
 
 
