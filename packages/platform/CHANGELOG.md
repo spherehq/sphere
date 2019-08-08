@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.22](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.21...@spherehq/platform@0.22.22) (2019-08-08)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo to v16.9.0 ([afd0497](https://github.com/spherehq/sphere/commit/afd0497))
+
+
+
+
+
 ## [0.22.21](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.20...@spherehq/platform@0.22.21) (2019-08-08)
 
 
