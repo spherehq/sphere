@@ -3,6 +3,6 @@
   "version": "0.1.4",
   "peerDependencies": {
     "gatsby-plugin-page-creator": "2.1.5",
-    "gatsby-source-graphql": "2.1.4"
+    "gatsby-source-graphql": "2.1.5"
   }
 }
