@@ -18,7 +18,7 @@
     "@blueprintjs/icons": "3.10.0",
     "@spherehq/gatsby-theme-spheres": "^0.1.5",
     "@spherehq/geometry": "^0.12.1",
-    "apollo-boost": "0.4.3",
+    "apollo-boost": "0.4.4",
     "apollo-cache-persist": "0.1.1",
     "date-fns": "2.0.0-beta.4",
     "dotenv-cli": "2.0.1",
