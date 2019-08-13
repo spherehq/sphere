@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.35](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.34...@spherehq/api@0.12.35) (2019-08-13)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.34](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.33...@spherehq/api@0.12.34) (2019-08-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.33](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.32...@spherehq/api@0.12.33) (2019-08-08)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.6.1 ([4c2d149](https://github.com/spherehq/sphere/commit/4c2d149))
+
+## [0.12.32](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.31...@spherehq/api@0.12.32) (2019-08-08)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.31](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.30...@spherehq/api@0.12.31) (2019-08-07)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.6.0 ([09be0dd](https://github.com/spherehq/sphere/commit/09be0dd))
+
+## [0.12.30](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.29...@spherehq/api@0.12.30) (2019-08-07)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.29](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.28...@spherehq/api@0.12.29) (2019-08-06)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.28](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.27...@spherehq/api@0.12.28) (2019-08-05)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.27](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.26...@spherehq/api@0.12.27) (2019-08-05)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.26](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.25...@spherehq/api@0.12.26) (2019-07-31)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.8.1 ([3a16c21](https://github.com/spherehq/sphere/commit/3a16c21))
+
 ## [0.12.25](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.24...@spherehq/api@0.12.25) (2019-07-30)
 
 ### Bug Fixes
