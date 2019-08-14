@@ -9468,10 +9468,10 @@ graphql-middleware-sentry@3.2.0:
   resolved "https://registry.yarnpkg.com/graphql-middleware-sentry/-/graphql-middleware-sentry-3.2.0.tgz#a72872ae4b9fbe286980023a3c531286b8258df7"
   integrity sha512-tIrxJIL+MRh2pxoot+EYJIrFfPgB3OF4nqmmh1gi54q/V1rgv7w46Ahn2jgl2nTu4bKw6mtGVF4CKikWCMPa5Q==
 
-graphql-middleware@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-3.0.3.tgz#58cbce80892fb933d72794447f33f978fc743aa5"
-  integrity sha512-Os8Vt25MqqwIPJUCCcHznzs6EqarGmM0kkNPUiDnMEkX6vqjA+HugCWatinP+7+fqBqecFUsJmoL4ZypdqZZkg==
+graphql-middleware@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-3.0.5.tgz#8cbce45ce4be95bd4600ffe5332e1936ec721e10"
+  integrity sha512-84HBmvJlMKxgavbygbRgn2i1fOSrZ7KhxWToWDpe4xOgnWxGb5WY1rwRIkyK25ajh4qRwLtGPbBxtClzwGngCQ==
   dependencies:
     graphql-tools "^4.0.5"
 
