@@ -1,28 +1,58 @@
-import { app, BrowserWindow } from 'electron'
+import electron, { app, BrowserWindow, Menu } from 'electron'
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-// if (require('electron-squirrel-startup')) {
-//   // eslint-disable-line global-require
-//   app.quit()
-// }
+import Store from 'electron-store'
+
+// @TODO defaults aren't working here
+const config = new Store({
+  defaults: { preferences: { openAtLogin: true, syncAsDraft: true } },
+})
+
+config.onDidChange('preferences.openAtLogin', newValue => {
+  app.setLoginItemSettings({
+    // @ts-ignore
+    openAtLogin: newValue,
+  })
+})
+
+const path = require('path')
+const pkg = require(`../../package.json`)
+
+app.setName('Sphere')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+let tray
 
-app.dock.hide()
+if (process.platform === 'darwin') {
+  // app.dock.hide()
+}
+
+// Chrome Command Line Switches
+app.commandLine.appendSwitch('disable-renderer-backgrounding')
 
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 330,
+    height: 380,
+    title: 'Sphere',
+    resizable: false,
+    show: false,
+    fullscreenable: false,
+    maximizable: false,
+    minimizable: false,
+    transparent: false,
+    frame: false,
+    movable: false,
     webPreferences: {
+      // @ts-ignore
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   })
 
   // and load the index.html of the app.
+  // @ts-ignore
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
   // Open the DevTools.
@@ -30,34 +60,119 @@ const createWindow = () => {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  mainWindow.setVisibleOnAllWorkspaces(true)
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+app.on('ready', () => {
+  try {
+    tray = new electron.Tray(
+      path.resolve(app.getAppPath(), `./src/main/static/iconTemplate.png`),
+    )
+
+    const preferences = config.get('preferences') as {
+      openAtLogin: boolean
+      syncAsDraft: boolean
+    }
+
+    app.setLoginItemSettings({
+      openAtLogin: preferences.openAtLogin,
+    })
+
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: 'Sign in / Create account',
+        type: 'normal',
+        click: () => {
+          const isVisible = mainWindow.isVisible()
+          const isWin = process.platform === 'win32'
+
+          if (!isWin && isVisible && !mainWindow.isFocused()) {
+            mainWindow.focus()
+            return
+          }
+
+          if (isVisible) {
+            mainWindow.hide()
+          } else {
+            mainWindow.webContents.send('window-opening')
+            mainWindow.show()
+          }
+        },
+      },
+      // {
+      //   label: 'Account',
+      //   submenu: [
+      //     { label: 'Spheres', type: 'normal', enabled: false },
+      //     { label: 'jjaybrown', type: 'normal', enabled: true },
+      //     { type: 'separator' },
+      //     { label: 'Sign out', type: 'normal' },
+      //   ],
+      // },
+      { type: 'separator' },
+      {
+        label: 'Preferences',
+        submenu: [
+          {
+            label: 'Open at login',
+            type: 'checkbox',
+            checked: preferences.openAtLogin,
+            click: () => {
+              config.set('preferences.openAtLogin', !preferences.openAtLogin)
+            },
+          },
+          {
+            label: 'Always sync as draft',
+            type: 'checkbox',
+            checked: preferences.syncAsDraft,
+            click: () => {
+              config.set('preferences.syncAsDraft', !preferences.syncAsDraft)
+            },
+            enabled: false,
+          },
+          {
+            label: 'Always sync new content',
+            type: 'checkbox',
+            checked: true,
+            enabled: false,
+          },
+        ],
+      },
+      { type: 'separator' },
+      { label: 'Last sync: never', type: 'normal', enabled: false },
+      { label: 'Sync now', type: 'normal', enabled: false },
+      { type: 'separator' },
+      { label: `Sphere v${pkg.version}`, type: 'normal', enabled: false },
+      { label: 'Check for updates...', type: 'normal' },
+      { type: 'separator' },
+      { label: 'Quit Sphere', type: 'normal', enabled: true, role: 'quit' },
+    ])
+    tray.setContextMenu(contextMenu)
+  } catch (error) {
+    return
+  }
+})
+
+// Only allow one instance at the same time to run
+const gotInstanceLock = app.requestSingleInstanceLock()
+
+if (!gotInstanceLock) {
+  app.exit()
+}
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.

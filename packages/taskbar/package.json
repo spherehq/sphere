@@ -6,6 +6,7 @@
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
   "main": "./.webpack/main",
+  "private": true,
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -60,9 +61,12 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "app-root-path": "^2.2.1",
     "electron-devtools-installer": "^2.1.0",
+    "electron-positioner": "^4.1.0",
     "electron-squirrel-startup": "^1.0.0",
-    "react": "^15.4.1",
+    "electron-store": "^4.0.0",
+    "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.8",
     "tslib": "^1.4.0"
@@ -78,6 +82,7 @@
     "@electron-forge/maker-zip": "6.0.0-beta.43",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.43",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "@types/app-root-path": "^1.2.4",
     "@types/babel__core": "^7.1.2",
     "@types/electron-devtools-installer": "^2.0.2",
     "@types/react": "^0.14.55",
@@ -94,5 +99,13 @@
   },
   "bugs": {
     "url": "https://github.com/spherehq/sphere/issues/new?labels=packages:taskbar,bug"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**/electron",
+      "**/electron/**",
+      "**/electron-store",
+      "**/electron-store/**"
+    ]
   }
 }

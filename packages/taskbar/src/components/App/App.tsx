@@ -1,3 +1,3 @@
-import * as React from 'react'
+import React from 'react'
 
 export const App = () => <h1>Hello there</h1>
