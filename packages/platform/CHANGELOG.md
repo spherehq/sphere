@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.39](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.38...@spherehq/platform@0.22.39) (2019-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.0.0-beta.5 ([a505703](https://github.com/spherehq/sphere/commit/a505703))
+
+
+
+
+
 ## [0.22.38](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.37...@spherehq/platform@0.22.38) (2019-08-16)
 
 
