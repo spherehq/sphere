@@ -4,6 +4,11 @@ enum AccountStatus {
   INACTIVE
 }
 
+type Credential {
+  id: ID! @id
+  secret: String!
+}
+
 type Account {
   id: ID! @id
   status: AccountStatus! @default(value: INACTIVE)
@@ -15,4 +20,5 @@ type Account {
   spheres: [Sphere!]
     @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
   posts: [Post!]!
+  credential: Credential! @relation(name: "AccountCredential", onDelete: CASCADE)
 }
