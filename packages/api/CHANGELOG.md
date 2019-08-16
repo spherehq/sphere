@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.40](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.39...@spherehq/api@0.12.40) (2019-08-15)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.39](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.38...@spherehq/api@0.12.39) (2019-08-14)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.38](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.37...@spherehq/api@0.12.38) (2019-08-14)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql-middleware to v3.0.5 ([f35e19b](https://github.com/spherehq/sphere/commit/f35e19b))
+
+## [0.12.37](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.36...@spherehq/api@0.12.37) (2019-08-14)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.36](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.35...@spherehq/api@0.12.36) (2019-08-13)
+
+**Note:** Version bump only for package @spherehq/api
+
 ## [0.12.35](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.34...@spherehq/api@0.12.35) (2019-08-13)
 
 **Note:** Version bump only for package @spherehq/api
