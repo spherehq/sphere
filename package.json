@@ -37,7 +37,7 @@
     "@types/styled-components": "4.1.18",
     "commitlint": "8.1.0",
     "dotenv": "8.0.0",
-    "husky": "3.0.3",
+    "husky": "3.0.4",
     "lerna": "3.16.4",
     "lint-staged": "8.2.1",
     "prettier": "1.18.2",
