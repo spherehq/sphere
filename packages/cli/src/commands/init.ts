@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command'
 import { cli } from 'cli-ux'
-import { prisma } from '@spherehq/database'
+import { client } from '@spherehq/api'
 
 import * as EmailValidator from 'email-validator'
 import * as inquirer from 'inquirer'
@@ -21,7 +21,7 @@ const captureData = async (): Promise<{
       message: `What would you like your sphere alias to be? We'll use this to create a unique space for you and your content...`,
       type: 'input',
       validate: async input => {
-        return (await prisma.$exists.sphere({ alias: slugify(input) }))
+        return (await client.exists.sphere({ alias: slugify(input) }))
           ? `Unfortunately ${input} is not available`
           : true
       },
@@ -118,7 +118,7 @@ export default class Sync extends Command {
             message: `What is the alias of the sphere you wish to connect to?`,
             type: 'input',
             validate: async input => {
-              return (await prisma.$exists.sphere({ alias: input }))
+              return (await client.exists.sphere({ alias: input }))
                 ? true
                 : `Unfortunately ${input} does not exist`
             },
@@ -128,7 +128,7 @@ export default class Sync extends Command {
             message: `What is the email address you used to create the sphere?`,
             type: 'input',
             validate: async input => {
-              return (await prisma.$exists.account({ emailAddress: input }))
+              return (await client.exists.account({ emailAddress: input }))
                 ? true
                 : `Unfortunately ${input} isn't associated with this sphere`
             },

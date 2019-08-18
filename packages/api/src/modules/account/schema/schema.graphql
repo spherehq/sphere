@@ -1,4 +1,4 @@
-# import SphereWhereUniqueInput, SphereWhereInput, SphereOrderByInput, Sphere from './../../../../schema/generated/prisma.graphql'
+# import SphereWhereUniqueInput, SphereWhereInput, SphereOrderByInput, Sphere, AccountWhereInput, Account from './../../../../schema/generated/prisma.graphql'
 
 type Query {
   spheres(
@@ -11,4 +11,5 @@ type Query {
     last: Int
   ): [Sphere]!
   sphere(where: SphereWhereUniqueInput!): Sphere
+  account(where: AccountWhereUniqueInput!): Account
 }

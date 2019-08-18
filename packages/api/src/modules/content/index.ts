@@ -1,5 +1,5 @@
 import { importSchema } from 'graphql-import'
-import { PostsResolver, PostResolver } from './resolvers'
+import { PostsResolver, PostResolver, MediaResolver } from './resolvers'
 import { gql, makeExecutableSchema } from 'apollo-server'
 
 const typeDefs = gql(importSchema(`${__dirname}/schema/schema.graphql`))
@@ -9,12 +9,7 @@ const resolvers = {
     post: PostResolver,
   },
   Mutation: {
-    mediaUpload: (_, args) => {
-      return args.file.then(file => {
-        console.log(file)
-        return ''
-      })
-    },
+    mediaUpload: MediaResolver,
   },
 }
 

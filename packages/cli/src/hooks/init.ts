@@ -1,6 +1,6 @@
 import { Hook } from '@oclif/config'
 import { CLIError } from '@oclif/errors'
-import { prisma } from '@spherehq/database'
+import { client } from '@spherehq/api'
 
 import * as inquirer from 'inquirer'
 import * as path from 'path'
@@ -28,7 +28,7 @@ const hook: Hook<'init'> = async function(options) {
       path.join(this.config.configDir, `config.json`),
     )
     try {
-      const exists = await prisma.$exists.sphere({ alias })
+      const exists = await client.exists.sphere({ alias })
 
       switch (options.id) {
         case commands.INIT:

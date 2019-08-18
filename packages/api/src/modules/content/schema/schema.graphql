@@ -16,5 +16,5 @@ type Query {
 }
 
 type Mutation {
-  mediaUpload(file: Upload!): String!
+  mediaUpload(file: Upload!): Media
 }
