@@ -32,7 +32,7 @@
     "@types/dotenv": "6.1.1",
     "@types/prettier": "1.18.2",
     "@types/react": "16.9.2",
-    "@types/react-dom": "16.8.5",
+    "@types/react-dom": "16.9.0",
     "@types/react-helmet": "5.0.9",
     "@types/styled-components": "4.1.18",
     "commitlint": "8.1.0",
