@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.55](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.54...@spherehq/api@0.12.55) (2019-08-30)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.2 ([1a80337](https://github.com/spherehq/sphere/commit/1a80337))
+
+## [0.12.54](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.53...@spherehq/api@0.12.54) (2019-08-30)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.53](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.52...@spherehq/api@0.12.53) (2019-08-28)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.1 ([2839a73](https://github.com/spherehq/sphere/commit/2839a73))
+
+## [0.12.52](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.51...@spherehq/api@0.12.52) (2019-08-28)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.51](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.50...@spherehq/api@0.12.51) (2019-08-26)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.50](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.49...@spherehq/api@0.12.50) (2019-08-26)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.49](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.48...@spherehq/api@0.12.49) (2019-08-26)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.48](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.47...@spherehq/api@0.12.48) (2019-08-23)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.47](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.46...@spherehq/api@0.12.47) (2019-08-23)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.46](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.45...@spherehq/api@0.12.46) (2019-08-23)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.45](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.44...@spherehq/api@0.12.45) (2019-08-23)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.0 ([36c2268](https://github.com/spherehq/sphere/commit/36c2268))
+
 ## [0.12.44](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.43...@spherehq/api@0.12.44) (2019-08-20)
 
 ### Bug Fixes
