@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.56](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.55...@spherehq/api@0.12.56) (2019-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency apollo-server to v2.9.3 ([596b59b](https://github.com/spherehq/sphere/commit/596b59b))
+
+
+
+
+
 ## [0.12.55](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.54...@spherehq/api@0.12.55) (2019-08-30)
 
 
