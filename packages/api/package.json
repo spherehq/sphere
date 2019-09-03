@@ -34,7 +34,7 @@
     "apollo": "2.18.0",
     "dotenv": "8.1.0",
     "dotenv-cli": "2.0.1",
-    "nodemon": "1.19.1",
+    "nodemon": "1.19.2",
     "rimraf": "2.7.1",
     "ts-node-dev": "1.0.0-pre.42"
   }
