@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.75](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.74...@spherehq/platform@0.22.75) (2019-09-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-source-filesystem to v2.1.21 ([1449cb2](https://github.com/spherehq/sphere/commit/1449cb2))
+
+
+
+
+
 ## [0.22.74](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.73...@spherehq/platform@0.22.74) (2019-09-04)
 
 
