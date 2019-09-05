@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.77](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.76...@spherehq/platform@0.22.77) (2019-09-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-manifest to v2.2.14 ([914d275](https://github.com/spherehq/sphere/commit/914d275))
+
+
+
+
+
 ## [0.22.76](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.75...@spherehq/platform@0.22.76) (2019-09-04)
 
 
