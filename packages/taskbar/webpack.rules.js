@@ -17,7 +17,6 @@ module.exports = [
   },
   {
     test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /(.webpack|node_modules)/,
     loaders: [
       {
         loader: 'babel-loader',

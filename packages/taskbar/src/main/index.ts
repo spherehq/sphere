@@ -1,5 +1,7 @@
 import electron, { app, BrowserWindow, Menu } from 'electron'
+import { platform } from 'os'
 
+import Positioner from 'electron-positioner'
 import Store from 'electron-store'
 
 // @TODO defaults aren't working here
@@ -23,9 +25,10 @@ app.setName('Sphere')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 let tray
+let trayBoundsCache
 
 if (process.platform === 'darwin') {
-  // app.dock.hide()
+  app.dock.hide()
 }
 
 // Chrome Command Line Switches
@@ -37,7 +40,7 @@ const createWindow = () => {
     width: 330,
     height: 380,
     title: 'Sphere',
-    resizable: false,
+    resizable: true,
     show: false,
     fullscreenable: false,
     maximizable: false,
@@ -61,6 +64,14 @@ const createWindow = () => {
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     mainWindow = null
+  })
+
+  mainWindow.on('blur', () => {
+    if (mainWindow.webContents.isDevToolsOpened()) {
+      return
+    }
+
+    mainWindow.hide()
   })
 
   mainWindow.setVisibleOnAllWorkspaces(true)
@@ -100,6 +111,21 @@ app.on('ready', () => {
             mainWindow.hide()
           } else {
             mainWindow.webContents.send('window-opening')
+
+            const trayBounds = tray.getBounds()
+            const notMacOS = platform() !== 'darwin'
+
+            trayBoundsCache = trayBounds
+
+            const positioner = new Positioner(mainWindow)
+            const windowPosition = notMacOS ? 'trayBottomCenter' : 'trayCenter'
+            const { x, y } = positioner.calculate(
+              windowPosition,
+              trayBoundsCache,
+            )
+
+            mainWindow.setPosition(x, y)
+
             mainWindow.show()
           }
         },
@@ -151,6 +177,7 @@ app.on('ready', () => {
       { type: 'separator' },
       { label: 'Quit Sphere', type: 'normal', enabled: true, role: 'quit' },
     ])
+
     tray.setContextMenu(contextMenu)
   } catch (error) {
     return

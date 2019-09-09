@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/taskbar",
   "version": "0.0.0",
-  "description": "Use your taskbar to manage your sphere content",
+  "description": "Use your taskbar to manage sphere content",
   "author": "Jason Brown",
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "@spherehq/geometry": "^0.12.1",
     "app-root-path": "^2.2.1",
     "electron-devtools-installer": "^2.1.0",
     "electron-positioner": "^4.1.0",
@@ -69,10 +70,15 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.8",
+    "react-router-dom": "^5.0.1",
+    "styled-components": "^4.3.2",
     "tslib": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-typescript": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@electron-forge/cli": "6.0.0-beta.43",
@@ -85,9 +91,12 @@
     "@types/app-root-path": "^1.2.4",
     "@types/babel__core": "^7.1.2",
     "@types/electron-devtools-installer": "^2.0.2",
-    "@types/react": "^0.14.55",
+    "@types/react": "^16.9.2",
     "@types/react-dom": "^0.14.20",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/styled-components": "^4.1.18",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "electron": "5.0.7",
     "node-loader": "^0.6.0",
     "tslint": "^5.1.0",
@@ -102,10 +111,7 @@
   },
   "workspaces": {
     "nohoist": [
-      "**/electron",
-      "**/electron/**",
-      "**/electron-store",
-      "**/electron-store/**"
+      "**/**/**"
     ]
   }
 }

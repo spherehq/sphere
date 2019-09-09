@@ -1,3 +1,15 @@
-import React from 'react'
+import * as React from 'react'
 
-export const App = () => <h1>Hello there</h1>
+import { theme, ThemeProvider } from '@spherehq/geometry/Theme'
+import { GlobalStyle } from '@spherehq/geometry/Components/GlobalStyle'
+
+import { Account } from '../Account'
+
+export const App = () => (
+  <ThemeProvider theme={theme}>
+    <React.Fragment>
+      <GlobalStyle />
+      <Account />
+    </React.Fragment>
+  </ThemeProvider>
+)
