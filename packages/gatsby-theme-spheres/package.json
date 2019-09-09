@@ -1,6 +1,6 @@
 {
   "name": "@spherehq/gatsby-theme-spheres",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "peerDependencies": {
     "gatsby-plugin-page-creator": "2.1.17",
     "gatsby-source-graphql": "2.1.13"
