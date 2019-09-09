@@ -31,7 +31,7 @@
     "@types/graphql-type-json": "0.3.2",
     "@types/node": "11.13.20",
     "@types/rimraf": "2.0.2",
-    "apollo": "2.18.0",
+    "apollo": "2.18.1",
     "dotenv": "8.1.0",
     "dotenv-cli": "2.0.1",
     "nodemon": "1.19.2",
