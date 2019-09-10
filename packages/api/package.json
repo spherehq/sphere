@@ -27,7 +27,6 @@
     "graphql-type-json": "0.3.0",
     "graphql-typed-client": "^1.7.0",
     "ts-node": "8.3.0",
-    "typescript": "3.62",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -44,7 +43,8 @@
     "dotenv-cli": "2.0.1",
     "nodemon": "1.19.1",
     "rimraf": "2.7.1",
-    "ts-node-dev": "1.0.0-pre.42"
+    "ts-node-dev": "1.0.0-pre.42",
+    "typescript": "3.6.2"
   },
   "publishConfig": {
     "access": "public"
