@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.18](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.17...@spherehq/gatsby-theme-spheres@0.1.18) (2019-09-10)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([7c623ae](https://github.com/spherehq/sphere/commit/7c623ae))
+
+## [0.1.17](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.16...@spherehq/gatsby-theme-spheres@0.1.17) (2019-09-09)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([ca1c7ad](https://github.com/spherehq/sphere/commit/ca1c7ad))
+
+## [0.1.16](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.15...@spherehq/gatsby-theme-spheres@0.1.16) (2019-09-02)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([c7c8853](https://github.com/spherehq/sphere/commit/c7c8853))
+
+## [0.1.15](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.14...@spherehq/gatsby-theme-spheres@0.1.15) (2019-09-01)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([6c7dde9](https://github.com/spherehq/sphere/commit/6c7dde9))
+
 ## [0.1.14](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.13...@spherehq/gatsby-theme-spheres@0.1.14) (2019-08-30)
 
 ### Bug Fixes

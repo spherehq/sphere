@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/cli",
   "description": "Command line tool for managing your sphere content",
-  "version": "0.13.12",
+  "version": "0.13.14",
   "author": "Jason Brown",
   "homepage": "https://github.com/spherehq/sphere",
   "license": "MIT",
@@ -57,11 +57,11 @@
     "@types/lodash": "4.14.138",
     "@types/md5-file": "4.0.0",
     "@types/node": "10.14.15",
-    "@types/request": "2.48.2",
+    "@types/request": "2.48.3",
     "@types/terminal-link": "1.1.0",
     "globby": "10.0.1",
     "ts-node": "8.3.0",
-    "tslint": "5.19.0",
+    "tslint": "5.20.0",
     "typescript": "3.6.2"
   },
   "engines": {
