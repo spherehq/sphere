@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.23](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.22...@spherehq/gatsby-theme-spheres@0.1.23) (2019-09-26)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([8c0a866](https://github.com/spherehq/sphere/commit/8c0a866))
+
+
+
+
+
 ## [0.1.22](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.21...@spherehq/gatsby-theme-spheres@0.1.22) (2019-09-20)
 
 
