@@ -12,7 +12,9 @@
     "posttest": "tslint -p . -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
-    "version": "oclif-dev readme && git add README.md"
+    "version": "oclif-dev readme && git add README.md",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "bin": {
     "sphere": "./bin/run"
@@ -46,7 +48,8 @@
     "tslib": "^1",
     "unified": "^8.0.0",
     "unist-util-select": "^2.0.0",
-    "unist-util-visit": "^1.4.0"
+    "unist-util-visit": "^1.4.0",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.22.2",
@@ -90,5 +93,6 @@
     "access": "public"
   },
   "repository": "https://github.com/spherehq/sphere.git",
-  "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713"
+  "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713",
+  "snyk": true
 }
