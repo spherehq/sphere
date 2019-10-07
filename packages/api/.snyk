@@ -1,0 +1,18 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - '@sentry/node > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
+    - '@spherehq/database > graphql-cli > graphql-config-extension-prisma > prisma-yml > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
+    - '@spherehq/database > prisma > prisma-cli-core > prisma-yml > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
+    - '@spherehq/database > prisma > prisma-cli-engine > prisma-yml > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
+    - '@spherehq/database > prisma > prisma-cli-core > graphql-config-extension-prisma > prisma-yml > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
+    - '@spherehq/database > prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent':
+        patched: '2019-10-03T18:41:52.496Z'
