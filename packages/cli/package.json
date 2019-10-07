@@ -49,7 +49,7 @@
     "unified": "^8.0.0",
     "unist-util-select": "^2.0.0",
     "unist-util-visit": "^1.4.0",
-    "snyk": "^1.230.5"
+    "snyk": "^1.231.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.22.2",
