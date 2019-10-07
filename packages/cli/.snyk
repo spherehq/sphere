@@ -14,3 +14,17 @@ patch:
         patched: '2019-10-03T18:41:55.438Z'
     - '@spherehq/database > prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent':
         patched: '2019-10-03T18:41:55.438Z'
+    - '@spherehq/database > snyk > proxy-agent > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > snyk > proxy-agent > pac-proxy-agent > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > graphql-cli > graphql-config-extension-prisma > prisma-yml > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > prisma > prisma-cli-core > prisma-yml > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > prisma > prisma-cli-engine > prisma-yml > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > prisma > prisma-cli-core > graphql-config-extension-prisma > prisma-yml > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
+    - '@spherehq/database > prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent':
+        patched: '2019-10-07T13:53:09.807Z'
