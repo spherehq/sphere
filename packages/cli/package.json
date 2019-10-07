@@ -49,7 +49,7 @@
     "tslib": "^1",
     "unified": "^8.0.0",
     "unist-util-select": "^2.0.0",
-    "unist-util-visit": "^1.4.0"
+    "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1.22.2",
