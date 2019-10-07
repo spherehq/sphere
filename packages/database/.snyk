@@ -14,3 +14,7 @@ patch:
         patched: '2019-10-03T18:41:55.871Z'
     - prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent:
         patched: '2019-10-03T18:41:55.871Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-07T11:03:40.148Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-07T11:03:40.148Z'
