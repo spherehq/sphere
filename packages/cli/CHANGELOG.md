@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.20](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.19...@spherehq/cli@0.13.20) (2019-10-07)
+
+
+### Bug Fixes
+
+* packages/cli/package.json & packages/cli/.snyk to reduce vulnerabilities ([4932856](https://github.com/spherehq/sphere/commit/4932856))
+
+
+
+
+
 ## [0.13.19](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.18...@spherehq/cli@0.13.19) (2019-09-27)
 
 **Note:** Version bump only for package @spherehq/cli

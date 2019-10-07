@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.71](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.70...@spherehq/api@0.12.71) (2019-10-07)
+
+
+### Bug Fixes
+
+* packages/api/package.json & packages/api/.snyk to reduce vulnerabilities ([275d734](https://github.com/spherehq/sphere/commit/275d734))
+
+
+
+
+
 ## [0.12.70](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.69...@spherehq/api@0.12.70) (2019-10-04)
 
 

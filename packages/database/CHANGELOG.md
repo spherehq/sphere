@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.1...@spherehq/database@0.13.2) (2019-10-07)
+
+
+### Bug Fixes
+
+* packages/database/package.json & packages/database/.snyk to reduce vulnerabilities ([9a31717](https://github.com/spherehq/sphere/commit/9a31717))
+
+
+
+
+
 ## [0.13.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.0...@spherehq/database@0.13.1) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/database
