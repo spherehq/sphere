@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.120](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.119...@spherehq/platform@0.22.120) (2019-10-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-loading-skeleton to v1.2.0 ([fc8a092](https://github.com/spherehq/sphere/commit/fc8a092))
+
+
+
+
+
 ## [0.22.119](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.118...@spherehq/platform@0.22.119) (2019-10-08)
 
 
