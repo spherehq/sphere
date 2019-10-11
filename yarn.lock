@@ -9533,10 +9533,10 @@ gatsby-graphiql-explorer@^0.2.23:
   dependencies:
     "@babel/runtime" "^7.6.3"
 
-gatsby-image@2.2.26:
-  version "2.2.26"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.2.26.tgz#59fb24ca64319cd94575151f43fb3907168933b3"
-  integrity sha512-UF2LDrVL+VLyZZ7UGL+kbV0K6maz1vEZekjS7OEjzWOO+4HRwuFr0JxHEvAYl/onKAad9F3VDtsiYvWqE/wkYw==
+gatsby-image@2.2.27:
+  version "2.2.27"
+  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.2.27.tgz#f42f7eb62b09f23c8b049447c290e97ceac9ac8b"
+  integrity sha512-/NAX71EPTt1j96W3XibOJ+UUcDJfsvo18yoY3ilCM10iCiOm6sA+yT10IO448TQaLVXu+kf1T5isfq4KMgh53g==
   dependencies:
     "@babel/runtime" "^7.6.3"
     object-fit-images "^3.2.4"
@@ -9814,10 +9814,10 @@ gatsby-transformer-sharp@2.2.21:
     semver "^5.7.1"
     sharp "^0.23.1"
 
-gatsby@2.15.35:
-  version "2.15.35"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.15.35.tgz#1cdaaa5c5a18bb3e5cb9d283f1c2be97a128ff8d"
-  integrity sha512-xG5h5iNKIsoMirDjD1daGV/Ovt6vJBxQUT5RaMVat5e+nL9rR6Pik6rZprQ/Q9IiEOPe+3ocCzr2enCCFoe49w==
+gatsby@2.15.36:
+  version "2.15.36"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.15.36.tgz#f200e655cad0898817c98a994bcaf2d2a768518b"
+  integrity sha512-2e2QggkfWYqUbvZ4Y40biPZeVEuboEJG/l/o1vyK49C346oAAMaWUSMu+RaRPy6ocd7wnbyOH/EKoIIYAWoOhQ==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.6.3"
