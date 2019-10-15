@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.130](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.129...@spherehq/platform@0.22.130) (2019-10-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency styled-icons to v8.6.0 ([d7db8a3](https://github.com/spherehq/sphere/commit/d7db8a3))
+
+
+
+
+
 ## [0.22.129](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.128...@spherehq/platform@0.22.129) (2019-10-15)
 
 **Note:** Version bump only for package @spherehq/platform
