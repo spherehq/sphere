@@ -36,7 +36,7 @@
     "@types/react-helmet": "5.0.12",
     "@types/styled-components": "4.1.19",
     "commitlint": "8.2.0",
-    "dotenv": "8.1.0",
+    "dotenv": "8.2.0",
     "husky": "3.0.9",
     "lerna": "3.18.0",
     "lint-staged": "8.2.1",
