@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.140](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.139...@spherehq/platform@0.22.140) (2019-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-transformer-sharp to v2.3.0 ([6db15a2](https://github.com/spherehq/sphere/commit/6db15a2))
+
+
+
+
+
 ## [0.22.139](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.138...@spherehq/platform@0.22.139) (2019-10-21)
 
 
