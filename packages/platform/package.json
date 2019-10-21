@@ -41,7 +41,7 @@
     "gatsby-source-filesystem": "2.1.33",
     "gatsby-source-graphql": "2.1.20",
     "gatsby-transformer-remark": "2.6.30",
-    "gatsby-transformer-sharp": "2.2.23",
+    "gatsby-transformer-sharp": "2.3.0",
     "hast-util-raw": "5.0.1",
     "isomorphic-fetch": "2.2.1",
     "prismjs": "1.17.1",
