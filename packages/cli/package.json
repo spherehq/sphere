@@ -58,7 +58,7 @@
     "@types/inquirer": "6.5.0",
     "@types/lodash": "4.14.144",
     "@types/md5-file": "4.0.0",
-    "@types/node": "10.14.15",
+    "@types/node": "10.14.22",
     "@types/request": "2.48.3",
     "@types/terminal-link": "1.1.0",
     "globby": "10.0.1",
