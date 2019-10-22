@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.144](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.143...@spherehq/platform@0.22.144) (2019-10-22)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo to v16.11.0 ([56956e3](https://github.com/spherehq/sphere/commit/56956e3))
+
+
+
+
+
 ## [0.22.143](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.142...@spherehq/platform@0.22.143) (2019-10-22)
 
 **Note:** Version bump only for package @spherehq/platform
