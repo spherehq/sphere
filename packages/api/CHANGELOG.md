@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.94](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.93...@spherehq/api@0.12.94) (2019-10-24)
+
+**Note:** Version bump only for package @spherehq/api
+
+
+
+
+
 ## [0.12.93](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.92...@spherehq/api@0.12.93) (2019-10-24)
 
 **Note:** Version bump only for package @spherehq/api
