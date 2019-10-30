@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.152](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.151...@spherehq/platform@0.22.152) (2019-10-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency styled-components to v4.4.1 ([9484833](https://github.com/spherehq/sphere/commit/9484833))
+
+
+
+
+
 ## [0.22.151](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.150...@spherehq/platform@0.22.151) (2019-10-30)
 
 
