@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.105](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.104...@spherehq/api@0.12.105) (2019-10-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency snyk to v1.240.3 ([0de1e42](https://github.com/spherehq/sphere/commit/0de1e42))
+
+
+
+
+
 ## [0.12.104](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.103...@spherehq/api@0.12.104) (2019-10-31)
 
 
