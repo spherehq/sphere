@@ -19,7 +19,7 @@
     "graphql-fields": "2.0.3",
     "graphql-import": "0.7.1",
     "graphql-iso-date": "3.6.1",
-    "graphql-middleware": "3.0.5",
+    "graphql-middleware": "4.0.2",
     "graphql-middleware-sentry": "3.2.1",
     "graphql-type-json": "0.3.0",
     "snyk": "1.242.2",
