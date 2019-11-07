@@ -13032,6 +13032,16 @@ load-json-file@^5.0.0, load-json-file@^5.2.0, load-json-file@^5.3.0:
     strip-bom "^3.0.0"
     type-fest "^0.3.0"
 
+load-json-file@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-6.2.0.tgz#5c7770b42cafa97074ca2848707c61662f4251a1"
+  integrity sha512-gUD/epcRms75Cw8RT1pUdHugZYM5ce64ucs2GEISABwkRsOQr0q2wm/MV2TKThycIe5e0ytRweW2RZxclogCdQ==
+  dependencies:
+    graceful-fs "^4.1.15"
+    parse-json "^5.0.0"
+    strip-bom "^4.0.0"
+    type-fest "^0.6.0"
+
 loader-fs-cache@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.2.tgz#54cedf6b727e1779fd8f01205f05f6e88706f086"
@@ -15708,15 +15718,15 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pinst@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/pinst/-/pinst-1.1.1.tgz#d5a139611e53ce978525d8b6aa35fefa1f7b2601"
-  integrity sha512-Ipat35aB3aHpScFx9t48U+2gyEwEKEuX+Ngia1LeP1CJWBImoCVHjBVbJnCfhfFPuQG9Xsh7+lyZfY5Um6B+hA==
+pinst@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pinst/-/pinst-2.0.0.tgz#220d3dff268eb133b51c23ef2b382cf1b782ca86"
+  integrity sha512-ZfR7vITsD/kBzxZLBz8GhPDenSs33p/3qNPyxhQEQef2rxyOrLmhkUtZnKQyk4cKKGMDC7piuebZSOor4XISeQ==
   dependencies:
-    load-json-file "^5.0.0"
+    load-json-file "^6.2.0"
     lodash.mapkeys "^4.6.0"
     meow "^5.0.0"
-    write-json-file "^2.3.0"
+    write-json-file "^4.2.0"
 
 pixelmatch@^4.0.2:
   version "4.0.2"
@@ -18974,6 +18984,13 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
+sort-keys@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-3.0.0.tgz#fa751737e3da363ef80632d4fd78e324d661fe9a"
+  integrity sha512-77XUKMiZN5LvQXZ9sgWfJza19AvYIDwaDGwGiULM+B5XYru8Z90Oh06JvqDlJczvjjYvssrV0aK1GI6+YXvn5A==
+  dependencies:
+    is-plain-obj "^2.0.0"
+
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -21460,6 +21477,18 @@ write-json-file@^3.2.0:
     pify "^4.0.1"
     sort-keys "^2.0.0"
     write-file-atomic "^2.4.2"
+
+write-json-file@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/write-json-file/-/write-json-file-4.2.0.tgz#85a853ef1c28feb206bd56c2903fe19a6803c7ac"
+  integrity sha512-PUmPZDcQZRO+w69pGGepxt5r8USK3KTDy5758dOAEzDaL5a6gbe5EPkyOfo28DRT/cruPRiMaAy9XZnDHHoBjQ==
+  dependencies:
+    detect-indent "^6.0.0"
+    graceful-fs "^4.1.15"
+    is-plain-obj "^2.0.0"
+    make-dir "^3.0.0"
+    sort-keys "^3.0.0"
+    write-file-atomic "^3.0.0"
 
 write-pkg@^3.1.0:
   version "3.2.0"

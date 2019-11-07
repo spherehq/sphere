@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "envsub": "3.0.9",
-    "pinst": "1.1.1"
+    "pinst": "2.0.0"
   },
   "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713",
   "snyk": true
