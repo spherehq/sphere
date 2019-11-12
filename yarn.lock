@@ -17129,10 +17129,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-loading-skeleton@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-1.2.0.tgz#e719707fb760eff54382b80ecfef1932ca292e01"
-  integrity sha512-peOUoseJtud1PXHu8maxsWA+ljH04IyW+UNNlGrAzUR9XzJ+w3OyAICP8qWv0FX0ae4UNenUknJWfrY50TTrTw==
+react-loading-skeleton@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-1.3.0.tgz#e256bb5322712c82ddf86ee16e0530ebb7d4f347"
+  integrity sha512-uB4Re8QLOS5hauTdssWxvTXVBevygCDPWngjsbTVBRQVn14hKoB9OMX/KjU5ccuXtrPbwvQPUwylon/dYFf5bQ==
   dependencies:
     emotion "^10.0.17"
 
