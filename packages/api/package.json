@@ -15,7 +15,7 @@
   "dependencies": {
     "@sentry/node": "5.9.0",
     "@spherehq/database": "^0.13.2",
-    "apollo-server": "2.9.8",
+    "apollo-server": "2.9.9",
     "graphql-fields": "2.0.3",
     "graphql-import": "0.7.1",
     "graphql-iso-date": "3.6.1",
