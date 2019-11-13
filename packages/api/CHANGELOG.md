@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.121](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.120...@spherehq/api@0.12.121) (2019-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/node to v5.9.0 ([5a8ff2a](https://github.com/spherehq/sphere/commit/5a8ff2a))
+
+
+
+
+
 ## [0.12.120](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.119...@spherehq/api@0.12.120) (2019-11-13)
 
 
