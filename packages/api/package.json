@@ -22,7 +22,7 @@
     "graphql-middleware": "3.0.5",
     "graphql-middleware-sentry": "3.2.1",
     "graphql-type-json": "0.3.0",
-    "snyk": "1.246.0",
+    "snyk": "1.247.1",
     "ts-node": "8.5.0",
     "typescript": "3.7.2"
   },
