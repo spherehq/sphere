@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.33](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.32...@spherehq/gatsby-theme-spheres@0.1.33) (2019-11-19)
+
+
+### Bug Fixes
+
+* headings to not increase by more than one ([b3e2fd1](https://github.com/spherehq/sphere/commit/b3e2fd1))
+
+
+
+
+
 ## [0.1.32](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.31...@spherehq/gatsby-theme-spheres@0.1.32) (2019-11-19)
 
 
