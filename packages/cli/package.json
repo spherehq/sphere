@@ -28,7 +28,7 @@
     "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "@sindresorhus/slugify": "^0.9.1",
     "@spherehq/database": "^0.13.3",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cli-ux": "^5.2.1",
     "email-validator": "^2.0.4",
     "fs-extra": "^8.0.0",
