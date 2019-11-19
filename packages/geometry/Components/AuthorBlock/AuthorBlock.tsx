@@ -10,7 +10,7 @@ const StyledProfileBox = styled(Box)`
     margin: 0;
   }
 
-  h5 {
+  h2 {
     margin: 0;
     font-size: 15px;
   }
@@ -33,7 +33,7 @@ export const AuthorBlock = ({
     <Avatar firstName={firstName} lastName={lastName} withShadow mini={mini} />
     <StyledProfileBox>
       <h1>{`${firstName} ${lastName}`}</h1>
-      {mini ? null : <h5>{alias}</h5>}
+      {mini ? null : <h2>{alias}</h2>}
     </StyledProfileBox>
   </Grid>
 )
