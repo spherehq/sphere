@@ -15,7 +15,7 @@
   "dependencies": {
     "@sentry/node": "5.9.0",
     "@spherehq/database": "^0.13.3",
-    "apollo-server": "2.9.9",
+    "apollo-server": "2.9.10",
     "graphql-fields": "2.0.3",
     "graphql-import": "0.7.1",
     "graphql-iso-date": "3.6.1",
@@ -35,7 +35,7 @@
     "@types/node": "11.15.2",
     "@types/nodemon": "1.19.0",
     "@types/rimraf": "2.0.3",
-    "apollo": "2.21.0",
+    "apollo": "2.21.1",
     "dotenv": "8.2.0",
     "dotenv-cli": "2.0.1",
     "nodemon": "1.19.4",
