@@ -12,10 +12,7 @@ export const MediaResolver = async (
   context: { db: Prisma },
 ) => {
   AWS.config.update({
-    credentials: new AWS.Credentials(
-      'AKIAIFQWVHJ2GB2JJ6AQ',
-      'eWnyDJYdThB8Rr4Mj+CAxply6gByYD76fpo+/mhJ',
-    ),
+    credentials: new AWS.Credentials('', ''),
   })
 
   const s3 = new AWS.S3()
