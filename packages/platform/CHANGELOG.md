@@ -3,6 +3,494 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.176](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.175...@spherehq/platform@0.22.176) (2019-11-20)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([bb27fe0](https://github.com/spherehq/sphere/commit/bb27fe0))
+
+## [0.22.175](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.174...@spherehq/platform@0.22.175) (2019-11-19)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.174](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.173...@spherehq/platform@0.22.174) (2019-11-19)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.8.0 ([17d35ca](https://github.com/spherehq/sphere/commit/17d35ca))
+
+## [0.22.173](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.172...@spherehq/platform@0.22.173) (2019-11-19)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([105a423](https://github.com/spherehq/sphere/commit/105a423))
+
+## [0.22.172](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.171...@spherehq/platform@0.22.172) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.15 ([64e0326](https://github.com/spherehq/sphere/commit/64e0326))
+
+## [0.22.171](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.170...@spherehq/platform@0.22.171) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby-plugin-sharp to v2.3.0 ([07fc450](https://github.com/spherehq/sphere/commit/07fc450))
+
+## [0.22.170](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.169...@spherehq/platform@0.22.170) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([aeb962d](https://github.com/spherehq/sphere/commit/aeb962d))
+
+## [0.22.169](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.168...@spherehq/platform@0.22.169) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([666d17a](https://github.com/spherehq/sphere/commit/666d17a))
+
+## [0.22.168](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.167...@spherehq/platform@0.22.168) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v16.12.0 ([7a51d6e](https://github.com/spherehq/sphere/commit/7a51d6e))
+
+## [0.22.167](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.166...@spherehq/platform@0.22.167) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([d4afb4b](https://github.com/spherehq/sphere/commit/d4afb4b))
+
+## [0.22.166](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.165...@spherehq/platform@0.22.166) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([2dd06b7](https://github.com/spherehq/sphere/commit/2dd06b7))
+
+## [0.22.165](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.164...@spherehq/platform@0.22.165) (2019-11-12)
+
+### Bug Fixes
+
+- **deps:** update dependency react-loading-skeleton to v1.3.0 ([bc7c023](https://github.com/spherehq/sphere/commit/bc7c023))
+
+## [0.22.164](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.163...@spherehq/platform@0.22.164) (2019-11-12)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/icons to v3.12.0 ([daf099e](https://github.com/spherehq/sphere/commit/daf099e))
+
+## [0.22.163](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.162...@spherehq/platform@0.22.163) (2019-11-12)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/core to v3.20.0 ([056a742](https://github.com/spherehq/sphere/commit/056a742))
+
+## [0.22.162](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.161...@spherehq/platform@0.22.162) (2019-11-10)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([e2d56fb](https://github.com/spherehq/sphere/commit/e2d56fb))
+
+## [0.22.161](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.160...@spherehq/platform@0.22.161) (2019-11-09)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.160](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.159...@spherehq/platform@0.22.160) (2019-11-07)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.7.0 ([2cfc76e](https://github.com/spherehq/sphere/commit/2cfc76e))
+
+## [0.22.159](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.158...@spherehq/platform@0.22.159) (2019-11-07)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.158](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.157...@spherehq/platform@0.22.158) (2019-11-06)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.157](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.156...@spherehq/platform@0.22.157) (2019-11-06)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.10 ([12d86d3](https://github.com/spherehq/sphere/commit/12d86d3))
+
+## [0.22.156](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.155...@spherehq/platform@0.22.156) (2019-11-06)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.155](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.154...@spherehq/platform@0.22.155) (2019-11-05)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.154](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.153...@spherehq/platform@0.22.154) (2019-11-05)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.9 ([5e7c470](https://github.com/spherehq/sphere/commit/5e7c470))
+
+## [0.22.153](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.152...@spherehq/platform@0.22.153) (2019-11-04)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([9d0e615](https://github.com/spherehq/sphere/commit/9d0e615))
+
+## [0.22.152](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.151...@spherehq/platform@0.22.152) (2019-10-30)
+
+### Bug Fixes
+
+- **deps:** update dependency styled-components to v4.4.1 ([9484833](https://github.com/spherehq/sphere/commit/9484833))
+
+## [0.22.151](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.150...@spherehq/platform@0.22.151) (2019-10-30)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([2e5fe51](https://github.com/spherehq/sphere/commit/2e5fe51))
+
+## [0.22.150](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.149...@spherehq/platform@0.22.150) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([55569fd](https://github.com/spherehq/sphere/commit/55569fd))
+
+## [0.22.149](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.148...@spherehq/platform@0.22.149) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([464a91a](https://github.com/spherehq/sphere/commit/464a91a))
+
+## [0.22.148](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.147...@spherehq/platform@0.22.148) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.4 ([3796c14](https://github.com/spherehq/sphere/commit/3796c14))
+
+## [0.22.147](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.146...@spherehq/platform@0.22.147) (2019-10-25)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.146](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.145...@spherehq/platform@0.22.146) (2019-10-24)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.145](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.144...@spherehq/platform@0.22.145) (2019-10-23)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.2 ([2e867cf](https://github.com/spherehq/sphere/commit/2e867cf))
+
+## [0.22.144](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.143...@spherehq/platform@0.22.144) (2019-10-22)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v16.11.0 ([56956e3](https://github.com/spherehq/sphere/commit/56956e3))
+
+## [0.22.143](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.142...@spherehq/platform@0.22.143) (2019-10-22)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.142](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.141...@spherehq/platform@0.22.142) (2019-10-22)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.1 ([921d8ef](https://github.com/spherehq/sphere/commit/921d8ef))
+
+## [0.22.141](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.140...@spherehq/platform@0.22.141) (2019-10-22)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.6.0 ([067b2c9](https://github.com/spherehq/sphere/commit/067b2c9))
+
+## [0.22.140](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.139...@spherehq/platform@0.22.140) (2019-10-21)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby-transformer-sharp to v2.3.0 ([6db15a2](https://github.com/spherehq/sphere/commit/6db15a2))
+
+## [0.22.139](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.138...@spherehq/platform@0.22.139) (2019-10-21)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.17.0 ([eaf5ae9](https://github.com/spherehq/sphere/commit/eaf5ae9))
+
+## [0.22.138](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.137...@spherehq/platform@0.22.138) (2019-10-18)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.16.5 ([75776a1](https://github.com/spherehq/sphere/commit/75776a1))
+
+## [0.22.137](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.136...@spherehq/platform@0.22.137) (2019-10-18)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.5.1 ([6dc074b](https://github.com/spherehq/sphere/commit/6dc074b))
+
+## [0.22.136](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.135...@spherehq/platform@0.22.136) (2019-10-16)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.135](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.134...@spherehq/platform@0.22.135) (2019-10-16)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby-plugin-sharp to v2.2.32 ([1fe5316](https://github.com/spherehq/sphere/commit/1fe5316))
+
+## [0.22.134](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.133...@spherehq/platform@0.22.134) (2019-10-16)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.5.0 ([d85c0f8](https://github.com/spherehq/sphere/commit/d85c0f8))
+
+## [0.22.133](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.132...@spherehq/platform@0.22.133) (2019-10-16)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.132](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.131...@spherehq/platform@0.22.132) (2019-10-15)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.131](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.130...@spherehq/platform@0.22.131) (2019-10-15)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.16.3 ([7a68d56](https://github.com/spherehq/sphere/commit/7a68d56))
+
+## [0.22.130](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.129...@spherehq/platform@0.22.130) (2019-10-15)
+
+### Bug Fixes
+
+- **deps:** update dependency styled-icons to v8.6.0 ([d7db8a3](https://github.com/spherehq/sphere/commit/d7db8a3))
+
+## [0.22.129](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.128...@spherehq/platform@0.22.129) (2019-10-15)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.128](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.127...@spherehq/platform@0.22.128) (2019-10-14)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.127](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.126...@spherehq/platform@0.22.127) (2019-10-14)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([371ca35](https://github.com/spherehq/sphere/commit/371ca35))
+
+## [0.22.126](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.125...@spherehq/platform@0.22.126) (2019-10-14)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([77e9d1a](https://github.com/spherehq/sphere/commit/77e9d1a))
+
+## [0.22.125](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.124...@spherehq/platform@0.22.125) (2019-10-11)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([a055b30](https://github.com/spherehq/sphere/commit/a055b30))
+
+## [0.22.124](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.123...@spherehq/platform@0.22.124) (2019-10-10)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([dc0a365](https://github.com/spherehq/sphere/commit/dc0a365))
+
+## [0.22.123](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.122...@spherehq/platform@0.22.123) (2019-10-10)
+
+### Bug Fixes
+
+- **deps:** update dependency styled-icons to v8.5.1 ([8aeba65](https://github.com/spherehq/sphere/commit/8aeba65))
+
+## [0.22.122](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.121...@spherehq/platform@0.22.122) (2019-10-09)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([6fea023](https://github.com/spherehq/sphere/commit/6fea023))
+
+## [0.22.121](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.120...@spherehq/platform@0.22.121) (2019-10-09)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/core to v3.19.1 ([da4f495](https://github.com/spherehq/sphere/commit/da4f495))
+
+## [0.22.120](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.119...@spherehq/platform@0.22.120) (2019-10-08)
+
+### Bug Fixes
+
+- **deps:** update dependency react-loading-skeleton to v1.2.0 ([fc8a092](https://github.com/spherehq/sphere/commit/fc8a092))
+
+## [0.22.119](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.118...@spherehq/platform@0.22.119) (2019-10-08)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.15.33 ([11152c4](https://github.com/spherehq/sphere/commit/11152c4))
+
+## [0.22.118](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.117...@spherehq/platform@0.22.118) (2019-10-08)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([199d46b](https://github.com/spherehq/sphere/commit/199d46b))
+
+## [0.22.117](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.116...@spherehq/platform@0.22.117) (2019-10-05)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/icons to v3.11.0 ([bf7d4f1](https://github.com/spherehq/sphere/commit/bf7d4f1))
+
+## [0.22.116](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.115...@spherehq/platform@0.22.116) (2019-10-05)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/core to v3.19.0 ([b86e77c](https://github.com/spherehq/sphere/commit/b86e77c))
+
+## [0.22.115](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.114...@spherehq/platform@0.22.115) (2019-10-04)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([b4a8b8b](https://github.com/spherehq/sphere/commit/b4a8b8b))
+
+## [0.22.114](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.113...@spherehq/platform@0.22.114) (2019-10-04)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.113](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.112...@spherehq/platform@0.22.113) (2019-10-03)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v16.10.2 ([c613f15](https://github.com/spherehq/sphere/commit/c613f15))
+
+## [0.22.112](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.111...@spherehq/platform@0.22.112) (2019-09-30)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.111](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.110...@spherehq/platform@0.22.111) (2019-09-28)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v16.10.1 ([a32c01c](https://github.com/spherehq/sphere/commit/a32c01c))
+
+## [0.22.110](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.109...@spherehq/platform@0.22.110) (2019-09-28)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.4.1 ([4e43b88](https://github.com/spherehq/sphere/commit/4e43b88))
+
+## [0.22.109](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.108...@spherehq/platform@0.22.109) (2019-09-27)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v16.10.0 ([c354075](https://github.com/spherehq/sphere/commit/c354075))
+
+## [0.22.108](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.107...@spherehq/platform@0.22.108) (2019-09-27)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.4.0 ([657da40](https://github.com/spherehq/sphere/commit/657da40))
+
+## [0.22.107](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.106...@spherehq/platform@0.22.107) (2019-09-26)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.106](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.105...@spherehq/platform@0.22.106) (2019-09-26)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([8c0a866](https://github.com/spherehq/sphere/commit/8c0a866))
+
+## [0.22.105](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.104...@spherehq/platform@0.22.105) (2019-09-26)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.15.26 ([2c13e5e](https://github.com/spherehq/sphere/commit/2c13e5e))
+
+## [0.22.104](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.103...@spherehq/platform@0.22.104) (2019-09-25)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.15.25 ([4506970](https://github.com/spherehq/sphere/commit/4506970))
+
+## [0.22.103](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.102...@spherehq/platform@0.22.103) (2019-09-25)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.15.24 ([45be901](https://github.com/spherehq/sphere/commit/45be901))
+
+## [0.22.102](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.101...@spherehq/platform@0.22.102) (2019-09-25)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.101](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.100...@spherehq/platform@0.22.101) (2019-09-24)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.100](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.99...@spherehq/platform@0.22.100) (2019-09-24)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.3.0 ([eb90c91](https://github.com/spherehq/sphere/commit/eb90c91))
+
+## [0.22.99](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.98...@spherehq/platform@0.22.99) (2019-09-24)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([85e199c](https://github.com/spherehq/sphere/commit/85e199c))
+
+## [0.22.98](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.97...@spherehq/platform@0.22.98) (2019-09-23)
+
+### Bug Fixes
+
+- **deps:** update dependency styled-components to v4.4.0 ([feee2d0](https://github.com/spherehq/sphere/commit/feee2d0))
+
+## [0.22.97](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.96...@spherehq/platform@0.22.97) (2019-09-23)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.15.21 ([c30ce94](https://github.com/spherehq/sphere/commit/c30ce94))
+
+## [0.22.96](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.95...@spherehq/platform@0.22.96) (2019-09-20)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([add790e](https://github.com/spherehq/sphere/commit/add790e))
+
+## [0.22.95](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.94...@spherehq/platform@0.22.95) (2019-09-20)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([6d2743f](https://github.com/spherehq/sphere/commit/6d2743f))
+
+## [0.22.94](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.93...@spherehq/platform@0.22.94) (2019-09-18)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([f1ab404](https://github.com/spherehq/sphere/commit/f1ab404))
+
+## [0.22.93](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.92...@spherehq/platform@0.22.93) (2019-09-18)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([3733b18](https://github.com/spherehq/sphere/commit/3733b18))
+
+## [0.22.92](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.91...@spherehq/platform@0.22.92) (2019-09-16)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([c63cbdd](https://github.com/spherehq/sphere/commit/c63cbdd))
+
+## [0.22.91](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.90...@spherehq/platform@0.22.91) (2019-09-13)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([3b92733](https://github.com/spherehq/sphere/commit/3b92733))
+
+## [0.22.90](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.89...@spherehq/platform@0.22.90) (2019-09-12)
+
+### Bug Fixes
+
+- **deps:** update dependency date-fns to v2.2.1 ([62cb640](https://github.com/spherehq/sphere/commit/62cb640))
+
+## [0.22.89](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.88...@spherehq/platform@0.22.89) (2019-09-11)
+
+**Note:** Version bump only for package @spherehq/platform
+
 ## [0.22.88](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.87...@spherehq/platform@0.22.88) (2019-09-10)
 
 ### Bug Fixes

@@ -3,6 +3,384 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.129](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.128...@spherehq/api@0.12.129) (2019-11-21)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.11 ([c93fa6a](https://github.com/spherehq/sphere/commit/c93fa6a))
+
+## [0.12.128](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.127...@spherehq/api@0.12.128) (2019-11-20)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.250.0 ([b9bfba8](https://github.com/spherehq/sphere/commit/b9bfba8))
+
+## [0.12.127](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.126...@spherehq/api@0.12.127) (2019-11-20)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql-type-json to v0.3.1 ([d4d162d](https://github.com/spherehq/sphere/commit/d4d162d))
+
+## [0.12.126](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.125...@spherehq/api@0.12.126) (2019-11-19)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.249.1 ([a5c237e](https://github.com/spherehq/sphere/commit/a5c237e))
+
+## [0.12.125](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.124...@spherehq/api@0.12.125) (2019-11-19)
+
+### Bug Fixes
+
+- headings to not increase by more than one ([b3e2fd1](https://github.com/spherehq/sphere/commit/b3e2fd1))
+
+## [0.12.124](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.123...@spherehq/api@0.12.124) (2019-11-15)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.248.0 ([8838fa5](https://github.com/spherehq/sphere/commit/8838fa5))
+
+## [0.12.123](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.122...@spherehq/api@0.12.123) (2019-11-15)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.122](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.121...@spherehq/api@0.12.122) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.9 ([03b2e61](https://github.com/spherehq/sphere/commit/03b2e61))
+
+## [0.12.121](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.120...@spherehq/api@0.12.121) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.9.0 ([5a8ff2a](https://github.com/spherehq/sphere/commit/5a8ff2a))
+
+## [0.12.120](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.119...@spherehq/api@0.12.120) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.247.1 ([9855d83](https://github.com/spherehq/sphere/commit/9855d83))
+
+## [0.12.119](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.118...@spherehq/api@0.12.119) (2019-11-13)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.246.0 ([391a8ca](https://github.com/spherehq/sphere/commit/391a8ca))
+
+## [0.12.118](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.117...@spherehq/api@0.12.118) (2019-11-12)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.245.0 ([9513ce0](https://github.com/spherehq/sphere/commit/9513ce0))
+
+## [0.12.117](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.116...@spherehq/api@0.12.117) (2019-11-12)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.8 ([a529d8c](https://github.com/spherehq/sphere/commit/a529d8c))
+
+## [0.12.116](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.115...@spherehq/api@0.12.116) (2019-11-11)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.8.0 ([05e97a5](https://github.com/spherehq/sphere/commit/05e97a5))
+
+## [0.12.115](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.114...@spherehq/api@0.12.115) (2019-11-11)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.114](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.113...@spherehq/api@0.12.114) (2019-11-06)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.244.0 ([c3286b7](https://github.com/spherehq/sphere/commit/c3286b7))
+
+## [0.12.113](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.112...@spherehq/api@0.12.113) (2019-11-05)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.112](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.111...@spherehq/api@0.12.112) (2019-11-05)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.243.0 ([4a25684](https://github.com/spherehq/sphere/commit/4a25684))
+
+## [0.12.111](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.110...@spherehq/api@0.12.111) (2019-11-05)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.242.2 ([ad047ef](https://github.com/spherehq/sphere/commit/ad047ef))
+
+## [0.12.110](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.109...@spherehq/api@0.12.110) (2019-11-05)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.242.1 ([41373b6](https://github.com/spherehq/sphere/commit/41373b6))
+
+## [0.12.109](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.108...@spherehq/api@0.12.109) (2019-11-04)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.242.0 ([8f8012a](https://github.com/spherehq/sphere/commit/8f8012a))
+
+## [0.12.108](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.107...@spherehq/api@0.12.108) (2019-11-04)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.241.1 ([5749cb2](https://github.com/spherehq/sphere/commit/5749cb2))
+
+## [0.12.107](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.106...@spherehq/api@0.12.107) (2019-11-02)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.106](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.105...@spherehq/api@0.12.106) (2019-11-01)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.241.0 ([c79004e](https://github.com/spherehq/sphere/commit/c79004e))
+
+## [0.12.105](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.104...@spherehq/api@0.12.105) (2019-10-31)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.240.3 ([0de1e42](https://github.com/spherehq/sphere/commit/0de1e42))
+
+## [0.12.104](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.103...@spherehq/api@0.12.104) (2019-10-31)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.240.2 ([d5dda71](https://github.com/spherehq/sphere/commit/d5dda71))
+
+## [0.12.103](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.102...@spherehq/api@0.12.103) (2019-10-30)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.240.1 ([c8f8fa0](https://github.com/spherehq/sphere/commit/c8f8fa0))
+
+## [0.12.102](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.101...@spherehq/api@0.12.102) (2019-10-30)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.101](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.100...@spherehq/api@0.12.101) (2019-10-30)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.240.0 ([15a456c](https://github.com/spherehq/sphere/commit/15a456c))
+
+## [0.12.100](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.99...@spherehq/api@0.12.100) (2019-10-29)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.239.5 ([e4b7e08](https://github.com/spherehq/sphere/commit/e4b7e08))
+
+## [0.12.99](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.98...@spherehq/api@0.12.99) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.239.3 ([8115424](https://github.com/spherehq/sphere/commit/8115424))
+
+## [0.12.98](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.97...@spherehq/api@0.12.98) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.239.2 ([cc79f72](https://github.com/spherehq/sphere/commit/cc79f72))
+
+## [0.12.97](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.96...@spherehq/api@0.12.97) (2019-10-28)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.239.0 ([c08eafb](https://github.com/spherehq/sphere/commit/c08eafb))
+
+## [0.12.96](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.95...@spherehq/api@0.12.96) (2019-10-25)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.238.0 ([b733bd7](https://github.com/spherehq/sphere/commit/b733bd7))
+
+## [0.12.95](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.94...@spherehq/api@0.12.95) (2019-10-24)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.94](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.93...@spherehq/api@0.12.94) (2019-10-24)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.93](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.92...@spherehq/api@0.12.93) (2019-10-24)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.92](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.91...@spherehq/api@0.12.92) (2019-10-23)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.237.1 ([84bb952](https://github.com/spherehq/sphere/commit/84bb952))
+
+## [0.12.91](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.90...@spherehq/api@0.12.91) (2019-10-22)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.90](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.89...@spherehq/api@0.12.90) (2019-10-21)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.89](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.88...@spherehq/api@0.12.89) (2019-10-20)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.236.1 ([abba67c](https://github.com/spherehq/sphere/commit/abba67c))
+
+## [0.12.88](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.87...@spherehq/api@0.12.88) (2019-10-18)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.236.0 ([4a82857](https://github.com/spherehq/sphere/commit/4a82857))
+
+## [0.12.87](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.86...@spherehq/api@0.12.87) (2019-10-18)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.86](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.85...@spherehq/api@0.12.86) (2019-10-16)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.235.1 ([8bc53dd](https://github.com/spherehq/sphere/commit/8bc53dd))
+
+## [0.12.85](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.84...@spherehq/api@0.12.85) (2019-10-16)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.84](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.83...@spherehq/api@0.12.84) (2019-10-16)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.83](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.82...@spherehq/api@0.12.83) (2019-10-15)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.7.1 ([e143601](https://github.com/spherehq/sphere/commit/e143601))
+
+## [0.12.82](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.81...@spherehq/api@0.12.82) (2019-10-14)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.235.0 ([1f7af98](https://github.com/spherehq/sphere/commit/1f7af98))
+
+## [0.12.81](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.80...@spherehq/api@0.12.81) (2019-10-11)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.234.2 ([5c82a8c](https://github.com/spherehq/sphere/commit/5c82a8c))
+
+## [0.12.80](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.79...@spherehq/api@0.12.80) (2019-10-11)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.234.1 ([1d802d4](https://github.com/spherehq/sphere/commit/1d802d4))
+
+## [0.12.79](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.78...@spherehq/api@0.12.79) (2019-10-10)
+
+### Bug Fixes
+
+- **deps:** update dependency @sentry/node to v5.7.0 ([cb3ab9d](https://github.com/spherehq/sphere/commit/cb3ab9d))
+
+## [0.12.78](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.77...@spherehq/api@0.12.78) (2019-10-10)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.6 ([bad7b7e](https://github.com/spherehq/sphere/commit/bad7b7e))
+
+## [0.12.77](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.76...@spherehq/api@0.12.77) (2019-10-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.76](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.75...@spherehq/api@0.12.76) (2019-10-09)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.75](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.74...@spherehq/api@0.12.75) (2019-10-09)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.234.0 ([9b19df8](https://github.com/spherehq/sphere/commit/9b19df8))
+
+## [0.12.74](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.73...@spherehq/api@0.12.74) (2019-10-09)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.233.0 ([1e7ba4f](https://github.com/spherehq/sphere/commit/1e7ba4f))
+
+## [0.12.73](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.72...@spherehq/api@0.12.73) (2019-10-07)
+
+### Bug Fixes
+
+- **deps:** update dependency snyk to v1.232.0 ([ca1811a](https://github.com/spherehq/sphere/commit/ca1811a))
+
+## [0.12.72](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.71...@spherehq/api@0.12.72) (2019-10-07)
+
+### Bug Fixes
+
+- **deps:** pin dependency snyk to 1.231.1 ([8e82907](https://github.com/spherehq/sphere/commit/8e82907))
+
+## [0.12.71](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.70...@spherehq/api@0.12.71) (2019-10-07)
+
+### Bug Fixes
+
+- packages/api/package.json & packages/api/.snyk to reduce vulnerabilities ([275d734](https://github.com/spherehq/sphere/commit/275d734))
+
+## [0.12.70](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.69...@spherehq/api@0.12.70) (2019-10-04)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.5 ([4e40a0a](https://github.com/spherehq/sphere/commit/4e40a0a))
+
+## [0.12.69](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.68...@spherehq/api@0.12.69) (2019-10-04)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.68](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.67...@spherehq/api@0.12.68) (2019-10-03)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.67](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.66...@spherehq/api@0.12.67) (2019-09-29)
+
+### Bug Fixes
+
+- **deps:** update dependency graphql-middleware-sentry to v3.2.1 ([0c1f379](https://github.com/spherehq/sphere/commit/0c1f379))
+
+## [0.12.66](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.65...@spherehq/api@0.12.66) (2019-09-29)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.65](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.64...@spherehq/api@0.12.65) (2019-09-24)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.4 ([9723fca](https://github.com/spherehq/sphere/commit/9723fca))
+
+## [0.12.64](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.63...@spherehq/api@0.12.64) (2019-09-24)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.63](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.62...@spherehq/api@0.12.63) (2019-09-19)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.62](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.61...@spherehq/api@0.12.62) (2019-09-16)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.61](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.60...@spherehq/api@0.12.61) (2019-09-13)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.60](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.59...@spherehq/api@0.12.60) (2019-09-12)
+
+**Note:** Version bump only for package @spherehq/api
+
+## [0.12.59](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.58...@spherehq/api@0.12.59) (2019-09-10)
+
+**Note:** Version bump only for package @spherehq/api
+
 ## [0.12.58](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.57...@spherehq/api@0.12.58) (2019-09-09)
 
 **Note:** Version bump only for package @spherehq/api

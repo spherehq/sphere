@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/database",
   "description": "Sphere prisma database bindings",
-  "version": "0.13.1",
+  "version": "0.13.3",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
@@ -12,12 +12,15 @@
     "deploy": "prisma deploy",
     "generate:prisma-config": "dotenv -- envsub prisma.yml.dist prisma.yml",
     "generate:client": "prisma generate",
-    "postgenerate:client": "tsc --declaration"
+    "postgenerate:client": "tsc --declaration",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "graphql-cli": "^3.0.11",
     "prisma": "^1.30.1",
-    "prisma-client-lib": "^1.30.1"
+    "prisma-client-lib": "^1.30.1",
+    "snyk": "^1.230.5"
   },
   "publishConfig": {
     "access": "public"
@@ -26,5 +29,6 @@
     "envsub": "3.0.9",
     "pinst": "1.1.1"
   },
-  "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713"
+  "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713",
+  "snyk": true
 }

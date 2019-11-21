@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.35](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.34...@spherehq/cli@0.13.35) (2019-11-19)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.34](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.33...@spherehq/cli@0.13.34) (2019-11-18)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.33](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.32...@spherehq/cli@0.13.33) (2019-11-15)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.32](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.31...@spherehq/cli@0.13.32) (2019-11-15)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.31](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.30...@spherehq/cli@0.13.31) (2019-11-14)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.30](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.29...@spherehq/cli@0.13.30) (2019-11-11)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.29](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.28...@spherehq/cli@0.13.29) (2019-11-11)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.28](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.27...@spherehq/cli@0.13.28) (2019-11-08)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.27](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.26...@spherehq/cli@0.13.27) (2019-11-07)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.26](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.25...@spherehq/cli@0.13.26) (2019-11-05)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.25](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.24...@spherehq/cli@0.13.25) (2019-10-22)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.24](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.23...@spherehq/cli@0.13.24) (2019-10-16)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.23](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.22...@spherehq/cli@0.13.23) (2019-10-09)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.22](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.21...@spherehq/cli@0.13.22) (2019-10-09)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.21](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.20...@spherehq/cli@0.13.21) (2019-10-08)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.20](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.19...@spherehq/cli@0.13.20) (2019-10-07)
+
+### Bug Fixes
+
+- packages/cli/package.json & packages/cli/.snyk to reduce vulnerabilities ([4932856](https://github.com/spherehq/sphere/commit/4932856))
+
+## [0.13.19](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.18...@spherehq/cli@0.13.19) (2019-09-27)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.18](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.17...@spherehq/cli@0.13.18) (2019-09-27)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.17](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.16...@spherehq/cli@0.13.17) (2019-09-23)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.16](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.15...@spherehq/cli@0.13.16) (2019-09-16)
+
+**Note:** Version bump only for package @spherehq/cli
+
+## [0.13.15](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.14...@spherehq/cli@0.13.15) (2019-09-10)
+
+**Note:** Version bump only for package @spherehq/cli
+
 ## [0.13.14](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.13...@spherehq/cli@0.13.14) (2019-09-10)
 
 **Note:** Version bump only for package @spherehq/cli

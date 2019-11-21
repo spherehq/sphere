@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.12.1...@spherehq/geometry@0.12.2) (2019-11-19)
+
+### Bug Fixes
+
+- headings to not increase by more than one ([b3e2fd1](https://github.com/spherehq/sphere/commit/b3e2fd1))
+
 ## [0.12.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.12.0...@spherehq/geometry@0.12.1) (2019-07-24)
 
 **Note:** Version bump only for package @spherehq/geometry

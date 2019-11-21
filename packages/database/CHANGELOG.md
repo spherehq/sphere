@@ -3,65 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.3](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.2...@spherehq/database@0.13.3) (2019-11-19)
+
+### Bug Fixes
+
+- headings to not increase by more than one ([b3e2fd1](https://github.com/spherehq/sphere/commit/b3e2fd1))
+
+## [0.13.2](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.1...@spherehq/database@0.13.2) (2019-10-07)
+
+### Bug Fixes
+
+- packages/database/package.json & packages/database/.snyk to reduce vulnerabilities ([9a31717](https://github.com/spherehq/sphere/commit/9a31717))
+
 ## [0.13.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.0...@spherehq/database@0.13.1) (2019-06-27)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 # [0.13.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.12.0...@spherehq/database@0.13.0) (2019-06-27)
-
 
 ### Features
 
-* added version to generator meta tag ([9f6ca59](https://github.com/spherehq/sphere/commit/9f6ca59))
-
-
-
-
+- added version to generator meta tag ([9f6ca59](https://github.com/spherehq/sphere/commit/9f6ca59))
 
 # [0.12.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.11.0...@spherehq/database@0.12.0) (2019-06-25)
 
-
 ### Features
 
-* updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
-
-
-
-
+- updated cli for media ([9f84ae1](https://github.com/spherehq/sphere/commit/9f84ae1))
 
 # [0.11.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.10.1...@spherehq/database@0.11.0) (2019-06-21)
 
-
 ### Features
 
-* added docker and k8s support for deployment of api [skip ci] ([22c3a60](https://github.com/spherehq/sphere/commit/22c3a60))
-
-
-
-
+- added docker and k8s support for deployment of api [skip ci](<[22c3a60](https://github.com/spherehq/sphere/commit/22c3a60)>)
 
 ## [0.10.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.10.0...@spherehq/database@0.10.1) (2019-06-20)
 
 **Note:** Version bump only for package @spherehq/database
 
-
-
-
-
 # [0.10.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.9.1...@spherehq/database@0.10.0) (2019-06-19)
-
 
 ### Features
 
-* updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
-
-
-
-
+- updated ci, docker and credentials for database migration ([abb90c9](https://github.com/spherehq/sphere/commit/abb90c9))
 
 ## [0.9.1](https://github.com/spherehq/sphere/compare/@spherehq/database@0.9.0...@spherehq/database@0.9.1) (2019-06-13)
 
