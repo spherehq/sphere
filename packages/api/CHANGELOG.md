@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.130](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.129...@spherehq/api@0.12.130) (2019-11-21)
+
+### Bug Fixes
+
+- **deps:** update dependency apollo-server to v2.9.12 ([25b8afc](https://github.com/spherehq/sphere/commit/25b8afc))
+- **deps:** update dependency snyk to v1.251.0 ([3e3b2df](https://github.com/spherehq/sphere/commit/3e3b2df))
+
 ## [0.12.129](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.128...@spherehq/api@0.12.129) (2019-11-21)
 
 ### Bug Fixes

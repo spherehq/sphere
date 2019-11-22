@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/api",
   "description": "Sphere GraphQL API",
-  "version": "0.12.129",
+  "version": "0.12.130",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "client/index.ts",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@sentry/node": "5.9.0",
     "@spherehq/database": "^0.13.3",
-    "apollo-server": "2.9.11",
+    "apollo-server": "2.9.12",
     "aws-sdk": "^2.576.0",
     "file-type-stream": "^1.0.0",
     "graphql-fields": "2.0.3",
@@ -27,7 +27,7 @@
     "graphql-middleware": "3.0.5",
     "graphql-middleware-sentry": "3.2.1",
     "graphql-type-json": "0.3.1",
-    "snyk": "1.250.0",
+    "snyk": "1.251.0",
     "ts-node": "8.5.2",
     "typescript": "3.7.2"
   },
