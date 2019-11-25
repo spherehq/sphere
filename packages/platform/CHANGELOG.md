@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.182](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.181...@spherehq/platform@0.22.182) (2019-11-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-sharp to v2.3.3 ([01d3813](https://github.com/spherehq/sphere/commit/01d3813))
+
+
+
+
+
 ## [0.22.181](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.180...@spherehq/platform@0.22.181) (2019-11-23)
 
 **Note:** Version bump only for package @spherehq/platform
