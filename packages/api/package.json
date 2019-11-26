@@ -26,7 +26,10 @@
     "graphql-iso-date": "3.6.1",
     "graphql-middleware": "3.0.5",
     "graphql-middleware-sentry": "3.2.1",
+    "graphql-shield": "^7.0.2",
     "graphql-type-json": "0.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.0",
     "snyk": "1.251.0",
     "ts-node": "8.5.2",
     "typescript": "3.7.2"

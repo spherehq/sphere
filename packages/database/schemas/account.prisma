@@ -7,9 +7,9 @@ enum AccountStatus {
 type Account {
   id: ID! @id
   status: AccountStatus! @default(value: INACTIVE)
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String! @unique
+  profileImageUrl: String! @default(value: "https://picsum.photos/150/150?random=1")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   spheres: [Sphere!]

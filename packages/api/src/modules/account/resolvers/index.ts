@@ -1,2 +1,6 @@
-export { SpheresResolver } from './spheres'
-export { SphereResolver } from './sphere'
+// Queries
+export { SpheresResolver } from './Query/spheres'
+export { SphereResolver } from './Query/sphere'
+
+// Mutations
+export { ExchangeTokenResolver } from './Mutation/ExchangeToken'

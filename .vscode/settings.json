@@ -1,7 +1,6 @@
 {
   "editor.formatOnSave": true,
   "typescript.suggest.autoImports": false,
-  "prettier.tslintIntegration": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": false
   },

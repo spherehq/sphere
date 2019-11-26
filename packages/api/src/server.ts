@@ -6,6 +6,7 @@ import {
 } from 'graphql-middleware'
 import { sentry } from 'graphql-middleware-sentry'
 import { prisma } from '@spherehq/database'
+import { rule, shield, allow, or, deny } from 'graphql-shield'
 
 import { environment } from './config'
 
@@ -27,6 +28,50 @@ if (process.env.SENTRY_DSN) {
 
   middleware.push(sentryMiddleware)
 }
+
+const isEditor = rule({ cache: 'strict' })(async () => {
+  return true
+})
+
+const isOwner = rule({ cache: 'strict' })(async () => {
+  return true
+})
+
+const isAuthor = rule({ cache: 'strict' })(async () => {
+  return false
+})
+
+const permissions = shield(
+  {
+    Query: {
+      sphere: allow,
+      spheres: isEditor,
+      account: isOwner,
+      post: allow,
+      posts: allow,
+    },
+    Mutation: {
+      '*': deny,
+      exchangeToken: allow,
+    },
+    Sphere: {
+      '*': allow,
+    },
+    Account: {
+      '*': allow,
+      status: isOwner,
+      emailAddress: isOwner,
+    },
+    Post: {
+      status: isAuthor,
+      metadata: or(isAuthor, isEditor),
+    },
+    ExchangeTokenResponse: allow,
+  },
+  { fallbackRule: deny },
+)
+
+middleware.push(permissions)
 
 const schemaWithMiddleware = applyMiddleware(
   mergeSchemas({ schemas: [ContentSchema, AccountSchema] }),

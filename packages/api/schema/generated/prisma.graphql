@@ -1,9 +1,9 @@
 type Account {
   id: ID!
   status: AccountStatus!
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String!
+  profileImageUrl: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere!]
@@ -19,11 +19,16 @@ type AccountConnection {
 input AccountCreateInput {
   id: ID
   status: AccountStatus
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String!
+  profileImageUrl: String
   spheres: SphereCreateManyWithoutAssociatedWithInput
   posts: PostCreateManyWithoutAuthorInput
+}
+
+input AccountCreateOneInput {
+  create: AccountCreateInput
+  connect: AccountWhereUniqueInput
 }
 
 input AccountCreateOneWithoutPostsInput {
@@ -39,18 +44,18 @@ input AccountCreateOneWithoutSpheresInput {
 input AccountCreateWithoutPostsInput {
   id: ID
   status: AccountStatus
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String!
+  profileImageUrl: String
   spheres: SphereCreateManyWithoutAssociatedWithInput
 }
 
 input AccountCreateWithoutSpheresInput {
   id: ID
   status: AccountStatus
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String!
+  profileImageUrl: String
   posts: PostCreateManyWithoutAuthorInput
 }
 
@@ -64,12 +69,12 @@ enum AccountOrderByInput {
   id_DESC
   status_ASC
   status_DESC
-  firstName_ASC
-  firstName_DESC
-  lastName_ASC
-  lastName_DESC
+  fullName_ASC
+  fullName_DESC
   emailAddress_ASC
   emailAddress_DESC
+  profileImageUrl_ASC
+  profileImageUrl_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -79,9 +84,9 @@ enum AccountOrderByInput {
 type AccountPreviousValues {
   id: ID!
   status: AccountStatus!
-  firstName: String!
-  lastName: String!
+  fullName: String!
   emailAddress: String!
+  profileImageUrl: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -110,20 +115,36 @@ input AccountSubscriptionWhereInput {
   NOT: [AccountSubscriptionWhereInput!]
 }
 
+input AccountUpdateDataInput {
+  status: AccountStatus
+  fullName: String
+  emailAddress: String
+  profileImageUrl: String
+  spheres: SphereUpdateManyWithoutAssociatedWithInput
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
 input AccountUpdateInput {
   status: AccountStatus
-  firstName: String
-  lastName: String
+  fullName: String
   emailAddress: String
+  profileImageUrl: String
   spheres: SphereUpdateManyWithoutAssociatedWithInput
   posts: PostUpdateManyWithoutAuthorInput
 }
 
 input AccountUpdateManyMutationInput {
   status: AccountStatus
-  firstName: String
-  lastName: String
+  fullName: String
   emailAddress: String
+  profileImageUrl: String
+}
+
+input AccountUpdateOneRequiredInput {
+  create: AccountCreateInput
+  update: AccountUpdateDataInput
+  upsert: AccountUpsertNestedInput
+  connect: AccountWhereUniqueInput
 }
 
 input AccountUpdateOneRequiredWithoutPostsInput {
@@ -142,18 +163,23 @@ input AccountUpdateOneRequiredWithoutSpheresInput {
 
 input AccountUpdateWithoutPostsDataInput {
   status: AccountStatus
-  firstName: String
-  lastName: String
+  fullName: String
   emailAddress: String
+  profileImageUrl: String
   spheres: SphereUpdateManyWithoutAssociatedWithInput
 }
 
 input AccountUpdateWithoutSpheresDataInput {
   status: AccountStatus
-  firstName: String
-  lastName: String
+  fullName: String
   emailAddress: String
+  profileImageUrl: String
   posts: PostUpdateManyWithoutAuthorInput
+}
+
+input AccountUpsertNestedInput {
+  update: AccountUpdateDataInput!
+  create: AccountCreateInput!
 }
 
 input AccountUpsertWithoutPostsInput {
@@ -185,34 +211,20 @@ input AccountWhereInput {
   status_not: AccountStatus
   status_in: [AccountStatus!]
   status_not_in: [AccountStatus!]
-  firstName: String
-  firstName_not: String
-  firstName_in: [String!]
-  firstName_not_in: [String!]
-  firstName_lt: String
-  firstName_lte: String
-  firstName_gt: String
-  firstName_gte: String
-  firstName_contains: String
-  firstName_not_contains: String
-  firstName_starts_with: String
-  firstName_not_starts_with: String
-  firstName_ends_with: String
-  firstName_not_ends_with: String
-  lastName: String
-  lastName_not: String
-  lastName_in: [String!]
-  lastName_not_in: [String!]
-  lastName_lt: String
-  lastName_lte: String
-  lastName_gt: String
-  lastName_gte: String
-  lastName_contains: String
-  lastName_not_contains: String
-  lastName_starts_with: String
-  lastName_not_starts_with: String
-  lastName_ends_with: String
-  lastName_not_ends_with: String
+  fullName: String
+  fullName_not: String
+  fullName_in: [String!]
+  fullName_not_in: [String!]
+  fullName_lt: String
+  fullName_lte: String
+  fullName_gt: String
+  fullName_gte: String
+  fullName_contains: String
+  fullName_not_contains: String
+  fullName_starts_with: String
+  fullName_not_starts_with: String
+  fullName_ends_with: String
+  fullName_not_ends_with: String
   emailAddress: String
   emailAddress_not: String
   emailAddress_in: [String!]
@@ -227,6 +239,20 @@ input AccountWhereInput {
   emailAddress_not_starts_with: String
   emailAddress_ends_with: String
   emailAddress_not_ends_with: String
+  profileImageUrl: String
+  profileImageUrl_not: String
+  profileImageUrl_in: [String!]
+  profileImageUrl_not_in: [String!]
+  profileImageUrl_lt: String
+  profileImageUrl_lte: String
+  profileImageUrl_gt: String
+  profileImageUrl_gte: String
+  profileImageUrl_contains: String
+  profileImageUrl_not_contains: String
+  profileImageUrl_starts_with: String
+  profileImageUrl_not_starts_with: String
+  profileImageUrl_ends_with: String
+  profileImageUrl_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -276,6 +302,10 @@ type AggregatePostMetadata {
 }
 
 type AggregateSphere {
+  count: Int!
+}
+
+type AggregateUser {
   count: Int!
 }
 
@@ -532,6 +562,12 @@ type Mutation {
   upsertSphere(where: SphereWhereUniqueInput!, create: SphereCreateInput!, update: SphereUpdateInput!): Sphere!
   deleteSphere(where: SphereWhereUniqueInput!): Sphere
   deleteManySpheres(where: SphereWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -1176,6 +1212,9 @@ type Query {
   sphere(where: SphereWhereUniqueInput!): Sphere
   spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere]!
   spheresConnection(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SphereConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   node(id: ID!): Node
 }
 
@@ -1524,4 +1563,107 @@ type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   postMetadata(where: PostMetadataSubscriptionWhereInput): PostMetadataSubscriptionPayload
   sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  providerId: String!
+  associatedWith: Account!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  providerId: String!
+  associatedWith: AccountCreateOneInput!
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  providerId_ASC
+  providerId_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  providerId: String!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  providerId: String
+  associatedWith: AccountUpdateOneRequiredInput
+}
+
+input UserUpdateManyMutationInput {
+  providerId: String
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  providerId: String
+  providerId_not: String
+  providerId_in: [String!]
+  providerId_not_in: [String!]
+  providerId_lt: String
+  providerId_lte: String
+  providerId_gt: String
+  providerId_gte: String
+  providerId_contains: String
+  providerId_not_contains: String
+  providerId_starts_with: String
+  providerId_not_starts_with: String
+  providerId_ends_with: String
+  providerId_not_ends_with: String
+  associatedWith: AccountWhereInput
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  providerId: String
 }

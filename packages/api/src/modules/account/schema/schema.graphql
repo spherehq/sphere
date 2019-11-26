@@ -13,3 +13,22 @@ type Query {
   sphere(where: SphereWhereUniqueInput!): Sphere
   account(where: AccountWhereUniqueInput!): Account
 }
+
+input ExchangeTokenInput {
+  opaqueToken: String!
+}
+
+enum ExchangeTokenError {
+  INVALID_TOKEN
+  ACCOUNT_NOT_ACTIVE
+  APPLICATION_ERROR
+}
+
+type ExchangeTokenResponse {
+  token: String
+  error: ExchangeTokenError
+}
+
+type Mutation {
+  exchangeToken(input: ExchangeTokenInput!): ExchangeTokenResponse
+}

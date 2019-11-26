@@ -1,6 +1,6 @@
 import { Prisma } from '@spherehq/database'
 
-import { fragmentWithArgs } from '../../../utils'
+import { fragmentWithArgs } from '../../../../utils'
 
 export const SpheresResolver = (
   _: any,

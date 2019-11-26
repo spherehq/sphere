@@ -34,11 +34,15 @@ exports.models = [
     {
         name: "Sphere",
         embedded: false
+    },
+    {
+        name: "User",
+        embedded: false
     }
 ];
 exports.Prisma = prisma_client_lib_1.makePrismaClientClass({
     typeDefs: prisma_schema_1.typeDefs,
     models: exports.models,
-    endpoint: "https://prisma.sphere.sh/sphere/production"
+    endpoint: "http://localhost:4466/sphere/dev"
 });
 exports.prisma = new exports.Prisma();

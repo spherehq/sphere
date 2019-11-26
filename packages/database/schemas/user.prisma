@@ -1,0 +1,6 @@
+type User {
+  id: ID! @id
+  providerId: String! @unique
+  associatedWith: Account!
+    @relation(name: "UserAssociatedWithAccount", onDelete: CASCADE)
+}
