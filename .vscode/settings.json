@@ -5,6 +5,18 @@
     "source.fixAll.tslint": false
   },
   "workbench.colorCustomizations": {
-    "statusBar.background": "#111111"
+    "activityBar.background": "#1a161d",
+    "activityBar.activeBorder": "#df00ad",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#4c4452",
+    "activityBarBadge.background": "#df00ad",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "titleBar.activeBackground": "#1a161d",
+    "titleBar.inactiveBackground": "#1a161d",
+    "titleBar.activeForeground": "#4c4452",
+    "titleBar.inactiveForeground": "#4c4452",
+    "statusBar.background": "#1a161d",
+    "statusBarItem.hoverBackground": "#1a161d",
+    "statusBar.foreground": "#e7e7e7"
   }
 }

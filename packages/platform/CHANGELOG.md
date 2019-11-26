@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.184](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.183...@spherehq/platform@0.22.184) (2019-11-26)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([2c04f80](https://github.com/spherehq/sphere/commit/2c04f80))
+
+## [0.22.183](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.182...@spherehq/platform@0.22.183) (2019-11-25)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.18.3 ([ed09b66](https://github.com/spherehq/sphere/commit/ed09b66))
+
+## [0.22.182](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.181...@spherehq/platform@0.22.182) (2019-11-25)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby-plugin-sharp to v2.3.3 ([01d3813](https://github.com/spherehq/sphere/commit/01d3813))
+
+## [0.22.181](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.180...@spherehq/platform@0.22.181) (2019-11-23)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.22.180](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.179...@spherehq/platform@0.22.180) (2019-11-22)
+
+**Note:** Version bump only for package @spherehq/platform
+
 ## [0.22.179](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.178...@spherehq/platform@0.22.179) (2019-11-22)
 
 ### Bug Fixes
