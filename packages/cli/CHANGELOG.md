@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.37](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.36...@spherehq/cli@0.13.37) (2019-11-28)
+
+**Note:** Version bump only for package @spherehq/cli
+
+
+
+
+
 ## [0.13.36](https://github.com/spherehq/sphere/compare/@spherehq/cli@0.13.35...@spherehq/cli@0.13.36) (2019-11-28)
 
 **Note:** Version bump only for package @spherehq/cli
