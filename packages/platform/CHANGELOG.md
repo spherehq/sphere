@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.185](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.184...@spherehq/platform@0.22.185) (2019-11-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @blueprintjs/core to v3.22.0 ([0eaa588](https://github.com/spherehq/sphere/commit/0eaa588))
+
+
+
+
+
 ## [0.22.184](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.183...@spherehq/platform@0.22.184) (2019-11-26)
 
 
