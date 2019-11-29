@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.35...@spherehq/gatsby-theme-spheres@0.2.0) (2019-11-29)
+
+
+### Features
+
+* client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
+* updated resolver and schema for upload ([04dcf88](https://github.com/spherehq/sphere/commit/04dcf88f96531f6e5ac253dfc3dd2d2a6af9825c))
+
+
+
+
+
 ## [0.1.35](https://github.com/spherehq/sphere/compare/@spherehq/gatsby-theme-spheres@0.1.34...@spherehq/gatsby-theme-spheres@0.1.35) (2019-11-26)
 
 ### Bug Fixes

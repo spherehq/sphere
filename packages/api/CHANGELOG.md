@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.132...@spherehq/api@0.13.0) (2019-11-29)
+
+
+### Bug Fixes
+
+* credentials ([9b3bb69](https://github.com/spherehq/sphere/commit/9b3bb69742f198514d36b6b30156f02475df3eb4))
+
+
+### Features
+
+* client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
+* exchange token ([88e3603](https://github.com/spherehq/sphere/commit/88e36038e77b22ccdd7dcc4a07f4d3fb440d7c18))
+* updated resolver and schema for upload ([04dcf88](https://github.com/spherehq/sphere/commit/04dcf88f96531f6e5ac253dfc3dd2d2a6af9825c))
+
+
+
+
+
 ## [0.12.132](https://github.com/spherehq/sphere/compare/@spherehq/api@0.12.131...@spherehq/api@0.12.132) (2019-11-25)
 
 **Note:** Version bump only for package @spherehq/api

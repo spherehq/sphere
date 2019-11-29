@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.3...@spherehq/database@0.14.0) (2019-11-29)
+
+
+### Features
+
+* client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
+* exchange token ([88e3603](https://github.com/spherehq/sphere/commit/88e36038e77b22ccdd7dcc4a07f4d3fb440d7c18))
+
+
+
+
+
 ## [0.13.3](https://github.com/spherehq/sphere/compare/@spherehq/database@0.13.2...@spherehq/database@0.13.3) (2019-11-19)
 
 ### Bug Fixes
