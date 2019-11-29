@@ -2,17 +2,11 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/typescript-node-lts
 {
   "name": "Sphere Environment",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "docker-in-docker",
-  "workspaceFolder": "/workspace",
+  "dockerFile": "Dockerfile",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
-  "postCreateCommand": "cp /workspace/.devcontainer/.zshrc ~/.zshrc",
-  "runArgs": [
-    "-v",
-    "/var/run/docker.sock:/var/run/docker.sock",
-    "projectname-bashhistory:/root/commandhistory"
-  ],
+  // "postCreateCommand": "cp /workspaces/sphere/.devcontainer/.zshrc ~/.zshrc",
+  "runArgs": ["-v", "/var/run/docker.sock:/var/run/docker.sock"],
   "extensions": ["ms-vscode.vscode-typescript-tslint-plugin"]
 }
