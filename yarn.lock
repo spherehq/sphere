@@ -7676,10 +7676,10 @@ envinfo@^7.5.0:
   resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.5.0.tgz#91410bb6db262fb4f1409bd506e9ff57e91023f4"
   integrity sha512-jDgnJaF/Btomk+m3PZDTTCb5XIIIX3zYItnCRfF73zVgvinLoRomuhi75Y4su0PtQxWz4v66XnLLckyvyJTOIQ==
 
-envsub@3.0.9:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/envsub/-/envsub-3.0.9.tgz#b89a17c8ffb1460e1fc534764603b03cf6e0a7fe"
-  integrity sha512-3tjwXTxkjfU6SLeOAZ8f2uEK0g+dFFknG93vWvjpNF6YIKvhZMatSDX58D56cgWxfBjWG6ZQcz/4hwHnWc4FGQ==
+envsub@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/envsub/-/envsub-3.1.0.tgz#06a9ef032d026771018335ff8d15e53bdd10cc22"
+  integrity sha1-BqnvAy0CZ3EBgzX/jRXlO90QzCI=
   dependencies:
     bluebird "^3.5.0"
     chalk "^1.1.3"
