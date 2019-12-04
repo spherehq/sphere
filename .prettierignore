@@ -15,3 +15,4 @@ prisma.yml
 **/generated/**
 ci/*
 manifests/*
+codegen.yml
