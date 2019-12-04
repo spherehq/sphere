@@ -6,7 +6,7 @@ enum AccountStatus {
 
 type Account {
   id: ID! @id
-  status: AccountStatus! @default(value: INACTIVE)
+  status: AccountStatus! @default(value: ACTIVE)
   fullName: String!
   emailAddress: String! @unique
   profileImageUrl: String! @default(value: "https://picsum.photos/150/150?random=1")

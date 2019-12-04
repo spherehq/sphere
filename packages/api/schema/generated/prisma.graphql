@@ -305,6 +305,14 @@ type AggregateSphere {
   count: Int!
 }
 
+type AggregateSphereVerification {
+  count: Int!
+}
+
+type AggregateSphereVerificationCode {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -562,6 +570,18 @@ type Mutation {
   upsertSphere(where: SphereWhereUniqueInput!, create: SphereCreateInput!, update: SphereUpdateInput!): Sphere!
   deleteSphere(where: SphereWhereUniqueInput!): Sphere
   deleteManySpheres(where: SphereWhereInput): BatchPayload!
+  createSphereVerification(data: SphereVerificationCreateInput!): SphereVerification!
+  updateSphereVerification(data: SphereVerificationUpdateInput!, where: SphereVerificationWhereUniqueInput!): SphereVerification
+  updateManySphereVerifications(data: SphereVerificationUpdateManyMutationInput!, where: SphereVerificationWhereInput): BatchPayload!
+  upsertSphereVerification(where: SphereVerificationWhereUniqueInput!, create: SphereVerificationCreateInput!, update: SphereVerificationUpdateInput!): SphereVerification!
+  deleteSphereVerification(where: SphereVerificationWhereUniqueInput!): SphereVerification
+  deleteManySphereVerifications(where: SphereVerificationWhereInput): BatchPayload!
+  createSphereVerificationCode(data: SphereVerificationCodeCreateInput!): SphereVerificationCode!
+  updateSphereVerificationCode(data: SphereVerificationCodeUpdateInput!, where: SphereVerificationCodeWhereUniqueInput!): SphereVerificationCode
+  updateManySphereVerificationCodes(data: SphereVerificationCodeUpdateManyMutationInput!, where: SphereVerificationCodeWhereInput): BatchPayload!
+  upsertSphereVerificationCode(where: SphereVerificationCodeWhereUniqueInput!, create: SphereVerificationCodeCreateInput!, update: SphereVerificationCodeUpdateInput!): SphereVerificationCode!
+  deleteSphereVerificationCode(where: SphereVerificationCodeWhereUniqueInput!): SphereVerificationCode
+  deleteManySphereVerificationCodes(where: SphereVerificationCodeWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -1212,6 +1232,12 @@ type Query {
   sphere(where: SphereWhereUniqueInput!): Sphere
   spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere]!
   spheresConnection(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SphereConnection!
+  sphereVerification(where: SphereVerificationWhereUniqueInput!): SphereVerification
+  sphereVerifications(where: SphereVerificationWhereInput, orderBy: SphereVerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SphereVerification]!
+  sphereVerificationsConnection(where: SphereVerificationWhereInput, orderBy: SphereVerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SphereVerificationConnection!
+  sphereVerificationCode(where: SphereVerificationCodeWhereUniqueInput!): SphereVerificationCode
+  sphereVerificationCodes(where: SphereVerificationCodeWhereInput, orderBy: SphereVerificationCodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SphereVerificationCode]!
+  sphereVerificationCodesConnection(where: SphereVerificationCodeWhereInput, orderBy: SphereVerificationCodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SphereVerificationCodeConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -1220,10 +1246,11 @@ type Query {
 
 type Sphere {
   id: ID!
-  alias: String!
+  alias: String
   aliasSlug: String!
   slugPrefix: String!
   associatedWith: Account!
+  verifiedBy: SphereVerification!
   createdAt: DateTime!
   updatedAt: DateTime!
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
@@ -1237,10 +1264,11 @@ type SphereConnection {
 
 input SphereCreateInput {
   id: ID
-  alias: String!
+  alias: String
   aliasSlug: String!
   slugPrefix: String
   associatedWith: AccountCreateOneWithoutSpheresInput!
+  verifiedBy: SphereVerificationCreateOneInput!
   posts: PostCreateManyWithoutAssociatedWithInput
 }
 
@@ -1256,18 +1284,20 @@ input SphereCreateOneWithoutPostsInput {
 
 input SphereCreateWithoutAssociatedWithInput {
   id: ID
-  alias: String!
+  alias: String
   aliasSlug: String!
   slugPrefix: String
+  verifiedBy: SphereVerificationCreateOneInput!
   posts: PostCreateManyWithoutAssociatedWithInput
 }
 
 input SphereCreateWithoutPostsInput {
   id: ID
-  alias: String!
+  alias: String
   aliasSlug: String!
   slugPrefix: String
   associatedWith: AccountCreateOneWithoutSpheresInput!
+  verifiedBy: SphereVerificationCreateOneInput!
 }
 
 type SphereEdge {
@@ -1292,7 +1322,7 @@ enum SphereOrderByInput {
 
 type SpherePreviousValues {
   id: ID!
-  alias: String!
+  alias: String
   aliasSlug: String!
   slugPrefix: String!
   createdAt: DateTime!
@@ -1400,6 +1430,7 @@ input SphereUpdateInput {
   aliasSlug: String
   slugPrefix: String
   associatedWith: AccountUpdateOneRequiredWithoutSpheresInput
+  verifiedBy: SphereVerificationUpdateOneRequiredInput
   posts: PostUpdateManyWithoutAssociatedWithInput
 }
 
@@ -1443,6 +1474,7 @@ input SphereUpdateWithoutAssociatedWithDataInput {
   alias: String
   aliasSlug: String
   slugPrefix: String
+  verifiedBy: SphereVerificationUpdateOneRequiredInput
   posts: PostUpdateManyWithoutAssociatedWithInput
 }
 
@@ -1451,6 +1483,7 @@ input SphereUpdateWithoutPostsDataInput {
   aliasSlug: String
   slugPrefix: String
   associatedWith: AccountUpdateOneRequiredWithoutSpheresInput
+  verifiedBy: SphereVerificationUpdateOneRequiredInput
 }
 
 input SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
@@ -1467,6 +1500,337 @@ input SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
   where: SphereWhereUniqueInput!
   update: SphereUpdateWithoutAssociatedWithDataInput!
   create: SphereCreateWithoutAssociatedWithInput!
+}
+
+type SphereVerification {
+  id: ID!
+  url: String!
+  code: SphereVerificationCode!
+  status: SphereVerificationStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SphereVerificationCode {
+  id: ID!
+  issuedAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+  status: SphereVerificationCodeStatus!
+  associatedWith: Account!
+}
+
+type SphereVerificationCodeConnection {
+  pageInfo: PageInfo!
+  edges: [SphereVerificationCodeEdge]!
+  aggregate: AggregateSphereVerificationCode!
+}
+
+input SphereVerificationCodeCreateInput {
+  id: ID
+  value: String!
+  status: SphereVerificationCodeStatus
+  associatedWith: AccountCreateOneInput!
+}
+
+input SphereVerificationCodeCreateOneInput {
+  create: SphereVerificationCodeCreateInput
+  connect: SphereVerificationCodeWhereUniqueInput
+}
+
+type SphereVerificationCodeEdge {
+  node: SphereVerificationCode!
+  cursor: String!
+}
+
+enum SphereVerificationCodeOrderByInput {
+  id_ASC
+  id_DESC
+  issuedAt_ASC
+  issuedAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  value_ASC
+  value_DESC
+  status_ASC
+  status_DESC
+}
+
+type SphereVerificationCodePreviousValues {
+  id: ID!
+  issuedAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+  status: SphereVerificationCodeStatus!
+}
+
+enum SphereVerificationCodeStatus {
+  ISSUED
+  CLAIMED
+  INVALIDATED
+}
+
+type SphereVerificationCodeSubscriptionPayload {
+  mutation: MutationType!
+  node: SphereVerificationCode
+  updatedFields: [String!]
+  previousValues: SphereVerificationCodePreviousValues
+}
+
+input SphereVerificationCodeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SphereVerificationCodeWhereInput
+  AND: [SphereVerificationCodeSubscriptionWhereInput!]
+  OR: [SphereVerificationCodeSubscriptionWhereInput!]
+  NOT: [SphereVerificationCodeSubscriptionWhereInput!]
+}
+
+input SphereVerificationCodeUpdateDataInput {
+  value: String
+  status: SphereVerificationCodeStatus
+  associatedWith: AccountUpdateOneRequiredInput
+}
+
+input SphereVerificationCodeUpdateInput {
+  value: String
+  status: SphereVerificationCodeStatus
+  associatedWith: AccountUpdateOneRequiredInput
+}
+
+input SphereVerificationCodeUpdateManyMutationInput {
+  value: String
+  status: SphereVerificationCodeStatus
+}
+
+input SphereVerificationCodeUpdateOneRequiredInput {
+  create: SphereVerificationCodeCreateInput
+  update: SphereVerificationCodeUpdateDataInput
+  upsert: SphereVerificationCodeUpsertNestedInput
+  connect: SphereVerificationCodeWhereUniqueInput
+}
+
+input SphereVerificationCodeUpsertNestedInput {
+  update: SphereVerificationCodeUpdateDataInput!
+  create: SphereVerificationCodeCreateInput!
+}
+
+input SphereVerificationCodeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  issuedAt: DateTime
+  issuedAt_not: DateTime
+  issuedAt_in: [DateTime!]
+  issuedAt_not_in: [DateTime!]
+  issuedAt_lt: DateTime
+  issuedAt_lte: DateTime
+  issuedAt_gt: DateTime
+  issuedAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+  status: SphereVerificationCodeStatus
+  status_not: SphereVerificationCodeStatus
+  status_in: [SphereVerificationCodeStatus!]
+  status_not_in: [SphereVerificationCodeStatus!]
+  associatedWith: AccountWhereInput
+  AND: [SphereVerificationCodeWhereInput!]
+  OR: [SphereVerificationCodeWhereInput!]
+  NOT: [SphereVerificationCodeWhereInput!]
+}
+
+input SphereVerificationCodeWhereUniqueInput {
+  id: ID
+  value: String
+}
+
+type SphereVerificationConnection {
+  pageInfo: PageInfo!
+  edges: [SphereVerificationEdge]!
+  aggregate: AggregateSphereVerification!
+}
+
+input SphereVerificationCreateInput {
+  id: ID
+  url: String!
+  code: SphereVerificationCodeCreateOneInput!
+  status: SphereVerificationStatus
+}
+
+input SphereVerificationCreateOneInput {
+  create: SphereVerificationCreateInput
+  connect: SphereVerificationWhereUniqueInput
+}
+
+type SphereVerificationEdge {
+  node: SphereVerification!
+  cursor: String!
+}
+
+enum SphereVerificationOrderByInput {
+  id_ASC
+  id_DESC
+  url_ASC
+  url_DESC
+  status_ASC
+  status_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SphereVerificationPreviousValues {
+  id: ID!
+  url: String!
+  status: SphereVerificationStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum SphereVerificationStatus {
+  VERIFIED
+  AWAITING_VERIFICATION
+  DISABLED
+}
+
+type SphereVerificationSubscriptionPayload {
+  mutation: MutationType!
+  node: SphereVerification
+  updatedFields: [String!]
+  previousValues: SphereVerificationPreviousValues
+}
+
+input SphereVerificationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SphereVerificationWhereInput
+  AND: [SphereVerificationSubscriptionWhereInput!]
+  OR: [SphereVerificationSubscriptionWhereInput!]
+  NOT: [SphereVerificationSubscriptionWhereInput!]
+}
+
+input SphereVerificationUpdateDataInput {
+  url: String
+  code: SphereVerificationCodeUpdateOneRequiredInput
+  status: SphereVerificationStatus
+}
+
+input SphereVerificationUpdateInput {
+  url: String
+  code: SphereVerificationCodeUpdateOneRequiredInput
+  status: SphereVerificationStatus
+}
+
+input SphereVerificationUpdateManyMutationInput {
+  url: String
+  status: SphereVerificationStatus
+}
+
+input SphereVerificationUpdateOneRequiredInput {
+  create: SphereVerificationCreateInput
+  update: SphereVerificationUpdateDataInput
+  upsert: SphereVerificationUpsertNestedInput
+  connect: SphereVerificationWhereUniqueInput
+}
+
+input SphereVerificationUpsertNestedInput {
+  update: SphereVerificationUpdateDataInput!
+  create: SphereVerificationCreateInput!
+}
+
+input SphereVerificationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  code: SphereVerificationCodeWhereInput
+  status: SphereVerificationStatus
+  status_not: SphereVerificationStatus
+  status_in: [SphereVerificationStatus!]
+  status_not_in: [SphereVerificationStatus!]
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [SphereVerificationWhereInput!]
+  OR: [SphereVerificationWhereInput!]
+  NOT: [SphereVerificationWhereInput!]
+}
+
+input SphereVerificationWhereUniqueInput {
+  id: ID
 }
 
 input SphereWhereInput {
@@ -1527,6 +1891,7 @@ input SphereWhereInput {
   slugPrefix_ends_with: String
   slugPrefix_not_ends_with: String
   associatedWith: AccountWhereInput
+  verifiedBy: SphereVerificationWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1563,6 +1928,8 @@ type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   postMetadata(where: PostMetadataSubscriptionWhereInput): PostMetadataSubscriptionPayload
   sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload
+  sphereVerification(where: SphereVerificationSubscriptionWhereInput): SphereVerificationSubscriptionPayload
+  sphereVerificationCode(where: SphereVerificationCodeSubscriptionWhereInput): SphereVerificationCodeSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 

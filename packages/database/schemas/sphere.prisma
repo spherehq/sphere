@@ -1,10 +1,47 @@
+enum SphereVerificationCodeStatus {
+  ISSUED
+  CLAIMED
+  INVALIDATED
+}
+
+enum SphereVerificationStatus {
+  VERIFIED
+  AWAITING_VERIFICATION
+  DISABLED
+}
+
+type SphereVerificationCode {
+  id: ID! @id
+  issuedAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  value: String! @unique
+  status: SphereVerificationCodeStatus! @default(value: ISSUED)
+  associatedWith: Account!
+    @relation(name: "SphereVerificationCodeAssociatedWithAccount")
+}
+
+type SphereVerification {
+  id: ID! @id
+  url: String!
+  code: SphereVerificationCode!
+    @relation(
+      name: "SphereVerificationOnSphereVerificationCode"
+      onDelete: CASCADE
+    )
+  status: SphereVerificationStatus! @default(value: AWAITING_VERIFICATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
 type Sphere {
   id: ID! @id
-  alias: String! @unique
+  alias: String @unique
   aliasSlug: String! @unique
   slugPrefix: String! @default(value: "@")
   associatedWith: Account!
     @relation(name: "AccountAssociatedWithSphere", onDelete: CASCADE)
+  verifiedBy: SphereVerification!
+    @relation(name: "SphereOnSphereVerification", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   posts: [Post!]! @relation(name: "PostAssociatedWithSphere", onDelete: CASCADE)

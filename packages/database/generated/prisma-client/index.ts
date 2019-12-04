@@ -21,6 +21,12 @@ export interface Exists {
   post: (where?: PostWhereInput) => Promise<boolean>;
   postMetadata: (where?: PostMetadataWhereInput) => Promise<boolean>;
   sphere: (where?: SphereWhereInput) => Promise<boolean>;
+  sphereVerification: (
+    where?: SphereVerificationWhereInput
+  ) => Promise<boolean>;
+  sphereVerificationCode: (
+    where?: SphereVerificationCodeWhereInput
+  ) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
 }
 
@@ -140,6 +146,48 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => SphereConnectionPromise;
+  sphereVerification: (
+    where: SphereVerificationWhereUniqueInput
+  ) => SphereVerificationNullablePromise;
+  sphereVerifications: (args?: {
+    where?: SphereVerificationWhereInput;
+    orderBy?: SphereVerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<SphereVerification>;
+  sphereVerificationsConnection: (args?: {
+    where?: SphereVerificationWhereInput;
+    orderBy?: SphereVerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => SphereVerificationConnectionPromise;
+  sphereVerificationCode: (
+    where: SphereVerificationCodeWhereUniqueInput
+  ) => SphereVerificationCodeNullablePromise;
+  sphereVerificationCodes: (args?: {
+    where?: SphereVerificationCodeWhereInput;
+    orderBy?: SphereVerificationCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<SphereVerificationCode>;
+  sphereVerificationCodesConnection: (args?: {
+    where?: SphereVerificationCodeWhereInput;
+    orderBy?: SphereVerificationCodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => SphereVerificationCodeConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserNullablePromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -249,6 +297,50 @@ export interface Prisma {
   }) => SpherePromise;
   deleteSphere: (where: SphereWhereUniqueInput) => SpherePromise;
   deleteManySpheres: (where?: SphereWhereInput) => BatchPayloadPromise;
+  createSphereVerification: (
+    data: SphereVerificationCreateInput
+  ) => SphereVerificationPromise;
+  updateSphereVerification: (args: {
+    data: SphereVerificationUpdateInput;
+    where: SphereVerificationWhereUniqueInput;
+  }) => SphereVerificationPromise;
+  updateManySphereVerifications: (args: {
+    data: SphereVerificationUpdateManyMutationInput;
+    where?: SphereVerificationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertSphereVerification: (args: {
+    where: SphereVerificationWhereUniqueInput;
+    create: SphereVerificationCreateInput;
+    update: SphereVerificationUpdateInput;
+  }) => SphereVerificationPromise;
+  deleteSphereVerification: (
+    where: SphereVerificationWhereUniqueInput
+  ) => SphereVerificationPromise;
+  deleteManySphereVerifications: (
+    where?: SphereVerificationWhereInput
+  ) => BatchPayloadPromise;
+  createSphereVerificationCode: (
+    data: SphereVerificationCodeCreateInput
+  ) => SphereVerificationCodePromise;
+  updateSphereVerificationCode: (args: {
+    data: SphereVerificationCodeUpdateInput;
+    where: SphereVerificationCodeWhereUniqueInput;
+  }) => SphereVerificationCodePromise;
+  updateManySphereVerificationCodes: (args: {
+    data: SphereVerificationCodeUpdateManyMutationInput;
+    where?: SphereVerificationCodeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertSphereVerificationCode: (args: {
+    where: SphereVerificationCodeWhereUniqueInput;
+    create: SphereVerificationCodeCreateInput;
+    update: SphereVerificationCodeUpdateInput;
+  }) => SphereVerificationCodePromise;
+  deleteSphereVerificationCode: (
+    where: SphereVerificationCodeWhereUniqueInput
+  ) => SphereVerificationCodePromise;
+  deleteManySphereVerificationCodes: (
+    where?: SphereVerificationCodeWhereInput
+  ) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -289,6 +381,12 @@ export interface Subscription {
   sphere: (
     where?: SphereSubscriptionWhereInput
   ) => SphereSubscriptionPayloadSubscription;
+  sphereVerification: (
+    where?: SphereVerificationSubscriptionWhereInput
+  ) => SphereVerificationSubscriptionPayloadSubscription;
+  sphereVerificationCode: (
+    where?: SphereVerificationCodeSubscriptionWhereInput
+  ) => SphereVerificationCodeSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
@@ -318,9 +416,42 @@ export type AccountOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type POST_STATUS = "PUBLISHED" | "DRAFT" | "ARCHIVED" | "SYNCING";
+export type SphereVerificationCodeStatus = "ISSUED" | "CLAIMED" | "INVALIDATED";
+
+export type MediaOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "url_ASC"
+  | "url_DESC"
+  | "type_ASC"
+  | "type_DESC";
+
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "providerId_ASC"
+  | "providerId_DESC";
 
 export type MEDIA_TYPE = "IMAGE";
+
+export type SphereVerificationCodeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "issuedAt_ASC"
+  | "issuedAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "value_ASC"
+  | "value_DESC"
+  | "status_ASC"
+  | "status_DESC";
+
+export type SphereVerificationStatus =
+  | "VERIFIED"
+  | "AWAITING_VERIFICATION"
+  | "DISABLED";
+
+export type POST_STATUS = "PUBLISHED" | "DRAFT" | "ARCHIVED" | "SYNCING";
 
 export type SphereOrderByInput =
   | "id_ASC"
@@ -358,13 +489,19 @@ export type PostOrderByInput =
   | "status_ASC"
   | "status_DESC";
 
-export type MediaOrderByInput =
+export type SphereVerificationOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "url_ASC"
   | "url_DESC"
-  | "type_ASC"
-  | "type_DESC";
+  | "status_ASC"
+  | "status_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type AccountStatus = "VERIFIED" | "ACTIVE" | "INACTIVE";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -380,34 +517,27 @@ export type PostMetadataOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type AccountStatus = "VERIFIED" | "ACTIVE" | "INACTIVE";
-
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "providerId_ASC"
-  | "providerId_DESC";
-
-export interface PostUpdateManyWithoutAssociatedWithInput {
+export interface SphereUpdateManyWithoutAssociatedWithInput {
   create?: Maybe<
-    | PostCreateWithoutAssociatedWithInput[]
-    | PostCreateWithoutAssociatedWithInput
+    | SphereCreateWithoutAssociatedWithInput[]
+    | SphereCreateWithoutAssociatedWithInput
   >;
-  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  delete?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
+  connect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
+  set?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
+  disconnect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
   update?: Maybe<
-    | PostUpdateWithWhereUniqueWithoutAssociatedWithInput[]
-    | PostUpdateWithWhereUniqueWithoutAssociatedWithInput
+    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[]
+    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput
   >;
   upsert?: Maybe<
-    | PostUpsertWithWhereUniqueWithoutAssociatedWithInput[]
-    | PostUpsertWithWhereUniqueWithoutAssociatedWithInput
+    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[]
+    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput
   >;
-  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
+  deleteMany?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
   updateMany?: Maybe<
-    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
+    | SphereUpdateManyWithWhereNestedInput[]
+    | SphereUpdateManyWithWhereNestedInput
   >;
 }
 
@@ -416,47 +546,243 @@ export type AccountWhereUniqueInput = AtLeastOne<{
   emailAddress?: Maybe<String>;
 }>;
 
-export interface MediaCreateInput {
+export interface AccountUpdateDataInput {
+  status?: Maybe<AccountStatus>;
+  fullName?: Maybe<String>;
+  emailAddress?: Maybe<String>;
+  profileImageUrl?: Maybe<String>;
+  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
+}
+
+export interface SphereVerificationCodeWhereInput {
   id?: Maybe<ID_Input>;
-  url: String;
-  type?: Maybe<MEDIA_TYPE>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  issuedAt?: Maybe<DateTimeInput>;
+  issuedAt_not?: Maybe<DateTimeInput>;
+  issuedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  issuedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  issuedAt_lt?: Maybe<DateTimeInput>;
+  issuedAt_lte?: Maybe<DateTimeInput>;
+  issuedAt_gt?: Maybe<DateTimeInput>;
+  issuedAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  value?: Maybe<String>;
+  value_not?: Maybe<String>;
+  value_in?: Maybe<String[] | String>;
+  value_not_in?: Maybe<String[] | String>;
+  value_lt?: Maybe<String>;
+  value_lte?: Maybe<String>;
+  value_gt?: Maybe<String>;
+  value_gte?: Maybe<String>;
+  value_contains?: Maybe<String>;
+  value_not_contains?: Maybe<String>;
+  value_starts_with?: Maybe<String>;
+  value_not_starts_with?: Maybe<String>;
+  value_ends_with?: Maybe<String>;
+  value_not_ends_with?: Maybe<String>;
+  status?: Maybe<SphereVerificationCodeStatus>;
+  status_not?: Maybe<SphereVerificationCodeStatus>;
+  status_in?: Maybe<
+    SphereVerificationCodeStatus[] | SphereVerificationCodeStatus
+  >;
+  status_not_in?: Maybe<
+    SphereVerificationCodeStatus[] | SphereVerificationCodeStatus
+  >;
+  associatedWith?: Maybe<AccountWhereInput>;
+  AND?: Maybe<
+    SphereVerificationCodeWhereInput[] | SphereVerificationCodeWhereInput
+  >;
+  OR?: Maybe<
+    SphereVerificationCodeWhereInput[] | SphereVerificationCodeWhereInput
+  >;
+  NOT?: Maybe<
+    SphereVerificationCodeWhereInput[] | SphereVerificationCodeWhereInput
+  >;
 }
 
-export interface SphereUpdateWithoutPostsDataInput {
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-  associatedWith?: Maybe<AccountUpdateOneRequiredWithoutSpheresInput>;
-}
-
-export interface MediaCreateManyInput {
-  create?: Maybe<MediaCreateInput[] | MediaCreateInput>;
-  connect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
-}
-
-export interface MediaUpdateManyInput {
-  create?: Maybe<MediaCreateInput[] | MediaCreateInput>;
+export interface PostUpdateManyWithoutAuthorInput {
+  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
+  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
   update?: Maybe<
-    | MediaUpdateWithWhereUniqueNestedInput[]
-    | MediaUpdateWithWhereUniqueNestedInput
+    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
+    | PostUpdateWithWhereUniqueWithoutAuthorInput
   >;
   upsert?: Maybe<
-    | MediaUpsertWithWhereUniqueNestedInput[]
-    | MediaUpsertWithWhereUniqueNestedInput
+    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
+    | PostUpsertWithWhereUniqueWithoutAuthorInput
   >;
-  delete?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
-  connect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
-  set?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
-  disconnect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
-  deleteMany?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
+  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
   updateMany?: Maybe<
-    MediaUpdateManyWithWhereNestedInput[] | MediaUpdateManyWithWhereNestedInput
+    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
   >;
 }
 
-export interface AccountCreateOneWithoutPostsInput {
-  create?: Maybe<AccountCreateWithoutPostsInput>;
+export interface PostMetadataWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  fileHash?: Maybe<String>;
+  fileHash_not?: Maybe<String>;
+  fileHash_in?: Maybe<String[] | String>;
+  fileHash_not_in?: Maybe<String[] | String>;
+  fileHash_lt?: Maybe<String>;
+  fileHash_lte?: Maybe<String>;
+  fileHash_gt?: Maybe<String>;
+  fileHash_gte?: Maybe<String>;
+  fileHash_contains?: Maybe<String>;
+  fileHash_not_contains?: Maybe<String>;
+  fileHash_starts_with?: Maybe<String>;
+  fileHash_not_starts_with?: Maybe<String>;
+  fileHash_ends_with?: Maybe<String>;
+  fileHash_not_ends_with?: Maybe<String>;
+  filename?: Maybe<String>;
+  filename_not?: Maybe<String>;
+  filename_in?: Maybe<String[] | String>;
+  filename_not_in?: Maybe<String[] | String>;
+  filename_lt?: Maybe<String>;
+  filename_lte?: Maybe<String>;
+  filename_gt?: Maybe<String>;
+  filename_gte?: Maybe<String>;
+  filename_contains?: Maybe<String>;
+  filename_not_contains?: Maybe<String>;
+  filename_starts_with?: Maybe<String>;
+  filename_not_starts_with?: Maybe<String>;
+  filename_ends_with?: Maybe<String>;
+  filename_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
+  OR?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
+  NOT?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
+}
+
+export interface SphereVerificationCodeCreateInput {
+  id?: Maybe<ID_Input>;
+  value: String;
+  status?: Maybe<SphereVerificationCodeStatus>;
+  associatedWith: AccountCreateOneInput;
+}
+
+export interface SphereVerificationUpsertNestedInput {
+  update: SphereVerificationUpdateDataInput;
+  create: SphereVerificationCreateInput;
+}
+
+export interface AccountCreateOneInput {
+  create?: Maybe<AccountCreateInput>;
   connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput;
+  data: PostUpdateWithoutAuthorDataInput;
+}
+
+export interface PostCreateManyWithoutAssociatedWithInput {
+  create?: Maybe<
+    | PostCreateWithoutAssociatedWithInput[]
+    | PostCreateWithoutAssociatedWithInput
+  >;
+  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+}
+
+export interface SphereVerificationCodeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SphereVerificationCodeWhereInput>;
+  AND?: Maybe<
+    | SphereVerificationCodeSubscriptionWhereInput[]
+    | SphereVerificationCodeSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | SphereVerificationCodeSubscriptionWhereInput[]
+    | SphereVerificationCodeSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | SphereVerificationCodeSubscriptionWhereInput[]
+    | SphereVerificationCodeSubscriptionWhereInput
+  >;
+}
+
+export interface PostCreateWithoutAssociatedWithInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  featuredImage?: Maybe<MediaCreateOneInput>;
+  content: Json;
+  images?: Maybe<MediaCreateManyInput>;
+  slug: String;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  author: AccountCreateOneWithoutPostsInput;
+  metadata: PostMetadataCreateOneInput;
+}
+
+export interface SphereSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SphereWhereInput>;
+  AND?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
+  OR?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
+  NOT?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
+}
+
+export interface MediaCreateOneInput {
+  create?: Maybe<MediaCreateInput>;
+  connect?: Maybe<MediaWhereUniqueInput>;
 }
 
 export interface MediaWhereInput {
@@ -497,13 +823,10 @@ export interface MediaWhereInput {
   NOT?: Maybe<MediaWhereInput[] | MediaWhereInput>;
 }
 
-export interface AccountCreateWithoutPostsInput {
+export interface MediaCreateInput {
   id?: Maybe<ID_Input>;
-  status?: Maybe<AccountStatus>;
-  fullName: String;
-  emailAddress: String;
-  profileImageUrl?: Maybe<String>;
-  spheres?: Maybe<SphereCreateManyWithoutAssociatedWithInput>;
+  url: String;
+  type?: Maybe<MEDIA_TYPE>;
 }
 
 export interface PostWhereInput {
@@ -599,32 +922,93 @@ export interface PostWhereInput {
   NOT?: Maybe<PostWhereInput[] | PostWhereInput>;
 }
 
+export interface MediaCreateManyInput {
+  create?: Maybe<MediaCreateInput[] | MediaCreateInput>;
+  connect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
+}
+
+export interface AccountSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AccountWhereInput>;
+  AND?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
+  OR?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
+  NOT?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
+}
+
+export interface AccountCreateOneWithoutPostsInput {
+  create?: Maybe<AccountCreateWithoutPostsInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface UserUpdateInput {
+  providerId?: Maybe<String>;
+  associatedWith?: Maybe<AccountUpdateOneRequiredInput>;
+}
+
+export interface AccountCreateWithoutPostsInput {
+  id?: Maybe<ID_Input>;
+  status?: Maybe<AccountStatus>;
+  fullName: String;
+  emailAddress: String;
+  profileImageUrl?: Maybe<String>;
+  spheres?: Maybe<SphereCreateManyWithoutAssociatedWithInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  providerId: String;
+  associatedWith: AccountCreateOneInput;
+}
+
 export interface PostMetadataCreateOneInput {
   create?: Maybe<PostMetadataCreateInput>;
   connect?: Maybe<PostMetadataWhereUniqueInput>;
 }
 
-export interface PostMetadataSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<PostMetadataWhereInput>;
-  AND?: Maybe<
-    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
-  >;
+export interface SphereVerificationCodeUpdateInput {
+  value?: Maybe<String>;
+  status?: Maybe<SphereVerificationCodeStatus>;
+  associatedWith?: Maybe<AccountUpdateOneRequiredInput>;
 }
 
 export interface PostMetadataCreateInput {
   id?: Maybe<ID_Input>;
   fileHash: String;
   filename?: Maybe<String>;
+}
+
+export interface SphereVerificationUpdateManyMutationInput {
+  url?: Maybe<String>;
+  status?: Maybe<SphereVerificationStatus>;
+}
+
+export interface PostCreateManyWithoutAuthorInput {
+  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
+  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+}
+
+export interface SphereUpdateManyMutationInput {
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+}
+
+export interface PostCreateWithoutAuthorInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  featuredImage?: Maybe<MediaCreateOneInput>;
+  content: Json;
+  images?: Maybe<MediaCreateManyInput>;
+  slug: String;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  metadata: PostMetadataCreateOneInput;
+  associatedWith: SphereCreateOneWithoutPostsInput;
 }
 
 export interface AccountWhereInput {
@@ -715,9 +1099,620 @@ export interface AccountWhereInput {
   NOT?: Maybe<AccountWhereInput[] | AccountWhereInput>;
 }
 
-export interface PostCreateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
+export interface SphereCreateOneWithoutPostsInput {
+  create?: Maybe<SphereCreateWithoutPostsInput>;
+  connect?: Maybe<SphereWhereUniqueInput>;
+}
+
+export interface SphereCreateInput {
+  id?: Maybe<ID_Input>;
+  alias?: Maybe<String>;
+  aliasSlug: String;
+  slugPrefix?: Maybe<String>;
+  associatedWith: AccountCreateOneWithoutSpheresInput;
+  verifiedBy: SphereVerificationCreateOneInput;
+  posts?: Maybe<PostCreateManyWithoutAssociatedWithInput>;
+}
+
+export interface SphereCreateWithoutPostsInput {
+  id?: Maybe<ID_Input>;
+  alias?: Maybe<String>;
+  aliasSlug: String;
+  slugPrefix?: Maybe<String>;
+  associatedWith: AccountCreateOneWithoutSpheresInput;
+  verifiedBy: SphereVerificationCreateOneInput;
+}
+
+export type SphereWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+}>;
+
+export interface AccountCreateOneWithoutSpheresInput {
+  create?: Maybe<AccountCreateWithoutSpheresInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface PostUpdateManyMutationInput {
+  title?: Maybe<String>;
+  content?: Maybe<Json>;
+  slug?: Maybe<String>;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+}
+
+export interface AccountCreateWithoutSpheresInput {
+  id?: Maybe<ID_Input>;
+  status?: Maybe<AccountStatus>;
+  fullName: String;
+  emailAddress: String;
+  profileImageUrl?: Maybe<String>;
+  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
+}
+
+export type SphereVerificationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface AccountUpdateInput {
+  status?: Maybe<AccountStatus>;
+  fullName?: Maybe<String>;
+  emailAddress?: Maybe<String>;
+  profileImageUrl?: Maybe<String>;
+  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
+}
+
+export interface PostCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  featuredImage?: Maybe<MediaCreateOneInput>;
+  content: Json;
+  images?: Maybe<MediaCreateManyInput>;
+  slug: String;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  author: AccountCreateOneWithoutPostsInput;
+  metadata: PostMetadataCreateOneInput;
+  associatedWith: SphereCreateOneWithoutPostsInput;
+}
+
+export interface PostUpdateWithoutAssociatedWithDataInput {
+  title?: Maybe<String>;
+  featuredImage?: Maybe<MediaUpdateOneInput>;
+  content?: Maybe<Json>;
+  images?: Maybe<MediaUpdateManyInput>;
+  slug?: Maybe<String>;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  author?: Maybe<AccountUpdateOneRequiredWithoutPostsInput>;
+  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
+}
+
+export interface MediaUpdateInput {
+  url?: Maybe<String>;
+  type?: Maybe<MEDIA_TYPE>;
+}
+
+export interface SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
+  where: SphereWhereUniqueInput;
+  data: SphereUpdateWithoutAssociatedWithDataInput;
+}
+
+export interface AccountUpdateManyMutationInput {
+  status?: Maybe<AccountStatus>;
+  fullName?: Maybe<String>;
+  emailAddress?: Maybe<String>;
+  profileImageUrl?: Maybe<String>;
+}
+
+export interface SphereUpdateWithoutAssociatedWithDataInput {
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+  verifiedBy?: Maybe<SphereVerificationUpdateOneRequiredInput>;
+  posts?: Maybe<PostUpdateManyWithoutAssociatedWithInput>;
+}
+
+export interface SphereUpdateManyWithWhereNestedInput {
+  where: SphereScalarWhereInput;
+  data: SphereUpdateManyDataInput;
+}
+
+export interface SphereVerificationUpdateOneRequiredInput {
+  create?: Maybe<SphereVerificationCreateInput>;
+  update?: Maybe<SphereVerificationUpdateDataInput>;
+  upsert?: Maybe<SphereVerificationUpsertNestedInput>;
+  connect?: Maybe<SphereVerificationWhereUniqueInput>;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  providerId?: Maybe<String>;
+}>;
+
+export interface SphereVerificationUpdateDataInput {
+  url?: Maybe<String>;
+  code?: Maybe<SphereVerificationCodeUpdateOneRequiredInput>;
+  status?: Maybe<SphereVerificationStatus>;
+}
+
+export interface UserWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  providerId?: Maybe<String>;
+  providerId_not?: Maybe<String>;
+  providerId_in?: Maybe<String[] | String>;
+  providerId_not_in?: Maybe<String[] | String>;
+  providerId_lt?: Maybe<String>;
+  providerId_lte?: Maybe<String>;
+  providerId_gt?: Maybe<String>;
+  providerId_gte?: Maybe<String>;
+  providerId_contains?: Maybe<String>;
+  providerId_not_contains?: Maybe<String>;
+  providerId_starts_with?: Maybe<String>;
+  providerId_not_starts_with?: Maybe<String>;
+  providerId_ends_with?: Maybe<String>;
+  providerId_not_ends_with?: Maybe<String>;
+  associatedWith?: Maybe<AccountWhereInput>;
+  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
+  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
+  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+}
+
+export interface SphereVerificationCodeUpdateOneRequiredInput {
+  create?: Maybe<SphereVerificationCodeCreateInput>;
+  update?: Maybe<SphereVerificationCodeUpdateDataInput>;
+  upsert?: Maybe<SphereVerificationCodeUpsertNestedInput>;
+  connect?: Maybe<SphereVerificationCodeWhereUniqueInput>;
+}
+
+export interface AccountUpsertWithoutPostsInput {
+  update: AccountUpdateWithoutPostsDataInput;
+  create: AccountCreateWithoutPostsInput;
+}
+
+export interface SphereVerificationCodeUpdateDataInput {
+  value?: Maybe<String>;
+  status?: Maybe<SphereVerificationCodeStatus>;
+  associatedWith?: Maybe<AccountUpdateOneRequiredInput>;
+}
+
+export interface AccountUpdateOneRequiredWithoutPostsInput {
+  create?: Maybe<AccountCreateWithoutPostsInput>;
+  update?: Maybe<AccountUpdateWithoutPostsDataInput>;
+  upsert?: Maybe<AccountUpsertWithoutPostsInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface AccountUpdateOneRequiredInput {
+  create?: Maybe<AccountCreateInput>;
+  update?: Maybe<AccountUpdateDataInput>;
+  upsert?: Maybe<AccountUpsertNestedInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface AccountCreateInput {
+  id?: Maybe<ID_Input>;
+  status?: Maybe<AccountStatus>;
+  fullName: String;
+  emailAddress: String;
+  profileImageUrl?: Maybe<String>;
+  spheres?: Maybe<SphereCreateManyWithoutAssociatedWithInput>;
+  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
+}
+
+export interface SphereVerificationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  url?: Maybe<String>;
+  url_not?: Maybe<String>;
+  url_in?: Maybe<String[] | String>;
+  url_not_in?: Maybe<String[] | String>;
+  url_lt?: Maybe<String>;
+  url_lte?: Maybe<String>;
+  url_gt?: Maybe<String>;
+  url_gte?: Maybe<String>;
+  url_contains?: Maybe<String>;
+  url_not_contains?: Maybe<String>;
+  url_starts_with?: Maybe<String>;
+  url_not_starts_with?: Maybe<String>;
+  url_ends_with?: Maybe<String>;
+  url_not_ends_with?: Maybe<String>;
+  code?: Maybe<SphereVerificationCodeWhereInput>;
+  status?: Maybe<SphereVerificationStatus>;
+  status_not?: Maybe<SphereVerificationStatus>;
+  status_in?: Maybe<SphereVerificationStatus[] | SphereVerificationStatus>;
+  status_not_in?: Maybe<SphereVerificationStatus[] | SphereVerificationStatus>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<SphereVerificationWhereInput[] | SphereVerificationWhereInput>;
+  OR?: Maybe<SphereVerificationWhereInput[] | SphereVerificationWhereInput>;
+  NOT?: Maybe<SphereVerificationWhereInput[] | SphereVerificationWhereInput>;
+}
+
+export interface SphereCreateWithoutAssociatedWithInput {
+  id?: Maybe<ID_Input>;
+  alias?: Maybe<String>;
+  aliasSlug: String;
+  slugPrefix?: Maybe<String>;
+  verifiedBy: SphereVerificationCreateOneInput;
+  posts?: Maybe<PostCreateManyWithoutAssociatedWithInput>;
+}
+
+export interface PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
+  where: PostWhereUniqueInput;
+  data: PostUpdateWithoutAssociatedWithDataInput;
+}
+
+export interface SphereVerificationCreateInput {
+  id?: Maybe<ID_Input>;
+  url: String;
+  code: SphereVerificationCodeCreateOneInput;
+  status?: Maybe<SphereVerificationStatus>;
+}
+
+export interface PostUpdateManyWithoutAssociatedWithInput {
+  create?: Maybe<
+    | PostCreateWithoutAssociatedWithInput[]
+    | PostCreateWithoutAssociatedWithInput
+  >;
+  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
   connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
+  update?: Maybe<
+    | PostUpdateWithWhereUniqueWithoutAssociatedWithInput[]
+    | PostUpdateWithWhereUniqueWithoutAssociatedWithInput
+  >;
+  upsert?: Maybe<
+    | PostUpsertWithWhereUniqueWithoutAssociatedWithInput[]
+    | PostUpsertWithWhereUniqueWithoutAssociatedWithInput
+  >;
+  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
+  updateMany?: Maybe<
+    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserWhereInput>;
+  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+}
+
+export interface PostUpdateWithoutAuthorDataInput {
+  title?: Maybe<String>;
+  featuredImage?: Maybe<MediaUpdateOneInput>;
+  content?: Maybe<Json>;
+  images?: Maybe<MediaUpdateManyInput>;
+  slug?: Maybe<String>;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
+  associatedWith?: Maybe<SphereUpdateOneRequiredWithoutPostsInput>;
+}
+
+export interface PostMetadataSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<PostMetadataWhereInput>;
+  AND?: Maybe<
+    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    PostMetadataSubscriptionWhereInput[] | PostMetadataSubscriptionWhereInput
+  >;
+}
+
+export interface MediaUpdateOneInput {
+  create?: Maybe<MediaCreateInput>;
+  update?: Maybe<MediaUpdateDataInput>;
+  upsert?: Maybe<MediaUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<MediaWhereUniqueInput>;
+}
+
+export interface MediaSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<MediaWhereInput>;
+  AND?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
+  OR?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
+  NOT?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
+}
+
+export interface MediaUpdateDataInput {
+  url?: Maybe<String>;
+  type?: Maybe<MEDIA_TYPE>;
+}
+
+export type MediaWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface MediaUpsertNestedInput {
+  update: MediaUpdateDataInput;
+  create: MediaCreateInput;
+}
+
+export type PostWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  slug?: Maybe<String>;
+}>;
+
+export interface MediaUpdateManyInput {
+  create?: Maybe<MediaCreateInput[] | MediaCreateInput>;
+  update?: Maybe<
+    | MediaUpdateWithWhereUniqueNestedInput[]
+    | MediaUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | MediaUpsertWithWhereUniqueNestedInput[]
+    | MediaUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
+  connect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
+  set?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
+  disconnect?: Maybe<MediaWhereUniqueInput[] | MediaWhereUniqueInput>;
+  deleteMany?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
+  updateMany?: Maybe<
+    MediaUpdateManyWithWhereNestedInput[] | MediaUpdateManyWithWhereNestedInput
+  >;
+}
+
+export type PostMetadataWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  fileHash?: Maybe<String>;
+}>;
+
+export interface MediaUpdateWithWhereUniqueNestedInput {
+  where: MediaWhereUniqueInput;
+  data: MediaUpdateDataInput;
+}
+
+export interface PostMetadataUpdateManyMutationInput {
+  fileHash?: Maybe<String>;
+  filename?: Maybe<String>;
+}
+
+export interface MediaUpsertWithWhereUniqueNestedInput {
+  where: MediaWhereUniqueInput;
+  update: MediaUpdateDataInput;
+  create: MediaCreateInput;
+}
+
+export interface PostUpdateInput {
+  title?: Maybe<String>;
+  featuredImage?: Maybe<MediaUpdateOneInput>;
+  content?: Maybe<Json>;
+  images?: Maybe<MediaUpdateManyInput>;
+  slug?: Maybe<String>;
+  timeToRead?: Maybe<Int>;
+  isPublished?: Maybe<Boolean>;
+  publishedAt?: Maybe<DateTimeInput>;
+  status?: Maybe<POST_STATUS>;
+  author?: Maybe<AccountUpdateOneRequiredWithoutPostsInput>;
+  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
+  associatedWith?: Maybe<SphereUpdateOneRequiredWithoutPostsInput>;
+}
+
+export interface MediaScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  url?: Maybe<String>;
+  url_not?: Maybe<String>;
+  url_in?: Maybe<String[] | String>;
+  url_not_in?: Maybe<String[] | String>;
+  url_lt?: Maybe<String>;
+  url_lte?: Maybe<String>;
+  url_gt?: Maybe<String>;
+  url_gte?: Maybe<String>;
+  url_contains?: Maybe<String>;
+  url_not_contains?: Maybe<String>;
+  url_starts_with?: Maybe<String>;
+  url_not_starts_with?: Maybe<String>;
+  url_ends_with?: Maybe<String>;
+  url_not_ends_with?: Maybe<String>;
+  type?: Maybe<MEDIA_TYPE>;
+  type_not?: Maybe<MEDIA_TYPE>;
+  type_in?: Maybe<MEDIA_TYPE[] | MEDIA_TYPE>;
+  type_not_in?: Maybe<MEDIA_TYPE[] | MEDIA_TYPE>;
+  AND?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
+  OR?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
+  NOT?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
+}
+
+export interface MediaUpdateManyMutationInput {
+  url?: Maybe<String>;
+  type?: Maybe<MEDIA_TYPE>;
+}
+
+export interface MediaUpdateManyWithWhereNestedInput {
+  where: MediaScalarWhereInput;
+  data: MediaUpdateManyDataInput;
+}
+
+export interface SphereUpdateManyDataInput {
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+}
+
+export interface MediaUpdateManyDataInput {
+  url?: Maybe<String>;
+  type?: Maybe<MEDIA_TYPE>;
+}
+
+export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
+  where: SphereWhereUniqueInput;
+  update: SphereUpdateWithoutAssociatedWithDataInput;
+  create: SphereCreateWithoutAssociatedWithInput;
+}
+
+export interface PostMetadataUpdateOneRequiredInput {
+  create?: Maybe<PostMetadataCreateInput>;
+  update?: Maybe<PostMetadataUpdateDataInput>;
+  upsert?: Maybe<PostMetadataUpsertNestedInput>;
+  connect?: Maybe<PostMetadataWhereUniqueInput>;
+}
+
+export interface AccountUpdateWithoutPostsDataInput {
+  status?: Maybe<AccountStatus>;
+  fullName?: Maybe<String>;
+  emailAddress?: Maybe<String>;
+  profileImageUrl?: Maybe<String>;
+  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
+}
+
+export interface PostMetadataUpdateDataInput {
+  fileHash?: Maybe<String>;
+  filename?: Maybe<String>;
+}
+
+export interface SphereCreateManyWithoutAssociatedWithInput {
+  create?: Maybe<
+    | SphereCreateWithoutAssociatedWithInput[]
+    | SphereCreateWithoutAssociatedWithInput
+  >;
+  connect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
+}
+
+export interface PostMetadataUpsertNestedInput {
+  update: PostMetadataUpdateDataInput;
+  create: PostMetadataCreateInput;
+}
+
+export interface SphereVerificationCodeCreateOneInput {
+  create?: Maybe<SphereVerificationCodeCreateInput>;
+  connect?: Maybe<SphereVerificationCodeWhereUniqueInput>;
+}
+
+export interface SphereUpdateOneRequiredWithoutPostsInput {
+  create?: Maybe<SphereCreateWithoutPostsInput>;
+  update?: Maybe<SphereUpdateWithoutPostsDataInput>;
+  upsert?: Maybe<SphereUpsertWithoutPostsInput>;
+  connect?: Maybe<SphereWhereUniqueInput>;
+}
+
+export interface PostSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<PostWhereInput>;
+  AND?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+  OR?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+  NOT?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+}
+
+export interface SphereUpdateWithoutPostsDataInput {
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+  associatedWith?: Maybe<AccountUpdateOneRequiredWithoutSpheresInput>;
+  verifiedBy?: Maybe<SphereVerificationUpdateOneRequiredInput>;
+}
+
+export interface SphereVerificationCodeUpdateManyMutationInput {
+  value?: Maybe<String>;
+  status?: Maybe<SphereVerificationCodeStatus>;
+}
+
+export interface AccountUpdateOneRequiredWithoutSpheresInput {
+  create?: Maybe<AccountCreateWithoutSpheresInput>;
+  update?: Maybe<AccountUpdateWithoutSpheresDataInput>;
+  upsert?: Maybe<AccountUpsertWithoutSpheresInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface SphereUpdateInput {
+  alias?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+  associatedWith?: Maybe<AccountUpdateOneRequiredWithoutSpheresInput>;
+  verifiedBy?: Maybe<SphereVerificationUpdateOneRequiredInput>;
+  posts?: Maybe<PostUpdateManyWithoutAssociatedWithInput>;
+}
+
+export interface AccountUpdateWithoutSpheresDataInput {
+  status?: Maybe<AccountStatus>;
+  fullName?: Maybe<String>;
+  emailAddress?: Maybe<String>;
+  profileImageUrl?: Maybe<String>;
+  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
 }
 
 export interface SphereWhereInput {
@@ -778,6 +1773,7 @@ export interface SphereWhereInput {
   slugPrefix_ends_with?: Maybe<String>;
   slugPrefix_not_ends_with?: Maybe<String>;
   associatedWith?: Maybe<AccountWhereInput>;
+  verifiedBy?: Maybe<SphereVerificationWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -802,317 +1798,12 @@ export interface SphereWhereInput {
   NOT?: Maybe<SphereWhereInput[] | SphereWhereInput>;
 }
 
-export interface PostCreateWithoutAuthorInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  featuredImage?: Maybe<MediaCreateOneInput>;
-  content: Json;
-  images?: Maybe<MediaCreateManyInput>;
-  slug: String;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  metadata: PostMetadataCreateOneInput;
-  associatedWith: SphereCreateOneWithoutPostsInput;
-}
-
-export interface UserUpdateManyMutationInput {
-  providerId?: Maybe<String>;
-}
-
-export interface SphereCreateOneWithoutPostsInput {
-  create?: Maybe<SphereCreateWithoutPostsInput>;
-  connect?: Maybe<SphereWhereUniqueInput>;
-}
-
-export interface AccountUpdateDataInput {
-  status?: Maybe<AccountStatus>;
-  fullName?: Maybe<String>;
-  emailAddress?: Maybe<String>;
-  profileImageUrl?: Maybe<String>;
-  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
-  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
-}
-
-export interface SphereCreateWithoutPostsInput {
-  id?: Maybe<ID_Input>;
-  alias: String;
-  aliasSlug: String;
-  slugPrefix?: Maybe<String>;
-  associatedWith: AccountCreateOneWithoutSpheresInput;
-}
-
-export interface AccountUpdateOneRequiredInput {
-  create?: Maybe<AccountCreateInput>;
-  update?: Maybe<AccountUpdateDataInput>;
-  upsert?: Maybe<AccountUpsertNestedInput>;
-  connect?: Maybe<AccountWhereUniqueInput>;
-}
-
-export interface AccountCreateOneWithoutSpheresInput {
-  create?: Maybe<AccountCreateWithoutSpheresInput>;
-  connect?: Maybe<AccountWhereUniqueInput>;
-}
-
-export interface AccountCreateOneInput {
-  create?: Maybe<AccountCreateInput>;
-  connect?: Maybe<AccountWhereUniqueInput>;
-}
-
-export interface AccountCreateWithoutSpheresInput {
-  id?: Maybe<ID_Input>;
-  status?: Maybe<AccountStatus>;
-  fullName: String;
-  emailAddress: String;
-  profileImageUrl?: Maybe<String>;
-  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  providerId: String;
-  associatedWith: AccountCreateOneInput;
-}
-
-export interface AccountUpdateInput {
-  status?: Maybe<AccountStatus>;
-  fullName?: Maybe<String>;
-  emailAddress?: Maybe<String>;
-  profileImageUrl?: Maybe<String>;
-  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
-  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
-}
-
-export interface SphereUpdateInput {
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-  associatedWith?: Maybe<AccountUpdateOneRequiredWithoutSpheresInput>;
-  posts?: Maybe<PostUpdateManyWithoutAssociatedWithInput>;
-}
-
-export interface SphereUpdateManyWithoutAssociatedWithInput {
-  create?: Maybe<
-    | SphereCreateWithoutAssociatedWithInput[]
-    | SphereCreateWithoutAssociatedWithInput
-  >;
-  delete?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
-  connect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
-  set?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
-  disconnect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
-  update?: Maybe<
-    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput[]
-    | SphereUpdateWithWhereUniqueWithoutAssociatedWithInput
-  >;
-  upsert?: Maybe<
-    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput[]
-    | SphereUpsertWithWhereUniqueWithoutAssociatedWithInput
-  >;
-  deleteMany?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
-  updateMany?: Maybe<
-    | SphereUpdateManyWithWhereNestedInput[]
-    | SphereUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface SphereCreateInput {
-  id?: Maybe<ID_Input>;
-  alias: String;
-  aliasSlug: String;
-  slugPrefix?: Maybe<String>;
-  associatedWith: AccountCreateOneWithoutSpheresInput;
-  posts?: Maybe<PostCreateManyWithoutAssociatedWithInput>;
-}
-
-export interface SphereUpdateWithWhereUniqueWithoutAssociatedWithInput {
-  where: SphereWhereUniqueInput;
-  data: SphereUpdateWithoutAssociatedWithDataInput;
-}
-
-export interface PostMetadataUpdateInput {
-  fileHash?: Maybe<String>;
-  filename?: Maybe<String>;
-}
-
-export interface SphereUpdateWithoutAssociatedWithDataInput {
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-  posts?: Maybe<PostUpdateManyWithoutAssociatedWithInput>;
-}
-
-export type SphereWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-}>;
-
-export interface AccountUpdateWithoutSpheresDataInput {
-  status?: Maybe<AccountStatus>;
-  fullName?: Maybe<String>;
-  emailAddress?: Maybe<String>;
-  profileImageUrl?: Maybe<String>;
-  posts?: Maybe<PostUpdateManyWithoutAuthorInput>;
-}
-
-export interface PostCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  featuredImage?: Maybe<MediaCreateOneInput>;
-  content: Json;
-  images?: Maybe<MediaCreateManyInput>;
-  slug: String;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  author: AccountCreateOneWithoutPostsInput;
-  metadata: PostMetadataCreateOneInput;
-  associatedWith: SphereCreateOneWithoutPostsInput;
-}
-
-export interface PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
-  where: PostWhereUniqueInput;
-  data: PostUpdateWithoutAssociatedWithDataInput;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  providerId?: Maybe<String>;
-}>;
-
-export interface PostUpdateWithoutAssociatedWithDataInput {
-  title?: Maybe<String>;
-  featuredImage?: Maybe<MediaUpdateOneInput>;
-  content?: Maybe<Json>;
-  images?: Maybe<MediaUpdateManyInput>;
-  slug?: Maybe<String>;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  author?: Maybe<AccountUpdateOneRequiredWithoutPostsInput>;
-  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
-}
-
-export interface UserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  providerId?: Maybe<String>;
-  providerId_not?: Maybe<String>;
-  providerId_in?: Maybe<String[] | String>;
-  providerId_not_in?: Maybe<String[] | String>;
-  providerId_lt?: Maybe<String>;
-  providerId_lte?: Maybe<String>;
-  providerId_gt?: Maybe<String>;
-  providerId_gte?: Maybe<String>;
-  providerId_contains?: Maybe<String>;
-  providerId_not_contains?: Maybe<String>;
-  providerId_starts_with?: Maybe<String>;
-  providerId_not_starts_with?: Maybe<String>;
-  providerId_ends_with?: Maybe<String>;
-  providerId_not_ends_with?: Maybe<String>;
-  associatedWith?: Maybe<AccountWhereInput>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
-}
-
-export interface MediaUpdateOneInput {
-  create?: Maybe<MediaCreateInput>;
-  update?: Maybe<MediaUpdateDataInput>;
-  upsert?: Maybe<MediaUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<MediaWhereUniqueInput>;
-}
-
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput;
-  update: PostUpdateWithoutAuthorDataInput;
-  create: PostCreateWithoutAuthorInput;
-}
-
-export interface MediaUpdateDataInput {
-  url?: Maybe<String>;
-  type?: Maybe<MEDIA_TYPE>;
-}
-
 export interface AccountUpsertWithoutSpheresInput {
   update: AccountUpdateWithoutSpheresDataInput;
   create: AccountCreateWithoutSpheresInput;
 }
 
-export interface MediaUpsertNestedInput {
-  update: MediaUpdateDataInput;
-  create: MediaCreateInput;
-}
-
-export interface AccountCreateInput {
-  id?: Maybe<ID_Input>;
-  status?: Maybe<AccountStatus>;
-  fullName: String;
-  emailAddress: String;
-  profileImageUrl?: Maybe<String>;
-  spheres?: Maybe<SphereCreateManyWithoutAssociatedWithInput>;
-  posts?: Maybe<PostCreateManyWithoutAuthorInput>;
-}
-
-export interface AccountUpdateOneRequiredWithoutSpheresInput {
-  create?: Maybe<AccountCreateWithoutSpheresInput>;
-  update?: Maybe<AccountUpdateWithoutSpheresDataInput>;
-  upsert?: Maybe<AccountUpsertWithoutSpheresInput>;
-  connect?: Maybe<AccountWhereUniqueInput>;
-}
-
-export interface SphereCreateWithoutAssociatedWithInput {
-  id?: Maybe<ID_Input>;
-  alias: String;
-  aliasSlug: String;
-  slugPrefix?: Maybe<String>;
-  posts?: Maybe<PostCreateManyWithoutAssociatedWithInput>;
-}
-
-export interface MediaUpdateWithWhereUniqueNestedInput {
-  where: MediaWhereUniqueInput;
-  data: MediaUpdateDataInput;
-}
-
-export interface PostCreateWithoutAssociatedWithInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  featuredImage?: Maybe<MediaCreateOneInput>;
-  content: Json;
-  images?: Maybe<MediaCreateManyInput>;
-  slug: String;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  author: AccountCreateOneWithoutPostsInput;
-  metadata: PostMetadataCreateOneInput;
-}
-
-export interface MediaUpsertWithWhereUniqueNestedInput {
-  where: MediaWhereUniqueInput;
-  update: MediaUpdateDataInput;
-  create: MediaCreateInput;
-}
-
-export interface PostMetadataWhereInput {
+export interface SphereScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1127,34 +1818,48 @@ export interface PostMetadataWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  fileHash?: Maybe<String>;
-  fileHash_not?: Maybe<String>;
-  fileHash_in?: Maybe<String[] | String>;
-  fileHash_not_in?: Maybe<String[] | String>;
-  fileHash_lt?: Maybe<String>;
-  fileHash_lte?: Maybe<String>;
-  fileHash_gt?: Maybe<String>;
-  fileHash_gte?: Maybe<String>;
-  fileHash_contains?: Maybe<String>;
-  fileHash_not_contains?: Maybe<String>;
-  fileHash_starts_with?: Maybe<String>;
-  fileHash_not_starts_with?: Maybe<String>;
-  fileHash_ends_with?: Maybe<String>;
-  fileHash_not_ends_with?: Maybe<String>;
-  filename?: Maybe<String>;
-  filename_not?: Maybe<String>;
-  filename_in?: Maybe<String[] | String>;
-  filename_not_in?: Maybe<String[] | String>;
-  filename_lt?: Maybe<String>;
-  filename_lte?: Maybe<String>;
-  filename_gt?: Maybe<String>;
-  filename_gte?: Maybe<String>;
-  filename_contains?: Maybe<String>;
-  filename_not_contains?: Maybe<String>;
-  filename_starts_with?: Maybe<String>;
-  filename_not_starts_with?: Maybe<String>;
-  filename_ends_with?: Maybe<String>;
-  filename_not_ends_with?: Maybe<String>;
+  alias?: Maybe<String>;
+  alias_not?: Maybe<String>;
+  alias_in?: Maybe<String[] | String>;
+  alias_not_in?: Maybe<String[] | String>;
+  alias_lt?: Maybe<String>;
+  alias_lte?: Maybe<String>;
+  alias_gt?: Maybe<String>;
+  alias_gte?: Maybe<String>;
+  alias_contains?: Maybe<String>;
+  alias_not_contains?: Maybe<String>;
+  alias_starts_with?: Maybe<String>;
+  alias_not_starts_with?: Maybe<String>;
+  alias_ends_with?: Maybe<String>;
+  alias_not_ends_with?: Maybe<String>;
+  aliasSlug?: Maybe<String>;
+  aliasSlug_not?: Maybe<String>;
+  aliasSlug_in?: Maybe<String[] | String>;
+  aliasSlug_not_in?: Maybe<String[] | String>;
+  aliasSlug_lt?: Maybe<String>;
+  aliasSlug_lte?: Maybe<String>;
+  aliasSlug_gt?: Maybe<String>;
+  aliasSlug_gte?: Maybe<String>;
+  aliasSlug_contains?: Maybe<String>;
+  aliasSlug_not_contains?: Maybe<String>;
+  aliasSlug_starts_with?: Maybe<String>;
+  aliasSlug_not_starts_with?: Maybe<String>;
+  aliasSlug_ends_with?: Maybe<String>;
+  aliasSlug_not_ends_with?: Maybe<String>;
+  slugPrefix?: Maybe<String>;
+  slugPrefix_not?: Maybe<String>;
+  slugPrefix_in?: Maybe<String[] | String>;
+  slugPrefix_not_in?: Maybe<String[] | String>;
+  slugPrefix_lt?: Maybe<String>;
+  slugPrefix_lte?: Maybe<String>;
+  slugPrefix_gt?: Maybe<String>;
+  slugPrefix_gte?: Maybe<String>;
+  slugPrefix_contains?: Maybe<String>;
+  slugPrefix_not_contains?: Maybe<String>;
+  slugPrefix_starts_with?: Maybe<String>;
+  slugPrefix_not_starts_with?: Maybe<String>;
+  slugPrefix_ends_with?: Maybe<String>;
+  slugPrefix_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1171,157 +1876,9 @@ export interface PostMetadataWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
-  OR?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
-  NOT?: Maybe<PostMetadataWhereInput[] | PostMetadataWhereInput>;
-}
-
-export interface MediaScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  url?: Maybe<String>;
-  url_not?: Maybe<String>;
-  url_in?: Maybe<String[] | String>;
-  url_not_in?: Maybe<String[] | String>;
-  url_lt?: Maybe<String>;
-  url_lte?: Maybe<String>;
-  url_gt?: Maybe<String>;
-  url_gte?: Maybe<String>;
-  url_contains?: Maybe<String>;
-  url_not_contains?: Maybe<String>;
-  url_starts_with?: Maybe<String>;
-  url_not_starts_with?: Maybe<String>;
-  url_ends_with?: Maybe<String>;
-  url_not_ends_with?: Maybe<String>;
-  type?: Maybe<MEDIA_TYPE>;
-  type_not?: Maybe<MEDIA_TYPE>;
-  type_in?: Maybe<MEDIA_TYPE[] | MEDIA_TYPE>;
-  type_not_in?: Maybe<MEDIA_TYPE[] | MEDIA_TYPE>;
-  AND?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
-  OR?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
-  NOT?: Maybe<MediaScalarWhereInput[] | MediaScalarWhereInput>;
-}
-
-export interface SphereSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<SphereWhereInput>;
-  AND?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
-  OR?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
-  NOT?: Maybe<SphereSubscriptionWhereInput[] | SphereSubscriptionWhereInput>;
-}
-
-export interface MediaUpdateManyWithWhereNestedInput {
-  where: MediaScalarWhereInput;
-  data: MediaUpdateManyDataInput;
-}
-
-export interface MediaSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<MediaWhereInput>;
-  AND?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
-  OR?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
-  NOT?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
-}
-
-export interface MediaUpdateManyDataInput {
-  url?: Maybe<String>;
-  type?: Maybe<MEDIA_TYPE>;
-}
-
-export interface AccountUpsertNestedInput {
-  update: AccountUpdateDataInput;
-  create: AccountCreateInput;
-}
-
-export interface AccountUpdateOneRequiredWithoutPostsInput {
-  create?: Maybe<AccountCreateWithoutPostsInput>;
-  update?: Maybe<AccountUpdateWithoutPostsDataInput>;
-  upsert?: Maybe<AccountUpsertWithoutPostsInput>;
-  connect?: Maybe<AccountWhereUniqueInput>;
-}
-
-export interface UserUpdateInput {
-  providerId?: Maybe<String>;
-  associatedWith?: Maybe<AccountUpdateOneRequiredInput>;
-}
-
-export interface AccountUpdateWithoutPostsDataInput {
-  status?: Maybe<AccountStatus>;
-  fullName?: Maybe<String>;
-  emailAddress?: Maybe<String>;
-  profileImageUrl?: Maybe<String>;
-  spheres?: Maybe<SphereUpdateManyWithoutAssociatedWithInput>;
-}
-
-export interface SphereUpdateManyMutationInput {
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-}
-
-export interface AccountUpsertWithoutPostsInput {
-  update: AccountUpdateWithoutPostsDataInput;
-  create: AccountCreateWithoutPostsInput;
-}
-
-export interface PostMetadataUpdateManyMutationInput {
-  fileHash?: Maybe<String>;
-  filename?: Maybe<String>;
-}
-
-export interface PostMetadataUpdateOneRequiredInput {
-  create?: Maybe<PostMetadataCreateInput>;
-  update?: Maybe<PostMetadataUpdateDataInput>;
-  upsert?: Maybe<PostMetadataUpsertNestedInput>;
-  connect?: Maybe<PostMetadataWhereUniqueInput>;
-}
-
-export interface PostUpdateInput {
-  title?: Maybe<String>;
-  featuredImage?: Maybe<MediaUpdateOneInput>;
-  content?: Maybe<Json>;
-  images?: Maybe<MediaUpdateManyInput>;
-  slug?: Maybe<String>;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  author?: Maybe<AccountUpdateOneRequiredWithoutPostsInput>;
-  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
-  associatedWith?: Maybe<SphereUpdateOneRequiredWithoutPostsInput>;
-}
-
-export interface PostMetadataUpdateDataInput {
-  fileHash?: Maybe<String>;
-  filename?: Maybe<String>;
-}
-
-export interface MediaUpdateInput {
-  url?: Maybe<String>;
-  type?: Maybe<MEDIA_TYPE>;
-}
-
-export interface PostMetadataUpsertNestedInput {
-  update: PostMetadataUpdateDataInput;
-  create: PostMetadataCreateInput;
+  AND?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
+  OR?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
+  NOT?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
 }
 
 export interface SphereUpsertWithoutPostsInput {
@@ -1329,18 +1886,36 @@ export interface SphereUpsertWithoutPostsInput {
   create: SphereCreateWithoutPostsInput;
 }
 
-export interface PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
-  where: PostWhereUniqueInput;
-  update: PostUpdateWithoutAssociatedWithDataInput;
-  create: PostCreateWithoutAssociatedWithInput;
+export interface SphereVerificationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SphereVerificationWhereInput>;
+  AND?: Maybe<
+    | SphereVerificationSubscriptionWhereInput[]
+    | SphereVerificationSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    | SphereVerificationSubscriptionWhereInput[]
+    | SphereVerificationSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    | SphereVerificationSubscriptionWhereInput[]
+    | SphereVerificationSubscriptionWhereInput
+  >;
 }
 
-export interface SphereCreateManyWithoutAssociatedWithInput {
-  create?: Maybe<
-    | SphereCreateWithoutAssociatedWithInput[]
-    | SphereCreateWithoutAssociatedWithInput
-  >;
-  connect?: Maybe<SphereWhereUniqueInput[] | SphereWhereUniqueInput>;
+export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput;
+  update: PostUpdateWithoutAuthorDataInput;
+  create: PostCreateWithoutAuthorInput;
+}
+
+export interface SphereVerificationUpdateInput {
+  url?: Maybe<String>;
+  code?: Maybe<SphereVerificationCodeUpdateOneRequiredInput>;
+  status?: Maybe<SphereVerificationStatus>;
 }
 
 export interface PostScalarWhereInput {
@@ -1429,25 +2004,19 @@ export interface PostScalarWhereInput {
   NOT?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
 }
 
-export interface MediaCreateOneInput {
-  create?: Maybe<MediaCreateInput>;
-  connect?: Maybe<MediaWhereUniqueInput>;
+export type SphereVerificationCodeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  value?: Maybe<String>;
+}>;
+
+export interface SphereVerificationCodeUpsertNestedInput {
+  update: SphereVerificationCodeUpdateDataInput;
+  create: SphereVerificationCodeCreateInput;
 }
 
-export interface PostUpdateManyWithWhereNestedInput {
-  where: PostScalarWhereInput;
-  data: PostUpdateManyDataInput;
-}
-
-export interface PostSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<PostWhereInput>;
-  AND?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
-  OR?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
-  NOT?: Maybe<PostSubscriptionWhereInput[] | PostSubscriptionWhereInput>;
+export interface AccountUpsertNestedInput {
+  update: AccountUpdateDataInput;
+  create: AccountCreateInput;
 }
 
 export interface PostUpdateManyDataInput {
@@ -1460,211 +2029,29 @@ export interface PostUpdateManyDataInput {
   status?: Maybe<POST_STATUS>;
 }
 
-export type MediaWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface SphereUpsertWithWhereUniqueWithoutAssociatedWithInput {
-  where: SphereWhereUniqueInput;
-  update: SphereUpdateWithoutAssociatedWithDataInput;
-  create: SphereCreateWithoutAssociatedWithInput;
+export interface PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput;
+  data: PostUpdateManyDataInput;
 }
 
-export type PostMetadataWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  fileHash?: Maybe<String>;
-}>;
-
-export interface SphereScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  alias?: Maybe<String>;
-  alias_not?: Maybe<String>;
-  alias_in?: Maybe<String[] | String>;
-  alias_not_in?: Maybe<String[] | String>;
-  alias_lt?: Maybe<String>;
-  alias_lte?: Maybe<String>;
-  alias_gt?: Maybe<String>;
-  alias_gte?: Maybe<String>;
-  alias_contains?: Maybe<String>;
-  alias_not_contains?: Maybe<String>;
-  alias_starts_with?: Maybe<String>;
-  alias_not_starts_with?: Maybe<String>;
-  alias_ends_with?: Maybe<String>;
-  alias_not_ends_with?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  aliasSlug_not?: Maybe<String>;
-  aliasSlug_in?: Maybe<String[] | String>;
-  aliasSlug_not_in?: Maybe<String[] | String>;
-  aliasSlug_lt?: Maybe<String>;
-  aliasSlug_lte?: Maybe<String>;
-  aliasSlug_gt?: Maybe<String>;
-  aliasSlug_gte?: Maybe<String>;
-  aliasSlug_contains?: Maybe<String>;
-  aliasSlug_not_contains?: Maybe<String>;
-  aliasSlug_starts_with?: Maybe<String>;
-  aliasSlug_not_starts_with?: Maybe<String>;
-  aliasSlug_ends_with?: Maybe<String>;
-  aliasSlug_not_ends_with?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-  slugPrefix_not?: Maybe<String>;
-  slugPrefix_in?: Maybe<String[] | String>;
-  slugPrefix_not_in?: Maybe<String[] | String>;
-  slugPrefix_lt?: Maybe<String>;
-  slugPrefix_lte?: Maybe<String>;
-  slugPrefix_gt?: Maybe<String>;
-  slugPrefix_gte?: Maybe<String>;
-  slugPrefix_contains?: Maybe<String>;
-  slugPrefix_not_contains?: Maybe<String>;
-  slugPrefix_starts_with?: Maybe<String>;
-  slugPrefix_not_starts_with?: Maybe<String>;
-  slugPrefix_ends_with?: Maybe<String>;
-  slugPrefix_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
-  OR?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
-  NOT?: Maybe<SphereScalarWhereInput[] | SphereScalarWhereInput>;
-}
-
-export interface MediaUpdateManyMutationInput {
-  url?: Maybe<String>;
-  type?: Maybe<MEDIA_TYPE>;
-}
-
-export interface SphereUpdateManyWithWhereNestedInput {
-  where: SphereScalarWhereInput;
-  data: SphereUpdateManyDataInput;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface SphereUpdateManyDataInput {
-  alias?: Maybe<String>;
-  aliasSlug?: Maybe<String>;
-  slugPrefix?: Maybe<String>;
-}
-
-export type PostWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-}>;
-
-export interface SphereUpdateOneRequiredWithoutPostsInput {
-  create?: Maybe<SphereCreateWithoutPostsInput>;
-  update?: Maybe<SphereUpdateWithoutPostsDataInput>;
-  upsert?: Maybe<SphereUpsertWithoutPostsInput>;
-  connect?: Maybe<SphereWhereUniqueInput>;
-}
-
-export interface PostUpdateWithoutAuthorDataInput {
-  title?: Maybe<String>;
-  featuredImage?: Maybe<MediaUpdateOneInput>;
-  content?: Maybe<Json>;
-  images?: Maybe<MediaUpdateManyInput>;
-  slug?: Maybe<String>;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
-  metadata?: Maybe<PostMetadataUpdateOneRequiredInput>;
-  associatedWith?: Maybe<SphereUpdateOneRequiredWithoutPostsInput>;
-}
-
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
+export interface PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
   where: PostWhereUniqueInput;
-  data: PostUpdateWithoutAuthorDataInput;
+  update: PostUpdateWithoutAssociatedWithDataInput;
+  create: PostCreateWithoutAssociatedWithInput;
 }
 
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: Maybe<PostCreateWithoutAuthorInput[] | PostCreateWithoutAuthorInput>;
-  delete?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  set?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  disconnect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-  update?: Maybe<
-    | PostUpdateWithWhereUniqueWithoutAuthorInput[]
-    | PostUpdateWithWhereUniqueWithoutAuthorInput
-  >;
-  upsert?: Maybe<
-    | PostUpsertWithWhereUniqueWithoutAuthorInput[]
-    | PostUpsertWithWhereUniqueWithoutAuthorInput
-  >;
-  deleteMany?: Maybe<PostScalarWhereInput[] | PostScalarWhereInput>;
-  updateMany?: Maybe<
-    PostUpdateManyWithWhereNestedInput[] | PostUpdateManyWithWhereNestedInput
-  >;
+export interface PostMetadataUpdateInput {
+  fileHash?: Maybe<String>;
+  filename?: Maybe<String>;
 }
 
-export interface PostUpdateManyMutationInput {
-  title?: Maybe<String>;
-  content?: Maybe<Json>;
-  slug?: Maybe<String>;
-  timeToRead?: Maybe<Int>;
-  isPublished?: Maybe<Boolean>;
-  publishedAt?: Maybe<DateTimeInput>;
-  status?: Maybe<POST_STATUS>;
+export interface UserUpdateManyMutationInput {
+  providerId?: Maybe<String>;
 }
 
-export interface AccountSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<AccountWhereInput>;
-  AND?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
-  OR?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
-  NOT?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
-}
-
-export interface PostCreateManyWithoutAssociatedWithInput {
-  create?: Maybe<
-    | PostCreateWithoutAssociatedWithInput[]
-    | PostCreateWithoutAssociatedWithInput
-  >;
-  connect?: Maybe<PostWhereUniqueInput[] | PostWhereUniqueInput>;
-}
-
-export interface AccountUpdateManyMutationInput {
-  status?: Maybe<AccountStatus>;
-  fullName?: Maybe<String>;
-  emailAddress?: Maybe<String>;
-  profileImageUrl?: Maybe<String>;
+export interface SphereVerificationCreateOneInput {
+  create?: Maybe<SphereVerificationCreateInput>;
+  connect?: Maybe<SphereVerificationWhereUniqueInput>;
 }
 
 export interface NodeNode {
@@ -1690,83 +2077,6 @@ export interface UserPreviousValuesSubscription
   providerId: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateMedia {
-  count: Int;
-}
-
-export interface AggregateMediaPromise
-  extends Promise<AggregateMedia>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateMediaSubscription
-  extends Promise<AsyncIterator<AggregateMedia>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PostMetadataPreviousValues {
-  id: ID_Output;
-  fileHash: String;
-  filename?: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface PostMetadataPreviousValuesPromise
-  extends Promise<PostMetadataPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  fileHash: () => Promise<String>;
-  filename: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface PostMetadataPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  fileHash: () => Promise<AsyncIterator<String>>;
-  filename: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface MediaEdge {
-  node: Media;
-  cursor: String;
-}
-
-export interface MediaEdgePromise extends Promise<MediaEdge>, Fragmentable {
-  node: <T = MediaPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface MediaEdgeSubscription
-  extends Promise<AsyncIterator<MediaEdge>>,
-    Fragmentable {
-  node: <T = MediaSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateAccount {
-  count: Int;
-}
-
-export interface AggregateAccountPromise
-  extends Promise<AggregateAccount>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAccountSubscription
-  extends Promise<AsyncIterator<AggregateAccount>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface MediaConnection {
   pageInfo: PageInfo;
   edges: MediaEdge[];
@@ -1788,6 +2098,153 @@ export interface MediaConnectionSubscription
   aggregate: <T = AggregateMediaSubscription>() => T;
 }
 
+export interface Sphere {
+  id: ID_Output;
+  alias?: String;
+  aliasSlug: String;
+  slugPrefix: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SpherePromise extends Promise<Sphere>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  alias: () => Promise<String>;
+  aliasSlug: () => Promise<String>;
+  slugPrefix: () => Promise<String>;
+  associatedWith: <T = AccountPromise>() => T;
+  verifiedBy: <T = SphereVerificationPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  posts: <T = FragmentableArray<Post>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface SphereSubscription
+  extends Promise<AsyncIterator<Sphere>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  alias: () => Promise<AsyncIterator<String>>;
+  aliasSlug: () => Promise<AsyncIterator<String>>;
+  slugPrefix: () => Promise<AsyncIterator<String>>;
+  associatedWith: <T = AccountSubscription>() => T;
+  verifiedBy: <T = SphereVerificationSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface SphereNullablePromise
+  extends Promise<Sphere | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  alias: () => Promise<String>;
+  aliasSlug: () => Promise<String>;
+  slugPrefix: () => Promise<String>;
+  associatedWith: <T = AccountPromise>() => T;
+  verifiedBy: <T = SphereVerificationPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  posts: <T = FragmentableArray<Post>>(args?: {
+    where?: PostWhereInput;
+    orderBy?: PostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AggregateAccount {
+  count: Int;
+}
+
+export interface AggregateAccountPromise
+  extends Promise<AggregateAccount>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAccountSubscription
+  extends Promise<AsyncIterator<AggregateAccount>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SphereVerification {
+  id: ID_Output;
+  url: String;
+  status: SphereVerificationStatus;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SphereVerificationPromise
+  extends Promise<SphereVerification>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  code: <T = SphereVerificationCodePromise>() => T;
+  status: () => Promise<SphereVerificationStatus>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SphereVerificationSubscription
+  extends Promise<AsyncIterator<SphereVerification>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  code: <T = SphereVerificationCodeSubscription>() => T;
+  status: () => Promise<AsyncIterator<SphereVerificationStatus>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface SphereVerificationNullablePromise
+  extends Promise<SphereVerification | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  code: <T = SphereVerificationCodePromise>() => T;
+  status: () => Promise<SphereVerificationStatus>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AccountEdge {
+  node: Account;
+  cursor: String;
+}
+
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
+    Fragmentable {
+  node: <T = AccountSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
 export interface UserEdge {
   node: User;
   cursor: String;
@@ -1805,35 +2262,27 @@ export interface UserEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface SpherePreviousValues {
-  id: ID_Output;
-  alias: String;
-  aliasSlug: String;
-  slugPrefix: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
 }
 
-export interface SpherePreviousValuesPromise
-  extends Promise<SpherePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  alias: () => Promise<String>;
-  aliasSlug: () => Promise<String>;
-  slugPrefix: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
 }
 
-export interface SpherePreviousValuesSubscription
-  extends Promise<AsyncIterator<SpherePreviousValues>>,
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  alias: () => Promise<AsyncIterator<String>>;
-  aliasSlug: () => Promise<AsyncIterator<String>>;
-  slugPrefix: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Account {
@@ -1934,21 +2383,112 @@ export interface AccountNullablePromise
   }) => T;
 }
 
-export interface AccountEdge {
-  node: Account;
-  cursor: String;
+export interface AggregateUser {
+  count: Int;
 }
 
-export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
-  node: <T = AccountPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AccountEdgeSubscription
-  extends Promise<AsyncIterator<AccountEdge>>,
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
     Fragmentable {
-  node: <T = AccountSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SphereVerificationPreviousValues {
+  id: ID_Output;
+  url: String;
+  status: SphereVerificationStatus;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SphereVerificationPreviousValuesPromise
+  extends Promise<SphereVerificationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  status: () => Promise<SphereVerificationStatus>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SphereVerificationPreviousValuesSubscription
+  extends Promise<AsyncIterator<SphereVerificationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<SphereVerificationStatus>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface AggregateSphereVerificationCode {
+  count: Int;
+}
+
+export interface AggregateSphereVerificationCodePromise
+  extends Promise<AggregateSphereVerificationCode>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateSphereVerificationCodeSubscription
+  extends Promise<AsyncIterator<AggregateSphereVerificationCode>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface User {
+  id: ID_Output;
+  providerId: String;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  providerId: () => Promise<String>;
+  associatedWith: <T = AccountPromise>() => T;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  providerId: () => Promise<AsyncIterator<String>>;
+  associatedWith: <T = AccountSubscription>() => T;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  providerId: () => Promise<String>;
+  associatedWith: <T = AccountPromise>() => T;
 }
 
 export interface UserSubscriptionPayload {
@@ -1976,27 +2516,142 @@ export interface UserSubscriptionPayloadSubscription
   previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
+export interface SphereVerificationCodeEdge {
+  node: SphereVerificationCode;
+  cursor: String;
 }
 
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
+export interface SphereVerificationCodeEdgePromise
+  extends Promise<SphereVerificationCodeEdge>,
     Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
+  node: <T = SphereVerificationCodePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SphereVerificationCodeEdgeSubscription
+  extends Promise<AsyncIterator<SphereVerificationCodeEdge>>,
+    Fragmentable {
+  node: <T = SphereVerificationCodeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface SphereVerificationCode {
+  id: ID_Output;
+  issuedAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  value: String;
+  status: SphereVerificationCodeStatus;
+}
+
+export interface SphereVerificationCodePromise
+  extends Promise<SphereVerificationCode>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  issuedAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  value: () => Promise<String>;
+  status: () => Promise<SphereVerificationCodeStatus>;
+  associatedWith: <T = AccountPromise>() => T;
+}
+
+export interface SphereVerificationCodeSubscription
+  extends Promise<AsyncIterator<SphereVerificationCode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  issuedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  value: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<SphereVerificationCodeStatus>>;
+  associatedWith: <T = AccountSubscription>() => T;
+}
+
+export interface SphereVerificationCodeNullablePromise
+  extends Promise<SphereVerificationCode | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  issuedAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  value: () => Promise<String>;
+  status: () => Promise<SphereVerificationCodeStatus>;
+  associatedWith: <T = AccountPromise>() => T;
+}
+
+export interface AccountSubscriptionPayload {
+  mutation: MutationType;
+  node: Account;
+  updatedFields: String[];
+  previousValues: AccountPreviousValues;
+}
+
+export interface AccountSubscriptionPayloadPromise
+  extends Promise<AccountSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AccountPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AccountPreviousValuesPromise>() => T;
+}
+
+export interface AccountSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AccountSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AccountPreviousValuesSubscription>() => T;
+}
+
+export interface SphereVerificationEdge {
+  node: SphereVerification;
+  cursor: String;
+}
+
+export interface SphereVerificationEdgePromise
+  extends Promise<SphereVerificationEdge>,
+    Fragmentable {
+  node: <T = SphereVerificationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SphereVerificationEdgeSubscription
+  extends Promise<AsyncIterator<SphereVerificationEdge>>,
+    Fragmentable {
+  node: <T = SphereVerificationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AccountPreviousValues {
+  id: ID_Output;
+  status: AccountStatus;
+  fullName: String;
+  emailAddress: String;
+  profileImageUrl: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AccountPreviousValuesPromise
+  extends Promise<AccountPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<AccountStatus>;
+  fullName: () => Promise<String>;
+  emailAddress: () => Promise<String>;
+  profileImageUrl: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AccountPreviousValuesSubscription
+  extends Promise<AsyncIterator<AccountPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<AccountStatus>>;
+  fullName: () => Promise<AsyncIterator<String>>;
+  emailAddress: () => Promise<AsyncIterator<String>>;
+  profileImageUrl: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AggregateSphere {
@@ -2057,29 +2712,29 @@ export interface SphereConnectionSubscription
   aggregate: <T = AggregateSphereSubscription>() => T;
 }
 
-export interface SphereSubscriptionPayload {
+export interface MediaSubscriptionPayload {
   mutation: MutationType;
-  node: Sphere;
+  node: Media;
   updatedFields: String[];
-  previousValues: SpherePreviousValues;
+  previousValues: MediaPreviousValues;
 }
 
-export interface SphereSubscriptionPayloadPromise
-  extends Promise<SphereSubscriptionPayload>,
+export interface MediaSubscriptionPayloadPromise
+  extends Promise<MediaSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = SpherePromise>() => T;
+  node: <T = MediaPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = SpherePreviousValuesPromise>() => T;
+  previousValues: <T = MediaPreviousValuesPromise>() => T;
 }
 
-export interface SphereSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
+export interface MediaSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MediaSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SphereSubscription>() => T;
+  node: <T = MediaSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SpherePreviousValuesSubscription>() => T;
+  previousValues: <T = MediaPreviousValuesSubscription>() => T;
 }
 
 export interface PostMetadataEdge {
@@ -2101,150 +2756,42 @@ export interface PostMetadataEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AccountSubscriptionPayload {
-  mutation: MutationType;
-  node: Account;
-  updatedFields: String[];
-  previousValues: AccountPreviousValues;
-}
-
-export interface AccountSubscriptionPayloadPromise
-  extends Promise<AccountSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AccountPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AccountPreviousValuesPromise>() => T;
-}
-
-export interface AccountSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = AccountSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = AccountPreviousValuesSubscription>() => T;
-}
-
-export interface Sphere {
+export interface MediaPreviousValues {
   id: ID_Output;
-  alias: String;
-  aliasSlug: String;
-  slugPrefix: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+  url: String;
+  type: MEDIA_TYPE;
 }
 
-export interface SpherePromise extends Promise<Sphere>, Fragmentable {
+export interface MediaPreviousValuesPromise
+  extends Promise<MediaPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  alias: () => Promise<String>;
-  aliasSlug: () => Promise<String>;
-  slugPrefix: () => Promise<String>;
-  associatedWith: <T = AccountPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  url: () => Promise<String>;
+  type: () => Promise<MEDIA_TYPE>;
 }
 
-export interface SphereSubscription
-  extends Promise<AsyncIterator<Sphere>>,
+export interface MediaPreviousValuesSubscription
+  extends Promise<AsyncIterator<MediaPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  alias: () => Promise<AsyncIterator<String>>;
-  aliasSlug: () => Promise<AsyncIterator<String>>;
-  slugPrefix: () => Promise<AsyncIterator<String>>;
-  associatedWith: <T = AccountSubscription>() => T;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  posts: <T = Promise<AsyncIterator<PostSubscription>>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  url: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<MEDIA_TYPE>>;
 }
 
-export interface SphereNullablePromise
-  extends Promise<Sphere | null>,
+export interface AggregatePost {
+  count: Int;
+}
+
+export interface AggregatePostPromise
+  extends Promise<AggregatePost>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  alias: () => Promise<String>;
-  aliasSlug: () => Promise<String>;
-  slugPrefix: () => Promise<String>;
-  associatedWith: <T = AccountPromise>() => T;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  posts: <T = FragmentableArray<Post>>(args?: {
-    where?: PostWhereInput;
-    orderBy?: PostOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  count: () => Promise<Int>;
 }
 
-export interface AccountPreviousValues {
-  id: ID_Output;
-  status: AccountStatus;
-  fullName: String;
-  emailAddress: String;
-  profileImageUrl: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface AccountPreviousValuesPromise
-  extends Promise<AccountPreviousValues>,
+export interface AggregatePostSubscription
+  extends Promise<AsyncIterator<AggregatePost>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  status: () => Promise<AccountStatus>;
-  fullName: () => Promise<String>;
-  emailAddress: () => Promise<String>;
-  profileImageUrl: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface AccountPreviousValuesSubscription
-  extends Promise<AsyncIterator<AccountPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<AccountStatus>>;
-  fullName: () => Promise<AsyncIterator<String>>;
-  emailAddress: () => Promise<AsyncIterator<String>>;
-  profileImageUrl: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface PostEdge {
-  node: Post;
-  cursor: String;
-}
-
-export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
-  node: <T = PostPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PostEdgeSubscription
-  extends Promise<AsyncIterator<PostEdge>>,
-    Fragmentable {
-  node: <T = PostSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface PostMetadata {
@@ -2285,45 +2832,309 @@ export interface PostMetadataNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregateUser {
+export interface PostConnection {
+  pageInfo: PageInfo;
+  edges: PostEdge[];
+}
+
+export interface PostConnectionPromise
+  extends Promise<PostConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PostEdge>>() => T;
+  aggregate: <T = AggregatePostPromise>() => T;
+}
+
+export interface PostConnectionSubscription
+  extends Promise<AsyncIterator<PostConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePostSubscription>() => T;
+}
+
+export interface PostSubscriptionPayload {
+  mutation: MutationType;
+  node: Post;
+  updatedFields: String[];
+  previousValues: PostPreviousValues;
+}
+
+export interface PostSubscriptionPayloadPromise
+  extends Promise<PostSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PostPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PostPreviousValuesPromise>() => T;
+}
+
+export interface PostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PostSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PostPreviousValuesSubscription>() => T;
+}
+
+export interface MediaEdge {
+  node: Media;
+  cursor: String;
+}
+
+export interface MediaEdgePromise extends Promise<MediaEdge>, Fragmentable {
+  node: <T = MediaPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface MediaEdgeSubscription
+  extends Promise<AsyncIterator<MediaEdge>>,
+    Fragmentable {
+  node: <T = MediaSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PostPreviousValues {
+  id: ID_Output;
+  title: String;
+  content: Json;
+  slug: String;
+  timeToRead: Int;
+  isPublished: Boolean;
+  publishedAt?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  status: POST_STATUS;
+}
+
+export interface PostPreviousValuesPromise
+  extends Promise<PostPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<Json>;
+  slug: () => Promise<String>;
+  timeToRead: () => Promise<Int>;
+  isPublished: () => Promise<Boolean>;
+  publishedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  status: () => Promise<POST_STATUS>;
+}
+
+export interface PostPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<Json>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  timeToRead: () => Promise<AsyncIterator<Int>>;
+  isPublished: () => Promise<AsyncIterator<Boolean>>;
+  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  status: () => Promise<AsyncIterator<POST_STATUS>>;
+}
+
+export interface SphereVerificationCodeConnection {
+  pageInfo: PageInfo;
+  edges: SphereVerificationCodeEdge[];
+}
+
+export interface SphereVerificationCodeConnectionPromise
+  extends Promise<SphereVerificationCodeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SphereVerificationCodeEdge>>() => T;
+  aggregate: <T = AggregateSphereVerificationCodePromise>() => T;
+}
+
+export interface SphereVerificationCodeConnectionSubscription
+  extends Promise<AsyncIterator<SphereVerificationCodeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<SphereVerificationCodeEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateSphereVerificationCodeSubscription>() => T;
+}
+
+export interface SphereVerificationCodeSubscriptionPayload {
+  mutation: MutationType;
+  node: SphereVerificationCode;
+  updatedFields: String[];
+  previousValues: SphereVerificationCodePreviousValues;
+}
+
+export interface SphereVerificationCodeSubscriptionPayloadPromise
+  extends Promise<SphereVerificationCodeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SphereVerificationCodePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SphereVerificationCodePreviousValuesPromise>() => T;
+}
+
+export interface SphereVerificationCodeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereVerificationCodeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SphereVerificationCodeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SphereVerificationCodePreviousValuesSubscription>() => T;
+}
+
+export interface AggregateSphereVerification {
   count: Int;
 }
 
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
+export interface AggregateSphereVerificationPromise
+  extends Promise<AggregateSphereVerification>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
+export interface AggregateSphereVerificationSubscription
+  extends Promise<AsyncIterator<AggregateSphereVerification>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface MediaSubscriptionPayload {
+export interface PostMetadataSubscriptionPayload {
   mutation: MutationType;
-  node: Media;
+  node: PostMetadata;
   updatedFields: String[];
-  previousValues: MediaPreviousValues;
+  previousValues: PostMetadataPreviousValues;
 }
 
-export interface MediaSubscriptionPayloadPromise
-  extends Promise<MediaSubscriptionPayload>,
+export interface PostMetadataSubscriptionPayloadPromise
+  extends Promise<PostMetadataSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = MediaPromise>() => T;
+  node: <T = PostMetadataPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = MediaPreviousValuesPromise>() => T;
+  previousValues: <T = PostMetadataPreviousValuesPromise>() => T;
 }
 
-export interface MediaSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<MediaSubscriptionPayload>>,
+export interface PostMetadataSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PostMetadataSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = MediaSubscription>() => T;
+  node: <T = PostMetadataSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = MediaPreviousValuesSubscription>() => T;
+  previousValues: <T = PostMetadataPreviousValuesSubscription>() => T;
+}
+
+export interface SphereEdge {
+  node: Sphere;
+  cursor: String;
+}
+
+export interface SphereEdgePromise extends Promise<SphereEdge>, Fragmentable {
+  node: <T = SpherePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SphereEdgeSubscription
+  extends Promise<AsyncIterator<SphereEdge>>,
+    Fragmentable {
+  node: <T = SphereSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PostMetadataPreviousValues {
+  id: ID_Output;
+  fileHash: String;
+  filename?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface PostMetadataPreviousValuesPromise
+  extends Promise<PostMetadataPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  fileHash: () => Promise<String>;
+  filename: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface PostMetadataPreviousValuesSubscription
+  extends Promise<AsyncIterator<PostMetadataPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  fileHash: () => Promise<AsyncIterator<String>>;
+  filename: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface PostMetadataConnection {
+  pageInfo: PageInfo;
+  edges: PostMetadataEdge[];
+}
+
+export interface PostMetadataConnectionPromise
+  extends Promise<PostMetadataConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PostMetadataEdge>>() => T;
+  aggregate: <T = AggregatePostMetadataPromise>() => T;
+}
+
+export interface PostMetadataConnectionSubscription
+  extends Promise<AsyncIterator<PostMetadataConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePostMetadataSubscription>() => T;
+}
+
+export interface Media {
+  id: ID_Output;
+  url: String;
+  type: MEDIA_TYPE;
+}
+
+export interface MediaPromise extends Promise<Media>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  type: () => Promise<MEDIA_TYPE>;
+}
+
+export interface MediaSubscription
+  extends Promise<AsyncIterator<Media>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<MEDIA_TYPE>>;
+}
+
+export interface MediaNullablePromise
+  extends Promise<Media | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  type: () => Promise<MEDIA_TYPE>;
+}
+
+export interface AggregateMedia {
+  count: Int;
+}
+
+export interface AggregateMediaPromise
+  extends Promise<AggregateMedia>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMediaSubscription
+  extends Promise<AsyncIterator<AggregateMedia>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface BatchPayload {
@@ -2342,43 +3153,29 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>;
 }
 
-export interface MediaPreviousValues {
-  id: ID_Output;
-  url: String;
-  type: MEDIA_TYPE;
+export interface SphereVerificationSubscriptionPayload {
+  mutation: MutationType;
+  node: SphereVerification;
+  updatedFields: String[];
+  previousValues: SphereVerificationPreviousValues;
 }
 
-export interface MediaPreviousValuesPromise
-  extends Promise<MediaPreviousValues>,
+export interface SphereVerificationSubscriptionPayloadPromise
+  extends Promise<SphereVerificationSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  type: () => Promise<MEDIA_TYPE>;
+  mutation: () => Promise<MutationType>;
+  node: <T = SphereVerificationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SphereVerificationPreviousValuesPromise>() => T;
 }
 
-export interface MediaPreviousValuesSubscription
-  extends Promise<AsyncIterator<MediaPreviousValues>>,
+export interface SphereVerificationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereVerificationSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<MEDIA_TYPE>>;
-}
-
-export interface SphereEdge {
-  node: Sphere;
-  cursor: String;
-}
-
-export interface SphereEdgePromise extends Promise<SphereEdge>, Fragmentable {
-  node: <T = SpherePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SphereEdgeSubscription
-  extends Promise<AsyncIterator<SphereEdge>>,
-    Fragmentable {
-  node: <T = SphereSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SphereVerificationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SphereVerificationPreviousValuesSubscription>() => T;
 }
 
 export interface Post {
@@ -2476,204 +3273,128 @@ export interface PostNullablePromise
   associatedWith: <T = SpherePromise>() => T;
 }
 
-export interface PostMetadataConnection {
-  pageInfo: PageInfo;
-  edges: PostMetadataEdge[];
-}
-
-export interface PostMetadataConnectionPromise
-  extends Promise<PostMetadataConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PostMetadataEdge>>() => T;
-  aggregate: <T = AggregatePostMetadataPromise>() => T;
-}
-
-export interface PostMetadataConnectionSubscription
-  extends Promise<AsyncIterator<PostMetadataConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PostMetadataEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePostMetadataSubscription>() => T;
-}
-
-export interface PostConnection {
-  pageInfo: PageInfo;
-  edges: PostEdge[];
-}
-
-export interface PostConnectionPromise
-  extends Promise<PostConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<PostEdge>>() => T;
-  aggregate: <T = AggregatePostPromise>() => T;
-}
-
-export interface PostConnectionSubscription
-  extends Promise<AsyncIterator<PostConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<PostEdgeSubscription>>>() => T;
-  aggregate: <T = AggregatePostSubscription>() => T;
-}
-
-export interface PostMetadataSubscriptionPayload {
-  mutation: MutationType;
-  node: PostMetadata;
-  updatedFields: String[];
-  previousValues: PostMetadataPreviousValues;
-}
-
-export interface PostMetadataSubscriptionPayloadPromise
-  extends Promise<PostMetadataSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PostMetadataPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PostMetadataPreviousValuesPromise>() => T;
-}
-
-export interface PostMetadataSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostMetadataSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PostMetadataSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PostMetadataPreviousValuesSubscription>() => T;
-}
-
-export interface Media {
+export interface SpherePreviousValues {
   id: ID_Output;
-  url: String;
-  type: MEDIA_TYPE;
-}
-
-export interface MediaPromise extends Promise<Media>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  type: () => Promise<MEDIA_TYPE>;
-}
-
-export interface MediaSubscription
-  extends Promise<AsyncIterator<Media>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<MEDIA_TYPE>>;
-}
-
-export interface MediaNullablePromise
-  extends Promise<Media | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  type: () => Promise<MEDIA_TYPE>;
-}
-
-export interface PostPreviousValues {
-  id: ID_Output;
-  title: String;
-  content: Json;
-  slug: String;
-  timeToRead: Int;
-  isPublished: Boolean;
-  publishedAt?: DateTimeOutput;
+  alias?: String;
+  aliasSlug: String;
+  slugPrefix: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
-  status: POST_STATUS;
 }
 
-export interface PostPreviousValuesPromise
-  extends Promise<PostPreviousValues>,
+export interface SpherePreviousValuesPromise
+  extends Promise<SpherePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  content: () => Promise<Json>;
-  slug: () => Promise<String>;
-  timeToRead: () => Promise<Int>;
-  isPublished: () => Promise<Boolean>;
-  publishedAt: () => Promise<DateTimeOutput>;
+  alias: () => Promise<String>;
+  aliasSlug: () => Promise<String>;
+  slugPrefix: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  status: () => Promise<POST_STATUS>;
 }
 
-export interface PostPreviousValuesSubscription
-  extends Promise<AsyncIterator<PostPreviousValues>>,
+export interface SpherePreviousValuesSubscription
+  extends Promise<AsyncIterator<SpherePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<Json>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  timeToRead: () => Promise<AsyncIterator<Int>>;
-  isPublished: () => Promise<AsyncIterator<Boolean>>;
-  publishedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  alias: () => Promise<AsyncIterator<String>>;
+  aliasSlug: () => Promise<AsyncIterator<String>>;
+  slugPrefix: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  status: () => Promise<AsyncIterator<POST_STATUS>>;
 }
 
-export interface PostSubscriptionPayload {
+export interface SphereSubscriptionPayload {
   mutation: MutationType;
-  node: Post;
+  node: Sphere;
   updatedFields: String[];
-  previousValues: PostPreviousValues;
+  previousValues: SpherePreviousValues;
 }
 
-export interface PostSubscriptionPayloadPromise
-  extends Promise<PostSubscriptionPayload>,
+export interface SphereSubscriptionPayloadPromise
+  extends Promise<SphereSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = PostPromise>() => T;
+  node: <T = SpherePromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = PostPreviousValuesPromise>() => T;
+  previousValues: <T = SpherePreviousValuesPromise>() => T;
 }
 
-export interface PostSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PostSubscriptionPayload>>,
+export interface SphereSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SphereSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PostSubscription>() => T;
+  node: <T = SphereSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PostPreviousValuesSubscription>() => T;
+  previousValues: <T = SpherePreviousValuesSubscription>() => T;
 }
 
-export interface UserConnection {
+export interface SphereVerificationConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: SphereVerificationEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface SphereVerificationConnectionPromise
+  extends Promise<SphereVerificationConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<SphereVerificationEdge>>() => T;
+  aggregate: <T = AggregateSphereVerificationPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface SphereVerificationConnectionSubscription
+  extends Promise<AsyncIterator<SphereVerificationConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<SphereVerificationEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateSphereVerificationSubscription>() => T;
 }
 
-export interface AggregatePost {
-  count: Int;
+export interface SphereVerificationCodePreviousValues {
+  id: ID_Output;
+  issuedAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  value: String;
+  status: SphereVerificationCodeStatus;
 }
 
-export interface AggregatePostPromise
-  extends Promise<AggregatePost>,
+export interface SphereVerificationCodePreviousValuesPromise
+  extends Promise<SphereVerificationCodePreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  issuedAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  value: () => Promise<String>;
+  status: () => Promise<SphereVerificationCodeStatus>;
 }
 
-export interface AggregatePostSubscription
-  extends Promise<AsyncIterator<AggregatePost>>,
+export interface SphereVerificationCodePreviousValuesSubscription
+  extends Promise<AsyncIterator<SphereVerificationCodePreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  issuedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  value: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<SphereVerificationCodeStatus>>;
+}
+
+export interface PostEdge {
+  node: Post;
+  cursor: String;
+}
+
+export interface PostEdgePromise extends Promise<PostEdge>, Fragmentable {
+  node: <T = PostPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PostEdgeSubscription
+  extends Promise<AsyncIterator<PostEdge>>,
+    Fragmentable {
+  node: <T = PostSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregatePostMetadata {
@@ -2692,44 +3413,16 @@ export interface AggregatePostMetadataSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface User {
-  id: ID_Output;
-  providerId: String;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  providerId: () => Promise<String>;
-  associatedWith: <T = AccountPromise>() => T;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  providerId: () => Promise<AsyncIterator<String>>;
-  associatedWith: <T = AccountSubscription>() => T;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  providerId: () => Promise<String>;
-  associatedWith: <T = AccountPromise>() => T;
-}
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
 
 /*
-The `Boolean` scalar type represents `true` or `false`.
+The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
-export type Boolean = boolean;
-
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-export type Long = string;
+export type ID_Input = string | number;
+export type ID_Output = string;
 
 /*
 DateTime scalar input type, allowing Date
@@ -2741,18 +3434,19 @@ DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
 
-/*
-The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
-*/
-export type ID_Input = string | number;
-export type ID_Output = string;
+export type Long = string;
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+The `Boolean` scalar type represents `true` or `false`.
 */
-export type String = string;
+export type Boolean = boolean;
 
 export type Json = any;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
 
 /**
  * Model Metadata
@@ -2785,6 +3479,22 @@ export const models: Model[] = [
   },
   {
     name: "Account",
+    embedded: false
+  },
+  {
+    name: "SphereVerificationCodeStatus",
+    embedded: false
+  },
+  {
+    name: "SphereVerificationStatus",
+    embedded: false
+  },
+  {
+    name: "SphereVerificationCode",
+    embedded: false
+  },
+  {
+    name: "SphereVerification",
     embedded: false
   },
   {

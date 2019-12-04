@@ -32,6 +32,22 @@ exports.models = [
         embedded: false
     },
     {
+        name: "SphereVerificationCodeStatus",
+        embedded: false
+    },
+    {
+        name: "SphereVerificationStatus",
+        embedded: false
+    },
+    {
+        name: "SphereVerificationCode",
+        embedded: false
+    },
+    {
+        name: "SphereVerification",
+        embedded: false
+    },
+    {
         name: "Sphere",
         embedded: false
     },

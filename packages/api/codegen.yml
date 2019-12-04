@@ -1,0 +1,11 @@
+schema:
+  - src/**/*.graphql
+  - schema/generated/**/*.graphql
+generates:
+  ./src/types.ts:
+    config:
+      skipTypename: true
+      immutableTypes: true
+    plugins:
+      - typescript
+      - typescript-operations

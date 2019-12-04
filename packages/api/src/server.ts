@@ -1,3 +1,5 @@
+import * as jwt from 'jsonwebtoken'
+
 import { ApolloServer, mergeSchemas } from 'apollo-server'
 import {
   applyMiddleware,
@@ -5,7 +7,7 @@ import {
   IMiddlewareGenerator,
 } from 'graphql-middleware'
 import { sentry } from 'graphql-middleware-sentry'
-import { prisma } from '@spherehq/database'
+import { prisma, Prisma } from '@spherehq/database'
 import { rule, shield, allow, or, deny } from 'graphql-shield'
 
 import { environment } from './config'
@@ -29,8 +31,8 @@ if (process.env.SENTRY_DSN) {
   middleware.push(sentryMiddleware)
 }
 
-const isEditor = rule({ cache: 'strict' })(async () => {
-  return true
+const isEditor = rule({ cache: 'strict' })(async (_parent, _args, _ctx) => {
+  return false
 })
 
 const isOwner = rule({ cache: 'strict' })(async () => {
@@ -41,11 +43,20 @@ const isAuthor = rule({ cache: 'strict' })(async () => {
   return false
 })
 
+const hasAccount = rule({ cache: 'strict' })(
+  async (_parent, _args, ctx: { db: Prisma; account: { id: string } }) => {
+    return (
+      ctx.hasOwnProperty('account') &&
+      (await ctx.db.$exists.account({ id: ctx.account.id }))
+    )
+  },
+)
+
 const permissions = shield(
   {
     Query: {
       sphere: allow,
-      spheres: isEditor,
+      spheres: allow,
       account: isOwner,
       post: allow,
       posts: allow,
@@ -53,6 +64,8 @@ const permissions = shield(
     Mutation: {
       '*': deny,
       exchangeToken: allow,
+      generateVerificationCode: hasAccount,
+      verifySphere: hasAccount,
     },
     Sphere: {
       '*': allow,
@@ -67,6 +80,8 @@ const permissions = shield(
       metadata: or(isAuthor, isEditor),
     },
     ExchangeTokenResponse: allow,
+    GenerateVerificationCodeResponse: hasAccount,
+    VerifySphereResponse: hasAccount,
   },
   { fallbackRule: deny },
 )
@@ -78,12 +93,37 @@ const schemaWithMiddleware = applyMiddleware(
   ...middleware,
 )
 
+export interface ServerContext {
+  db: Prisma
+  account?: { id: string } | null
+}
+
 const server = new ApolloServer({
   schema: schemaWithMiddleware,
   introspection: environment.apollo.introspection,
   playground: environment.apollo.playground,
-  context: {
-    db: prisma,
+  context: async ({ req }) => {
+    const context: ServerContext = { db: prisma }
+
+    if (req.headers.authorization) {
+      const bearer = req.headers.authorization.split(' ')[1] || ''
+      // Validate JWT
+      try {
+        const token = jwt.verify(bearer, process.env.SECURE_JWT_HASH || '', {
+          issuer: 'graph.sphere.sh',
+          audience: 'sphere.sh',
+        }) as { id: string }
+
+        if (await prisma.$exists.account({ id: token.id })) {
+          const account = await prisma.account({ id: token.id })
+          context['account'] = account
+        }
+      } catch (e) {
+        console.warn(e.message)
+      }
+    }
+
+    return context
   },
 })
 

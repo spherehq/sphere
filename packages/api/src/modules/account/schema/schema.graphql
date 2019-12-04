@@ -18,10 +18,21 @@ input ExchangeTokenInput {
   opaqueToken: String!
 }
 
+input VerifySphereInput {
+  code: String!
+  url: String!
+}
+
 enum ExchangeTokenError {
   INVALID_TOKEN
   ACCOUNT_NOT_ACTIVE
   APPLICATION_ERROR
+}
+
+enum VerifySphereError {
+  UNKNOWN_CODE
+  INVALID_ACCOUNT_AND_CODE_PAIR
+  ALREADY_CLAIMED
 }
 
 type ExchangeTokenResponse {
@@ -29,6 +40,16 @@ type ExchangeTokenResponse {
   error: ExchangeTokenError
 }
 
+type GenerateVerificationCodeResponse {
+  code: String!
+}
+
+type VerifySphereResponse {
+  error: VerifySphereError
+}
+
 type Mutation {
   exchangeToken(input: ExchangeTokenInput!): ExchangeTokenResponse
+  generateVerificationCode: GenerateVerificationCodeResponse
+  verifySphere(input: VerifySphereInput!): VerifySphereResponse
 }

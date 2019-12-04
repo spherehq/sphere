@@ -2,7 +2,12 @@ import * as jwt from 'jsonwebtoken'
 
 import fetch from 'node-fetch'
 
-import { Prisma } from '@spherehq/database'
+import { ServerContext } from '../../../../server'
+import {
+  ExchangeTokenInput,
+  ExchangeTokenError,
+  AccountStatus,
+} from '../../../../types'
 
 interface UserInfo {
   sub: string
@@ -13,8 +18,8 @@ interface UserInfo {
 
 export const ExchangeTokenResolver = async (
   _,
-  args: { input: { opaqueToken: string } },
-  context: { db: Prisma },
+  args: { input: ExchangeTokenInput },
+  context: ServerContext,
 ) => {
   try {
     if (
@@ -29,12 +34,14 @@ export const ExchangeTokenResolver = async (
     })
 
     if (res.status !== 200) {
-      throw new Error('INVALID_TOKEN')
+      throw new Error(ExchangeTokenError.InvalidToken)
     }
 
     const userInfo: UserInfo = await res.json()
 
-    const exists = await context.db.$exists.user({ providerId: userInfo.sub })
+    const exists = await context.db.$exists.user({
+      providerId: userInfo.sub,
+    })
 
     const getAccount = async (exists: boolean, userInfo: UserInfo) => {
       if (!exists) {
@@ -42,7 +49,7 @@ export const ExchangeTokenResolver = async (
           providerId: userInfo.sub,
           associatedWith: {
             create: {
-              status: 'ACTIVE',
+              status: AccountStatus.Active,
               fullName: userInfo.name,
               emailAddress: userInfo.email,
               profileImageUrl: userInfo.picture,
@@ -65,8 +72,8 @@ export const ExchangeTokenResolver = async (
       .associatedWith()
       .spheres()
 
-    if (account.status === 'INACTIVE') {
-      throw new Error('ACCOUNT_NOT_ACTIVE')
+    if (account.status === AccountStatus.Inactive) {
+      throw new Error(ExchangeTokenError.AccountNotActive)
     }
 
     return {
@@ -80,12 +87,22 @@ export const ExchangeTokenResolver = async (
           }),
         },
         process.env.SECURE_JWT_HASH || '',
+        {
+          issuer: 'graph.sphere.sh',
+          audience: 'sphere.sh',
+        },
       ),
     }
   } catch (e) {
-    console.log(e.message)
-    return {
-      error: 'APPLICATION_ERROR',
+    switch (e.message) {
+      case ExchangeTokenError.InvalidToken:
+        return { error: ExchangeTokenError.InvalidToken, token: null }
+      case ExchangeTokenError.AccountNotActive:
+        return { error: ExchangeTokenError.AccountNotActive, token: null }
+      case ExchangeTokenError.ApplicationError:
+        return { error: ExchangeTokenError.ApplicationError, token: null }
+      default:
+        return { error: ExchangeTokenError.ApplicationError, token: null }
     }
   }
 }

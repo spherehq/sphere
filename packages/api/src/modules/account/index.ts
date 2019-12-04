@@ -3,6 +3,8 @@ import {
   SpheresResolver,
   SphereResolver,
   ExchangeTokenResolver,
+  GenerateVerificationCodeResolver,
+  VerifySphereResolver,
 } from './resolvers'
 import { gql, makeExecutableSchema } from 'apollo-server'
 
@@ -14,6 +16,8 @@ const resolvers = {
   },
   Mutation: {
     exchangeToken: ExchangeTokenResolver,
+    generateVerificationCode: GenerateVerificationCodeResolver,
+    verifySphere: VerifySphereResolver,
   },
 }
 
