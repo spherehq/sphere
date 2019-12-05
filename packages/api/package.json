@@ -16,7 +16,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@sentry/node": "5.9.0",
+    "@sentry/node": "5.10.1",
     "@spherehq/database": "^0.14.1",
     "apollo-server": "2.9.12",
     "aws-sdk": "^2.576.0",
