@@ -44,18 +44,18 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.36",
-    "@types/node-fetch": "^2.5.4",
-    "@types/rimraf": "^2.0.3",
-    "@types/serverless": "^1.18.4",
+    "@types/aws-lambda": "8.10.36",
+    "@types/node-fetch": "2.5.4",
+    "@types/rimraf": "2.0.3",
+    "@types/serverless": "1.18.4",
     "envsub": "4.0.7",
-    "ngrok": "^3.2.5",
+    "ngrok": "3.2.5",
     "pinst": "1.1.1",
-    "rimraf": "^3.0.0",
-    "serverless-offline": "^5.12.1",
-    "serverless-offline-scheduler": "^0.3.8",
-    "serverless-plugin-optimize": "^4.1.1-rc.1",
-    "serverless-plugin-typescript": "^1.1.9"
+    "rimraf": "3.0.0",
+    "serverless-offline": "5.12.1",
+    "serverless-offline-scheduler": "0.3.8",
+    "serverless-plugin-optimize": "4.1.1-rc.1",
+    "serverless-plugin-typescript": "1.1.9"
   },
   "gitHead": "3f7a82d4c57b68986a27a3b3bc33cc52ed9ca713",
   "snyk": true
