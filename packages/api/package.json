@@ -18,7 +18,7 @@
   "dependencies": {
     "@sentry/node": "5.10.1",
     "@spherehq/database": "^0.14.1",
-    "apollo-server": "2.9.12",
+    "apollo-server": "2.9.13",
     "aws-sdk": "^2.576.0",
     "file-type-stream": "^1.0.0",
     "graphql-fields": "2.0.3",
