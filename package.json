@@ -31,7 +31,7 @@
     "@commitlint/config-conventional": "8.2.0",
     "@types/dotenv": "6.1.1",
     "@types/prettier": "1.19.0",
-    "@types/react": "16.9.13",
+    "@types/react": "16.9.15",
     "@types/react-dom": "16.9.4",
     "commitlint": "8.2.0",
     "dotenv": "8.2.0",
@@ -44,7 +44,7 @@
     "tslint-config-airbnb": "5.11.2",
     "tslint-config-prettier": "1.18.0",
     "tslint-react-a11y": "1.1.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   },
   "workspaces": {
     "packages": [
