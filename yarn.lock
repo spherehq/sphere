@@ -11289,10 +11289,10 @@ gatsby-react-router-scroll@^2.1.17:
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
 
-gatsby-remark-code-buttons@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-code-buttons/-/gatsby-remark-code-buttons-2.0.1.tgz#7b75a432623b3a1a8f62b18575e52e86bc25bf9d"
-  integrity sha512-/pvW4BONz6g/O8v5+cR2gviNFh36ta296D3vCvD85jVk3qdzRkHiAjtez9N5x+L/wICaCt6DNj/r2v18lX9LBA==
+gatsby-remark-code-buttons@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-code-buttons/-/gatsby-remark-code-buttons-2.0.4.tgz#1fc02fd8beacab6a4c07e7b335095f0a7ff6bf55"
+  integrity sha512-VPwYnXEAC3rNffhc43E6KfFfV/xYrIzdlsNvcFarAukIvArB2AlXHC3BFfbYTjw93fio8UIfLZjQJweNwDQSoQ==
   dependencies:
     query-string "^6.5.0"
     unist-util-visit "^1.4.0"
