@@ -1,3 +1,5 @@
+import normalizeUrl from 'normalize-url'
+
 import {
   VerifySphereInput,
   VerifySphereError,
@@ -38,12 +40,22 @@ export const VerifySphereResolver = async (
     }
 
     if (code) {
+      await context.db.createSphereVerification({
+        url: normalizeUrl(args.input.url, {
+          stripAuthentication: true,
+          stripHash: true,
+          removeQueryParameters: ['/(&|?)utm([_a-z0-9=]+)/g'],
+        }),
+        code: { connect: { id: code.id } },
+      })
+
       await context.db.updateSphereVerificationCode({
         data: { status: SphereVerificationCodeStatus.Claimed },
         where: { id: code.id },
       })
     }
   } catch (e) {
+    console.error(e.message)
     switch (e.message) {
       case VerifySphereError.UnknownCode:
         return { error: VerifySphereError.UnknownCode }

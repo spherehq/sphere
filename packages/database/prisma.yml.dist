@@ -6,6 +6,14 @@ datamodel:
   - schemas/sphere.prisma
   - schemas/user.prisma
 
+subscriptions:
+  verifySphere:
+    webhook:
+      url: ${env:WEBHOOK_URL}/sphere/verify
+      headers:
+        Content-Type: application/json
+    query: subscriptions/SphereVerification/VerifySphere.graphql
+
 generate:
   - generator: typescript-client
     output: ./generated/prisma-client/

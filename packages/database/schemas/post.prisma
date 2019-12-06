@@ -2,33 +2,20 @@ enum POST_STATUS {
   PUBLISHED
   DRAFT
   ARCHIVED
-  SYNCING
 }
 
 type Post {
   id: ID! @id
   title: String!
-  featuredImage: Media @relation(name: "PostFeaturedImage", onDelete: CASCADE)
-  content: Json!
-  images: [Media!] @relation(name: "PostImages", onDelete: CASCADE)
+  featuredImage: String!
   slug: String! @unique
+  url: String! @unique
   timeToRead: Int! @default(value: 1)
-  isPublished: Boolean! @default(value: false)
   publishedAt: DateTime
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   status: POST_STATUS! @default(value: DRAFT)
-  author: Account!
-  metadata: PostMetadata!
-    @relation(name: "MetadataAssociatedWithPost", onDelete: CASCADE)
+  author: String
   associatedWith: Sphere!
-    @relation(name: "PostAssociatedWithSphere", onDelete: CASCADE)
-}
-
-type PostMetadata {
-  id: ID! @id
-  fileHash: String! @unique # internal reference for knowing when file changes have occurred since last sync
-  filename: String
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
+    @relation(name: "PostAssociatedWithSphere")
 }

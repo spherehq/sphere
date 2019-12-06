@@ -16,3 +16,4 @@ prisma.yml
 ci/*
 manifests/*
 codegen.yml
+serverless.yml

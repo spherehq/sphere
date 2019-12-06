@@ -1,0 +1,20 @@
+subscription {
+  sphereVerification(
+    where: {
+      mutation_in: [UPDATED, CREATED]
+      node: { status_in: [AWAITING_VERIFICATION] }
+    }
+  ) {
+    node {
+      id
+      url
+      status
+      code {
+        value
+        associatedWith {
+          id
+        }
+      }
+    }
+  }
+}

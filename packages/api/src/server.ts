@@ -8,7 +8,7 @@ import {
 } from 'graphql-middleware'
 import { sentry } from 'graphql-middleware-sentry'
 import { prisma, Prisma } from '@spherehq/database'
-import { rule, shield, allow, or, deny } from 'graphql-shield'
+import { rule, shield, allow, deny } from 'graphql-shield'
 
 import { environment } from './config'
 
@@ -31,9 +31,9 @@ if (process.env.SENTRY_DSN) {
   middleware.push(sentryMiddleware)
 }
 
-const isEditor = rule({ cache: 'strict' })(async (_parent, _args, _ctx) => {
-  return false
-})
+// const isEditor = rule({ cache: 'strict' })(async (_parent, _args, _ctx) => {
+//   return false
+// })
 
 const isOwner = rule({ cache: 'strict' })(async () => {
   return true
@@ -77,7 +77,6 @@ const permissions = shield(
     },
     Post: {
       status: isAuthor,
-      metadata: or(isAuthor, isEditor),
     },
     ExchangeTokenResponse: allow,
     GenerateVerificationCodeResponse: hasAccount,

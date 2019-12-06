@@ -27,16 +27,11 @@ input AccountCreateInput {
   emailAddress: String!
   profileImageUrl: String
   spheres: SphereCreateManyWithoutAssociatedWithInput
-  posts: PostCreateManyWithoutAuthorInput
+  posts: PostCreateManyInput
 }
 
 input AccountCreateOneInput {
   create: AccountCreateInput
-  connect: AccountWhereUniqueInput
-}
-
-input AccountCreateOneWithoutPostsInput {
-  create: AccountCreateWithoutPostsInput
   connect: AccountWhereUniqueInput
 }
 
@@ -45,22 +40,13 @@ input AccountCreateOneWithoutSpheresInput {
   connect: AccountWhereUniqueInput
 }
 
-input AccountCreateWithoutPostsInput {
-  id: ID
-  status: AccountStatus
-  fullName: String!
-  emailAddress: String!
-  profileImageUrl: String
-  spheres: SphereCreateManyWithoutAssociatedWithInput
-}
-
 input AccountCreateWithoutSpheresInput {
   id: ID
   status: AccountStatus
   fullName: String!
   emailAddress: String!
   profileImageUrl: String
-  posts: PostCreateManyWithoutAuthorInput
+  posts: PostCreateManyInput
 }
 
 type AccountEdge {
@@ -125,7 +111,7 @@ input AccountUpdateDataInput {
   emailAddress: String
   profileImageUrl: String
   spheres: SphereUpdateManyWithoutAssociatedWithInput
-  posts: PostUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyInput
 }
 
 input AccountUpdateInput {
@@ -134,7 +120,7 @@ input AccountUpdateInput {
   emailAddress: String
   profileImageUrl: String
   spheres: SphereUpdateManyWithoutAssociatedWithInput
-  posts: PostUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyInput
 }
 
 input AccountUpdateManyMutationInput {
@@ -151,13 +137,6 @@ input AccountUpdateOneRequiredInput {
   connect: AccountWhereUniqueInput
 }
 
-input AccountUpdateOneRequiredWithoutPostsInput {
-  create: AccountCreateWithoutPostsInput
-  update: AccountUpdateWithoutPostsDataInput
-  upsert: AccountUpsertWithoutPostsInput
-  connect: AccountWhereUniqueInput
-}
-
 input AccountUpdateOneRequiredWithoutSpheresInput {
   create: AccountCreateWithoutSpheresInput
   update: AccountUpdateWithoutSpheresDataInput
@@ -165,30 +144,17 @@ input AccountUpdateOneRequiredWithoutSpheresInput {
   connect: AccountWhereUniqueInput
 }
 
-input AccountUpdateWithoutPostsDataInput {
-  status: AccountStatus
-  fullName: String
-  emailAddress: String
-  profileImageUrl: String
-  spheres: SphereUpdateManyWithoutAssociatedWithInput
-}
-
 input AccountUpdateWithoutSpheresDataInput {
   status: AccountStatus
   fullName: String
   emailAddress: String
   profileImageUrl: String
-  posts: PostUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyInput
 }
 
 input AccountUpsertNestedInput {
   update: AccountUpdateDataInput!
   create: AccountCreateInput!
-}
-
-input AccountUpsertWithoutPostsInput {
-  update: AccountUpdateWithoutPostsDataInput!
-  create: AccountCreateWithoutPostsInput!
 }
 
 input AccountUpsertWithoutSpheresInput {
@@ -301,10 +267,6 @@ type AggregatePost {
   count: Int!
 }
 
-type AggregatePostMetadata {
-  count: Int!
-}
-
 type AggregateSphere {
   count: Int!
 }
@@ -326,8 +288,6 @@ type BatchPayload {
 }
 
 scalar DateTime
-
-scalar Json
 
 scalar Long
 
@@ -353,16 +313,6 @@ input MediaCreateInput {
   type: MEDIA_TYPE
 }
 
-input MediaCreateManyInput {
-  create: [MediaCreateInput!]
-  connect: [MediaWhereUniqueInput!]
-}
-
-input MediaCreateOneInput {
-  create: MediaCreateInput
-  connect: MediaWhereUniqueInput
-}
-
 type MediaEdge {
   node: Media!
   cursor: String!
@@ -383,44 +333,6 @@ type MediaPreviousValues {
   type: MEDIA_TYPE!
 }
 
-input MediaScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  url: String
-  url_not: String
-  url_in: [String!]
-  url_not_in: [String!]
-  url_lt: String
-  url_lte: String
-  url_gt: String
-  url_gte: String
-  url_contains: String
-  url_not_contains: String
-  url_starts_with: String
-  url_not_starts_with: String
-  url_ends_with: String
-  url_not_ends_with: String
-  type: MEDIA_TYPE
-  type_not: MEDIA_TYPE
-  type_in: [MEDIA_TYPE!]
-  type_not_in: [MEDIA_TYPE!]
-  AND: [MediaScalarWhereInput!]
-  OR: [MediaScalarWhereInput!]
-  NOT: [MediaScalarWhereInput!]
-}
-
 type MediaSubscriptionPayload {
   mutation: MutationType!
   node: Media
@@ -439,66 +351,14 @@ input MediaSubscriptionWhereInput {
   NOT: [MediaSubscriptionWhereInput!]
 }
 
-input MediaUpdateDataInput {
-  url: String
-  type: MEDIA_TYPE
-}
-
 input MediaUpdateInput {
   url: String
   type: MEDIA_TYPE
 }
 
-input MediaUpdateManyDataInput {
-  url: String
-  type: MEDIA_TYPE
-}
-
-input MediaUpdateManyInput {
-  create: [MediaCreateInput!]
-  update: [MediaUpdateWithWhereUniqueNestedInput!]
-  upsert: [MediaUpsertWithWhereUniqueNestedInput!]
-  delete: [MediaWhereUniqueInput!]
-  connect: [MediaWhereUniqueInput!]
-  set: [MediaWhereUniqueInput!]
-  disconnect: [MediaWhereUniqueInput!]
-  deleteMany: [MediaScalarWhereInput!]
-  updateMany: [MediaUpdateManyWithWhereNestedInput!]
-}
-
 input MediaUpdateManyMutationInput {
   url: String
   type: MEDIA_TYPE
-}
-
-input MediaUpdateManyWithWhereNestedInput {
-  where: MediaScalarWhereInput!
-  data: MediaUpdateManyDataInput!
-}
-
-input MediaUpdateOneInput {
-  create: MediaCreateInput
-  update: MediaUpdateDataInput
-  upsert: MediaUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: MediaWhereUniqueInput
-}
-
-input MediaUpdateWithWhereUniqueNestedInput {
-  where: MediaWhereUniqueInput!
-  data: MediaUpdateDataInput!
-}
-
-input MediaUpsertNestedInput {
-  update: MediaUpdateDataInput!
-  create: MediaCreateInput!
-}
-
-input MediaUpsertWithWhereUniqueNestedInput {
-  where: MediaWhereUniqueInput!
-  update: MediaUpdateDataInput!
-  create: MediaCreateInput!
 }
 
 input MediaWhereInput {
@@ -562,12 +422,6 @@ type Mutation {
   upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
   deletePost(where: PostWhereUniqueInput!): Post
   deleteManyPosts(where: PostWhereInput): BatchPayload!
-  createPostMetadata(data: PostMetadataCreateInput!): PostMetadata!
-  updatePostMetadata(data: PostMetadataUpdateInput!, where: PostMetadataWhereUniqueInput!): PostMetadata
-  updateManyPostMetadatas(data: PostMetadataUpdateManyMutationInput!, where: PostMetadataWhereInput): BatchPayload!
-  upsertPostMetadata(where: PostMetadataWhereUniqueInput!, create: PostMetadataCreateInput!, update: PostMetadataUpdateInput!): PostMetadata!
-  deletePostMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
-  deleteManyPostMetadatas(where: PostMetadataWhereInput): BatchPayload!
   createSphere(data: SphereCreateInput!): Sphere!
   updateSphere(data: SphereUpdateInput!, where: SphereWhereUniqueInput!): Sphere
   updateManySpheres(data: SphereUpdateManyMutationInput!, where: SphereWhereInput): BatchPayload!
@@ -614,18 +468,15 @@ type PageInfo {
 type Post {
   id: ID!
   title: String!
-  featuredImage: Media
-  content: Json!
-  images(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media!]
+  featuredImage: String!
   slug: String!
+  url: String!
   timeToRead: Int!
-  isPublished: Boolean!
   publishedAt: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS!
-  author: Account!
-  metadata: PostMetadata!
+  author: String
   associatedWith: Sphere!
 }
 
@@ -633,7 +484,6 @@ enum POST_STATUS {
   PUBLISHED
   DRAFT
   ARCHIVED
-  SYNCING
 }
 
 type PostConnection {
@@ -645,17 +495,19 @@ type PostConnection {
 input PostCreateInput {
   id: ID
   title: String!
-  featuredImage: MediaCreateOneInput
-  content: Json!
-  images: MediaCreateManyInput
+  featuredImage: String!
   slug: String!
+  url: String!
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  author: AccountCreateOneWithoutPostsInput!
-  metadata: PostMetadataCreateOneInput!
+  author: String
   associatedWith: SphereCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyInput {
+  create: [PostCreateInput!]
+  connect: [PostWhereUniqueInput!]
 }
 
 input PostCreateManyWithoutAssociatedWithInput {
@@ -663,39 +515,16 @@ input PostCreateManyWithoutAssociatedWithInput {
   connect: [PostWhereUniqueInput!]
 }
 
-input PostCreateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  connect: [PostWhereUniqueInput!]
-}
-
 input PostCreateWithoutAssociatedWithInput {
   id: ID
   title: String!
-  featuredImage: MediaCreateOneInput
-  content: Json!
-  images: MediaCreateManyInput
+  featuredImage: String!
   slug: String!
+  url: String!
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  author: AccountCreateOneWithoutPostsInput!
-  metadata: PostMetadataCreateOneInput!
-}
-
-input PostCreateWithoutAuthorInput {
-  id: ID
-  title: String!
-  featuredImage: MediaCreateOneInput
-  content: Json!
-  images: MediaCreateManyInput
-  slug: String!
-  timeToRead: Int
-  isPublished: Boolean
-  publishedAt: DateTime
-  status: POST_STATUS
-  metadata: PostMetadataCreateOneInput!
-  associatedWith: SphereCreateOneWithoutPostsInput!
+  author: String
 }
 
 type PostEdge {
@@ -703,184 +532,19 @@ type PostEdge {
   cursor: String!
 }
 
-type PostMetadata {
-  id: ID!
-  fileHash: String!
-  filename: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-type PostMetadataConnection {
-  pageInfo: PageInfo!
-  edges: [PostMetadataEdge]!
-  aggregate: AggregatePostMetadata!
-}
-
-input PostMetadataCreateInput {
-  id: ID
-  fileHash: String!
-  filename: String
-}
-
-input PostMetadataCreateOneInput {
-  create: PostMetadataCreateInput
-  connect: PostMetadataWhereUniqueInput
-}
-
-type PostMetadataEdge {
-  node: PostMetadata!
-  cursor: String!
-}
-
-enum PostMetadataOrderByInput {
-  id_ASC
-  id_DESC
-  fileHash_ASC
-  fileHash_DESC
-  filename_ASC
-  filename_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-}
-
-type PostMetadataPreviousValues {
-  id: ID!
-  fileHash: String!
-  filename: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
-}
-
-type PostMetadataSubscriptionPayload {
-  mutation: MutationType!
-  node: PostMetadata
-  updatedFields: [String!]
-  previousValues: PostMetadataPreviousValues
-}
-
-input PostMetadataSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: PostMetadataWhereInput
-  AND: [PostMetadataSubscriptionWhereInput!]
-  OR: [PostMetadataSubscriptionWhereInput!]
-  NOT: [PostMetadataSubscriptionWhereInput!]
-}
-
-input PostMetadataUpdateDataInput {
-  fileHash: String
-  filename: String
-}
-
-input PostMetadataUpdateInput {
-  fileHash: String
-  filename: String
-}
-
-input PostMetadataUpdateManyMutationInput {
-  fileHash: String
-  filename: String
-}
-
-input PostMetadataUpdateOneRequiredInput {
-  create: PostMetadataCreateInput
-  update: PostMetadataUpdateDataInput
-  upsert: PostMetadataUpsertNestedInput
-  connect: PostMetadataWhereUniqueInput
-}
-
-input PostMetadataUpsertNestedInput {
-  update: PostMetadataUpdateDataInput!
-  create: PostMetadataCreateInput!
-}
-
-input PostMetadataWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  fileHash: String
-  fileHash_not: String
-  fileHash_in: [String!]
-  fileHash_not_in: [String!]
-  fileHash_lt: String
-  fileHash_lte: String
-  fileHash_gt: String
-  fileHash_gte: String
-  fileHash_contains: String
-  fileHash_not_contains: String
-  fileHash_starts_with: String
-  fileHash_not_starts_with: String
-  fileHash_ends_with: String
-  fileHash_not_ends_with: String
-  filename: String
-  filename_not: String
-  filename_in: [String!]
-  filename_not_in: [String!]
-  filename_lt: String
-  filename_lte: String
-  filename_gt: String
-  filename_gte: String
-  filename_contains: String
-  filename_not_contains: String
-  filename_starts_with: String
-  filename_not_starts_with: String
-  filename_ends_with: String
-  filename_not_ends_with: String
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  AND: [PostMetadataWhereInput!]
-  OR: [PostMetadataWhereInput!]
-  NOT: [PostMetadataWhereInput!]
-}
-
-input PostMetadataWhereUniqueInput {
-  id: ID
-  fileHash: String
-}
-
 enum PostOrderByInput {
   id_ASC
   id_DESC
   title_ASC
   title_DESC
-  content_ASC
-  content_DESC
+  featuredImage_ASC
+  featuredImage_DESC
   slug_ASC
   slug_DESC
+  url_ASC
+  url_DESC
   timeToRead_ASC
   timeToRead_DESC
-  isPublished_ASC
-  isPublished_DESC
   publishedAt_ASC
   publishedAt_DESC
   createdAt_ASC
@@ -889,19 +553,22 @@ enum PostOrderByInput {
   updatedAt_DESC
   status_ASC
   status_DESC
+  author_ASC
+  author_DESC
 }
 
 type PostPreviousValues {
   id: ID!
   title: String!
-  content: Json!
+  featuredImage: String!
   slug: String!
+  url: String!
   timeToRead: Int!
-  isPublished: Boolean!
   publishedAt: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
   status: POST_STATUS!
+  author: String
 }
 
 input PostScalarWhereInput {
@@ -933,6 +600,20 @@ input PostScalarWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  featuredImage: String
+  featuredImage_not: String
+  featuredImage_in: [String!]
+  featuredImage_not_in: [String!]
+  featuredImage_lt: String
+  featuredImage_lte: String
+  featuredImage_gt: String
+  featuredImage_gte: String
+  featuredImage_contains: String
+  featuredImage_not_contains: String
+  featuredImage_starts_with: String
+  featuredImage_not_starts_with: String
+  featuredImage_ends_with: String
+  featuredImage_not_ends_with: String
   slug: String
   slug_not: String
   slug_in: [String!]
@@ -947,6 +628,20 @@ input PostScalarWhereInput {
   slug_not_starts_with: String
   slug_ends_with: String
   slug_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
   timeToRead: Int
   timeToRead_not: Int
   timeToRead_in: [Int!]
@@ -955,8 +650,6 @@ input PostScalarWhereInput {
   timeToRead_lte: Int
   timeToRead_gt: Int
   timeToRead_gte: Int
-  isPublished: Boolean
-  isPublished_not: Boolean
   publishedAt: DateTime
   publishedAt_not: DateTime
   publishedAt_in: [DateTime!]
@@ -985,6 +678,20 @@ input PostScalarWhereInput {
   status_not: POST_STATUS
   status_in: [POST_STATUS!]
   status_not_in: [POST_STATUS!]
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
   AND: [PostScalarWhereInput!]
   OR: [PostScalarWhereInput!]
   NOT: [PostScalarWhereInput!]
@@ -1008,39 +715,62 @@ input PostSubscriptionWhereInput {
   NOT: [PostSubscriptionWhereInput!]
 }
 
-input PostUpdateInput {
+input PostUpdateDataInput {
   title: String
-  featuredImage: MediaUpdateOneInput
-  content: Json
-  images: MediaUpdateManyInput
+  featuredImage: String
   slug: String
+  url: String
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  author: AccountUpdateOneRequiredWithoutPostsInput
-  metadata: PostMetadataUpdateOneRequiredInput
+  author: String
+  associatedWith: SphereUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateInput {
+  title: String
+  featuredImage: String
+  slug: String
+  url: String
+  timeToRead: Int
+  publishedAt: DateTime
+  status: POST_STATUS
+  author: String
   associatedWith: SphereUpdateOneRequiredWithoutPostsInput
 }
 
 input PostUpdateManyDataInput {
   title: String
-  content: Json
+  featuredImage: String
   slug: String
+  url: String
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
+  author: String
+}
+
+input PostUpdateManyInput {
+  create: [PostCreateInput!]
+  update: [PostUpdateWithWhereUniqueNestedInput!]
+  upsert: [PostUpsertWithWhereUniqueNestedInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
 }
 
 input PostUpdateManyMutationInput {
   title: String
-  content: Json
+  featuredImage: String
   slug: String
+  url: String
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
+  author: String
 }
 
 input PostUpdateManyWithoutAssociatedWithInput {
@@ -1055,18 +785,6 @@ input PostUpdateManyWithoutAssociatedWithInput {
   updateMany: [PostUpdateManyWithWhereNestedInput!]
 }
 
-input PostUpdateManyWithoutAuthorInput {
-  create: [PostCreateWithoutAuthorInput!]
-  delete: [PostWhereUniqueInput!]
-  connect: [PostWhereUniqueInput!]
-  set: [PostWhereUniqueInput!]
-  disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
-  deleteMany: [PostScalarWhereInput!]
-  updateMany: [PostUpdateManyWithWhereNestedInput!]
-}
-
 input PostUpdateManyWithWhereNestedInput {
   where: PostScalarWhereInput!
   data: PostUpdateManyDataInput!
@@ -1074,30 +792,18 @@ input PostUpdateManyWithWhereNestedInput {
 
 input PostUpdateWithoutAssociatedWithDataInput {
   title: String
-  featuredImage: MediaUpdateOneInput
-  content: Json
-  images: MediaUpdateManyInput
+  featuredImage: String
   slug: String
+  url: String
   timeToRead: Int
-  isPublished: Boolean
   publishedAt: DateTime
   status: POST_STATUS
-  author: AccountUpdateOneRequiredWithoutPostsInput
-  metadata: PostMetadataUpdateOneRequiredInput
+  author: String
 }
 
-input PostUpdateWithoutAuthorDataInput {
-  title: String
-  featuredImage: MediaUpdateOneInput
-  content: Json
-  images: MediaUpdateManyInput
-  slug: String
-  timeToRead: Int
-  isPublished: Boolean
-  publishedAt: DateTime
-  status: POST_STATUS
-  metadata: PostMetadataUpdateOneRequiredInput
-  associatedWith: SphereUpdateOneRequiredWithoutPostsInput
+input PostUpdateWithWhereUniqueNestedInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateDataInput!
 }
 
 input PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
@@ -1105,21 +811,16 @@ input PostUpdateWithWhereUniqueWithoutAssociatedWithInput {
   data: PostUpdateWithoutAssociatedWithDataInput!
 }
 
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
+input PostUpsertWithWhereUniqueNestedInput {
   where: PostWhereUniqueInput!
-  data: PostUpdateWithoutAuthorDataInput!
+  update: PostUpdateDataInput!
+  create: PostCreateInput!
 }
 
 input PostUpsertWithWhereUniqueWithoutAssociatedWithInput {
   where: PostWhereUniqueInput!
   update: PostUpdateWithoutAssociatedWithDataInput!
   create: PostCreateWithoutAssociatedWithInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutAuthorDataInput!
-  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -1151,10 +852,20 @@ input PostWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
-  featuredImage: MediaWhereInput
-  images_every: MediaWhereInput
-  images_some: MediaWhereInput
-  images_none: MediaWhereInput
+  featuredImage: String
+  featuredImage_not: String
+  featuredImage_in: [String!]
+  featuredImage_not_in: [String!]
+  featuredImage_lt: String
+  featuredImage_lte: String
+  featuredImage_gt: String
+  featuredImage_gte: String
+  featuredImage_contains: String
+  featuredImage_not_contains: String
+  featuredImage_starts_with: String
+  featuredImage_not_starts_with: String
+  featuredImage_ends_with: String
+  featuredImage_not_ends_with: String
   slug: String
   slug_not: String
   slug_in: [String!]
@@ -1169,6 +880,20 @@ input PostWhereInput {
   slug_not_starts_with: String
   slug_ends_with: String
   slug_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
   timeToRead: Int
   timeToRead_not: Int
   timeToRead_in: [Int!]
@@ -1177,8 +902,6 @@ input PostWhereInput {
   timeToRead_lte: Int
   timeToRead_gt: Int
   timeToRead_gte: Int
-  isPublished: Boolean
-  isPublished_not: Boolean
   publishedAt: DateTime
   publishedAt_not: DateTime
   publishedAt_in: [DateTime!]
@@ -1207,8 +930,20 @@ input PostWhereInput {
   status_not: POST_STATUS
   status_in: [POST_STATUS!]
   status_not_in: [POST_STATUS!]
-  author: AccountWhereInput
-  metadata: PostMetadataWhereInput
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
   associatedWith: SphereWhereInput
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
@@ -1218,6 +953,7 @@ input PostWhereInput {
 input PostWhereUniqueInput {
   id: ID
   slug: String
+  url: String
 }
 
 type Query {
@@ -1230,9 +966,6 @@ type Query {
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
   postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
-  postMetadata(where: PostMetadataWhereUniqueInput!): PostMetadata
-  postMetadatas(where: PostMetadataWhereInput, orderBy: PostMetadataOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PostMetadata]!
-  postMetadatasConnection(where: PostMetadataWhereInput, orderBy: PostMetadataOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostMetadataConnection!
   sphere(where: SphereWhereUniqueInput!): Sphere
   spheres(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Sphere]!
   spheresConnection(where: SphereWhereInput, orderBy: SphereOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SphereConnection!
@@ -1930,7 +1663,6 @@ type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
   media(where: MediaSubscriptionWhereInput): MediaSubscriptionPayload
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
-  postMetadata(where: PostMetadataSubscriptionWhereInput): PostMetadataSubscriptionPayload
   sphere(where: SphereSubscriptionWhereInput): SphereSubscriptionPayload
   sphereVerification(where: SphereVerificationSubscriptionWhereInput): SphereVerificationSubscriptionPayload
   sphereVerificationCode(where: SphereVerificationCodeSubscriptionWhereInput): SphereVerificationCodeSubscriptionPayload
