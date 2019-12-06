@@ -30,7 +30,7 @@
     "graphql-type-json": "0.3.1",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.0",
-    "snyk": "1.251.1",
+    "snyk": "1.256.0",
     "ts-node": "8.5.4",
     "typescript": "3.7.2"
   },
