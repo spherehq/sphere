@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/database",
   "description": "Sphere prisma database bindings",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
@@ -42,12 +42,12 @@
     "url-slug": "^2.2.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.36",
-    "@types/node-fetch": "^2.5.4",
-    "@types/rimraf": "^2.0.3",
-    "@types/serverless": "^1.18.4",
+    "@types/aws-lambda": "8.10.36",
+    "@types/node-fetch": "2.5.4",
+    "@types/rimraf": "2.0.3",
+    "@types/serverless": "1.18.4",
     "envsub": "4.0.7",
-    "ngrok": "^3.2.5",
+    "ngrok": "3.2.5",
     "pinst": "1.1.1",
     "rimraf": "^3.0.0",
     "serverless-jetpack": "^0.7.0",

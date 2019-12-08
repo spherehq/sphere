@@ -3,24 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.1...@spherehq/platform@0.23.2) (2019-12-08)
+
+### Bug Fixes
+
+- **deps:** update dependency @blueprintjs/core to v3.22.1 ([be19637](https://github.com/spherehq/sphere/commit/be19637f675f465618731c36286e38d644c7d609))
+- **deps:** update dependency gatsby-remark-code-buttons to v2.0.4 ([b894d55](https://github.com/spherehq/sphere/commit/b894d55cab55cf2ebc44dfa07a66527542eab9d4))
+
 ## [0.23.1](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.0...@spherehq/platform@0.23.1) (2019-11-29)
 
 **Note:** Version bump only for package @spherehq/platform
 
-
-
-
-
 # [0.23.0](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.184...@spherehq/platform@0.23.0) (2019-11-29)
-
 
 ### Features
 
-* client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
-
-
-
-
+- client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
 
 ## [0.22.184](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.22.183...@spherehq/platform@0.22.184) (2019-11-26)
 

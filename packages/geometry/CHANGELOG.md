@@ -3,25 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.13.1...@spherehq/geometry@0.13.2) (2019-12-08)
+
+**Note:** Version bump only for package @spherehq/geometry
+
 ## [0.13.1](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.13.0...@spherehq/geometry@0.13.1) (2019-11-29)
 
 **Note:** Version bump only for package @spherehq/geometry
 
-
-
-
-
 # [0.13.0](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.12.2...@spherehq/geometry@0.13.0) (2019-11-29)
-
 
 ### Features
 
-* client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
-* updated resolver and schema for upload ([04dcf88](https://github.com/spherehq/sphere/commit/04dcf88f96531f6e5ac253dfc3dd2d2a6af9825c))
-
-
-
-
+- client sdk and resolver ([2e3cc65](https://github.com/spherehq/sphere/commit/2e3cc65ebcef4cc47a9f77a09d449b99d6928e76))
+- updated resolver and schema for upload ([04dcf88](https://github.com/spherehq/sphere/commit/04dcf88f96531f6e5ac253dfc3dd2d2a6af9825c))
 
 ## [0.12.2](https://github.com/spherehq/sphere/compare/@spherehq/geometry@0.12.1...@spherehq/geometry@0.12.2) (2019-11-19)
 
