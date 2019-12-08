@@ -9,7 +9,7 @@
     "client"
   ],
   "scripts": {
-    "prepublishOnly": "yarn --cwd ../database generate:client && yarn generate",
+    "prepublishOnly": "yarn --cwd ../database generate:client",
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node-dev src/server.ts",
     "start:production": "yarn ts-node src/server.ts",
     "generate": "graphql-codegen",
