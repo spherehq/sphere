@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/spherehq/sphere/compare/@spherehq/api@0.13.1...@spherehq/api@0.14.0) (2019-12-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/node to v5.10.1 ([52168e6](https://github.com/spherehq/sphere/commit/52168e605b6d51d002b7b59874cf6f591183e675))
+* **deps:** update dependency @sentry/node to v5.10.1 ([#747](https://github.com/spherehq/sphere/issues/747)) ([56e151d](https://github.com/spherehq/sphere/commit/56e151d8816e7297b7b3f0f76c1396ac0b14c36f))
+* **deps:** update dependency apollo-server to v2.9.13 ([dff40cd](https://github.com/spherehq/sphere/commit/dff40cd65ac7513dd3d1b7d101c3672248fbafb2))
+* **deps:** update dependency apollo-server to v2.9.13 ([#748](https://github.com/spherehq/sphere/issues/748)) ([935f237](https://github.com/spherehq/sphere/commit/935f237d63b55c18bf2312f09e1bdb6848700570))
+* **deps:** update dependency snyk to v1.256.0 ([2ff704d](https://github.com/spherehq/sphere/commit/2ff704de1a53d0eec7088389ff6840ee6a226b61))
+* **deps:** update dependency snyk to v1.257.0 ([5ae57b4](https://github.com/spherehq/sphere/commit/5ae57b4a829f06ca94a122444c9bcc679f4f4e56))
+* **deps:** update dependency ts-node to v8.5.4 ([63ba5b2](https://github.com/spherehq/sphere/commit/63ba5b2658bb287eb6d06b788eb39965e91c0401))
+* **deps:** update dependency ts-node to v8.5.4 ([#740](https://github.com/spherehq/sphere/issues/740)) ([767e849](https://github.com/spherehq/sphere/commit/767e849bd50aa7070129a8db8c37d0f311c05746))
+* **deps:** update dependency typescript to v3.7.3 ([652fd4f](https://github.com/spherehq/sphere/commit/652fd4fe4227f4a9d102d9f221bd92d0e2cfa8fe))
+
+
+### Features
+
+* added sphere verification mutations ([6b76799](https://github.com/spherehq/sphere/commit/6b76799c129cd9c9adca710714306e444ff36b60))
+* updated documentation for pipelines and node version for api ([37188d0](https://github.com/spherehq/sphere/commit/37188d0575ae15f17d7016222dcd37c6e38731f4))
+
+
+
+
+
 ## [0.13.1](https://github.com/spherehq/sphere/compare/@spherehq/api@0.13.0...@spherehq/api@0.13.1) (2019-11-29)
 
 **Note:** Version bump only for package @spherehq/api
