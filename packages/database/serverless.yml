@@ -1,6 +1,7 @@
 service:
   name: sphere-database-functions
 plugins:
+  - serverless-jetpack
   - serverless-plugin-typescript
   - serverless-plugin-optimize
   - serverless-offline

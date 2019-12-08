@@ -4,6 +4,7 @@ import * as urlSlug from 'url-slug'
 import * as https from 'https'
 
 import { APIGatewayEvent, Handler } from 'aws-lambda'
+import { logger } from '@spherehq/helpers'
 
 import {
   SphereVerificationStatus,
@@ -60,6 +61,11 @@ export const verifySphere: Handler = async (event: APIGatewayEvent) => {
     console.warn(
       `Sphere verification request with id ${data.sphereVerification.node.id} and status ${status} cannot be used for verification`,
     )
+
+    logger.warn(
+      `Sphere verification request with id ${data.sphereVerification.node.id} and status ${status} cannot be used for verification`,
+    )
+
     return { statusCode: 400 }
   }
 

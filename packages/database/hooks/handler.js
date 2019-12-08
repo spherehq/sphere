@@ -1,4 +1,19 @@
 'use strict'
+var __assign =
+  (this && this.__assign) ||
+  function() {
+    __assign =
+      Object.assign ||
+      function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i]
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p]
+        }
+        return t
+      }
+    return __assign.apply(this, arguments)
+  }
 var __awaiter =
   (this && this.__awaiter) ||
   function(thisArg, _arguments, P, generator) {
@@ -136,11 +151,14 @@ exports.__esModule = true
 var node_fetch_1 = require('node-fetch')
 var urlSlug = require('url-slug')
 var https = require('https')
+var helpers_1 = require('@spherehq/helpers')
 var prisma_client_1 = require('../generated/prisma-client')
 exports.verifySphere = function(event) {
   return __awaiter(void 0, void 0, void 0, function() {
-    var metascraper,
+    var verificationRule,
+      metascraper,
       data,
+      status,
       res,
       html,
       metadata,
@@ -150,10 +168,25 @@ exports.verifySphere = function(event) {
       domain,
       tld,
       slug,
-      sphere
+      post,
+      sphereId,
+      e_1
     return __generator(this, function(_b) {
       switch (_b.label) {
         case 0:
+          verificationRule = function() {
+            var rules = {
+              verification: [
+                function(_a) {
+                  var $ = _a.htmlDom
+                  return $('meta[name="sphere-source-verification"]').attr(
+                    'content',
+                  )
+                },
+              ],
+            }
+            return rules
+          }
           metascraper = require('metascraper')([
             require('metascraper-author')(),
             require('metascraper-date')(),
@@ -164,19 +197,44 @@ exports.verifySphere = function(event) {
             require('metascraper-publisher')(),
             require('metascraper-title')(),
             require('metascraper-url')(),
+            verificationRule(),
           ])
           data = JSON.parse(event.body || '').data
-          console.log(data.sphereVerification.node.url)
+          return [
+            4,
+            prisma_client_1.prisma
+              .sphereVerification({ id: data.sphereVerification.node.id })
+              .status(),
+          ]
+        case 1:
+          status = _b.sent()
+          if (status !== 'AWAITING_VERIFICATION') {
+            console.warn(
+              'Sphere verification request with id ' +
+                data.sphereVerification.node.id +
+                ' and status ' +
+                status +
+                ' cannot be used for verification',
+            )
+            helpers_1.logger.warn(
+              'Sphere verification request with id ' +
+                data.sphereVerification.node.id +
+                ' and status ' +
+                status +
+                ' cannot be used for verification',
+            )
+            return [2, { statusCode: 400 }]
+          }
           return [
             4,
             node_fetch_1['default'](data.sphereVerification.node.url, {
               agent: new https.Agent({ rejectUnauthorized: false }),
             }),
           ]
-        case 1:
+        case 2:
           res = _b.sent()
           return [4, res.text()]
-        case 2:
+        case 3:
           html = _b.sent()
           return [
             4,
@@ -185,87 +243,98 @@ exports.verifySphere = function(event) {
               url: data.sphereVerification.node.url,
             }),
           ]
-        case 3:
+        case 4:
           metadata = _b.sent()
+          if (
+            metadata.verification !== data.sphereVerification.node.code.value
+          ) {
+            console.warn(
+              'Sphere verification code ' +
+                data.sphereVerification.node.code.value +
+                ' was not found for url: ' +
+                data.sphereVerification.node.url,
+            )
+            return [2, { statusCode: 200 }]
+          }
           return [
             4,
             prisma_client_1.prisma.account({
               id: data.sphereVerification.node.code.associatedWith.id,
             }),
           ]
-        case 4:
+        case 5:
           account = _b.sent()
           parseDomain = require('parse-domain')
           ;(_a = parseDomain(data.sphereVerification.node.url)),
             (domain = _a.domain),
             (tld = _a.tld)
           slug = urlSlug(domain + '.' + tld)
-          return [
-            4,
-            prisma_client_1.prisma.$exists.sphere({
-              alias: slug,
-              aliasSlug: slug,
-            }),
-          ]
-        case 5:
-          if (!_b.sent()) return [3, 9]
-          return [
-            4,
-            prisma_client_1.prisma.sphere({ alias: slug, aliasSlug: slug }),
-          ]
+          _b.label = 6
         case 6:
-          sphere = _b.sent()
-          if (!sphere) return [3, 8]
-          return [
-            4,
-            prisma_client_1.prisma.createPost({
+          _b.trys.push([6, 11, , 12])
+          post = function() {
+            return {
               title: metadata.title,
               slug: slug + '/' + urlSlug(metadata.title),
               featuredImage: metadata.image,
               author: metadata.author,
               status: 'PUBLISHED',
-              associatedWith: {
-                connect: {
-                  id: sphere.id,
-                },
-              },
-            }),
-          ]
-        case 7:
-          _b.sent()
-          _b.label = 8
-        case 8:
-          return [3, 11]
-        case 9:
-          if (!account) return [3, 11]
+              url: data.sphereVerification.node.url,
+            }
+          }
+          if (!account) return [3, 9]
           return [
             4,
-            prisma_client_1.prisma.createSphere({
-              alias: slug,
-              aliasSlug: slug,
-              associatedWith: { connect: { id: account.id } },
-              verifiedBy: {
-                connect: { id: data.sphereVerification.node.id },
-              },
-              posts: {
-                create: [
-                  {
-                    title: metadata.title,
-                    slug: slug + '/' + urlSlug(metadata.title),
-                    featuredImage: metadata.image,
-                    author: metadata.author,
-                    status: 'PUBLISHED',
+            prisma_client_1.prisma
+              .upsertSphere({
+                where: { alias: slug },
+                create: {
+                  alias: slug,
+                  aliasSlug: slug,
+                  associatedWith: { connect: { id: account.id } },
+                  verifiedBy: {
+                    connect: { id: data.sphereVerification.node.id },
                   },
-                ],
-              },
+                  posts: {
+                    create: post(),
+                  },
+                },
+                update: {},
+              })
+              .id(),
+          ]
+        case 7:
+          sphereId = _b.sent()
+          return [
+            4,
+            prisma_client_1.prisma.upsertPost({
+              where: { url: data.sphereVerification.node.url },
+              create: __assign(__assign({}, post()), {
+                associatedWith: { connect: { id: sphereId } },
+              }),
+              update: __assign({}, post()),
+            }),
+          ]
+        case 8:
+          _b.sent()
+          _b.label = 9
+        case 9:
+          return [
+            4,
+            prisma_client_1.prisma.updateSphereVerification({
+              where: { id: data.sphereVerification.node.id },
+              data: { status: 'VERIFIED' },
             }),
           ]
         case 10:
           _b.sent()
-          _b.label = 11
+          return [3, 12]
         case 11:
-          console.log(metadata)
-          return [2, { metadata: metadata }]
+          e_1 = _b.sent()
+          console.error(e_1.message)
+          return [2, { statusCode: 500, message: e_1.message }]
+        case 12:
+          return [2, { metadata: metadata, statusCode: 200 }]
       }
     })
   })
