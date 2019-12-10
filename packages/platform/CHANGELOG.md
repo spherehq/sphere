@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.7](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.6...@spherehq/platform@0.23.7) (2019-12-10)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby-transformer-remark to v2.6.42 ([de785bc](https://github.com/spherehq/sphere/commit/de785bca72b911cdce8108fed416060bf7b0e31a))
+
+## [0.23.6](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.5...@spherehq/platform@0.23.6) (2019-12-10)
+
+### Bug Fixes
+
+- **deps:** update dependency gatsby to v2.18.10 ([22b59ec](https://github.com/spherehq/sphere/commit/22b59ecfd199f41114f6cb1ca3a976bb4170f443))
+
+## [0.23.5](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.4...@spherehq/platform@0.23.5) (2019-12-10)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([ee5cf4c](https://github.com/spherehq/sphere/commit/ee5cf4c08405aeceee3282a390d85d1bd4c3e98c))
+
+## [0.23.4](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.3...@spherehq/platform@0.23.4) (2019-12-09)
+
+**Note:** Version bump only for package @spherehq/platform
+
+## [0.23.3](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.2...@spherehq/platform@0.23.3) (2019-12-09)
+
+### Bug Fixes
+
+- **deps:** update gatsby monorepo ([2842cc3](https://github.com/spherehq/sphere/commit/2842cc3108f0b89ec1e5c8ad9a24e210d3fd0cf1))
+
 ## [0.23.2](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.1...@spherehq/platform@0.23.2) (2019-12-08)
 
 ### Bug Fixes

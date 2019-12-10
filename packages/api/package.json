@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/api",
   "description": "Sphere GraphQL API",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "client/index.ts",
@@ -17,7 +17,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@sentry/node": "5.10.1",
+    "@sentry/node": "5.10.2",
     "@spherehq/database": "^0.15.0",
     "@spherehq/helpers": "^0.0.0",
     "apollo-server": "2.9.13",
