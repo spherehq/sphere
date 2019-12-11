@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.10](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.9...@spherehq/platform@0.23.10) (2019-12-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby to v2.18.11 ([b14fe9c](https://github.com/spherehq/sphere/commit/b14fe9cc63db1d06946e1db24a249f9c92a6188d))
+
+
+
+
+
+## [0.23.9](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.8...@spherehq/platform@0.23.9) (2019-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @blueprintjs/core to v3.22.2 ([91cfe95](https://github.com/spherehq/sphere/commit/91cfe9505310131cdabdec26644f3f6574492796))
+
+
+
+
+
 ## [0.23.8](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.7...@spherehq/platform@0.23.8) (2019-12-10)
 
 **Note:** Version bump only for package @spherehq/platform

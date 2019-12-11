@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/database",
   "description": "Sphere prisma database bindings",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "generated/prisma-client/index.js",
@@ -49,12 +49,12 @@
     "envsub": "4.0.7",
     "ngrok": "3.2.5",
     "pinst": "1.1.1",
-    "rimraf": "^3.0.0",
-    "serverless-jetpack": "^0.7.0",
-    "serverless-offline": "^5.12.1",
-    "serverless-offline-scheduler": "^0.3.8",
-    "serverless-plugin-optimize": "^4.1.1-rc.1",
-    "serverless-plugin-typescript": "^1.1.9"
+    "rimraf": "3.0.0",
+    "serverless-jetpack": "0.7.0",
+    "serverless-offline": "5.12.1",
+    "serverless-offline-scheduler": "0.3.8",
+    "serverless-plugin-optimize": "4.1.1-rc.1",
+    "serverless-plugin-typescript": "1.1.9"
   },
   "publishConfig": {
     "access": "public"
