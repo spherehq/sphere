@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.12](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.11...@spherehq/platform@0.23.12) (2019-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gatsby-plugin-typescript to v2.1.23 ([941d401](https://github.com/spherehq/sphere/commit/941d401b8f00f425c26bdbeae3cff08c550a6b4a))
+
+
+
+
+
 ## [0.23.11](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.10...@spherehq/platform@0.23.11) (2019-12-11)
 
 **Note:** Version bump only for package @spherehq/platform
