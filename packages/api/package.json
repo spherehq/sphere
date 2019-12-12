@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/api",
   "description": "Sphere GraphQL API",
-  "version": "0.14.7",
+  "version": "0.14.8",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "client/index.ts",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@sentry/node": "5.10.2",
-    "@spherehq/database": "^0.15.3",
+    "@spherehq/database": "^0.15.4",
     "@spherehq/helpers": "^0.2.0",
     "apollo-server": "2.9.13",
     "aws-sdk": "^2.576.0",
