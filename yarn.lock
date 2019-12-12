@@ -16889,10 +16889,10 @@ next-tick@1, next-tick@^1.0.0, next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ngrok@3.2.5:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.2.5.tgz#db2153e7dc4827aeafcc13b187aec331516403d9"
-  integrity sha512-FWWQJSg8A1L6prZmT53onZMiFiaY+CfDgS9YStKjbE3qf2WDmRdi6kNBFvQKD2ARSv/te+rqeizAOGSUH5X56w==
+ngrok@3.2.7:
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.2.7.tgz#774e66b4c8c56bae2c95e9859ea046844d03d03c"
+  integrity sha512-B7K15HM0qRZplL2aO/yfxixYubH0M50Pfu0fa4PDcmXP7RC+wyYzu6YtX77BBHHCfbwCzkObX6YdO8ThpCR6Lg==
   dependencies:
     "@types/node" "^8.10.50"
     "@types/request" "^2.48.2"
