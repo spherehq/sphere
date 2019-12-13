@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/api",
   "description": "Sphere GraphQL API",
-  "version": "0.14.8",
+  "version": "0.14.9",
   "author": "Jason Brown",
   "license": "MIT",
   "main": "client/index.ts",
