@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.13](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.12...@spherehq/platform@0.23.13) (2019-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency apollo-boost to v0.4.7 ([9fafe24](https://github.com/spherehq/sphere/commit/9fafe24d31be6ce52b93194080582f7e76fce8ee))
+
+
+
+
+
 ## [0.23.12](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.11...@spherehq/platform@0.23.12) (2019-12-12)
 
 
