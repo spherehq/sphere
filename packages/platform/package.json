@@ -22,7 +22,7 @@
     "apollo-cache-persist": "0.1.1",
     "date-fns": "2.8.1",
     "dotenv-cli": "2.0.1",
-    "gatsby": "2.18.11",
+    "gatsby": "2.18.12",
     "gatsby-image": "2.2.36",
     "gatsby-plugin-google-analytics": "2.1.31",
     "gatsby-plugin-manifest": "2.2.33",
