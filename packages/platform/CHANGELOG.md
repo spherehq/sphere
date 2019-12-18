@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.18](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.17...@spherehq/platform@0.23.18) (2019-12-18)
+
+
+### Bug Fixes
+
+* **deps:** update gatsby monorepo ([943b50b](https://github.com/spherehq/sphere/commit/943b50b19201229b2f3a7e5fe72cfcaf427e11b6))
+
+
+
+
+
 ## [0.23.17](https://github.com/spherehq/sphere/compare/@spherehq/platform@0.23.16...@spherehq/platform@0.23.17) (2019-12-17)
 
 
