@@ -1,7 +1,7 @@
 {
   "name": "@spherehq/platform",
   "description": "Sphere platform",
-  "version": "0.23.21",
+  "version": "0.23.22",
   "author": "Jason Brown",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,7 @@
   "dependencies": {
     "@blueprintjs/core": "3.22.3",
     "@blueprintjs/icons": "3.13.0",
-    "@spherehq/gatsby-theme-spheres": "^0.2.6",
+    "@spherehq/gatsby-theme-spheres": "^0.2.7",
     "@spherehq/geometry": "^0.13.3",
     "apollo-boost": "0.4.7",
     "apollo-cache-persist": "0.1.1",
