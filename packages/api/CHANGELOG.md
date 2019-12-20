@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.20](https://github.com/spherehq/sphere/compare/@spherehq/api@0.14.19...@spherehq/api@0.14.20) (2019-12-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v3.7.4 ([04b9e36](https://github.com/spherehq/sphere/commit/04b9e36ec5613760e3954e663bc3b13b182415a0))
+
+
+
+
+
 ## [0.14.19](https://github.com/spherehq/sphere/compare/@spherehq/api@0.14.18...@spherehq/api@0.14.19) (2019-12-20)
 
 
