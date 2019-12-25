@@ -5795,16 +5795,32 @@ await-to-js@^2.0.1:
   resolved "https://registry.yarnpkg.com/await-to-js/-/await-to-js-2.1.1.tgz#c2093cd5a386f2bb945d79b292817bbc3f41b31b"
   integrity sha512-CHBC6gQGCIzjZ09tJ+XmpQoZOn4GdWePB4qUweCaKNJ0D3f115YdhmYVTZ4rMVpiJ3cFzZcTYK1VMYEICV4YXw==
 
-aws-lambda@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/aws-lambda/-/aws-lambda-0.1.2.tgz#19b1585075df31679597b976a5f1def61f12ccee"
-  integrity sha1-GbFYUHXfMWeVl7l2pfHe9h8SzO4=
+aws-lambda@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/aws-lambda/-/aws-lambda-1.0.0.tgz#dbe774896e16a5fa5bc574ac6a0fd6c421742800"
+  integrity sha512-IxwZcNQdJLDu72LhGQ2dJibeHhNn4mhbBSntZZ8MV05NHAiiK/aKAUmdOMFFAzZLALss2gnhmNuhhhJSNSNIqA==
   dependencies:
-    aws-sdk "^*"
+    aws-sdk "*"
     commander "^2.5.0"
     dotenv "^0.4.0"
+    js-yaml "^3.13.1"
 
-aws-sdk@^*, aws-sdk@^2.576.0, aws-sdk@^2.584.0:
+aws-sdk@*:
+  version "2.596.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.596.0.tgz#1a4af0609e174a50ffb8ed8981981e6d77a614fb"
+  integrity sha512-Bp+gyqhLw8tK4sgM1v1PDSw26H1mSXs6yhQInmGzDKqXJor6UyUb9JskFv0zC/bA84XizlshN1BBIgINqk6pNg==
+  dependencies:
+    buffer "4.9.1"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
+aws-sdk@^2.576.0, aws-sdk@^2.584.0:
   version "2.587.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.587.0.tgz#5fbd0ae0662291471f95d009c002fb16dc69ae22"
   integrity sha512-MAdUE4BC+hyfFPoQc61aV/tIfApp5ifqe3segW4GJq6dMmSCZdFbDwvs5ZUkgOSJ4ks3ZrpH9eCHpt6r0dFJYQ==
