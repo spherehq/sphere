@@ -28,12 +28,12 @@
     }
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "8.2.0",
+    "@commitlint/config-conventional": "8.3.3",
     "@types/dotenv": "6.1.1",
     "@types/prettier": "1.19.0",
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
-    "commitlint": "8.2.0",
+    "commitlint": "8.3.3",
     "dotenv": "8.2.0",
     "husky": "3.1.0",
     "lerna": "3.20.2",
