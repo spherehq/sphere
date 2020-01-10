@@ -35,7 +35,7 @@
     "node-fetch": "^2.6.0",
     "normalize-url": "^4.5.0",
     "snyk": "1.277.3",
-    "ts-node": "8.5.4",
+    "ts-node": "8.6.0",
     "typescript": "3.7.4",
     "uuid": "^3.3.3"
   },
