@@ -5548,7 +5548,7 @@ archiver@^2.0.3:
     tar-stream "^1.5.0"
     zip-stream "^1.2.0"
 
-archiver@^3.0.0:
+archiver@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/archiver/-/archiver-3.1.1.tgz#9db7819d4daf60aec10fe86b16cb9258ced66ea0"
   integrity sha512-5Hxxcig7gw5Jod/8Gq0OneVgLYET+oNHcxgWItq4TbhOzRLKNAFUb9edAftiMKXvXfCB0vbGrJdZDNq0dWMsxg==
@@ -14941,6 +14941,14 @@ jest-worker@^24.6.0, jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
+jest-worker@^25.1.0:
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.1.0.tgz#75d038bad6fdf58eba0d2ec1835856c497e3907a"
+  integrity sha512-ZHhHtlxOWSxCoNOKHGbiLzXnl42ga9CxDr27H36Qn+15pQZd3R/F24jrmjDelw9j/iHUIWMWs08/u2QN50HHOg==
+  dependencies:
+    merge-stream "^2.0.0"
+    supports-color "^7.0.0"
+
 jest@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-24.9.0.tgz#987d290c05a08b52c56188c1002e368edb007171"
@@ -18029,6 +18037,13 @@ p-limit@^2.0.0, p-limit@^2.2.0, p-limit@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.1.tgz#aa07a788cc3151c939b5131f63570f0dd2009537"
   integrity sha512-85Tk+90UCVWvbDavCLKPOLC9vvY8OwEX/RtKF+/1OADJMVlFfEHOiMTPVyxg7mk/dKa+ipdHm0OUkTvCpMTuwg==
+  dependencies:
+    p-try "^2.0.0"
+
+p-limit@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.2.tgz#61279b67721f5287aa1c13a9a7fbbc48c9291b1e"
+  integrity sha512-WGR+xHecKTr7EbUEhyLSh5Dube9JtdiG78ufaeLxTgpudf/20KqyMioIUZJAezlTIi6evxuoUs9YXc11cU+yzQ==
   dependencies:
     p-try "^2.0.0"
 
@@ -21174,18 +21189,18 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-jetpack@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.8.0.tgz#660902d853cd8d37ee4200087ec9c889bf56fa4c"
-  integrity sha512-VbhytpHadljGeExlGrXL8J8snkZwmvBmdobYS7x2R9Otr0G0JUccKf+pGW4oPMRclYPRJTbQQtgneg+W0bHT1Q==
+serverless-jetpack@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.8.1.tgz#6ba836772ffed5815732466941507e02d506a607"
+  integrity sha512-n199G8lXGCH0DLdJ6tCbbl3pXErAM68TazsX2toYV/Du5OwyKJIWNOrQYXFZKhDpeOIwqmeCjIaDmj6CVKlXEQ==
   dependencies:
-    archiver "^3.0.0"
+    archiver "^3.1.1"
     globby "^9.2.0"
     inspectdep "^0.2.0"
-    jest-worker "^24.6.0"
+    jest-worker "^25.1.0"
     make-dir "^3.0.0"
     nanomatch "^1.2.13"
-    p-limit "^2.2.0"
+    p-limit "^2.2.2"
 
 serverless-offline-scheduler@0.4.0:
   version "0.4.0"
@@ -22798,7 +22813,7 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-supports-color@^7.1.0:
+supports-color@^7.0.0, supports-color@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.1.0.tgz#68e32591df73e25ad1c4b49108a2ec507962bfd1"
   integrity sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==
