@@ -21453,10 +21453,10 @@ serverless-jetpack@0.8.1:
     nanomatch "^1.2.13"
     p-limit "^2.2.2"
 
-serverless-offline-scheduler@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline-scheduler/-/serverless-offline-scheduler-0.4.0.tgz#bd51b8eb0d9181f3c0992c2b7bea50bc8da5c08e"
-  integrity sha512-IHjY/5ndv7uLwVjT0rkBLYRcvtQ2pYJiQDM0kitQ32BfmePm6Ox+U+A11gFEu0QciiopFm57feGabc0RnF8+Qw==
+serverless-offline-scheduler@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/serverless-offline-scheduler/-/serverless-offline-scheduler-0.4.1.tgz#69ec98a2aa73d477c07e16a4d1fb5a08f15f2ca3"
+  integrity sha512-jdZDWnHXaAB6/7I2hlFlrm4QrQIS3yan6KME+V0wWL7YX2H5+T1UJkYczT+vh2g7JVzmBU/tdRWv5PvB7Z7FfQ==
   dependencies:
     node-schedule "^1.2.0"
 
