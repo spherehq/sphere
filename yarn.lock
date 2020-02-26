@@ -21432,10 +21432,10 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-jetpack@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.8.1.tgz#6ba836772ffed5815732466941507e02d506a607"
-  integrity sha512-n199G8lXGCH0DLdJ6tCbbl3pXErAM68TazsX2toYV/Du5OwyKJIWNOrQYXFZKhDpeOIwqmeCjIaDmj6CVKlXEQ==
+serverless-jetpack@0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.9.0.tgz#c34d2fe09ead5412e67baa4d3ac0b17925979337"
+  integrity sha512-QaBvMLqtB8IsSfyqcPKc5t1CM26Wm2MqW9TlblDPJv9wfjecD3FYzT48vnRsAtIHT8CK1P9IL40ZRLKn6XWZZQ==
   dependencies:
     archiver "^3.1.1"
     globby "^9.2.0"
