@@ -42,7 +42,7 @@
     "gatsby-source-graphql": "2.1.33",
     "gatsby-transformer-remark": "2.6.53",
     "gatsby-transformer-sharp": "2.3.16",
-    "hast-util-raw": "5.0.1",
+    "hast-util-raw": "5.0.2",
     "isomorphic-fetch": "2.2.1",
     "prismjs": "1.19.0",
     "react": "16.13.0",
