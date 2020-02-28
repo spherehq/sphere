@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.45",
-    "@types/node-fetch": "2.5.4",
+    "@types/node-fetch": "2.5.5",
     "@types/rimraf": "2.0.3",
     "@types/serverless": "1.18.4",
     "envsub": "4.0.7",
