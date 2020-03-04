@@ -45,7 +45,7 @@
     "@types/aws-lambda": "8.10.46",
     "@types/node-fetch": "2.5.5",
     "@types/rimraf": "2.0.3",
-    "@types/serverless": "1.18.4",
+    "@types/serverless": "1.18.6",
     "envsub": "4.0.7",
     "ngrok": "3.2.7",
     "pinst": "1.1.1",
