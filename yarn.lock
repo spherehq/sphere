@@ -5596,6 +5596,15 @@ acorn-node@^1.2.0, acorn-node@^1.3.0, acorn-node@^1.5.2, acorn-node@^1.6.1:
     acorn-walk "^7.0.0"
     xtend "^4.0.2"
 
+acorn-node@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/acorn-node/-/acorn-node-2.0.0.tgz#166fdcbd5aeb3f1957a05c699911a26a9f5592c0"
+  integrity sha512-BKPICDOEXUF/q/ltRrXLW7QGi+06r68BSQr4BNFZnY8L04KsYRttFq7SDsCdBEwfuGVdBV9AgaQtUkAbHg5Qnw==
+  dependencies:
+    acorn "^7.0.0"
+    acorn-walk "^7.0.0"
+    xtend "^4.0.2"
+
 acorn-walk@^6.0.1:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
@@ -16106,10 +16115,10 @@ jest-worker@^24.6.0, jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-jest-worker@^25.1.0:
-  version "25.1.0"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.1.0.tgz#75d038bad6fdf58eba0d2ec1835856c497e3907a"
-  integrity sha512-ZHhHtlxOWSxCoNOKHGbiLzXnl42ga9CxDr27H36Qn+15pQZd3R/F24jrmjDelw9j/iHUIWMWs08/u2QN50HHOg==
+jest-worker@^25.2.6:
+  version "25.2.6"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.2.6.tgz#d1292625326794ce187c38f51109faced3846c58"
+  integrity sha512-FJn9XDUSxcOR4cwDzRfL1z56rUofNTFs539FGASpd50RHdb6EVkhxQqktodW2mI49l+W3H+tFJDotCHUQF6dmA==
   dependencies:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
@@ -17319,6 +17328,13 @@ make-dir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.0.0.tgz#1b5f39f6b9270ed33f9f054c5c0f84304989f801"
   integrity sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw==
+  dependencies:
+    semver "^6.0.0"
+
+make-dir@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.0.2.tgz#04a1acbf22221e1d6ef43559f43e05a90dbb4392"
+  integrity sha512-rYKABKutXa6vXTXhoV18cBE7PaewPXHe/Bdq4v+ZLMhxbWApkFFplT0LcbMW+6BbjnQXzZ/sAvSE/JdguApG5w==
   dependencies:
     semver "^6.0.0"
 
@@ -19256,7 +19272,7 @@ p-is-promise@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-is-promise/-/p-is-promise-2.1.0.tgz#918cebaea248a62cf7ffab8e3bca8c5f882fc42e"
   integrity sha512-Y3W0wlRPK8ZMRbNq97l4M5otioeA5lm1z7bkNkxCka8HSPjR0xRWmpCmc9utiaLP9Jb1eD8BgeIxTW4AIF45Pg==
 
-p-limit@2.3.0:
+p-limit@2.3.0, p-limit@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
   integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
@@ -19274,13 +19290,6 @@ p-limit@^2.0.0, p-limit@^2.2.0, p-limit@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.1.tgz#aa07a788cc3151c939b5131f63570f0dd2009537"
   integrity sha512-85Tk+90UCVWvbDavCLKPOLC9vvY8OwEX/RtKF+/1OADJMVlFfEHOiMTPVyxg7mk/dKa+ipdHm0OUkTvCpMTuwg==
-  dependencies:
-    p-try "^2.0.0"
-
-p-limit@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.2.2.tgz#61279b67721f5287aa1c13a9a7fbbc48c9291b1e"
-  integrity sha512-WGR+xHecKTr7EbUEhyLSh5Dube9JtdiG78ufaeLxTgpudf/20KqyMioIUZJAezlTIi6evxuoUs9YXc11cU+yzQ==
   dependencies:
     p-try "^2.0.0"
 
@@ -22612,18 +22621,19 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-jetpack@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.9.0.tgz#c34d2fe09ead5412e67baa4d3ac0b17925979337"
-  integrity sha512-QaBvMLqtB8IsSfyqcPKc5t1CM26Wm2MqW9TlblDPJv9wfjecD3FYzT48vnRsAtIHT8CK1P9IL40ZRLKn6XWZZQ==
+serverless-jetpack@0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.10.3.tgz#2743dc363681580f7f5bbad45d205169647d7d10"
+  integrity sha512-W/3ggCS6Qim7lerU+6DEp/P8C+KBpDHs6q1R+RVuQeuxBYUIzxYo5zNminpfMm5Dnx4Sa7yrG95FQRqb3yTjIg==
   dependencies:
     archiver "^3.1.1"
     globby "^9.2.0"
     inspectdep "^0.2.0"
-    jest-worker "^25.1.0"
-    make-dir "^3.0.0"
+    jest-worker "^25.2.6"
+    make-dir "^3.0.2"
     nanomatch "^1.2.13"
-    p-limit "^2.2.2"
+    p-limit "^2.3.0"
+    trace-deps "^0.3.0"
 
 serverless-offline-scheduler@0.4.1:
   version "0.4.1"
@@ -24870,6 +24880,14 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
+
+trace-deps@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/trace-deps/-/trace-deps-0.3.0.tgz#ac53b04d4c89c80b7ae4057de14d509b53657523"
+  integrity sha512-XZuFVyiBTynufC5TRfD5JBDJR4r3fwekMyJtoCT/xG/uwkhoQ6S2cG1ZDxfsyjjy96gc5F1p+8QFb0SvDW/fwg==
+  dependencies:
+    acorn-node "^2.0.0"
+    resolve "^1.15.1"
 
 traverse-chain@~0.1.0:
   version "0.1.0"
