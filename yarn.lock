@@ -5217,10 +5217,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/serverless@1.18.6":
-  version "1.18.6"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.18.6.tgz#38adddad1b73ad38f2d15392a3e32a22681121f9"
-  integrity sha512-VAKW4O9ppugQHyFBKnwLV2HfVf4+Ne74SQNRRp+BU5hQoO7APJ82o+4OWYVN3TaCPXike3CCrtulQYosRZQP1g==
+"@types/serverless@1.67.0":
+  version "1.67.0"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.67.0.tgz#864e192bd4ee451f51178e3beaec057526fa6645"
+  integrity sha512-7iHDo8pys9pl6xBFqg4LkphpF8pNjsH9N9DvXf5aXOguE1uAdMTP8Oc+8LFu95TzEMTULc+ao8QCyBHkSPKk/w==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
