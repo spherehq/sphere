@@ -23531,10 +23531,10 @@ serverless-jetpack@0.10.3:
     p-limit "^2.3.0"
     trace-deps "^0.3.0"
 
-serverless-offline-scheduler@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/serverless-offline-scheduler/-/serverless-offline-scheduler-0.4.1.tgz#69ec98a2aa73d477c07e16a4d1fb5a08f15f2ca3"
-  integrity sha512-jdZDWnHXaAB6/7I2hlFlrm4QrQIS3yan6KME+V0wWL7YX2H5+T1UJkYczT+vh2g7JVzmBU/tdRWv5PvB7Z7FfQ==
+serverless-offline-scheduler@0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/serverless-offline-scheduler/-/serverless-offline-scheduler-0.4.2.tgz#1d61592d6c3bb9de3b99d806f92fb9473ad497af"
+  integrity sha512-lE2Mms3GQfyfSTLmYx1LSuaw85Ix88xUDdjoCA4oTY+ov7Jik0p1/t0aE5p8HFhVzdCS4dnpOY1eyZQ+oxewDA==
   dependencies:
     node-schedule "^1.2.0"
 
