@@ -38,7 +38,7 @@
     "prisma": "^1.34.10",
     "prisma-client-lib": "^1.34.10",
     "serverless": "^1.58.0",
-    "snyk": "^1.230.5",
+    "snyk": "^1.334.0",
     "url-slug": "^2.2.0"
   },
   "devDependencies": {
