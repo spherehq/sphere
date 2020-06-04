@@ -1,4 +1,4 @@
-FROM node:10.20-alpine
+FROM node:10.21-alpine
 
 RUN apk add --no-cache tini
 
