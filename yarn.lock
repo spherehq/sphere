@@ -16912,10 +16912,10 @@ jest-worker@^24.6.0, jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-jest-worker@^25.2.6:
-  version "25.2.6"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.2.6.tgz#d1292625326794ce187c38f51109faced3846c58"
-  integrity sha512-FJn9XDUSxcOR4cwDzRfL1z56rUofNTFs539FGASpd50RHdb6EVkhxQqktodW2mI49l+W3H+tFJDotCHUQF6dmA==
+jest-worker@^25.5.0:
+  version "25.5.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.5.0.tgz#2611d071b79cea0f43ee57a3d118593ac1547db1"
+  integrity sha512-/dsSmUkIy5EBGfv/IjjqmFxrNAUpBERfGs1oHROyD7yxjG/w+t0GOJDX8O1k32ySmd7+a5IhnJU2qQFcJ4n1vw==
   dependencies:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
@@ -23620,19 +23620,19 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-jetpack@0.10.3:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.10.3.tgz#2743dc363681580f7f5bbad45d205169647d7d10"
-  integrity sha512-W/3ggCS6Qim7lerU+6DEp/P8C+KBpDHs6q1R+RVuQeuxBYUIzxYo5zNminpfMm5Dnx4Sa7yrG95FQRqb3yTjIg==
+serverless-jetpack@0.10.6:
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.10.6.tgz#7f7af29bdd3df0e9028229086ee61efcb85709b2"
+  integrity sha512-91+vrX36nKTalSEEhq4bpLYEQNsiVgP0SOvKE5g1QLMnLfBeVJVvUXsBzRLyVCnxMF3S2vqszpkq/eql9JomrQ==
   dependencies:
     archiver "^3.1.1"
     globby "^9.2.0"
     inspectdep "^0.2.0"
-    jest-worker "^25.2.6"
+    jest-worker "^25.5.0"
     make-dir "^3.0.2"
     nanomatch "^1.2.13"
     p-limit "^2.3.0"
-    trace-deps "^0.3.0"
+    trace-deps "^0.3.3"
 
 serverless-offline-scheduler@0.4.2:
   version "0.4.2"
@@ -25955,10 +25955,10 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-trace-deps@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/trace-deps/-/trace-deps-0.3.0.tgz#ac53b04d4c89c80b7ae4057de14d509b53657523"
-  integrity sha512-XZuFVyiBTynufC5TRfD5JBDJR4r3fwekMyJtoCT/xG/uwkhoQ6S2cG1ZDxfsyjjy96gc5F1p+8QFb0SvDW/fwg==
+trace-deps@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/trace-deps/-/trace-deps-0.3.3.tgz#de04c7c81fc988355654db8e0d7cdd3b8328bc92"
+  integrity sha512-aNpC9Bd8UYuaVlo5sXSJboveHUVmeWk9/0ak/usg/eOUSt1Mj0xjLQFJ7QStBqezf0PHQi48mNTua64PS6ve7w==
   dependencies:
     acorn-node "^2.0.0"
     resolve "^1.15.1"
