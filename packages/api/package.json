@@ -20,7 +20,7 @@
     "@sentry/node": "5.16.1",
     "@spherehq/database": "^0.15.5",
     "@spherehq/helpers": "^0.2.0",
-    "apollo-server": "2.14.1",
+    "apollo-server": "2.14.2",
     "aws-sdk": "^2.576.0",
     "file-type-stream": "^1.0.0",
     "graphql-fields": "2.0.3",
