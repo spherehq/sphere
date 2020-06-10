@@ -5196,10 +5196,10 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/aws-lambda@8.10.54":
-  version "8.10.54"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.54.tgz#ed1620a075e89013a761dd7b652172799e7f1732"
-  integrity sha512-9K2ocPmz4sGNgzzd/T1UZDdLkNmfAaEvjUD4UIvUo/EZ1nyvavIwvKB0LTMhBI7kEf2NJ2x5qEGKuWdFDgK9ug==
+"@types/aws-lambda@8.10.55":
+  version "8.10.55"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.55.tgz#7293cf7908766a60efc28262cbf65a8a957dec0e"
+  integrity sha512-rtJhfxbsqmIC6t/vnUqvZH2PyLHJscYc166P+sHWAIp0Rx4szDarL+Ul8esGYZFWrQ36q2MHrPMzuI23zXSlMg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
