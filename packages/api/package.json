@@ -29,7 +29,7 @@
     "graphql-middleware": "3.0.5",
     "graphql-middleware-sentry": "3.2.1",
     "graphql-shield": "^7.0.2",
-    "graphql-type-json": "0.3.1",
+    "graphql-type-json": "0.3.2",
     "graphql-typed-client": "^1.7.1",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.0",
