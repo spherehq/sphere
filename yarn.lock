@@ -6502,10 +6502,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/serverless@1.72.3":
-  version "1.72.3"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.72.3.tgz#9cbee542ac86eb7968da982348ff5fc6324991ee"
-  integrity sha512-7w+Dbmafq1r/S9+aqqePSubXjbmLht/ZPOZa7PxvzJDDq1KeR3sNV5Dv9DWOuSfVWAeMDsv9D9T5cFTsDvugeg==
+"@types/serverless@1.72.4":
+  version "1.72.4"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.72.4.tgz#94147f4ac8fdf8276ef4abae32be6b8033907ad9"
+  integrity sha512-CGS+PCxxIyI8sTPfjQIZ1p3cACny9jEVi3wFn86y8Alc+LXYA0O5kl/TX54xiokBVI/N3GS2UwdT4ZmagPRNkQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
