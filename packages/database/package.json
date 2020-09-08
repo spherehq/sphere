@@ -47,7 +47,7 @@
     "@types/rimraf": "2.0.4",
     "@types/serverless": "1.72.6",
     "envsub": "4.0.7",
-    "ngrok": "3.2.7",
+    "ngrok": "3.3.0",
     "pinst": "1.1.1",
     "rimraf": "3.0.0",
     "serverless-jetpack": "0.10.7",
