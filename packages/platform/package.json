@@ -11,7 +11,9 @@
     "start": "yarn run dev",
     "serve": "gatsby serve",
     "test": "npx npm-run-all test:unit",
-    "test:unit": "echo NO TESTS!"
+    "test:unit": "echo NO TESTS!",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@blueprintjs/core": "3.34.0",
@@ -53,7 +55,8 @@
     "rehype-react": "4.0.1",
     "spectrum-icons": "0.0.3",
     "styled-components": "4.4.1",
-    "styled-icons": "8.6.0"
+    "styled-icons": "8.6.0",
+    "snyk": "^1.338.0"
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "0.0.35",
@@ -63,5 +66,6 @@
     "@types/react-helmet": "5.0.16",
     "@types/rehype-react": "3.1.0",
     "@types/styled-components": "4.4.2"
-  }
+  },
+  "snyk": true
 }
