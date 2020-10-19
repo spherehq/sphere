@@ -40,8 +40,8 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.17.8",
-    "@graphql-codegen/typescript": "1.17.9",
+    "@graphql-codegen/cli": "1.18.0",
+    "@graphql-codegen/typescript": "1.17.11",
     "@graphql-codegen/typescript-operations": "1.17.8",
     "@types/dotenv": "6.1.1",
     "@types/graphql": "14.2.3",
