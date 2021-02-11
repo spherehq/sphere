@@ -50,7 +50,7 @@
     "@types/graphql-type-json": "0.3.2",
     "@types/jsonwebtoken": "8.5.0",
     "@types/node": "11.15.44",
-    "@types/node-fetch": "2.5.7",
+    "@types/node-fetch": "2.5.8",
     "@types/nodemon": "1.19.0",
     "@types/rimraf": "2.0.4",
     "@types/uuid": "3.4.9",
