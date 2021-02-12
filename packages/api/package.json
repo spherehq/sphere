@@ -59,7 +59,7 @@
     "dotenv-cli": "2.0.1",
     "nodemon": "1.19.4",
     "rimraf": "2.7.1",
-    "ts-node-dev": "1.0.0"
+    "ts-node-dev": "1.1.1"
   },
   "snyk": true
 }
