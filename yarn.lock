@@ -21190,10 +21190,10 @@ next-tick@1, next-tick@^1.0.0, next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ngrok@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.3.0.tgz#85e5ff72de38de1a416f0fe559ff439169d24c60"
-  integrity sha512-NuTfuxttodW6o9cPEKiJgjmjNzolKHoUPaK7I4SbaJVkHd4cuUTlv9YsXNzBFrcNFSsDLuCyCpjsaqe1OvIPSQ==
+ngrok@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.4.0.tgz#adaa66b70401b0b6902825aa3ea325c06f8770d1"
+  integrity sha512-fwgYlGQsLclMRVkGNhdWbeE5xx/xCoKr8zHoqRehOxGu4Ep14dAfe1u45rE0rqtUhWqTVfCl1lWV2rLUNizIDw==
   dependencies:
     "@types/node" "^8.10.50"
     "@types/request" "^2.48.2"
