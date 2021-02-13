@@ -6405,10 +6405,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.0.tgz#a2502fb7ce9b6626fdbfc2e2a496f472de1bdd05"
   integrity sha512-gDE8JJEygpay7IjA/u3JiIURvwZW08f0cZSZLAzFoX/ZmeqvS0Sqv+97aKuHpNsalAMMhwPe+iAS6fQbfmbt7A==
 
-"@types/prismjs@1.16.1":
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/@types/prismjs/-/prismjs-1.16.1.tgz#50b82947207847db6abcbcd14caa89e3b897c259"
-  integrity sha512-RNgcK3FEc1GpeOkamGDq42EYkb6yZW5OWQwTS56NJIB8WL0QGISQglA7En7NUx9RGP8AC52DOe+squqbAckXlA==
+"@types/prismjs@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@types/prismjs/-/prismjs-1.16.2.tgz#c130c977191c988cb35e97585da5d580948cc2d2"
+  integrity sha512-1M/j21xgTde7RPtpJVQebW5rzrquj7S+wnqt4x9uWrIPpr0Ya/uXypcqC2aUQL5gtLXFCKSH7GnjfAijMdfbuA==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -24117,10 +24117,10 @@ prisma@^1.34.10:
     semver "^5.4.1"
     source-map-support "^0.4.18"
 
-prismjs@1.22.0:
-  version "1.22.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.22.0.tgz#73c3400afc58a823dd7eed023f8e1ce9fd8977fa"
-  integrity sha512-lLJ/Wt9yy0AiSYBf212kK3mM5L8ycwlyTlSxHBAneXLR0nzFMlZ5y7riFPF3E33zXOF2IH95xdY5jIyZbM9z/w==
+prismjs@1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
+  integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   optionalDependencies:
     clipboard "^2.0.0"
 
