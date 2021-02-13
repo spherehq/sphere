@@ -34,7 +34,7 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.0",
     "normalize-url": "^4.5.0",
-    "snyk": "1.416.0",
+    "snyk": "^1.436.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.9",
     "uuid": "^3.3.3"
