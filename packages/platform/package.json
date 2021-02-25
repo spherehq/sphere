@@ -17,7 +17,7 @@
     "@blueprintjs/core": "3.38.2",
     "@blueprintjs/icons": "3.24.0",
     "@spherehq/gatsby-theme-spheres": "^0.2.7",
-    "@spherehq/geometry": "^0.13.3",
+    "@spherehq/geometry": "0.13.3",
     "apollo-boost": "0.4.9",
     "apollo-cache-persist": "0.1.1",
     "date-fns": "2.17.0",
