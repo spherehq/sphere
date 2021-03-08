@@ -33,7 +33,7 @@
     "graphql-typed-client": "^1.7.1",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.0",
-    "normalize-url": "^4.5.0",
+    "normalize-url": "^5.0.0",
     "snyk": "1.476.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.9",
