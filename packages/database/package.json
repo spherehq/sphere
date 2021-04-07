@@ -42,7 +42,7 @@
     "url-slug": "^2.2.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "8.10.73",
+    "@types/aws-lambda": "8.10.75",
     "@types/node-fetch": "2.5.8",
     "@types/rimraf": "2.0.4",
     "@types/serverless": "1.78.21",
