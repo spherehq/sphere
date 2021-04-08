@@ -6671,10 +6671,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/serverless@1.78.21":
-  version "1.78.21"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.21.tgz#565cdb258561f111e974fbf16a6724e96ed4907d"
-  integrity sha512-b7AhDlFnIjkm9zk1mYFZ3a8dGjortAtihgvksBH9LFhHUimvZacunPEaIRKd94sxlvDe9i4vM4Cpd/YK6aecZg==
+"@types/serverless@1.78.24":
+  version "1.78.24"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.24.tgz#e4c4eebb889797f04879f781e4b175884fa90931"
+  integrity sha512-FyDAfwOmn6dGWT/nWA6d6TS1Ck7EQ38FUTplYMeHnqZkGjtl80oQdEHohAJ0h4pNzRIb/GXoao/xj9PHIvDbtQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
