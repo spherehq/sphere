@@ -2354,15 +2354,7 @@
     resize-observer-polyfill "^1.5.1"
     tslib "~1.13.0"
 
-"@blueprintjs/icons@3.25.0":
-  version "3.25.0"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.25.0.tgz#5f2bfff857faff97e0ebf44fc981a607e0bdec9d"
-  integrity sha512-WbGjMIJiUwrOTkBk66B6AV605d+HZJT0SoW+fh429UJPTtcm+7T/+bRxQlQeXfLvgR+bTW5P6rx6cM4D/B4uww==
-  dependencies:
-    classnames "^2.2"
-    tslib "~1.13.0"
-
-"@blueprintjs/icons@^3.26.0":
+"@blueprintjs/icons@3.26.0", "@blueprintjs/icons@^3.26.0":
   version "3.26.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/icons/-/icons-3.26.0.tgz#d3f0aa0d35a9ebe8648db9651af364dfcc529d9f"
   integrity sha512-1+yhYH1Fjj5qGx8drZUL2L1R42MiN0WVHTTKYqGEV9TAzhvFHCSZgALD7WNQa+FEibw/8B4U+79IRgUPJNEjow==
