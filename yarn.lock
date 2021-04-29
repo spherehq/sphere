@@ -6515,10 +6515,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.17.tgz#191b71e7f4c325ee0fb23bc4a996477d92b8c39b"
   integrity sha512-Is+l3mcHvs47sKy+afn2O1rV4ldZFU7W8101cNlOd+MRbjM4Onida8jSZnJdTe/0Pcf25g9BNIUsuugmE6puHA==
 
-"@types/node@11.15.50":
-  version "11.15.50"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.50.tgz#a8c76622a20320d4a04adf2002b04737c510ef11"
-  integrity sha512-kG/ZmA/uD1L1gVD7vVXQB6v+ICZlJgvakrodHiltT3Zq0YjXq5H9tfgop8MsdMGCwrcLJg9QCQDRP4DZsn9T/g==
+"@types/node@11.15.53":
+  version "11.15.53"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.53.tgz#24b35ba006338dc60b133f9a637995e1c5a4e069"
+  integrity sha512-X4K0pwvbFZ7+x5wyJUSROj4TJvyXxL0MY4OaxyphfEfgw+0DdYDltyqTX14LiYTIQdY49sDA/MabdtYc973yFg==
 
 "@types/node@^10.1.0", "@types/node@^10.12.0":
   version "10.17.9"
