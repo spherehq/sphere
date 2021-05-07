@@ -2,7 +2,7 @@
   "name": "@spherehq/gatsby-theme-spheres",
   "version": "0.2.7",
   "peerDependencies": {
-    "gatsby-plugin-page-creator": "2.10.1",
+    "gatsby-plugin-page-creator": "2.10.2",
     "gatsby-source-graphql": "2.14.0"
   }
 }
