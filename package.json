@@ -34,7 +34,7 @@
     "@types/react": "16.14.6",
     "@types/react-dom": "16.9.12",
     "commitlint": "8.3.5",
-    "dotenv": "8.6.0",
+    "dotenv": "9.0.2",
     "husky": "3.1.0",
     "lerna": "3.22.1",
     "lint-staged": "8.2.1",
