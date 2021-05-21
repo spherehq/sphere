@@ -14,7 +14,7 @@
     "test:unit": "echo NO TESTS!"
   },
   "dependencies": {
-    "@blueprintjs/core": "3.44.2",
+    "@blueprintjs/core": "3.44.3",
     "@blueprintjs/icons": "3.26.0",
     "@spherehq/gatsby-theme-spheres": "^0.2.7",
     "@spherehq/geometry": "0.13.3",
