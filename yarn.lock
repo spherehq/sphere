@@ -6747,10 +6747,10 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/serverless@1.78.26":
-  version "1.78.26"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.26.tgz#3d4cd85d10e582951e5757899407194bbef72e2c"
-  integrity sha512-hWncWouArTPeM7T4hIRaPDtC8xFmS/f9t72BLydhXXYhoVyfSxv+DscugL9WPxOvBPzrg+ZITJSkxLiHYrkbzg==
+"@types/serverless@1.78.28":
+  version "1.78.28"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.28.tgz#36363f71725612390e5755773736f5d4357cba83"
+  integrity sha512-VokwIvm4/8/nyD16Gj5gYKW/OAd33CaU6AAs5yLuuRJWHhPFOvmV1k1i+QPBy2/eSkhV2Hy6EbfeKSbxiGUm7A==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
