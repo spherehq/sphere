@@ -16020,6 +16020,18 @@ globby@^11.0.2:
     merge2 "^1.3.0"
     slash "^3.0.0"
 
+globby@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.3.tgz#9b1f0cb523e171dd1ad8c7b2a9fb4b644b9593cb"
+  integrity sha512-ffdmosjA807y7+lA1NM0jELARVmYul/715xiILEjo3hBLPTcirgQNnXECn5g3mtR8TOLCVbkfua1Hpen25/Xcg==
+  dependencies:
+    array-union "^2.1.0"
+    dir-glob "^3.0.1"
+    fast-glob "^3.1.1"
+    ignore "^5.1.4"
+    merge2 "^1.3.0"
+    slash "^3.0.0"
+
 globby@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-6.1.0.tgz#f5a6d70e8395e21c858fb0489d64df02424d506c"
@@ -26493,13 +26505,13 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-serverless-jetpack@0.10.8:
-  version "0.10.8"
-  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.10.8.tgz#61ddc35a9562b2ce287a079afa8ce8ca68fbedf9"
-  integrity sha512-QlDoC7RMD791KptkD1/mDJfH+x07iuy/qnWitEAIfPO/2SlDOxFknZqB/eG3bdIRCCjYCuqT/ffbXt9ysmWNuw==
+serverless-jetpack@0.10.9:
+  version "0.10.9"
+  resolved "https://registry.yarnpkg.com/serverless-jetpack/-/serverless-jetpack-0.10.9.tgz#dfd3b15d6084f2566549218d921be131bd0357ad"
+  integrity sha512-K4/lcEgUbwBXVfQHax/EJklBSUf9cLiFAvjf7E4oPnUe1s8pbxmiK7wxP5YTHMBBrfQe1XAK9aKpkPhwjcvj5g==
   dependencies:
     archiver "^3.1.1"
-    globby "^9.2.0"
+    globby "^11.0.3"
     inspectdep "^0.2.0"
     jest-worker "^25.5.0"
     make-dir "^3.0.2"
