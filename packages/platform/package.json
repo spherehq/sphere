@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@blueprintjs/core": "3.44.3",
-    "@blueprintjs/icons": "3.26.0",
+    "@blueprintjs/icons": "3.26.1",
     "@spherehq/gatsby-theme-spheres": "^0.2.7",
     "@spherehq/geometry": "0.13.3",
     "apollo-boost": "0.4.9",
