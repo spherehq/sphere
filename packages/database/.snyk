@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -14,3 +14,9 @@ patch:
         patched: '2019-10-03T18:41:55.871Z'
     - prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent:
         patched: '2019-10-03T18:41:55.871Z'
+  'npm:debug:20170905':
+    - serverless > @serverless/components > @serverless/tencent-platform-client > serverless-tencent-tools > socket.io-stream > debug:
+        patched: '2020-04-08T08:29:14.530Z'
+  'npm:ms:20170412':
+    - serverless > @serverless/components > @serverless/tencent-platform-client > serverless-tencent-tools > socket.io-stream > debug > ms:
+        patched: '2020-04-08T08:29:14.530Z'
