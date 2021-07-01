@@ -31,7 +31,7 @@
     "@commitlint/config-conventional": "8.3.4",
     "@types/dotenv": "6.1.1",
     "@types/prettier": "1.19.1",
-    "@types/react": "16.14.9",
+    "@types/react": "16.14.10",
     "@types/react-dom": "16.9.13",
     "commitlint": "8.3.5",
     "dotenv": "8.6.0",
