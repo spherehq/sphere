@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/aws-lambda": "8.10.81",
     "@types/node-fetch": "2.5.12",
-    "@types/rimraf": "2.0.4",
+    "@types/rimraf": "2.0.5",
     "@types/serverless": "1.78.29",
     "envsub": "4.0.7",
     "ngrok": "3.4.1",
