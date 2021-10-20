@@ -54,7 +54,7 @@
     "serverless-offline": "5.12.1",
     "serverless-offline-scheduler": "0.5.0",
     "serverless-plugin-optimize": "4.1.1-rc.1",
-    "serverless-plugin-typescript": "1.1.9"
+    "serverless-plugin-typescript": "1.2.0"
   },
   "publishConfig": {
     "access": "public"
