@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/isomorphic-fetch": "0.0.35",
     "@types/prismjs": "1.16.6",
-    "@types/react": "16.14.11",
+    "@types/react": "16.14.17",
     "@types/react-dom": "16.9.14",
     "@types/react-helmet": "5.0.17",
     "@types/rehype-react": "3.1.0",
