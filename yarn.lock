@@ -20417,7 +20417,7 @@ lodash@4.17.15, lodash@4.17.x, lodash@^4.15.0, lodash@^4.16.4, lodash@^4.17.10, 
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-lodash@4.17.21, lodash@~4.17.0:
+lodash@4.17.21, lodash@^4.17.21, lodash@~4.17.0:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -26695,14 +26695,14 @@ serverless-plugin-optimize@4.1.1-rc.1:
     fs-extra "^7.0.1"
     resolve-from "^4.0.0"
 
-serverless-plugin-typescript@1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/serverless-plugin-typescript/-/serverless-plugin-typescript-1.1.9.tgz#75348a93f3f5dae19aad7006d51a545618892028"
-  integrity sha512-OmZrD1uArNx+1MPrXck39zsa76k/H7QYOOAg/Uz9xpLGJPUsvW0pXRSE9NN7LRid6IuM/WpY3VWkD5DPusY4cA==
+serverless-plugin-typescript@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-typescript/-/serverless-plugin-typescript-1.2.0.tgz#cdfeb134a95ef27e0d4013f5bd36a1f2d478f591"
+  integrity sha512-srAM5hmQhJlJpogTvWJDl6DYapFDWfeAKu9r8ddRGefZ52/afMoe0YMDK1HmJ6FTriZw2igv7cuhRRkjh1vBBA==
   dependencies:
     fs-extra "^7.0.1"
     globby "^9.2.0"
-    lodash "^4.17.11"
+    lodash "^4.17.21"
 
 serverless@^1.58.0:
   version "1.59.3"
