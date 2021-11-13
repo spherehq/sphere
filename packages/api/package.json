@@ -55,7 +55,7 @@
     "@types/rimraf": "2.0.5",
     "@types/uuid": "3.4.10",
     "apollo": "2.33.9",
-    "dotenv": "8.6.0",
+    "dotenv": "10.0.0",
     "dotenv-cli": "2.0.1",
     "nodemon": "1.19.4",
     "rimraf": "2.7.1",
