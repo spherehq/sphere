@@ -43,7 +43,7 @@
     "gatsby-transformer-remark": "2.16.1",
     "gatsby-transformer-sharp": "2.12.1",
     "hast-util-raw": "5.0.2",
-    "isomorphic-fetch": "2.2.1",
+    "isomorphic-fetch": "3.0.0",
     "prismjs": "1.25.0",
     "react": "16.14.0",
     "react-apollo": "2.5.8",
