@@ -33,7 +33,7 @@
     "metascraper-publisher": "^5.8.7",
     "metascraper-title": "^5.8.7",
     "metascraper-url": "^5.8.7",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "parse-domain": "^2.3.4",
     "prisma": "^1.34.10",
     "prisma-client-lib": "^1.34.10",
