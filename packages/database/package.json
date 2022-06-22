@@ -21,7 +21,7 @@
   "dependencies": {
     "@spherehq/helpers": "^0.2.0",
     "aws-lambda": "^0.1.2",
-    "got": "^10.0.1",
+    "got": "^11.8.5",
     "graphql-cli": "^3.0.11",
     "metascraper": "^5.8.9",
     "metascraper-author": "^5.8.7",
