@@ -13,14 +13,14 @@
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node-dev src/server.ts",
     "start:production": "yarn ts-node src/server.ts",
     "generate": "graphql-codegen",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@sentry/node": "5.30.0",
     "@spherehq/database": "^0.15.5",
     "@spherehq/helpers": "^0.2.0",
-    "apollo-server": "2.25.3",
+    "apollo-server": "3.0.0",
     "aws-sdk": "^2.576.0",
     "file-type-stream": "^1.0.0",
     "graphql-fields": "2.0.3",
@@ -34,10 +34,10 @@
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.0",
     "normalize-url": "^4.5.0",
-    "snyk": "1.760.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.10",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.8",
