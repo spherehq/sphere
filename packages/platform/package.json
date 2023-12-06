@@ -62,6 +62,6 @@
     "@types/react-dom": "16.9.14",
     "@types/react-helmet": "5.0.19",
     "@types/rehype-react": "3.1.0",
-    "@types/styled-components": "4.4.3"
+    "@types/styled-components": "5.1.34"
   }
 }
