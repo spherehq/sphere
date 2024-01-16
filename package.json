@@ -39,7 +39,7 @@
     "lerna": "3.22.1",
     "lint-staged": "8.2.1",
     "prettier": "1.19.1",
-    "pretty-quick": "1.11.1",
+    "pretty-quick": "3.2.1",
     "tslint": "5.20.1",
     "tslint-config-airbnb": "5.11.2",
     "tslint-config-prettier": "1.18.0",
