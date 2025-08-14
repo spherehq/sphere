@@ -53,7 +53,7 @@
     "rehype-react": "4.0.1",
     "spectrum-icons": "0.0.3",
     "styled-components": "4.4.1",
-    "styled-icons": "8.6.0"
+    "styled-icons": "10.47.1"
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "0.0.35",
