@@ -39,7 +39,7 @@
     "gatsby-remark-code-buttons": "2.0.7",
     "gatsby-remark-prismjs": "3.13.0",
     "gatsby-source-filesystem": "2.11.1",
-    "gatsby-source-graphql": "2.14.0",
+    "gatsby-source-graphql": "4.11.0",
     "gatsby-transformer-remark": "2.16.1",
     "gatsby-transformer-sharp": "2.12.1",
     "hast-util-raw": "5.0.2",
