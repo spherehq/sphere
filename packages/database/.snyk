@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.16.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -14,3 +14,12 @@ patch:
         patched: '2019-10-03T18:41:55.871Z'
     - prisma > prisma-cli-core > prisma-db-introspection > prisma-yml > https-proxy-agent:
         patched: '2019-10-03T18:41:55.871Z'
+  SNYK-JS-LODASH-567746:
+    - prisma > prisma-cli-engine > lodash:
+        patched: '2020-06-28T08:30:51.497Z'
+    - prisma > prisma-cli-engine > inquirer > lodash:
+        patched: '2020-06-28T08:30:51.497Z'
+    - prisma > prisma-cli-engine > prisma-yml > lodash:
+        patched: '2020-06-28T08:30:51.497Z'
+    - prisma > prisma-cli-core > graphql-config-extension-prisma > prisma-yml > lodash:
+        patched: '2020-06-28T08:30:51.497Z'
