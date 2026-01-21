@@ -22,7 +22,7 @@
     "@spherehq/helpers": "^0.2.0",
     "aws-lambda": "^0.1.2",
     "got": "^10.0.1",
-    "graphql-cli": "^3.0.11",
+    "graphql-cli": "^4.0.0",
     "metascraper": "^5.8.9",
     "metascraper-author": "^5.8.7",
     "metascraper-clearbit": "^5.8.9",
@@ -38,7 +38,7 @@
     "prisma": "^1.34.10",
     "prisma-client-lib": "^1.34.10",
     "serverless": "^1.58.0",
-    "snyk": "^1.230.5",
+    "snyk": "^1.352.1",
     "url-slug": "^2.2.0"
   },
   "devDependencies": {
