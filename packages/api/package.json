@@ -24,7 +24,7 @@
     "aws-sdk": "^2.576.0",
     "file-type-stream": "^1.0.0",
     "graphql-fields": "2.0.3",
-    "graphql-import": "0.7.1",
+    "graphql-import": "1.0.2",
     "graphql-iso-date": "3.6.1",
     "graphql-middleware": "3.0.5",
     "graphql-middleware-sentry": "3.2.1",
